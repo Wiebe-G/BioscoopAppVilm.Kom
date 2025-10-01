@@ -1,4 +1,5 @@
 using Npgsql;
+using BC = BCrypt.Net.BCrypt;
 
 namespace Film.Kom
 {
@@ -12,41 +13,35 @@ namespace Film.Kom
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string Username = txtUsername.Text.Trim();
-            string Password = txtPassword.Text.Trim();
-            string HashedPassword = BCrypt.Net.BCrypt.EnhancedHashPassword(Password, 13);
-            using (var conn = new NpgsqlConnection(connStr))
-            {
-                string query = "INSERT INTO gebruikers (username, password) VALUES (@u, @p)";
 
-                using (var cmd = new NpgsqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("u", Username);
-                    cmd.Parameters.AddWithValue("p", HashedPassword);
-                    cmd.ExecuteNonQuery();
-                }
-            }
         }
 
         public bool Login()
         {
-            using (var conn = new NpgsqlConnection(connStr))
+            string username = txtUsername.Text;
+            string PlainPassword = txtPassword.Text;
+            using (var Conn = new NpgsqlConnection(connStr))
             {
-                conn.Open();
-                string query = "SELECT passwordh FROM gebruikers WHERE username = @u";
-
-                using (var cmd = new NpgsqlCommand(query, conn))
+                Conn.Open();
+                string query = "SELECT password FROM gebruikers WHERE username = @u";
+                using (var cmd = new NpgsqlCommand(query, Conn))
                 {
-                    cmd.Parameters.AddWithValue("u", lblUsername.Text);
+                    cmd.Parameters.AddWithValue("u", username);
 
                     var result = cmd.ExecuteScalar();
                     if (result == null) return false;
 
                     string hash = (string)result;
-
-                    return BCrypt.Net.BCrypt.Verify(lblPassword.Text, hash);
+                    return BC.Verify(PlainPassword, hash);
                 }
             }
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            frmRegister registerForm = new frmRegister();
+            registerForm.Show();
+            this.Hide();
         }
     }
 }

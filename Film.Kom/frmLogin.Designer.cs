@@ -34,6 +34,7 @@
             btnLogin = new Button();
             lblUsername = new Label();
             lblPassword = new Label();
+            btnRegister = new Button();
             pnlTabLogin.SuspendLayout();
             SuspendLayout();
             // 
@@ -47,6 +48,7 @@
             pnlTabLogin.Controls.Add(btnLogin, 1, 2);
             pnlTabLogin.Controls.Add(lblUsername, 0, 0);
             pnlTabLogin.Controls.Add(lblPassword, 0, 1);
+            pnlTabLogin.Controls.Add(btnRegister, 0, 2);
             pnlTabLogin.Dock = DockStyle.Fill;
             pnlTabLogin.Location = new Point(0, 0);
             pnlTabLogin.Name = "pnlTabLogin";
@@ -115,6 +117,18 @@
             lblPassword.Text = "Wachtwoord:";
             lblPassword.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // btnRegister
+            // 
+            btnRegister.BackColor = SystemColors.ControlDark;
+            btnRegister.Dock = DockStyle.Fill;
+            btnRegister.Location = new Point(3, 395);
+            btnRegister.Name = "btnRegister";
+            btnRegister.Size = new Size(557, 94);
+            btnRegister.TabIndex = 5;
+            btnRegister.Text = "Geen account? Maak er een!";
+            btnRegister.UseVisualStyleBackColor = false;
+            btnRegister.Click += btnRegister_Click;
+            // 
             // frmLogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -136,5 +150,6 @@
         private Button btnLogin;
         private Label lblUsername;
         private Label lblPassword;
+        private Button btnRegister;
     }
 }

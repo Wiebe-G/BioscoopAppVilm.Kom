@@ -17,9 +17,9 @@ namespace Film.Kom
         public frmLogin()
         {
             InitializeComponent();
-            var client = new MongoClient("mongodb + srv://rickgeerdink2020_db_user:HWTyu7e8IBTBWhTT@cluster0.bi1idnh.mongodb.net/");
-            var db = client.GetDatabase("Vilm.kom");
-            _Users = db.GetCollection<User>("");
+            var client = new MongoClient("mongodb+srv://rickgeerdink2020_db_user:HWTyu7e8IBTBWhTT@cluster0.bi1idnh.mongodb.net/");
+            var db = client.GetDatabase("Vilm");
+            _Users = db.GetCollection<User>("Users");
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

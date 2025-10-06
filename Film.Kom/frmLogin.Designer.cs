@@ -45,6 +45,7 @@
             btnLogin = new Button();
             lblErrorMessage = new Label();
             picLogo = new PictureBox();
+            btnMakeAccount = new Button();
             pnlLoginMain.SuspendLayout();
             pnlLoginSecundary.SuspendLayout();
             pnlLoginTitel1.SuspendLayout();
@@ -205,6 +206,7 @@
             txtUsername.Size = new Size(484, 57);
             txtUsername.TabIndex = 0;
             txtUsername.TextAlign = HorizontalAlignment.Center;
+            txtUsername.KeyDown += LoginEnter_KeyDown;
             // 
             // label1
             // 
@@ -249,6 +251,7 @@
             txtPassword.Size = new Size(484, 57);
             txtPassword.TabIndex = 2;
             txtPassword.TextAlign = HorizontalAlignment.Center;
+            txtPassword.KeyDown += LoginEnter_KeyDown;
             // 
             // label3
             // 
@@ -266,11 +269,12 @@
             // 
             // pnlButton
             // 
-            pnlButton.ColumnCount = 3;
-            pnlButton.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            pnlButton.ColumnCount = 2;
             pnlButton.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            pnlButton.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            pnlButton.Controls.Add(btnLogin, 1, 1);
+            pnlButton.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            pnlButton.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            pnlButton.Controls.Add(btnLogin, 0, 1);
+            pnlButton.Controls.Add(btnMakeAccount, 1, 1);
             pnlButton.Dock = DockStyle.Fill;
             pnlButton.Location = new Point(3, 478);
             pnlButton.Name = "pnlButton";
@@ -287,7 +291,7 @@
             btnLogin.Dock = DockStyle.Fill;
             btnLogin.Font = new Font("Rockwell", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogin.ForeColor = SystemColors.ButtonFace;
-            btnLogin.Location = new Point(156, 16);
+            btnLogin.Location = new Point(3, 16);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(300, 56);
             btnLogin.TabIndex = 0;
@@ -317,6 +321,20 @@
             picLogo.Size = new Size(613, 89);
             picLogo.TabIndex = 0;
             picLogo.TabStop = false;
+            // 
+            // btnMakeAccount
+            // 
+            btnMakeAccount.BackColor = Color.FromArgb(113, 0, 1);
+            btnMakeAccount.Dock = DockStyle.Fill;
+            btnMakeAccount.Font = new Font("Rockwell", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnMakeAccount.ForeColor = SystemColors.ButtonFace;
+            btnMakeAccount.Location = new Point(309, 16);
+            btnMakeAccount.Name = "btnMakeAccount";
+            btnMakeAccount.Size = new Size(301, 56);
+            btnMakeAccount.TabIndex = 1;
+            btnMakeAccount.Text = "Account aanmaken";
+            btnMakeAccount.UseVisualStyleBackColor = false;
+            btnMakeAccount.Click += btnMakeAccount_Click;
             // 
             // frmLogin
             // 
@@ -363,5 +381,6 @@
         private System.Windows.Forms.TableLayoutPanel pnlButton;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label lblErrorMessage;
+        private Button btnMakeAccount;
     }
 }

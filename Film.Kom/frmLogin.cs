@@ -57,5 +57,12 @@ namespace Film.Kom
                 btnLogin.PerformClick();
             }
         }
+
+        private void btnMakeAccount_Click(object sender, EventArgs e)
+        {
+            frmRegister RegisterForm = new frmRegister();
+            RegisterForm.Show();
+            this.Hide();
+        }
     }
 }

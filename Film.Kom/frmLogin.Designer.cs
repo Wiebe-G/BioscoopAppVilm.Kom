@@ -294,6 +294,7 @@
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click_1;
+            btnLogin.KeyDown += LoginEnter_KeyDown;
             // 
             // lblErrorMessage
             // 

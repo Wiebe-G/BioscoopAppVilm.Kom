@@ -97,6 +97,7 @@
             btnRegister.Text = "Registreer \r\n    \r\n";
             btnRegister.UseVisualStyleBackColor = false;
             btnRegister.Click += btnRegister_Click;
+            btnRegister.KeyDown += LoginEnter_KeyDown;
             // 
             // txtPassword
             // 

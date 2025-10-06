@@ -62,5 +62,13 @@ namespace Film.Kom
             LoginForm.Show();
             this.Hide();
         }
+        private void LoginEnter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                btnRegister.PerformClick();
+            }
+        }
     }
 }

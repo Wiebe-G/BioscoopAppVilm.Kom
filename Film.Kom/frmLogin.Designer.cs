@@ -35,7 +35,6 @@
             label2 = new Label();
             lblLoginTitel2 = new Label();
             pnlLoginInfo = new TableLayoutPanel();
-            picLogo = new PictureBox();
             pnlEmail = new TableLayoutPanel();
             txtUsername = new TextBox();
             label1 = new Label();
@@ -45,15 +44,16 @@
             pnlButton = new TableLayoutPanel();
             btnLogin = new Button();
             lblErrorMessage = new Label();
+            picLogo = new PictureBox();
             pnlLoginMain.SuspendLayout();
             pnlLoginSecundary.SuspendLayout();
             pnlLoginTitel1.SuspendLayout();
             pnlLoginTitel2.SuspendLayout();
             pnlLoginInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             pnlEmail.SuspendLayout();
             pnlWachtwoord.SuspendLayout();
             pnlButton.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             SuspendLayout();
             // 
             // pnlLoginMain
@@ -175,15 +175,6 @@
             pnlLoginInfo.Size = new Size(619, 671);
             pnlLoginInfo.TabIndex = 1;
             // 
-            // picLogo
-            // 
-            picLogo.Dock = DockStyle.Fill;
-            picLogo.Location = new Point(3, 3);
-            picLogo.Name = "picLogo";
-            picLogo.Size = new Size(613, 89);
-            picLogo.TabIndex = 0;
-            picLogo.TabStop = false;
-            // 
             // pnlEmail
             // 
             pnlEmail.BackColor = Color.FromArgb(219, 2, 5);
@@ -302,6 +293,7 @@
             btnLogin.TabIndex = 0;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click_1;
             // 
             // lblErrorMessage
             // 
@@ -315,6 +307,15 @@
             lblErrorMessage.Size = new Size(611, 95);
             lblErrorMessage.TabIndex = 8;
             lblErrorMessage.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // picLogo
+            // 
+            picLogo.Dock = DockStyle.Fill;
+            picLogo.Location = new Point(3, 3);
+            picLogo.Name = "picLogo";
+            picLogo.Size = new Size(613, 89);
+            picLogo.TabIndex = 0;
+            picLogo.TabStop = false;
             // 
             // frmLogin
             // 
@@ -332,12 +333,12 @@
             pnlLoginTitel2.PerformLayout();
             pnlLoginInfo.ResumeLayout(false);
             pnlLoginInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
             pnlEmail.ResumeLayout(false);
             pnlEmail.PerformLayout();
             pnlWachtwoord.ResumeLayout(false);
             pnlWachtwoord.PerformLayout();
             pnlButton.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
             ResumeLayout(false);
 
         }

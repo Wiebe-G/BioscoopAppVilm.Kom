@@ -16,20 +16,6 @@ namespace Film.Kom
             _Users = db.GetCollection<User>("Users");
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            bool isLoginSucces = Login();
-            if (isLoginSucces)
-            {
-                // ingelogd YIPPE
-                // stuur ze hier door naar hoofdform
-            }
-            else
-            {
-                MessageBox.Show("Oh oh, iets niet goed gegaan met inloggen");
-            }
-        }
-
         public bool Login()
         {
             string username = txtUsername.Text;
@@ -45,6 +31,31 @@ namespace Film.Kom
             frmRegister registerForm = new frmRegister();
             registerForm.Show();
             this.Hide();
+        }
+
+        // originele event handler wou hij niet oppakken dus nu is naam niet goed :(
+        private void btnLogin_Click_1(object sender, EventArgs e)
+        {
+            bool isLoginSucces = Login();
+            if (isLoginSucces)
+            {
+                // ingelogd YIPPE
+                // stuur ze hier door naar hoofdform
+                MessageBox.Show("ingelogd. nu alleen nog een hoofdform etc maken");
+            }
+            else
+            {
+                MessageBox.Show("Oh oh, iets niet goed gegaan met inloggen");
+            }
+        }
+
+        private void LoginEnter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                btnLogin.PerformClick();
+            }
         }
     }
 }

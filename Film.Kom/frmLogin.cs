@@ -1,16 +1,9 @@
-using MongoDB.Driver;
+﻿using MongoDB.Driver;
 using BC = BCrypt.Net.BCrypt;
 
 namespace Film.Kom
 {
-    internal class User
-    {
-        public MongoDB.Bson.ObjectId Id { get; set; }
-        public string Naam { get; set; } = string.Empty;
-        public string Email { get; set; } = string.Empty;
-        public string HashedPassword { get; set; } = string.Empty;
-        public DateTime RegisteredAt { get; set; }
-    }
+
     public partial class frmLogin : Form
     {
         private readonly IMongoCollection<User> _Users;
@@ -51,5 +44,14 @@ namespace Film.Kom
             registerForm.Show();
             this.Hide();
         }
+
+    }
+    internal class User
+    {
+        public MongoDB.Bson.ObjectId Id { get; set; }
+        public string Naam { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string HashedPassword { get; set; } = string.Empty;
+        public DateTime RegisteredAt { get; set; }
     }
 }

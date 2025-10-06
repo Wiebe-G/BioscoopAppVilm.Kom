@@ -155,11 +155,11 @@
             // 
             pnlLoginInfo.ColumnCount = 1;
             pnlLoginInfo.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            pnlLoginInfo.Controls.Add(picLogo, 0, 0);
             pnlLoginInfo.Controls.Add(pnlEmail, 0, 1);
             pnlLoginInfo.Controls.Add(pnlWachtwoord, 0, 3);
             pnlLoginInfo.Controls.Add(pnlButton, 0, 5);
             pnlLoginInfo.Controls.Add(lblErrorMessage, 0, 2);
+            pnlLoginInfo.Controls.Add(picLogo, 0, 0);
             pnlLoginInfo.Dock = DockStyle.Fill;
             pnlLoginInfo.Location = new Point(4, 152);
             pnlLoginInfo.Name = "pnlLoginInfo";
@@ -177,9 +177,10 @@
             // 
             // picLogo
             // 
+            picLogo.Dock = DockStyle.Fill;
             picLogo.Location = new Point(3, 3);
             picLogo.Name = "picLogo";
-            picLogo.Size = new Size(100, 50);
+            picLogo.Size = new Size(613, 89);
             picLogo.TabIndex = 0;
             picLogo.TabStop = false;
             // 

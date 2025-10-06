@@ -111,6 +111,7 @@
             txtPassword.Size = new Size(484, 57);
             txtPassword.TabIndex = 2;
             txtPassword.TextAlign = HorizontalAlignment.Center;
+            txtPassword.KeyDown += LoginEnter_KeyDown;
             // 
             // pnlWachtwoord
             // 
@@ -168,6 +169,7 @@
             txtUsername.Size = new Size(484, 57);
             txtUsername.TabIndex = 0;
             txtUsername.TextAlign = HorizontalAlignment.Center;
+            txtUsername.KeyDown += LoginEnter_KeyDown;
             // 
             // pnlLoginInfo
             // 
@@ -284,6 +286,7 @@
             txtMail.Size = new Size(484, 57);
             txtMail.TabIndex = 0;
             txtMail.TextAlign = HorizontalAlignment.Center;
+            txtMail.KeyDown += LoginEnter_KeyDown;
             // 
             // lblMail
             // 
@@ -328,6 +331,7 @@
             txtPasswordRepeat.Size = new Size(484, 57);
             txtPasswordRepeat.TabIndex = 2;
             txtPasswordRepeat.TextAlign = HorizontalAlignment.Center;
+            txtPasswordRepeat.KeyDown += LoginEnter_KeyDown;
             // 
             // lblPasswordRepeat
             // 

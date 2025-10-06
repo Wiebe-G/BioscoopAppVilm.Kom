@@ -5,7 +5,7 @@ namespace Film.Kom
 {
     public class Stoel
     {
-        public string Rij { get; set; }
+        public string Rij { get; set; } = string.Empty;
         public int Nummer { get; set; }
     }
 
@@ -15,7 +15,9 @@ namespace Film.Kom
         public ObjectId VertoningId { get; set; }
         public ObjectId KlantId { get; set; }
         public List<Stoel> Stoelen { get; set; }
-        public bool Betaald { get; set; }
+        required
+        public bool Betaald
+        { get; set; }
         public DateTime GemaaktOp { get; set; }
     }
 

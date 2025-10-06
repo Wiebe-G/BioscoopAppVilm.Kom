@@ -47,7 +47,7 @@
             tableLayoutPanel2 = new TableLayoutPanel();
             txtPasswordRepeat = new TextBox();
             lblPasswordRepeat = new Label();
-            label2 = new Label();
+            lblName = new Label();
             lblRegisterTitle = new Label();
             pnlLoginTitel2 = new TableLayoutPanel();
             pnlLoginTitel1 = new TableLayoutPanel();
@@ -343,18 +343,18 @@
             lblPasswordRepeat.Text = "Wachtwoord herhalen:";
             lblPasswordRepeat.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // lblName
             // 
-            label2.AutoSize = true;
-            label2.Dock = DockStyle.Fill;
-            label2.Font = new Font("Rockwell", 22.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = SystemColors.ButtonHighlight;
-            label2.Location = new Point(3, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(607, 67);
-            label2.TabIndex = 2;
-            label2.Text = "Vilm.kom";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
+            lblName.AutoSize = true;
+            lblName.Dock = DockStyle.Fill;
+            lblName.Font = new Font("Rockwell", 22.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblName.ForeColor = SystemColors.ButtonHighlight;
+            lblName.Location = new Point(3, 0);
+            lblName.Name = "lblName";
+            lblName.Size = new Size(607, 67);
+            lblName.TabIndex = 2;
+            lblName.Text = "Vilm.kom";
+            lblName.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblRegisterTitle
             // 
@@ -374,7 +374,7 @@
             pnlLoginTitel2.ColumnCount = 1;
             pnlLoginTitel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             pnlLoginTitel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            pnlLoginTitel2.Controls.Add(label2, 0, 0);
+            pnlLoginTitel2.Controls.Add(lblName, 0, 0);
             pnlLoginTitel2.Controls.Add(lblRegisterTitle, 0, 1);
             pnlLoginTitel2.Dock = DockStyle.Fill;
             pnlLoginTitel2.Location = new Point(3, 3);
@@ -469,18 +469,18 @@
 
         #endregion
 
-        private PictureBox picLogo;
+        //private PictureBox picLogo;
         private Button btnRegister;
         private TableLayoutPanel pnlButton;
         private TextBox txtPassword;
-        private Label label3;
+        //private Label label3;
         private TableLayoutPanel pnlWachtwoord;
         private Label lblErrorMessage;
         private TextBox txtUsername;
         private TableLayoutPanel pnlLoginInfo;
         private TableLayoutPanel pnlEmail;
         private Label lblUsername;
-        private Label label2;
+        private Label lblName;
         private Label lblRegisterTitle;
         private TableLayoutPanel pnlLoginTitel2;
         private TableLayoutPanel pnlLoginTitel1;

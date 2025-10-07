@@ -14,7 +14,9 @@ namespace Film.Kom
             var client = new MongoClient("mongodb+srv://rickgeerdink2020_db_user:HWTyu7e8IBTBWhTT@cluster0.bi1idnh.mongodb.net/");
             var db = client.GetDatabase("Vilm");
             _Users = db.GetCollection<User>("Users");
+
         }
+
 
         public bool Login()
         {

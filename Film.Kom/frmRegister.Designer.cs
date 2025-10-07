@@ -93,7 +93,7 @@
             btnRegister.Location = new Point(156, 16);
             btnRegister.Name = "btnRegister";
             btnRegister.Size = new Size(300, 56);
-            btnRegister.TabIndex = 1;
+            btnRegister.TabIndex = 5;
             btnRegister.Text = "Registreer \r\n    \r\n";
             btnRegister.UseVisualStyleBackColor = false;
             btnRegister.Click += btnRegister_Click;
@@ -109,7 +109,7 @@
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
             txtPassword.Size = new Size(484, 57);
-            txtPassword.TabIndex = 2;
+            txtPassword.TabIndex = 3;
             txtPassword.TextAlign = HorizontalAlignment.Center;
             txtPassword.KeyDown += LoginEnter_KeyDown;
             // 
@@ -167,7 +167,7 @@
             txtUsername.Multiline = true;
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(484, 57);
-            txtUsername.TabIndex = 0;
+            txtUsername.TabIndex = 1;
             txtUsername.TextAlign = HorizontalAlignment.Center;
             txtUsername.KeyDown += LoginEnter_KeyDown;
             // 
@@ -284,7 +284,7 @@
             txtMail.Multiline = true;
             txtMail.Name = "txtMail";
             txtMail.Size = new Size(484, 57);
-            txtMail.TabIndex = 0;
+            txtMail.TabIndex = 2;
             txtMail.TextAlign = HorizontalAlignment.Center;
             txtMail.KeyDown += LoginEnter_KeyDown;
             // 
@@ -329,7 +329,7 @@
             txtPasswordRepeat.Name = "txtPasswordRepeat";
             txtPasswordRepeat.PasswordChar = '*';
             txtPasswordRepeat.Size = new Size(484, 57);
-            txtPasswordRepeat.TabIndex = 2;
+            txtPasswordRepeat.TabIndex = 4;
             txtPasswordRepeat.TextAlign = HorizontalAlignment.Center;
             txtPasswordRepeat.KeyDown += LoginEnter_KeyDown;
             // 

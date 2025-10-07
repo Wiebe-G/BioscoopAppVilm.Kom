@@ -30,7 +30,7 @@ namespace Film.Kom
         {
             frmRegister registerForm = new frmRegister();
             registerForm.Show();
-            this.Hide();
+            this.Close();
         }
 
         // originele event handler wou hij niet oppakken dus nu is naam niet goed :(
@@ -40,8 +40,10 @@ namespace Film.Kom
             if (isLoginSucces)
             {
                 // ingelogd YIPPE
-                // stuur ze hier door naar hoofdform
-                MessageBox.Show("ingelogd. nu alleen nog een hoofdform etc maken");
+                MessageBox.Show($"Welkom, {txtUsername.Text}");
+                this.Hide();
+                frmMainMenu MainForm = new frmMainMenu();
+                MainForm.Show();
             }
             else
             {

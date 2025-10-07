@@ -30,7 +30,7 @@ namespace Film.Kom
                     // film is gevonden
                     string JSONResponse = await response.Content.ReadAsStringAsync();
                     var FilmData = JsonSerializer.Deserialize<FilmInfo>(JSONResponse);
-
+                    // vraagteken betekent dat de variabele null mag zijn
                     if (FilmData?.Response == "True")
                     {
                         // data correct opgehaald
@@ -46,19 +46,9 @@ namespace Film.Kom
                 }
                 else
                 {
-                    MessageBox.Show($"Oh oh, er ging iets niet goed. {response.StatusCode}");
+                    MessageBox.Show($"Oh oh, er ging iets niet goed. {response.StatusCode}. Reden: {response.ReasonPhrase}");
                 }
             }
         }
-    }
-    internal class FilmInfo
-    {
-        public string FilmName { get; set; } = string.Empty;
-        public string Year { get; set; } = string.Empty;
-        public string Genre { get; set; } = string.Empty;
-        public string Director { get; set; } = string.Empty;
-        public string Plot { get; set; } = string.Empty;
-        public string Poster { get; set; } = string.Empty;
-        public string Response { get; set; } = string.Empty;
     }
 }

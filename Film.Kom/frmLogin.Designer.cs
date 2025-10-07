@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             pnlLoginMain = new TableLayoutPanel();
             pnlLoginSecundary = new TableLayoutPanel();
             pnlLoginTitel1 = new TableLayoutPanel();
@@ -43,9 +44,10 @@
             label3 = new Label();
             pnlButton = new TableLayoutPanel();
             btnLogin = new Button();
-            lblErrorMessage = new Label();
-            picLogo = new PictureBox();
             btnMakeAccount = new Button();
+            lblErrorMessage = new Label();
+            pnlTabLogo = new TableLayoutPanel();
+            pictLogo = new PictureBox();
             pnlLoginMain.SuspendLayout();
             pnlLoginSecundary.SuspendLayout();
             pnlLoginTitel1.SuspendLayout();
@@ -54,7 +56,8 @@
             pnlEmail.SuspendLayout();
             pnlWachtwoord.SuspendLayout();
             pnlButton.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
+            pnlTabLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictLogo).BeginInit();
             SuspendLayout();
             // 
             // pnlLoginMain
@@ -160,7 +163,7 @@
             pnlLoginInfo.Controls.Add(pnlWachtwoord, 0, 3);
             pnlLoginInfo.Controls.Add(pnlButton, 0, 5);
             pnlLoginInfo.Controls.Add(lblErrorMessage, 0, 2);
-            pnlLoginInfo.Controls.Add(picLogo, 0, 0);
+            pnlLoginInfo.Controls.Add(pnlTabLogo, 0, 0);
             pnlLoginInfo.Dock = DockStyle.Fill;
             pnlLoginInfo.Location = new Point(4, 152);
             pnlLoginInfo.Name = "pnlLoginInfo";
@@ -300,28 +303,6 @@
             btnLogin.Click += btnLogin_Click_1;
             btnLogin.KeyDown += LoginEnter_KeyDown;
             // 
-            // lblErrorMessage
-            // 
-            lblErrorMessage.AutoSize = true;
-            lblErrorMessage.Dock = DockStyle.Fill;
-            lblErrorMessage.Font = new Font("Rockwell", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblErrorMessage.ForeColor = Color.Red;
-            lblErrorMessage.Location = new Point(4, 190);
-            lblErrorMessage.Margin = new Padding(4, 0, 4, 0);
-            lblErrorMessage.Name = "lblErrorMessage";
-            lblErrorMessage.Size = new Size(611, 95);
-            lblErrorMessage.TabIndex = 8;
-            lblErrorMessage.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // picLogo
-            // 
-            picLogo.Dock = DockStyle.Fill;
-            picLogo.Location = new Point(3, 3);
-            picLogo.Name = "picLogo";
-            picLogo.Size = new Size(613, 89);
-            picLogo.TabIndex = 0;
-            picLogo.TabStop = false;
-            // 
             // btnMakeAccount
             // 
             btnMakeAccount.BackColor = Color.FromArgb(113, 0, 1);
@@ -335,6 +316,46 @@
             btnMakeAccount.Text = "Account aanmaken";
             btnMakeAccount.UseVisualStyleBackColor = false;
             btnMakeAccount.Click += btnMakeAccount_Click;
+            // 
+            // lblErrorMessage
+            // 
+            lblErrorMessage.AutoSize = true;
+            lblErrorMessage.Dock = DockStyle.Fill;
+            lblErrorMessage.Font = new Font("Rockwell", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblErrorMessage.ForeColor = Color.Red;
+            lblErrorMessage.Location = new Point(4, 190);
+            lblErrorMessage.Margin = new Padding(4, 0, 4, 0);
+            lblErrorMessage.Name = "lblErrorMessage";
+            lblErrorMessage.Size = new Size(611, 95);
+            lblErrorMessage.TabIndex = 8;
+            lblErrorMessage.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // pnlTabLogo
+            // 
+            pnlTabLogo.ColumnCount = 3;
+            pnlTabLogo.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            pnlTabLogo.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            pnlTabLogo.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            pnlTabLogo.Controls.Add(pictLogo, 1, 0);
+            pnlTabLogo.Dock = DockStyle.Fill;
+            pnlTabLogo.Location = new Point(3, 3);
+            pnlTabLogo.Name = "pnlTabLogo";
+            pnlTabLogo.RowCount = 1;
+            pnlTabLogo.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            pnlTabLogo.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            pnlTabLogo.Size = new Size(613, 89);
+            pnlTabLogo.TabIndex = 9;
+            // 
+            // pictLogo
+            // 
+            pictLogo.Dock = DockStyle.Fill;
+            pictLogo.Image = (Image)resources.GetObject("pictLogo.Image");
+            pictLogo.Location = new Point(207, 3);
+            pictLogo.Name = "pictLogo";
+            pictLogo.Size = new Size(198, 83);
+            pictLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictLogo.TabIndex = 0;
+            pictLogo.TabStop = false;
             // 
             // frmLogin
             // 
@@ -357,7 +378,8 @@
             pnlWachtwoord.ResumeLayout(false);
             pnlWachtwoord.PerformLayout();
             pnlButton.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
+            pnlTabLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictLogo).EndInit();
             ResumeLayout(false);
 
         }
@@ -371,7 +393,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblLoginTitel2;
         private System.Windows.Forms.TableLayoutPanel pnlLoginInfo;
-        private System.Windows.Forms.PictureBox picLogo;
         private System.Windows.Forms.TableLayoutPanel pnlEmail;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label1;
@@ -382,5 +403,7 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label lblErrorMessage;
         private Button btnMakeAccount;
+        private TableLayoutPanel pnlTabLogo;
+        private PictureBox pictLogo;
     }
 }

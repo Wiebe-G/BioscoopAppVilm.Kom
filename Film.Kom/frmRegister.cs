@@ -1,4 +1,5 @@
 ﻿using MongoDB.Driver;
+using System.Text.RegularExpressions;
 using BC = BCrypt.Net.BCrypt;
 
 namespace Film.Kom
@@ -33,6 +34,23 @@ namespace Film.Kom
             if (PlainPassword != PlainPasswordRepeat)
             {
                 MessageBox.Show("Wachtwoorden komen niet overeen.", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // regex van chatgpt om te controleren of wachtwoord min. 1 hoofdletter en speciaal teken heeft, en min 8 karakters
+            bool isValid = Regex.IsMatch(PlainPassword, @"^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?"":{}|<>])(?=.*\d).{8,}$");
+
+            if (!isValid)
+            {
+                MessageBox.Show("Wachtwoord moet speciaal teken en ten minste 1 hoofdletter bevatten, en min 8 karakters zijn.");
+                return;
+            }
+
+
+            // emal klopt niet
+            if (!Mail.Contains("@"))
+            {
+                MessageBox.Show($"Email {Mail} is waarschijnlijk niet echt. Als dit niet klopt, neem contact met ons op");
                 return;
             }
 

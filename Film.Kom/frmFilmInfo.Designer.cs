@@ -133,7 +133,7 @@
             // 
             lblPlot.AutoSize = true;
             lblPlot.Dock = DockStyle.Fill;
-            lblPlot.Font = new Font("Georgia", 10F);
+            lblPlot.Font = new Font("Georgia", 12F);
             lblPlot.ForeColor = SystemColors.Control;
             lblPlot.Location = new Point(3, 45);
             lblPlot.Name = "lblPlot";

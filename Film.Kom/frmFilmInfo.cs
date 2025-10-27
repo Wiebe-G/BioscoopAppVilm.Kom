@@ -63,9 +63,18 @@ namespace Film.Kom
             picPoster.Load(ImageLocation);
             picPoster.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            lblTitle.Text = Title;
-            lblPlot.Text = Plot;
-            lblRating.Text = Rating;
+            lblTitle.Text = $"Titel: {Title} ";
+            lblPlot.Text = $"Plot: {Plot}";
+            if (Rating == "R")
+            {
+                lblRating.Text = $"Rating: {Rating}, dus geen kinderen meenemen";
+            }
+            else
+            {
+                lblRating.Text = $"Rating: {Rating}, dus kinderen mogen mee";
+            }
+
+
         }
 
         private void btnReservering_Click(object sender, EventArgs e)

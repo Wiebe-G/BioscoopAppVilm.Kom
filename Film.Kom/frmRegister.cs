@@ -63,6 +63,7 @@ namespace Film.Kom
             }
 
             string hash = BC.HashPassword(PlainPassword, workFactor: 12);
+
             // nieuwe instanstie van User class, en daar de data in zetten
             var NewUser = new User
             {

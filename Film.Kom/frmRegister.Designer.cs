@@ -37,14 +37,14 @@
             lblErrorMessage = new Label();
             txtUsername = new TextBox();
             pnlLoginInfo = new TableLayoutPanel();
-            pnlEmail = new TableLayoutPanel();
+            pnlTabusername = new TableLayoutPanel();
             lblUsername = new Label();
             pnlTabLogo = new TableLayoutPanel();
             pictLogo = new PictureBox();
             pnlTabMail = new TableLayoutPanel();
             txtMail = new TextBox();
             lblMail = new Label();
-            tableLayoutPanel2 = new TableLayoutPanel();
+            pnlTabRepeatpass = new TableLayoutPanel();
             txtPasswordRepeat = new TextBox();
             lblPasswordRepeat = new Label();
             lblName = new Label();
@@ -56,11 +56,11 @@
             pnlButton.SuspendLayout();
             pnlWachtwoord.SuspendLayout();
             pnlLoginInfo.SuspendLayout();
-            pnlEmail.SuspendLayout();
+            pnlTabusername.SuspendLayout();
             pnlTabLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictLogo).BeginInit();
             pnlTabMail.SuspendLayout();
-            tableLayoutPanel2.SuspendLayout();
+            pnlTabRepeatpass.SuspendLayout();
             pnlLoginTitel2.SuspendLayout();
             pnlLoginTitel1.SuspendLayout();
             pnlLoginSecundary.SuspendLayout();
@@ -129,7 +129,7 @@
             pnlWachtwoord.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
             pnlWachtwoord.RowStyles.Add(new RowStyle(SizeType.Percent, 70F));
             pnlWachtwoord.Size = new Size(613, 89);
-            pnlWachtwoord.TabIndex = 2;
+            pnlWachtwoord.TabIndex = 3;
             // 
             // lblPassword
             // 
@@ -175,13 +175,13 @@
             // 
             pnlLoginInfo.ColumnCount = 1;
             pnlLoginInfo.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            pnlLoginInfo.Controls.Add(pnlEmail, 0, 1);
+            pnlLoginInfo.Controls.Add(pnlTabusername, 0, 1);
             pnlLoginInfo.Controls.Add(pnlButton, 0, 5);
             pnlLoginInfo.Controls.Add(pnlTabLogo, 0, 0);
             pnlLoginInfo.Controls.Add(pnlWachtwoord, 0, 3);
             pnlLoginInfo.Controls.Add(pnlTabMail, 0, 2);
             pnlLoginInfo.Controls.Add(lblErrorMessage, 0, 6);
-            pnlLoginInfo.Controls.Add(tableLayoutPanel2, 0, 4);
+            pnlLoginInfo.Controls.Add(pnlTabRepeatpass, 0, 4);
             pnlLoginInfo.Dock = DockStyle.Fill;
             pnlLoginInfo.Location = new Point(4, 152);
             pnlLoginInfo.Name = "pnlLoginInfo";
@@ -197,24 +197,24 @@
             pnlLoginInfo.Size = new Size(619, 671);
             pnlLoginInfo.TabIndex = 1;
             // 
-            // pnlEmail
+            // pnlTabusername
             // 
-            pnlEmail.BackColor = Color.FromArgb(219, 2, 5);
-            pnlEmail.ColumnCount = 3;
-            pnlEmail.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
-            pnlEmail.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80F));
-            pnlEmail.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
-            pnlEmail.Controls.Add(txtUsername, 1, 1);
-            pnlEmail.Controls.Add(lblUsername, 1, 0);
-            pnlEmail.Dock = DockStyle.Fill;
-            pnlEmail.ForeColor = SystemColors.ButtonFace;
-            pnlEmail.Location = new Point(3, 98);
-            pnlEmail.Name = "pnlEmail";
-            pnlEmail.RowCount = 2;
-            pnlEmail.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
-            pnlEmail.RowStyles.Add(new RowStyle(SizeType.Percent, 70F));
-            pnlEmail.Size = new Size(613, 89);
-            pnlEmail.TabIndex = 1;
+            pnlTabusername.BackColor = Color.FromArgb(219, 2, 5);
+            pnlTabusername.ColumnCount = 3;
+            pnlTabusername.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            pnlTabusername.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80F));
+            pnlTabusername.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            pnlTabusername.Controls.Add(txtUsername, 1, 1);
+            pnlTabusername.Controls.Add(lblUsername, 1, 0);
+            pnlTabusername.Dock = DockStyle.Fill;
+            pnlTabusername.ForeColor = SystemColors.ButtonFace;
+            pnlTabusername.Location = new Point(3, 98);
+            pnlTabusername.Name = "pnlTabusername";
+            pnlTabusername.RowCount = 2;
+            pnlTabusername.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
+            pnlTabusername.RowStyles.Add(new RowStyle(SizeType.Percent, 70F));
+            pnlTabusername.Size = new Size(613, 89);
+            pnlTabusername.TabIndex = 1;
             // 
             // lblUsername
             // 
@@ -273,7 +273,7 @@
             pnlTabMail.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
             pnlTabMail.RowStyles.Add(new RowStyle(SizeType.Percent, 70F));
             pnlTabMail.Size = new Size(613, 89);
-            pnlTabMail.TabIndex = 10;
+            pnlTabMail.TabIndex = 2;
             // 
             // txtMail
             // 
@@ -301,23 +301,23 @@
             lblMail.Text = "Mailadres:";
             lblMail.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // tableLayoutPanel2
+            // pnlTabRepeatpass
             // 
-            tableLayoutPanel2.BackColor = Color.FromArgb(219, 2, 5);
-            tableLayoutPanel2.ColumnCount = 3;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
-            tableLayoutPanel2.Controls.Add(txtPasswordRepeat, 1, 1);
-            tableLayoutPanel2.Controls.Add(lblPasswordRepeat, 1, 0);
-            tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(3, 383);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 2;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 70F));
-            tableLayoutPanel2.Size = new Size(613, 89);
-            tableLayoutPanel2.TabIndex = 11;
+            pnlTabRepeatpass.BackColor = Color.FromArgb(219, 2, 5);
+            pnlTabRepeatpass.ColumnCount = 3;
+            pnlTabRepeatpass.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            pnlTabRepeatpass.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80F));
+            pnlTabRepeatpass.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            pnlTabRepeatpass.Controls.Add(txtPasswordRepeat, 1, 1);
+            pnlTabRepeatpass.Controls.Add(lblPasswordRepeat, 1, 0);
+            pnlTabRepeatpass.Dock = DockStyle.Fill;
+            pnlTabRepeatpass.Location = new Point(3, 383);
+            pnlTabRepeatpass.Name = "pnlTabRepeatpass";
+            pnlTabRepeatpass.RowCount = 2;
+            pnlTabRepeatpass.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
+            pnlTabRepeatpass.RowStyles.Add(new RowStyle(SizeType.Percent, 70F));
+            pnlTabRepeatpass.Size = new Size(613, 89);
+            pnlTabRepeatpass.TabIndex = 4;
             // 
             // txtPasswordRepeat
             // 
@@ -455,14 +455,14 @@
             pnlWachtwoord.PerformLayout();
             pnlLoginInfo.ResumeLayout(false);
             pnlLoginInfo.PerformLayout();
-            pnlEmail.ResumeLayout(false);
-            pnlEmail.PerformLayout();
+            pnlTabusername.ResumeLayout(false);
+            pnlTabusername.PerformLayout();
             pnlTabLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictLogo).EndInit();
             pnlTabMail.ResumeLayout(false);
             pnlTabMail.PerformLayout();
-            tableLayoutPanel2.ResumeLayout(false);
-            tableLayoutPanel2.PerformLayout();
+            pnlTabRepeatpass.ResumeLayout(false);
+            pnlTabRepeatpass.PerformLayout();
             pnlLoginTitel2.ResumeLayout(false);
             pnlLoginTitel2.PerformLayout();
             pnlLoginTitel1.ResumeLayout(false);
@@ -482,7 +482,7 @@
         private Label lblErrorMessage;
         private TextBox txtUsername;
         private TableLayoutPanel pnlLoginInfo;
-        private TableLayoutPanel pnlEmail;
+        private TableLayoutPanel pnlTabusername;
         private Label lblUsername;
         private Label lblName;
         private Label lblRegisterTitle;
@@ -495,7 +495,7 @@
         private TableLayoutPanel pnlTabMail;
         private TextBox txtMail;
         private Label lblMail;
-        private TableLayoutPanel tableLayoutPanel2;
+        private TableLayoutPanel pnlTabRepeatpass;
         private TextBox txtPasswordRepeat;
         private Label lblPasswordRepeat;
         private Label lblPassword;

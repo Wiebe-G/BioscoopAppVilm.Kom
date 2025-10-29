@@ -44,7 +44,6 @@ namespace Film.Kom
                 {
                     MessageBox.Show("Film niet gevonden");
                     return;
-
                 }
                 if (!string.IsNullOrWhiteSpace(MovieData.Poster) && MovieData.Poster != "N/A")
                 {

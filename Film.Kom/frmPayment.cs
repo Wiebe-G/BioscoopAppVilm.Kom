@@ -16,5 +16,10 @@ namespace Film.Kom
         {
             InitializeComponent();
         }
+
+        private void frmPayment_Load(object sender, EventArgs e)
+        {
+            MessageBox.Show($"{pnlPayment.GetType()}");
+        }
     }
 }

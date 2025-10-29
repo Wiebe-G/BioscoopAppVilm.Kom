@@ -89,7 +89,7 @@
             PnlForm2.Dock = DockStyle.Fill;
             PnlForm2.Location = new Point(5, 5);
             PnlForm2.Name = "PnlForm2";
-            PnlForm2.Size = new Size(773, 560);
+            PnlForm2.Size = new Size(893, 577);
             PnlForm2.TabIndex = 0;
             PnlForm2.MouseDown += PnlForm2_MouseDown;
             // 
@@ -457,15 +457,15 @@
             label1.TabIndex = 0;
             label1.Text = "label1";
             // 
-            // frmPayment
+            // frmPaymentFurkan
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.DodgerBlue;
-            ClientSize = new Size(783, 570);
+            ClientSize = new Size(903, 587);
             Controls.Add(PnlForm2);
             Font = new Font("Gadugi", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "frmPayment";
+            Name = "frmPaymentFurkan";
             Padding = new Padding(5);
             StartPosition = FormStartPosition.CenterScreen;
             PnlForm2.ResumeLayout(false);

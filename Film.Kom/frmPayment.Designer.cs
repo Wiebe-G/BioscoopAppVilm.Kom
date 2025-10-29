@@ -50,7 +50,7 @@
             LblNum3 = new Label();
             LblNum2 = new Label();
             LblNum1 = new Label();
-            pnlTabPayment = new Panel();
+            pnlPayment = new Panel();
             label5 = new Label();
             button1 = new Button();
             BtnIndienen = new Button();
@@ -64,7 +64,7 @@
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PicChip).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PicMastercard).BeginInit();
-            pnlTabPayment.SuspendLayout();
+            pnlPayment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PicPaypal).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PicMasterKaart).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PicVisa).BeginInit();
@@ -316,27 +316,27 @@
             LblNum1.Text = "0000";
             LblNum1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // pnlTabPayment
+            // pnlPayment
             // 
-            pnlTabPayment.BackColor = Color.DarkRed;
-            pnlTabPayment.Controls.Add(label5);
-            pnlTabPayment.Controls.Add(button1);
-            pnlTabPayment.Controls.Add(BtnIndienen);
-            pnlTabPayment.Controls.Add(PicPaypal);
-            pnlTabPayment.Controls.Add(PicMasterKaart);
-            pnlTabPayment.Controls.Add(PicVisa);
-            pnlTabPayment.Controls.Add(TxtPas);
-            pnlTabPayment.Controls.Add(TxtVervaldatumYY);
-            pnlTabPayment.Controls.Add(TxtVervaldatumMM);
-            pnlTabPayment.Controls.Add(Txtkaarthouder);
-            pnlTabPayment.Controls.Add(TxtCreditcard);
-            pnlTabPayment.Controls.Add(panel3);
-            pnlTabPayment.Controls.Add(panel2);
-            pnlTabPayment.Dock = DockStyle.Fill;
-            pnlTabPayment.Location = new Point(0, 0);
-            pnlTabPayment.Name = "pnlTabPayment";
-            pnlTabPayment.Size = new Size(871, 546);
-            pnlTabPayment.TabIndex = 1;
+            pnlPayment.BackColor = Color.DarkRed;
+            pnlPayment.Controls.Add(label5);
+            pnlPayment.Controls.Add(button1);
+            pnlPayment.Controls.Add(BtnIndienen);
+            pnlPayment.Controls.Add(PicPaypal);
+            pnlPayment.Controls.Add(PicMasterKaart);
+            pnlPayment.Controls.Add(PicVisa);
+            pnlPayment.Controls.Add(TxtPas);
+            pnlPayment.Controls.Add(TxtVervaldatumYY);
+            pnlPayment.Controls.Add(TxtVervaldatumMM);
+            pnlPayment.Controls.Add(Txtkaarthouder);
+            pnlPayment.Controls.Add(TxtCreditcard);
+            pnlPayment.Controls.Add(panel3);
+            pnlPayment.Controls.Add(panel2);
+            pnlPayment.Dock = DockStyle.Fill;
+            pnlPayment.Location = new Point(0, 0);
+            pnlPayment.Name = "pnlPayment";
+            pnlPayment.Size = new Size(1031, 538);
+            pnlPayment.TabIndex = 1;
             // 
             // label5
             // 
@@ -446,18 +446,19 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(871, 546);
-            Controls.Add(pnlTabPayment);
+            ClientSize = new Size(1031, 538);
+            Controls.Add(pnlPayment);
             Name = "frmPayment";
             Text = "frmPayment";
+            Load += frmPayment_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PicChip).EndInit();
             ((System.ComponentModel.ISupportInitialize)PicMastercard).EndInit();
-            pnlTabPayment.ResumeLayout(false);
-            pnlTabPayment.PerformLayout();
+            pnlPayment.ResumeLayout(false);
+            pnlPayment.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PicPaypal).EndInit();
             ((System.ComponentModel.ISupportInitialize)PicMasterKaart).EndInit();
             ((System.ComponentModel.ISupportInitialize)PicVisa).EndInit();
@@ -487,7 +488,7 @@
         private Label LblNum3;
         private Label LblNum2;
         private Label LblNum1;
-        private Panel pnlTabPayment;
+        private Panel pnlPayment;
         private Label label5;
         private Button button1;
         private Button BtnIndienen;

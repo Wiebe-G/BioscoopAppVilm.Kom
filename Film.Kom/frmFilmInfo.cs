@@ -9,7 +9,6 @@ namespace Film.Kom
         {
             InitializeComponent();
             _FilmName = FilmName;
-
         }
 
         private async void frmFilmInfo_Load_1(object sender, EventArgs e)

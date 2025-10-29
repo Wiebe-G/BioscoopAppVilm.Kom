@@ -11,7 +11,7 @@ namespace Film.Kom
             _FilmName = FilmName;
         }
 
-        private async void frmFilmInfo_Load_1(object sender, EventArgs e)
+        private async void frmFilmInfo_Load(object sender, EventArgs e)
         {
             await GetMovieInfo(_FilmName);
         }
@@ -65,8 +65,6 @@ namespace Film.Kom
             {
                 lblRating.Text = $"Rating: {Rating}, dus kinderen mogen mee";
             }
-
-
         }
 
         private void btnReservering_Click(object sender, EventArgs e)

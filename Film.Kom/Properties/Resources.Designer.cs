@@ -59,5 +59,15 @@ namespace Film.Kom.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Logo_van_Rick_oftewel_ChatGPT {
+            get {
+                object obj = ResourceManager.GetObject("Logo van Rick oftewel ChatGPT", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

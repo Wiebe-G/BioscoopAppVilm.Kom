@@ -36,10 +36,16 @@
             lblRating = new Label();
             lblPlot = new Label();
             btnReservering = new Button();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            pictureBox1 = new PictureBox();
+            btnLogin = new Button();
+            label1 = new Label();
             pnlTabBackground.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picPoster).BeginInit();
             pnlTabTextData.SuspendLayout();
             pnlTabText.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // pnlTabBackground
@@ -75,6 +81,7 @@
             pnlTabTextData.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             pnlTabTextData.Controls.Add(pnlTabText, 0, 1);
             pnlTabTextData.Controls.Add(btnReservering, 0, 2);
+            pnlTabTextData.Controls.Add(tableLayoutPanel1, 0, 0);
             pnlTabTextData.Dock = DockStyle.Fill;
             pnlTabTextData.Location = new Point(388, 3);
             pnlTabTextData.Name = "pnlTabTextData";
@@ -144,7 +151,7 @@
             // 
             // btnReservering
             // 
-            btnReservering.BackColor = Color.DarkRed;
+            btnReservering.BackColor = Color.Maroon;
             btnReservering.Dock = DockStyle.Fill;
             btnReservering.ForeColor = SystemColors.Control;
             btnReservering.Location = new Point(3, 365);
@@ -155,6 +162,59 @@
             btnReservering.UseVisualStyleBackColor = false;
             btnReservering.Click += btnReservering_Click;
             // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.BackColor = SystemColors.ActiveCaptionText;
+            tableLayoutPanel1.ColumnCount = 3;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel1.Controls.Add(pictureBox1, 0, 0);
+            tableLayoutPanel1.Controls.Add(btnLogin, 2, 0);
+            tableLayoutPanel1.Controls.Add(label1, 1, 0);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(3, 3);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Size = new Size(888, 97);
+            tableLayoutPanel1.TabIndex = 3;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Dock = DockStyle.Left;
+            pictureBox1.Image = Properties.Resources.Logo_van_Rick_oftewel_ChatGPT;
+            pictureBox1.Location = new Point(3, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(173, 91);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
+            // btnLogin
+            // 
+            btnLogin.BackColor = Color.Maroon;
+            btnLogin.Dock = DockStyle.Right;
+            btnLogin.Location = new Point(716, 3);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(169, 91);
+            btnLogin.TabIndex = 1;
+            btnLogin.Text = "Log in";
+            btnLogin.UseVisualStyleBackColor = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Dock = DockStyle.Fill;
+            label1.Font = new Font("Georgia", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.ButtonFace;
+            label1.Location = new Point(298, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(289, 97);
+            label1.TabIndex = 2;
+            label1.Text = "Reserveer voor\r\n↓\r\n";
+            label1.TextAlign = ContentAlignment.BottomCenter;
+            // 
             // frmFilmInfo
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -163,12 +223,15 @@
             Controls.Add(pnlTabBackground);
             Name = "frmFilmInfo";
             Text = "frmFilmInfo";
-            Load += frmFilmInfo_Load_1;
+            Load += frmFilmInfo_Load;
             pnlTabBackground.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)picPoster).EndInit();
             pnlTabTextData.ResumeLayout(false);
             pnlTabText.ResumeLayout(false);
             pnlTabText.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -182,5 +245,9 @@
         private Label lblPlot;
         private Label lblRating;
         private Button btnReservering;
+        private TableLayoutPanel tableLayoutPanel1;
+        private PictureBox pictureBox1;
+        private Button btnLogin;
+        private Label label1;
     }
 }

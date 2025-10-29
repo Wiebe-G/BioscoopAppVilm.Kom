@@ -4,12 +4,6 @@
     <Compile Update="frmPayment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="frmPaymentOud.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="frmPaymentFurkan.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="frmFilmInfo.cs">
       <SubType>Form</SubType>
     </Compile>

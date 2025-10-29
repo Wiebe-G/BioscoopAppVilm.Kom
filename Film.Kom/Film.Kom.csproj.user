@@ -4,6 +4,9 @@
     <Compile Update="frmPayment.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="frmPaymentOud.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="frmPaymentFurkan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -17,9 +20,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="frmRegister.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="frmReservering.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

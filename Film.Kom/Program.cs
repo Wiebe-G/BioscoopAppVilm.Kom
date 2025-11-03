@@ -11,9 +11,10 @@ namespace Film.Kom
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new frmFilmInfo("upgrade"));
+            //Application.Run(new frmFilmInfo("upgrade"));
             //Application.Run(new MainContext());
             //Application.Run(new frmPayment());
+            Application.Run(new frmMainMenu());
 
         }
     }

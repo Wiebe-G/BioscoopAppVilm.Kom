@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Film.Kom")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+30538aa05202f197d7a6c42ef79cb37e1948d9e0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+135c4567fe1b086ddef6c1a285eb0863165f63d5")]
 [assembly: System.Reflection.AssemblyProductAttribute("Film.Kom")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Film.Kom")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

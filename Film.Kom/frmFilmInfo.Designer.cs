@@ -37,15 +37,15 @@
             lblPlot = new Label();
             btnReservering = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
-            pictureBox1 = new PictureBox();
+            picLogo = new PictureBox();
             btnLogin = new Button();
-            label1 = new Label();
+            lblTopBalk = new Label();
             pnlTabBackground.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picPoster).BeginInit();
             pnlTabTextData.SuspendLayout();
             pnlTabText.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             SuspendLayout();
             // 
             // pnlTabBackground
@@ -169,9 +169,9 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel1.Controls.Add(pictureBox1, 0, 0);
+            tableLayoutPanel1.Controls.Add(picLogo, 0, 0);
             tableLayoutPanel1.Controls.Add(btnLogin, 2, 0);
-            tableLayoutPanel1.Controls.Add(label1, 1, 0);
+            tableLayoutPanel1.Controls.Add(lblTopBalk, 1, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(3, 3);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -180,16 +180,16 @@
             tableLayoutPanel1.Size = new Size(888, 97);
             tableLayoutPanel1.TabIndex = 3;
             // 
-            // pictureBox1
+            // picLogo
             // 
-            pictureBox1.Dock = DockStyle.Left;
-            pictureBox1.Image = Properties.Resources.Logo_van_Rick_oftewel_ChatGPT;
-            pictureBox1.Location = new Point(3, 3);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(173, 91);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            picLogo.Dock = DockStyle.Left;
+            picLogo.Image = Properties.Resources.Logo_van_Rick_oftewel_ChatGPT;
+            picLogo.Location = new Point(3, 3);
+            picLogo.Name = "picLogo";
+            picLogo.Size = new Size(173, 91);
+            picLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+            picLogo.TabIndex = 0;
+            picLogo.TabStop = false;
             // 
             // btnLogin
             // 
@@ -201,19 +201,20 @@
             btnLogin.TabIndex = 1;
             btnLogin.Text = "Log in";
             btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click;
             // 
-            // label1
+            // lblTopBalk
             // 
-            label1.AutoSize = true;
-            label1.Dock = DockStyle.Fill;
-            label1.Font = new Font("Georgia", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ButtonFace;
-            label1.Location = new Point(298, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(289, 97);
-            label1.TabIndex = 2;
-            label1.Text = "Reserveer voor\r\n↓\r\n";
-            label1.TextAlign = ContentAlignment.BottomCenter;
+            lblTopBalk.AutoSize = true;
+            lblTopBalk.Dock = DockStyle.Fill;
+            lblTopBalk.Font = new Font("Georgia", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTopBalk.ForeColor = SystemColors.ButtonFace;
+            lblTopBalk.Location = new Point(298, 0);
+            lblTopBalk.Name = "lblTopBalk";
+            lblTopBalk.Size = new Size(289, 97);
+            lblTopBalk.TabIndex = 2;
+            lblTopBalk.Text = "Reserveer voor\r\n↓\r\n";
+            lblTopBalk.TextAlign = ContentAlignment.BottomCenter;
             // 
             // frmFilmInfo
             // 
@@ -231,7 +232,7 @@
             pnlTabText.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
             ResumeLayout(false);
         }
 
@@ -246,8 +247,8 @@
         private Label lblRating;
         private Button btnReservering;
         private TableLayoutPanel tableLayoutPanel1;
-        private PictureBox pictureBox1;
+        private PictureBox picLogo;
         private Button btnLogin;
-        private Label label1;
+        private Label lblTopBalk;
     }
 }

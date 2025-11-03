@@ -9,6 +9,15 @@ namespace Film.Kom
         {
             InitializeComponent();
             _FilmName = FilmName;
+            User user = new User();
+            if (string.IsNullOrWhiteSpace(user.Naam))
+            {
+                btnLogin.Text = "Log in";
+            }
+            else
+            {
+                btnLogin.Text = user.Naam;
+            }
         }
 
         private async void frmFilmInfo_Load(object sender, EventArgs e)
@@ -71,6 +80,13 @@ namespace Film.Kom
         {
             frmPayment PaymentForm = new frmPayment();
             PaymentForm.Show();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            frmLogin loginForm = new frmLogin();
+            loginForm.Show();
+            this.Hide();
         }
     }
 }

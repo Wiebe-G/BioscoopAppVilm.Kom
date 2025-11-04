@@ -76,17 +76,17 @@ namespace Film.Kom
             }
         }
 
-        private void btnReservering_Click(object sender, EventArgs e)
-        {
-            frmPayment PaymentForm = new frmPayment();
-            PaymentForm.Show();
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             frmLogin loginForm = new frmLogin();
             loginForm.Show();
             this.Hide();
+        }
+
+        private void btnReservering_Click(object sender, EventArgs e)
+        {
+            frmPayment PaymentForm = new frmPayment();
+            PaymentForm.Show();
         }
     }
 }

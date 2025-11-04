@@ -73,11 +73,12 @@
             pnlTabPaymentInfo.Dock = DockStyle.Fill;
             pnlTabPaymentInfo.Location = new Point(854, 3);
             pnlTabPaymentInfo.Name = "pnlTabPaymentInfo";
-            pnlTabPaymentInfo.RowCount = 4;
-            pnlTabPaymentInfo.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            pnlTabPaymentInfo.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            pnlTabPaymentInfo.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            pnlTabPaymentInfo.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+            pnlTabPaymentInfo.RowCount = 5;
+            pnlTabPaymentInfo.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            pnlTabPaymentInfo.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            pnlTabPaymentInfo.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            pnlTabPaymentInfo.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            pnlTabPaymentInfo.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             pnlTabPaymentInfo.Size = new Size(420, 549);
             pnlTabPaymentInfo.TabIndex = 0;
             // 
@@ -87,7 +88,7 @@
             lblFilmLeft.Dock = DockStyle.Fill;
             lblFilmLeft.Location = new Point(3, 0);
             lblFilmLeft.Name = "lblFilmLeft";
-            lblFilmLeft.Size = new Size(204, 137);
+            lblFilmLeft.Size = new Size(204, 68);
             lblFilmLeft.TabIndex = 0;
             lblFilmLeft.Text = "Film:";
             lblFilmLeft.TextAlign = ContentAlignment.MiddleCenter;
@@ -96,9 +97,9 @@
             // 
             lblRoomLeft.AutoSize = true;
             lblRoomLeft.Dock = DockStyle.Fill;
-            lblRoomLeft.Location = new Point(3, 137);
+            lblRoomLeft.Location = new Point(3, 68);
             lblRoomLeft.Name = "lblRoomLeft";
-            lblRoomLeft.Size = new Size(204, 137);
+            lblRoomLeft.Size = new Size(204, 68);
             lblRoomLeft.TabIndex = 1;
             lblRoomLeft.Text = "Zaal:";
             lblRoomLeft.TextAlign = ContentAlignment.MiddleCenter;
@@ -107,9 +108,9 @@
             // 
             lblSeatLeft.AutoSize = true;
             lblSeatLeft.Dock = DockStyle.Fill;
-            lblSeatLeft.Location = new Point(3, 274);
+            lblSeatLeft.Location = new Point(3, 136);
             lblSeatLeft.Name = "lblSeatLeft";
-            lblSeatLeft.Size = new Size(204, 137);
+            lblSeatLeft.Size = new Size(204, 68);
             lblSeatLeft.TabIndex = 2;
             lblSeatLeft.Text = "Stoel:";
             lblSeatLeft.TextAlign = ContentAlignment.MiddleCenter;
@@ -118,9 +119,9 @@
             // 
             lblPriceLeft.AutoSize = true;
             lblPriceLeft.Dock = DockStyle.Fill;
-            lblPriceLeft.Location = new Point(3, 411);
+            lblPriceLeft.Location = new Point(3, 204);
             lblPriceLeft.Name = "lblPriceLeft";
-            lblPriceLeft.Size = new Size(204, 138);
+            lblPriceLeft.Size = new Size(204, 68);
             lblPriceLeft.TabIndex = 3;
             lblPriceLeft.Text = "Prijs:";
             lblPriceLeft.TextAlign = ContentAlignment.MiddleCenter;
@@ -131,7 +132,7 @@
             lblFilmInfo.Dock = DockStyle.Fill;
             lblFilmInfo.Location = new Point(213, 0);
             lblFilmInfo.Name = "lblFilmInfo";
-            lblFilmInfo.Size = new Size(204, 137);
+            lblFilmInfo.Size = new Size(204, 68);
             lblFilmInfo.TabIndex = 4;
             lblFilmInfo.Text = "Placehouder 1";
             lblFilmInfo.TextAlign = ContentAlignment.MiddleCenter;
@@ -140,9 +141,9 @@
             // 
             lblRoomInfo.AutoSize = true;
             lblRoomInfo.Dock = DockStyle.Fill;
-            lblRoomInfo.Location = new Point(213, 137);
+            lblRoomInfo.Location = new Point(213, 68);
             lblRoomInfo.Name = "lblRoomInfo";
-            lblRoomInfo.Size = new Size(204, 137);
+            lblRoomInfo.Size = new Size(204, 68);
             lblRoomInfo.TabIndex = 5;
             lblRoomInfo.Text = "Placehouder zaal";
             lblRoomInfo.TextAlign = ContentAlignment.MiddleCenter;
@@ -151,9 +152,9 @@
             // 
             lblSeatInfo.AutoSize = true;
             lblSeatInfo.Dock = DockStyle.Fill;
-            lblSeatInfo.Location = new Point(213, 274);
+            lblSeatInfo.Location = new Point(213, 136);
             lblSeatInfo.Name = "lblSeatInfo";
-            lblSeatInfo.Size = new Size(204, 137);
+            lblSeatInfo.Size = new Size(204, 68);
             lblSeatInfo.TabIndex = 6;
             lblSeatInfo.Text = "Stoel placeholder";
             lblSeatInfo.TextAlign = ContentAlignment.MiddleCenter;
@@ -162,9 +163,9 @@
             // 
             lblPriceInfo.AutoSize = true;
             lblPriceInfo.Dock = DockStyle.Fill;
-            lblPriceInfo.Location = new Point(213, 411);
+            lblPriceInfo.Location = new Point(213, 204);
             lblPriceInfo.Name = "lblPriceInfo";
-            lblPriceInfo.Size = new Size(204, 138);
+            lblPriceInfo.Size = new Size(204, 68);
             lblPriceInfo.TabIndex = 7;
             lblPriceInfo.Text = "Prijs placeholder";
             lblPriceInfo.TextAlign = ContentAlignment.MiddleCenter;

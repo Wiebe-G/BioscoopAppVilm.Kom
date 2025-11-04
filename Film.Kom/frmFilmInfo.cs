@@ -25,7 +25,7 @@ namespace Film.Kom
             await GetMovieInfo(_FilmName);
         }
 
-        private async Task GetMovieInfo(string FilmName)
+        internal async Task GetMovieInfo(string FilmName)
         {
             // fetch met omdbapi info over de film
             // en display de info

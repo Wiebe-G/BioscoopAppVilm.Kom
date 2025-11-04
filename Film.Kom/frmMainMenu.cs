@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -53,12 +54,45 @@ namespace Film.Kom
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Werkt nog niet");
+            SearchFunction();
         }
 
         private void txtSearch_Click(object sender, EventArgs e)
         {
             txtSearch.Text = "";
+        }
+
+        private async Task SearchFunction()
+        {
+            string FilmName = txtSearch.Text;
+            string APIkey = "4bed3fd6";
+            string BaseURL = "https://www.omdbapi.com";
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(BaseURL);
+                client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+                var QueryString = $"t={Uri.EscapeDataString(FilmName)}&plot=full&&apikey={APIkey}";
+                HttpResponseMessage response = await client.GetAsync($"?{QueryString}");
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show($"Oh oh, er ging iets niet goed. Statuscode: {response.StatusCode}. Reden: {response.ReasonPhrase}");
+                    return;
+                }
+                string JSONResponse = await response.Content.ReadAsStringAsync();
+                var MovieData = JsonSerializer.Deserialize<FilmInfo>(JSONResponse);
+                // vraagteken betekent dat de variabele null mag zijn
+                if (MovieData?.Response != "True")
+                {
+                    MessageBox.Show("Film niet gevonden");
+                    return;
+                }
+                // TODO: zorg ervoor dat de meeste recente zoekopdracht op plek 1 komt, en op 1 na laaste op 2, etc
+                MessageBox.Show($"Film {FilmName} is gevonden. {MovieData.Year}");
+                picFilm1.Load(MovieData.Poster);
+            }
         }
     }
 }

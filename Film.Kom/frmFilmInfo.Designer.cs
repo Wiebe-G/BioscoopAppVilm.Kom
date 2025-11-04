@@ -35,19 +35,19 @@
             lblTitle = new Label();
             lblRating = new Label();
             lblPlot = new Label();
+            pnlTabTop = new TableLayoutPanel();
+            picLogo = new PictureBox();
+            btnLogin = new Button();
+            lblTopBalk = new Label();
             pnlTabReservering = new TableLayoutPanel();
             btnReservering = new Button();
-            lblTopBalk = new Label();
-            btnLogin = new Button();
-            picLogo = new PictureBox();
-            pnlTabTop = new TableLayoutPanel();
             pnlTabBackground.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picPoster).BeginInit();
             pnlTabTextData.SuspendLayout();
             pnlTabText.SuspendLayout();
-            pnlTabReservering.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             pnlTabTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
+            pnlTabReservering.SuspendLayout();
             SuspendLayout();
             // 
             // pnlTabBackground
@@ -151,6 +151,60 @@
             lblPlot.Text = "Plot";
             lblPlot.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // pnlTabTop
+            // 
+            pnlTabTop.BackColor = SystemColors.ActiveCaptionText;
+            pnlTabTop.ColumnCount = 3;
+            pnlTabTop.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            pnlTabTop.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            pnlTabTop.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            pnlTabTop.Controls.Add(picLogo, 0, 0);
+            pnlTabTop.Controls.Add(btnLogin, 2, 0);
+            pnlTabTop.Controls.Add(lblTopBalk, 1, 0);
+            pnlTabTop.Dock = DockStyle.Fill;
+            pnlTabTop.Location = new Point(3, 3);
+            pnlTabTop.Name = "pnlTabTop";
+            pnlTabTop.RowCount = 1;
+            pnlTabTop.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            pnlTabTop.Size = new Size(888, 97);
+            pnlTabTop.TabIndex = 3;
+            // 
+            // picLogo
+            // 
+            picLogo.Dock = DockStyle.Left;
+            picLogo.Image = Properties.Resources.Logo_van_Rick_oftewel_ChatGPT;
+            picLogo.Location = new Point(3, 3);
+            picLogo.Name = "picLogo";
+            picLogo.Size = new Size(173, 91);
+            picLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+            picLogo.TabIndex = 0;
+            picLogo.TabStop = false;
+            // 
+            // btnLogin
+            // 
+            btnLogin.BackColor = Color.Maroon;
+            btnLogin.Dock = DockStyle.Right;
+            btnLogin.Location = new Point(716, 3);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(169, 91);
+            btnLogin.TabIndex = 1;
+            btnLogin.Text = "Log in";
+            btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click;
+            // 
+            // lblTopBalk
+            // 
+            lblTopBalk.AutoSize = true;
+            lblTopBalk.Dock = DockStyle.Fill;
+            lblTopBalk.Font = new Font("Georgia", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTopBalk.ForeColor = SystemColors.ButtonFace;
+            lblTopBalk.Location = new Point(298, 0);
+            lblTopBalk.Name = "lblTopBalk";
+            lblTopBalk.Size = new Size(289, 97);
+            lblTopBalk.TabIndex = 2;
+            lblTopBalk.Text = "Reserveer voor\r\n↓\r\n";
+            lblTopBalk.TextAlign = ContentAlignment.BottomCenter;
+            // 
             // pnlTabReservering
             // 
             pnlTabReservering.ColumnCount = 3;
@@ -181,60 +235,6 @@
             btnReservering.UseVisualStyleBackColor = false;
             btnReservering.Click += btnReservering_Click;
             // 
-            // lblTopBalk
-            // 
-            lblTopBalk.AutoSize = true;
-            lblTopBalk.Dock = DockStyle.Fill;
-            lblTopBalk.Font = new Font("Georgia", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTopBalk.ForeColor = SystemColors.ButtonFace;
-            lblTopBalk.Location = new Point(298, 0);
-            lblTopBalk.Name = "lblTopBalk";
-            lblTopBalk.Size = new Size(289, 97);
-            lblTopBalk.TabIndex = 2;
-            lblTopBalk.Text = "Reserveer voor\r\n↓\r\n";
-            lblTopBalk.TextAlign = ContentAlignment.BottomCenter;
-            // 
-            // btnLogin
-            // 
-            btnLogin.BackColor = Color.Maroon;
-            btnLogin.Dock = DockStyle.Right;
-            btnLogin.Location = new Point(716, 3);
-            btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(169, 91);
-            btnLogin.TabIndex = 1;
-            btnLogin.Text = "Log in";
-            btnLogin.UseVisualStyleBackColor = false;
-            btnLogin.Click += btnLogin_Click;
-            // 
-            // picLogo
-            // 
-            picLogo.Dock = DockStyle.Left;
-            picLogo.Image = Properties.Resources.Logo_van_Rick_oftewel_ChatGPT;
-            picLogo.Location = new Point(3, 3);
-            picLogo.Name = "picLogo";
-            picLogo.Size = new Size(173, 91);
-            picLogo.SizeMode = PictureBoxSizeMode.StretchImage;
-            picLogo.TabIndex = 0;
-            picLogo.TabStop = false;
-            // 
-            // pnlTabTop
-            // 
-            pnlTabTop.BackColor = SystemColors.ActiveCaptionText;
-            pnlTabTop.ColumnCount = 3;
-            pnlTabTop.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            pnlTabTop.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            pnlTabTop.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            pnlTabTop.Controls.Add(picLogo, 0, 0);
-            pnlTabTop.Controls.Add(btnLogin, 2, 0);
-            pnlTabTop.Controls.Add(lblTopBalk, 1, 0);
-            pnlTabTop.Dock = DockStyle.Fill;
-            pnlTabTop.Location = new Point(3, 3);
-            pnlTabTop.Name = "pnlTabTop";
-            pnlTabTop.RowCount = 1;
-            pnlTabTop.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            pnlTabTop.Size = new Size(888, 97);
-            pnlTabTop.TabIndex = 3;
-            // 
             // frmFilmInfo
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -249,10 +249,10 @@
             pnlTabTextData.ResumeLayout(false);
             pnlTabText.ResumeLayout(false);
             pnlTabText.PerformLayout();
-            pnlTabReservering.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
             pnlTabTop.ResumeLayout(false);
             pnlTabTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
+            pnlTabReservering.ResumeLayout(false);
             ResumeLayout(false);
         }
 

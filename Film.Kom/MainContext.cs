@@ -4,9 +4,9 @@
     {
         public MainContext()
         {
-            var loginForm = new frmLogin();
-            loginForm.FormClosed += (s, e) => ExitThread(); // sluit de app als login wordt gesloten
-            loginForm.Show();
+            var MainForm = new frmMainMenu();
+            MainForm.FormClosed += (s, e) => ExitThread();
+            MainForm.Show();
         }
     }
 }

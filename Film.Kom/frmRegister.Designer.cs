@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegister));
             pnlButton = new TableLayoutPanel();
             btnRegister = new Button();
+            btnBackToLogin = new Button();
             txtPassword = new TextBox();
             pnlWachtwoord = new TableLayoutPanel();
             lblPassword = new Label();
@@ -69,11 +70,12 @@
             // 
             // pnlButton
             // 
-            pnlButton.ColumnCount = 3;
-            pnlButton.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            pnlButton.ColumnCount = 2;
             pnlButton.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            pnlButton.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            pnlButton.Controls.Add(btnRegister, 1, 1);
+            pnlButton.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            pnlButton.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            pnlButton.Controls.Add(btnRegister, 0, 1);
+            pnlButton.Controls.Add(btnBackToLogin, 1, 1);
             pnlButton.Dock = DockStyle.Fill;
             pnlButton.Location = new Point(3, 478);
             pnlButton.Name = "pnlButton";
@@ -90,7 +92,7 @@
             btnRegister.Dock = DockStyle.Fill;
             btnRegister.Font = new Font("Rockwell", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRegister.ForeColor = SystemColors.ButtonFace;
-            btnRegister.Location = new Point(156, 16);
+            btnRegister.Location = new Point(3, 16);
             btnRegister.Name = "btnRegister";
             btnRegister.Size = new Size(300, 56);
             btnRegister.TabIndex = 5;
@@ -98,6 +100,20 @@
             btnRegister.UseVisualStyleBackColor = false;
             btnRegister.Click += btnRegister_Click;
             btnRegister.KeyDown += LoginEnter_KeyDown;
+            // 
+            // btnBackToLogin
+            // 
+            btnBackToLogin.BackColor = Color.FromArgb(113, 0, 1);
+            btnBackToLogin.Dock = DockStyle.Fill;
+            btnBackToLogin.Font = new Font("Rockwell", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBackToLogin.ForeColor = SystemColors.ButtonFace;
+            btnBackToLogin.Location = new Point(309, 16);
+            btnBackToLogin.Name = "btnBackToLogin";
+            btnBackToLogin.Size = new Size(301, 56);
+            btnBackToLogin.TabIndex = 6;
+            btnBackToLogin.Text = "Terug naar login\r\n";
+            btnBackToLogin.UseVisualStyleBackColor = false;
+            btnBackToLogin.Click += btnBackToLogin_Click;
             // 
             // txtPassword
             // 
@@ -499,5 +515,6 @@
         private TextBox txtPasswordRepeat;
         private Label lblPasswordRepeat;
         private Label lblPassword;
+        private Button btnBackToLogin;
     }
 }

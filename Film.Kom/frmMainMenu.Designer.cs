@@ -232,6 +232,7 @@
             txtSearch.TabIndex = 0;
             txtSearch.Text = "Zoeken...";
             txtSearch.TextAlign = HorizontalAlignment.Center;
+            txtSearch.Click += txtSearch_Click;
             txtSearch.KeyDown += Search_Keydown;
             // 
             // lblSearch

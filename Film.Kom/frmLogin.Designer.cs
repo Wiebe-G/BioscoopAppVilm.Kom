@@ -300,7 +300,7 @@
             btnLogin.TabIndex = 0;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = false;
-            btnLogin.Click += btnLogin_Click_1;
+            btnLogin.Click += btnLogin_Click;
             btnLogin.KeyDown += LoginEnter_KeyDown;
             // 
             // btnMakeAccount

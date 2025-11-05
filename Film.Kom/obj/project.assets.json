@@ -797,23 +797,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Furkan\\.nuget\\packages\\": {},
+    "C:\\Users\\Wiebe\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Data\\BioscoopAppVilk.Kom\\BioscoopAppVilk.Kom\\Film.Kom\\Film.Kom.csproj",
+      "projectUniqueName": "D:\\School\\C#\\Film.Kom\\Film.Kom\\Film.Kom.csproj",
       "projectName": "Film.Kom",
-      "projectPath": "C:\\Data\\BioscoopAppVilk.Kom\\BioscoopAppVilk.Kom\\Film.Kom\\Film.Kom.csproj",
-      "packagesPath": "C:\\Users\\Furkan\\.nuget\\packages\\",
-      "outputPath": "C:\\Data\\BioscoopAppVilk.Kom\\BioscoopAppVilk.Kom\\Film.Kom\\obj\\",
+      "projectPath": "D:\\School\\C#\\Film.Kom\\Film.Kom\\Film.Kom.csproj",
+      "packagesPath": "C:\\Users\\Wiebe\\.nuget\\packages\\",
+      "outputPath": "D:\\School\\C#\\Film.Kom\\Film.Kom\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Furkan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Wiebe\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -822,6 +822,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

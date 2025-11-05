@@ -92,6 +92,12 @@ namespace Film.Kom
                 // TODO: zorg ervoor dat de meeste recente zoekopdracht op plek 1 komt, en op 1 na laaste op 2, etc
                 MessageBox.Show($"Film {FilmName} is gevonden. {MovieData.Year}");
                 picFilm1.Load(MovieData.Poster);
+                frmFilmInfo filmForm = new frmFilmInfo(FilmName);
+                picFilm1.MouseClick += (sender, e) =>
+                {
+                    filmForm.Show();
+                };
+
             }
         }
     }

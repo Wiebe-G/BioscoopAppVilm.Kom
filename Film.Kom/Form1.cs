@@ -1,5 +1,4 @@
-﻿using BetaalMethod;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,18 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Film.Kom
+namespace BetaalMethod
 {
-    public partial class frmPayment : Form
+    public partial class PnlForm : Form
     {
-        public frmPayment()
+        public PnlForm()
         {
             InitializeComponent();
         }
 
         private void Pic_Click(object sender, EventArgs e)
         {
-            foreach (var item in TBLpayment.Controls.OfType<PictureBox>()) item.BackColor = Color.Transparent;
+            foreach (var item in PnlForm2.Controls.OfType<PictureBox>()) item.BackColor = Color.Transparent;
             PictureBox picture = (PictureBox)sender;
             picture.BackColor = Color.PaleGreen;
             PicMastercard.Image = picture.Image;
@@ -54,64 +53,94 @@ namespace Film.Kom
             }
         }
 
+
         private void TxtCreditcard_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = (e.KeyChar >= '0' && e.KeyChar <= '9' || (e.KeyChar == (char)Keys.Back)) ? false : true;
         }
 
-        private void Txtkaarthouder_TextChanged_1(object sender, EventArgs e)
+        private void Txtkaarthouder_TextChanged(object sender, EventArgs e)
         {
             Lblhouder.Text = (Txtkaarthouder.Text == "" | Txtkaarthouder.Text == "KAARTHOUDER") ? "Naam" : Txtkaarthouder.Text;
         }
 
-        private void TxtVervaldatumMM_TextChanged_1(object sender, EventArgs e)
+        private void TxtVervaldatumMM_TextChanged(object sender, EventArgs e)
         {
             LblVervaldatumMM.Text = (TxtVervaldatumMM.Text == "" | TxtVervaldatumMM.Text == "VERVALDATUM MM") ? "00" : TxtVervaldatumMM.Text;
         }
 
-        private void TxtVervaldatumYY_TextChanged_1(object sender, EventArgs e)
+        private void TxtVervaldatumYY_TextChanged(object sender, EventArgs e)
         {
             LblVervaldatumYY.Text = (TxtVervaldatumYY.Text == "" | TxtVervaldatumYY.Text == "VERVALDATUM YY") ? "00" : TxtVervaldatumYY.Text;
         }
 
-        private void TBLpayment_MouseDown_1(object sender, MouseEventArgs e)
+        private void TxtCVV_TextChanged(object sender, EventArgs e)
+        {
+            LblPas.Text = (TxtPas.Text == "" | TxtPas.Text == "Pas") ? "0000" : TxtPas.Text;
+        }
+
+        private void PnlForm2_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
 
+        }
         [System.Runtime.InteropServices.DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [System.Runtime.InteropServices.DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
+        private void PicMastercard_Click(object sender, EventArgs e)
+        {
 
-        private void button1_Click_1(object sender, EventArgs e)
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void BtnIndienen_MouseDown_1(object sender, MouseEventArgs e)
+        private void BtnIndienen_MouseDown(object sender, MouseEventArgs e)
         {
             BtnIndienen.ForeColor = Color.White;
         }
 
-        private void BtnIndienen_MouseLeave_1(object sender, EventArgs e)
+        private void BtnIndienen_MouseLeave(object sender, EventArgs e)
         {
             BtnIndienen.ForeColor = Color.White;
         }
 
-        private void BtnIndienen_MouseEnter_1(object sender, EventArgs e)
+        private void BtnIndienen_MouseEnter(object sender, EventArgs e)
         {
             BtnIndienen.ForeColor = Color.Black;
         }
 
-        private void LblNum2_Click(object sender, EventArgs e)
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void label9_Click(object sender, EventArgs e)
+        private void PnlForm2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void PnlForm2_ParentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtCreditcard_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PicMastercard_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PnlForm2_Click(object sender, EventArgs e)
         {
 
         }

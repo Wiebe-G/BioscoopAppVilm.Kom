@@ -89,5 +89,12 @@ namespace Film.Kom
                 btnRegister.PerformClick();
             }
         }
+
+        private void btnBackToLogin_Click(object sender, EventArgs e)
+        {
+            frmLogin loginForm = new frmLogin();
+            loginForm.Show();
+            this.Hide();
+        }
     }
 }

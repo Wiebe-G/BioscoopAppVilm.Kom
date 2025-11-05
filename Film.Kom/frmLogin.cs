@@ -36,15 +36,17 @@ namespace Film.Kom
         }
 
         // originele event handler wou hij niet oppakken dus nu is naam niet goed :(
-        private void btnLogin_Click_1(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
             bool isLoginSucces = Login();
             if (isLoginSucces)
             {
+                User user = new User();
+                user.Naam = txtUsername.Text.Trim();
                 // ingelogd YIPPE
                 MessageBox.Show($"Welkom, {txtUsername.Text}");
                 this.Hide();
-                frmMainMenu MainForm = new frmMainMenu();
+                frmMainMenu MainForm = new frmMainMenu(user);
                 MainForm.Show();
             }
             else

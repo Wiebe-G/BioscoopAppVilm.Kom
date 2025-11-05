@@ -1,6 +1,6 @@
 ﻿namespace Film.Kom
 {
-    internal class User
+    public class User
     {
         public MongoDB.Bson.ObjectId Id { get; set; }
         public string Naam { get; set; } = string.Empty;

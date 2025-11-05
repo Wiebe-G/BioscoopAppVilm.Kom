@@ -9,6 +9,15 @@ namespace Film.Kom
         {
             InitializeComponent();
             _FilmName = FilmName;
+            User user = new User();
+            if (string.IsNullOrWhiteSpace(user.Naam))
+            {
+                btnLogin.Text = "Log in";
+            }
+            else
+            {
+                btnLogin.Text = user.Naam;
+            }
         }
 
         private async void frmFilmInfo_Load(object sender, EventArgs e)
@@ -16,7 +25,7 @@ namespace Film.Kom
             await GetMovieInfo(_FilmName);
         }
 
-        private async Task GetMovieInfo(string FilmName)
+        internal async Task GetMovieInfo(string FilmName)
         {
             // fetch met omdbapi info over de film
             // en display de info
@@ -65,6 +74,13 @@ namespace Film.Kom
             {
                 lblRating.Text = $"Rating: {Rating}, dus kinderen mogen mee";
             }
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            frmLogin loginForm = new frmLogin();
+            loginForm.Show();
+            this.Hide();
         }
 
         private void btnReservering_Click(object sender, EventArgs e)

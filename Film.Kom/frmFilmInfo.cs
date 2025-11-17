@@ -5,24 +5,38 @@ namespace Film.Kom
     public partial class frmFilmInfo : Form
     {
         private string _FilmName;
+        private User _LoggedInUser;
         public frmFilmInfo(string FilmName)
         {
             InitializeComponent();
             _FilmName = FilmName;
-            User user = new User();
-            if (string.IsNullOrWhiteSpace(user.Naam))
-            {
-                btnLogin.Text = "Log in";
-            }
-            else
-            {
-                btnLogin.Text = user.Naam;
-            }
+            _LoggedInUser = new User();
+            UpdateLoginButton();
+        }
+
+        public frmFilmInfo(string FilmName, User user)
+        {
+            InitializeComponent();
+            _FilmName = FilmName;
+            _LoggedInUser = user ?? new User();
+            UpdateLoginButton();
         }
 
         private async void frmFilmInfo_Load(object sender, EventArgs e)
         {
             await GetMovieInfo(_FilmName);
+        }
+
+        private void UpdateLoginButton()
+        {
+            if (string.IsNullOrWhiteSpace(_LoggedInUser?.Naam))
+            {
+                btnLogin.Text = "Log in";
+            }
+            else
+            {
+                btnLogin.Text = _LoggedInUser?.Naam;
+            }
         }
 
         internal async Task GetMovieInfo(string FilmName)
@@ -85,7 +99,7 @@ namespace Film.Kom
 
         private void btnReservering_Click(object sender, EventArgs e)
         {
-            frmPayment PaymentForm = new frmPayment();
+            frmPayment PaymentForm = new frmPayment(_LoggedInUser);
             PaymentForm.Show();
         }
     }

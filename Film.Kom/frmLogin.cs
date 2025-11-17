@@ -35,7 +35,6 @@ namespace Film.Kom
             this.Close();
         }
 
-        // originele event handler wou hij niet oppakken dus nu is naam niet goed :(
         private void btnLogin_Click(object sender, EventArgs e)
         {
             bool isLoginSucces = Login();

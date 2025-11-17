@@ -29,13 +29,6 @@ namespace Film.Kom
             return BC.Verify(PlainPassword, user.HashedPassword);
         }
 
-        private void btnRegister_Click(object sender, EventArgs e)
-        {
-            frmRegister registerForm = new frmRegister();
-            registerForm.Show();
-            this.Close();
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             bool isLoginSucces = Login();

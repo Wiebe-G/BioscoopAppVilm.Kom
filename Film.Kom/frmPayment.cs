@@ -25,12 +25,21 @@ namespace Film.Kom
         public frmPayment()
         {
             InitializeComponent();
+            _LoggedInUser = new User();
             MessageBox.Show("Test");
         }
 
         private async void frmPayment_Load(object sender, EventArgs e)
         {
-            _LoggedInUser.Email = await FetchUserEmail(_LoggedInUser.Naam);
+            if (_LoggedInUser == null || string.IsNullOrWhiteSpace(_LoggedInUser.Naam))
+            {
+                return;
+            }
+            var email = await FetchUserEmail(_LoggedInUser.Naam);
+            if (!string.IsNullOrWhiteSpace(email))
+            {
+                _LoggedInUser.Email = await FetchUserEmail(_LoggedInUser.Naam);
+            }
         }
 
         private async Task<string> FetchUserEmail(string Naam)
@@ -114,20 +123,6 @@ namespace Film.Kom
             Application.Exit();
         }
 
-        //private void BtnIndienen_MouseDown_1(object sender, MouseEventArgs e)
-        //{
-        //    BtnIndienen.ForeColor = Color.White;
-        //}
-
-        //private void BtnIndienen_MouseLeave_1(object sender, EventArgs e)
-        //{
-        //    BtnIndienen.ForeColor = Color.White;
-        //}
-
-        //private void BtnIndienen_MouseEnter_1(object sender, EventArgs e)
-        //{
-        //    BtnIndienen.ForeColor = Color.Black;
-        //}
 
         private void BtnIndienen_Click(object sender, EventArgs e)
         {
@@ -152,26 +147,30 @@ namespace Film.Kom
                 From = new MailAddress(OurMailAddress, "Film.Kom"),
                 Subject = "Reservering voor Film.Kom (TEST MAIL)",
                 Body = $"{qrCodeImage}",
-                IsBodyHtml = false
+                IsBodyHtml = true,
+
             };
             mailMessage.To.Add(
                 new MailAddress(
                     _LoggedInUser.Email ?? "test@test.nl",
                     _LoggedInUser.Naam ?? "Test"));
+            mailMessage.Attachments.Add(
+                new MailAddress(
+))
 
             try
             {
-                var SmtpClient = new SmtpClient("smtp.gmail.com")
+                using (var SmtpClient = new SmtpClient("smtp.gmail.com", 587))
                 {
-                    Port = 587,
-                    Credentials = new NetworkCredential(OurMailAddress, passwords.MailPassword),
-                    EnableSsl = true
-                };
-                SmtpClient.Send(mailMessage);
+                    SmtpClient.Port = 587;
+                    SmtpClient.Credentials = new NetworkCredential(OurMailAddress, passwords.GoogleAppPassword);
+                    SmtpClient.EnableSsl = true;
+                    SmtpClient.Send(mailMessage);
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Mail kon niet worden verstuurd, want {ex.Message} en {ex.StackTrace}");
+                MessageBox.Show($"Mail kon niet worden verstuurd, want {ex.Message} \n Stacktrace: \n {ex.StackTrace}");
             }
         }
 

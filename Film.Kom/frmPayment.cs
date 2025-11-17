@@ -18,6 +18,7 @@ namespace Film.Kom
 {
     public partial class frmPayment : Form
     {
+        Passwords passwords = new Passwords();
         private readonly IMongoCollection<User>? _Users;
 
         private User? _LoggedInUser;
@@ -25,18 +26,16 @@ namespace Film.Kom
         {
             InitializeComponent();
             MessageBox.Show("Test");
-            //_LoggedInUser = null;
         }
 
         private async void frmPayment_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("Test 2");
             _LoggedInUser.Email = await FetchUserEmail(_LoggedInUser.Naam);
         }
 
         private async Task<string> FetchUserEmail(string Naam)
         {
-            var client = new MongoClient("mongodb+srv://rickgeerdink2020_db_user:HWTyu7e8IBTBWhTT@cluster0.bi1idnh.mongodb.net/");
+            var client = new MongoClient(passwords.Database);
             var db = client.GetDatabase("Vilm");
             var collection = db.GetCollection<User>("Users");
 
@@ -52,7 +51,6 @@ namespace Film.Kom
             InitializeComponent();
             _LoggedInUser = user;
             lblFilmInfo.Text = _LoggedInUser.Naam;
-
         }
 
         private void Pic_Click(object sender, EventArgs e)
@@ -61,34 +59,10 @@ namespace Film.Kom
             PictureBox picture = (PictureBox)sender;
             picture.BackColor = Color.PaleGreen;
             PicMastercard.Image = picture.Image;
-
         }
 
         private void TxtCreditcard_TextChanged(object sender, EventArgs e)
         {
-            //if (TxtCreditcard.Text != "CREDIT-NUMMER")
-            //{
-            //    switch (TxtCreditcard.Text.Count())
-            //    {
-            //        case 0: LblNum1.Text = LblNum2.Text = LblNum3.Text = LblNum4.Text = "0000"; break;
-            //        case 1: LblNum1.Text = int.Parse(TxtCreditcard.Text.Substring(0, 1)).ToString("0000"); break;
-            //        case 2: LblNum1.Text = int.Parse(TxtCreditcard.Text.Substring(0, 2)).ToString("0000"); break;
-            //        case 3: LblNum1.Text = int.Parse(TxtCreditcard.Text.Substring(0, 3)).ToString("0000"); break;
-            //        case 4: LblNum1.Text = int.Parse(TxtCreditcard.Text.Substring(0, 4)).ToString("0000"); LblNum2.Text = "0000"; break;
-            //        case 5: LblNum2.Text = int.Parse(TxtCreditcard.Text.Substring(4, 1)).ToString("0000"); break;
-            //        case 6: LblNum2.Text = int.Parse(TxtCreditcard.Text.Substring(4, 2)).ToString("0000"); break;
-            //        case 7: LblNum2.Text = int.Parse(TxtCreditcard.Text.Substring(4, 3)).ToString("0000"); break;
-            //        case 8: LblNum2.Text = int.Parse(TxtCreditcard.Text.Substring(4, 4)).ToString("0000"); LblNum3.Text = "0000"; break;
-            //        case 9: LblNum3.Text = int.Parse(TxtCreditcard.Text.Substring(8, 1)).ToString("0000"); break;
-            //        case 10: LblNum3.Text = int.Parse(TxtCreditcard.Text.Substring(8, 2)).ToString("0000"); break;
-            //        case 11: LblNum3.Text = int.Parse(TxtCreditcard.Text.Substring(8, 3)).ToString("0000"); break;
-            //        case 12: LblNum3.Text = int.Parse(TxtCreditcard.Text.Substring(8, 4)).ToString("0000"); LblNum4.Text = "0000"; break;
-            //        case 13: LblNum4.Text = int.Parse(TxtCreditcard.Text.Substring(12, 1)).ToString("0000"); break;
-            //        case 14: LblNum4.Text = int.Parse(TxtCreditcard.Text.Substring(12, 2)).ToString("0000"); break;
-            //        case 15: LblNum4.Text = int.Parse(TxtCreditcard.Text.Substring(12, 3)).ToString("0000"); break;
-            //        case 16: LblNum4.Text = int.Parse(TxtCreditcard.Text.Substring(12, 4)).ToString("0000"); break;
-            //    }
-            //}
             string text = TxtCreditcard.Text.Replace(" ", ""); // spaties weghalen
             if (text == "CREDIT-NUMMER")
                 return;
@@ -157,6 +131,8 @@ namespace Film.Kom
 
         private void BtnIndienen_Click(object sender, EventArgs e)
         {
+            string OurMailAddress = "vilmkomm@gmail.com";
+
             // mail en naam van user pakken
             if (string.IsNullOrWhiteSpace(_LoggedInUser?.Naam))
             {
@@ -169,9 +145,11 @@ namespace Film.Kom
                 return;
             }
             var qrCodeImage = MakeQRCode();
+
+
             var mailMessage = new MailMessage
             {
-                From = new MailAddress("ons@email.com", "Film.Kom"),
+                From = new MailAddress(OurMailAddress, "Film.Kom"),
                 Subject = "Reservering voor Film.Kom (TEST MAIL)",
                 Body = $"{qrCodeImage}",
                 IsBodyHtml = false
@@ -186,7 +164,7 @@ namespace Film.Kom
                 var SmtpClient = new SmtpClient("smtp.gmail.com")
                 {
                     Port = 587,
-                    Credentials = new NetworkCredential("ons@email.com", "wachtwoord"),
+                    Credentials = new NetworkCredential(OurMailAddress, passwords.MailPassword),
                     EnableSsl = true
                 };
                 SmtpClient.Send(mailMessage);
@@ -205,7 +183,5 @@ namespace Film.Kom
             Bitmap qrCodeImage = qrCode.GetGraphic(20);
             return qrCodeImage;
         }
-
-
     }
 }

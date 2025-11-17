@@ -135,7 +135,7 @@
             pnlTabPaymentBG.Name = "pnlTabPaymentBG";
             pnlTabPaymentBG.RowCount = 1;
             pnlTabPaymentBG.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            pnlTabPaymentBG.Size = new Size(1459, 740);
+            pnlTabPaymentBG.Size = new Size(1902, 1033);
             pnlTabPaymentBG.TabIndex = 0;
             // 
             // pnlTabPaymentInfo
@@ -152,7 +152,7 @@
             pnlTabPaymentInfo.Controls.Add(lblSeatInfo, 1, 2);
             pnlTabPaymentInfo.Controls.Add(lblPriceInfo, 1, 3);
             pnlTabPaymentInfo.Dock = DockStyle.Fill;
-            pnlTabPaymentInfo.Location = new Point(1064, 3);
+            pnlTabPaymentInfo.Location = new Point(1386, 3);
             pnlTabPaymentInfo.Name = "pnlTabPaymentInfo";
             pnlTabPaymentInfo.RowCount = 5;
             pnlTabPaymentInfo.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
@@ -160,7 +160,7 @@
             pnlTabPaymentInfo.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
             pnlTabPaymentInfo.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
             pnlTabPaymentInfo.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            pnlTabPaymentInfo.Size = new Size(392, 734);
+            pnlTabPaymentInfo.Size = new Size(513, 1027);
             pnlTabPaymentInfo.TabIndex = 0;
             // 
             // lblFilmLeft
@@ -170,7 +170,7 @@
             lblFilmLeft.ForeColor = SystemColors.Control;
             lblFilmLeft.Location = new Point(3, 0);
             lblFilmLeft.Name = "lblFilmLeft";
-            lblFilmLeft.Size = new Size(190, 91);
+            lblFilmLeft.Size = new Size(250, 128);
             lblFilmLeft.TabIndex = 0;
             lblFilmLeft.Text = "Film:";
             lblFilmLeft.TextAlign = ContentAlignment.MiddleCenter;
@@ -180,9 +180,9 @@
             lblRoomLeft.AutoSize = true;
             lblRoomLeft.Dock = DockStyle.Fill;
             lblRoomLeft.ForeColor = SystemColors.Control;
-            lblRoomLeft.Location = new Point(3, 91);
+            lblRoomLeft.Location = new Point(3, 128);
             lblRoomLeft.Name = "lblRoomLeft";
-            lblRoomLeft.Size = new Size(190, 91);
+            lblRoomLeft.Size = new Size(250, 128);
             lblRoomLeft.TabIndex = 1;
             lblRoomLeft.Text = "Zaal:";
             lblRoomLeft.TextAlign = ContentAlignment.MiddleCenter;
@@ -192,9 +192,9 @@
             lblSeatLeft.AutoSize = true;
             lblSeatLeft.Dock = DockStyle.Fill;
             lblSeatLeft.ForeColor = SystemColors.Control;
-            lblSeatLeft.Location = new Point(3, 182);
+            lblSeatLeft.Location = new Point(3, 256);
             lblSeatLeft.Name = "lblSeatLeft";
-            lblSeatLeft.Size = new Size(190, 91);
+            lblSeatLeft.Size = new Size(250, 128);
             lblSeatLeft.TabIndex = 2;
             lblSeatLeft.Text = "Stoel(en):";
             lblSeatLeft.TextAlign = ContentAlignment.MiddleCenter;
@@ -204,9 +204,9 @@
             lblPriceLeft.AutoSize = true;
             lblPriceLeft.Dock = DockStyle.Fill;
             lblPriceLeft.ForeColor = SystemColors.Control;
-            lblPriceLeft.Location = new Point(3, 273);
+            lblPriceLeft.Location = new Point(3, 384);
             lblPriceLeft.Name = "lblPriceLeft";
-            lblPriceLeft.Size = new Size(190, 91);
+            lblPriceLeft.Size = new Size(250, 128);
             lblPriceLeft.TabIndex = 3;
             lblPriceLeft.Text = "Prijs:";
             lblPriceLeft.TextAlign = ContentAlignment.MiddleCenter;
@@ -216,9 +216,9 @@
             lblFilmInfo.AutoSize = true;
             lblFilmInfo.Dock = DockStyle.Fill;
             lblFilmInfo.ForeColor = SystemColors.Control;
-            lblFilmInfo.Location = new Point(199, 0);
+            lblFilmInfo.Location = new Point(259, 0);
             lblFilmInfo.Name = "lblFilmInfo";
-            lblFilmInfo.Size = new Size(190, 91);
+            lblFilmInfo.Size = new Size(251, 128);
             lblFilmInfo.TabIndex = 4;
             lblFilmInfo.Text = "Placehouder 1";
             lblFilmInfo.TextAlign = ContentAlignment.MiddleCenter;
@@ -228,9 +228,9 @@
             lblRoomInfo.AutoSize = true;
             lblRoomInfo.Dock = DockStyle.Fill;
             lblRoomInfo.ForeColor = SystemColors.Control;
-            lblRoomInfo.Location = new Point(199, 91);
+            lblRoomInfo.Location = new Point(259, 128);
             lblRoomInfo.Name = "lblRoomInfo";
-            lblRoomInfo.Size = new Size(190, 91);
+            lblRoomInfo.Size = new Size(251, 128);
             lblRoomInfo.TabIndex = 5;
             lblRoomInfo.Text = "Placehouder zaal";
             lblRoomInfo.TextAlign = ContentAlignment.MiddleCenter;
@@ -240,9 +240,9 @@
             lblSeatInfo.AutoSize = true;
             lblSeatInfo.Dock = DockStyle.Fill;
             lblSeatInfo.ForeColor = SystemColors.Control;
-            lblSeatInfo.Location = new Point(199, 182);
+            lblSeatInfo.Location = new Point(259, 256);
             lblSeatInfo.Name = "lblSeatInfo";
-            lblSeatInfo.Size = new Size(190, 91);
+            lblSeatInfo.Size = new Size(251, 128);
             lblSeatInfo.TabIndex = 6;
             lblSeatInfo.Text = "Stoel placeholder";
             lblSeatInfo.TextAlign = ContentAlignment.MiddleCenter;
@@ -252,9 +252,9 @@
             lblPriceInfo.AutoSize = true;
             lblPriceInfo.Dock = DockStyle.Fill;
             lblPriceInfo.ForeColor = SystemColors.Control;
-            lblPriceInfo.Location = new Point(199, 273);
+            lblPriceInfo.Location = new Point(259, 384);
             lblPriceInfo.Name = "lblPriceInfo";
-            lblPriceInfo.Size = new Size(190, 91);
+            lblPriceInfo.Size = new Size(251, 128);
             lblPriceInfo.TabIndex = 7;
             lblPriceInfo.Text = "Prijs placeholder";
             lblPriceInfo.TextAlign = ContentAlignment.MiddleCenter;
@@ -271,7 +271,7 @@
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 43.85965F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 27F));
-            tableLayoutPanel1.Size = new Size(1055, 732);
+            tableLayoutPanel1.Size = new Size(1377, 1025);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // TBLpayment
@@ -297,7 +297,7 @@
             TBLpayment.RowStyles.Add(new RowStyle(SizeType.Absolute, 75F));
             TBLpayment.RowStyles.Add(new RowStyle(SizeType.Absolute, 104F));
             TBLpayment.RowStyles.Add(new RowStyle(SizeType.Absolute, 159F));
-            TBLpayment.Size = new Size(1049, 724);
+            TBLpayment.Size = new Size(1371, 1017);
             TBLpayment.TabIndex = 0;
             TBLpayment.MouseDown += TBLpayment_MouseDown_1;
             // 
@@ -306,10 +306,10 @@
             panel1.Controls.Add(panel5);
             panel1.Controls.Add(Txtkaarthouder);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(3, 320);
+            panel1.Location = new Point(3, 613);
             panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1043, 63);
+            panel1.Size = new Size(1365, 63);
             panel1.TabIndex = 33;
             // 
             // panel5
@@ -318,7 +318,7 @@
             panel5.Controls.Add(PicMasterKaart);
             panel5.Controls.Add(PicVisa);
             panel5.Dock = DockStyle.Right;
-            panel5.Location = new Point(746, 0);
+            panel5.Location = new Point(1068, 0);
             panel5.Margin = new Padding(3, 4, 3, 4);
             panel5.Name = "panel5";
             panel5.Size = new Size(297, 63);
@@ -367,7 +367,7 @@
             Txtkaarthouder.Location = new Point(0, 0);
             Txtkaarthouder.Margin = new Padding(3, 4, 3, 4);
             Txtkaarthouder.Name = "Txtkaarthouder";
-            Txtkaarthouder.Size = new Size(1043, 44);
+            Txtkaarthouder.Size = new Size(1365, 44);
             Txtkaarthouder.TabIndex = 29;
             Txtkaarthouder.Text = "KAARTHOUDER";
             Txtkaarthouder.TextChanged += Txtkaarthouder_TextChanged_1;
@@ -376,10 +376,10 @@
             // 
             panel2.Controls.Add(TxtCreditcard);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(3, 257);
+            panel2.Location = new Point(3, 550);
             panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1043, 55);
+            panel2.Size = new Size(1365, 55);
             panel2.TabIndex = 34;
             // 
             // TxtCreditcard
@@ -392,7 +392,7 @@
             TxtCreditcard.Location = new Point(0, 0);
             TxtCreditcard.Margin = new Padding(3, 4, 3, 4);
             TxtCreditcard.Name = "TxtCreditcard";
-            TxtCreditcard.Size = new Size(1043, 43);
+            TxtCreditcard.Size = new Size(1365, 43);
             TxtCreditcard.TabIndex = 35;
             TxtCreditcard.Text = "CREDIT-NUMMER";
             TxtCreditcard.TextChanged += TxtCreditcard_TextChanged;
@@ -403,10 +403,10 @@
             panel3.Controls.Add(panel8);
             panel3.Controls.Add(panel6);
             panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(3, 391);
+            panel3.Location = new Point(3, 684);
             panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1043, 67);
+            panel3.Size = new Size(1365, 67);
             panel3.TabIndex = 36;
             // 
             // panel7
@@ -416,7 +416,7 @@
             panel7.Location = new Point(306, 0);
             panel7.Margin = new Padding(3, 4, 3, 4);
             panel7.Name = "panel7";
-            panel7.Size = new Size(440, 67);
+            panel7.Size = new Size(762, 67);
             panel7.TabIndex = 3;
             // 
             // TxtVervaldatumYY
@@ -429,7 +429,7 @@
             TxtVervaldatumYY.Location = new Point(16, 7);
             TxtVervaldatumYY.Margin = new Padding(3, 4, 3, 4);
             TxtVervaldatumYY.Name = "TxtVervaldatumYY";
-            TxtVervaldatumYY.Size = new Size(407, 43);
+            TxtVervaldatumYY.Size = new Size(729, 43);
             TxtVervaldatumYY.TabIndex = 26;
             TxtVervaldatumYY.Text = "VERVALDATUM JJ";
             TxtVervaldatumYY.TextChanged += TxtVervaldatumYY_TextChanged_1;
@@ -438,7 +438,7 @@
             // 
             panel8.Controls.Add(TxtPas);
             panel8.Dock = DockStyle.Right;
-            panel8.Location = new Point(746, 0);
+            panel8.Location = new Point(1068, 0);
             panel8.Margin = new Padding(3, 4, 3, 4);
             panel8.Name = "panel8";
             panel8.Size = new Size(297, 67);
@@ -489,10 +489,10 @@
             panel4.Controls.Add(panel11);
             panel4.Controls.Add(panel9);
             panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(3, 466);
+            panel4.Location = new Point(3, 759);
             panel4.Margin = new Padding(3, 4, 3, 4);
             panel4.Name = "panel4";
-            panel4.Size = new Size(1043, 96);
+            panel4.Size = new Size(1365, 96);
             panel4.TabIndex = 37;
             // 
             // panel11
@@ -502,7 +502,7 @@
             panel11.Location = new Point(230, 0);
             panel11.Margin = new Padding(3, 4, 3, 4);
             panel11.Name = "panel11";
-            panel11.Size = new Size(813, 96);
+            panel11.Size = new Size(1135, 96);
             panel11.TabIndex = 2;
             // 
             // BtnIndienen
@@ -515,7 +515,7 @@
             BtnIndienen.Location = new Point(26, 12);
             BtnIndienen.Margin = new Padding(0);
             BtnIndienen.Name = "BtnIndienen";
-            BtnIndienen.Size = new Size(777, 65);
+            BtnIndienen.Size = new Size(1099, 65);
             BtnIndienen.TabIndex = 30;
             BtnIndienen.Text = "Betaling Bevestigen";
             BtnIndienen.UseVisualStyleBackColor = false;
@@ -561,10 +561,10 @@
             // 
             panel12.Controls.Add(panel13);
             panel12.Dock = DockStyle.Fill;
-            panel12.Location = new Point(3, -415);
+            panel12.Location = new Point(3, -122);
             panel12.Margin = new Padding(3, 4, 3, 4);
             panel12.Name = "panel12";
-            panel12.Size = new Size(1043, 664);
+            panel12.Size = new Size(1365, 664);
             panel12.TabIndex = 38;
             // 
             // panel13
@@ -574,7 +574,7 @@
             panel13.Location = new Point(0, 0);
             panel13.Margin = new Padding(3, 4, 3, 4);
             panel13.Name = "panel13";
-            panel13.Size = new Size(1043, 664);
+            panel13.Size = new Size(1365, 664);
             panel13.TabIndex = 39;
             // 
             // panel14
@@ -584,7 +584,7 @@
             panel14.Location = new Point(0, 0);
             panel14.Margin = new Padding(3, 4, 3, 4);
             panel14.Name = "panel14";
-            panel14.Size = new Size(1043, 664);
+            panel14.Size = new Size(1365, 664);
             panel14.TabIndex = 0;
             // 
             // panel15
@@ -594,7 +594,7 @@
             panel15.Location = new Point(0, 0);
             panel15.Margin = new Padding(3, 4, 3, 4);
             panel15.Name = "panel15";
-            panel15.Size = new Size(1043, 664);
+            panel15.Size = new Size(1365, 664);
             panel15.TabIndex = 1;
             // 
             // panel16
@@ -604,7 +604,7 @@
             panel16.Location = new Point(0, 0);
             panel16.Margin = new Padding(3, 4, 3, 4);
             panel16.Name = "panel16";
-            panel16.Size = new Size(1043, 664);
+            panel16.Size = new Size(1365, 664);
             panel16.TabIndex = 1;
             // 
             // panel17
@@ -614,7 +614,7 @@
             panel17.Location = new Point(0, 0);
             panel17.Margin = new Padding(3, 4, 3, 4);
             panel17.Name = "panel17";
-            panel17.Size = new Size(1043, 664);
+            panel17.Size = new Size(1365, 664);
             panel17.TabIndex = 0;
             // 
             // panel18
@@ -624,7 +624,7 @@
             panel18.Location = new Point(0, 0);
             panel18.Margin = new Padding(3, 4, 3, 4);
             panel18.Name = "panel18";
-            panel18.Size = new Size(1043, 664);
+            panel18.Size = new Size(1365, 664);
             panel18.TabIndex = 0;
             // 
             // panel19
@@ -636,7 +636,7 @@
             panel19.Location = new Point(0, 0);
             panel19.Margin = new Padding(3, 4, 3, 4);
             panel19.Name = "panel19";
-            panel19.Size = new Size(1043, 664);
+            panel19.Size = new Size(1365, 664);
             panel19.TabIndex = 0;
             // 
             // panel23
@@ -646,7 +646,7 @@
             panel23.Location = new Point(346, 0);
             panel23.Margin = new Padding(3, 4, 3, 4);
             panel23.Name = "panel23";
-            panel23.Size = new Size(697, 664);
+            panel23.Size = new Size(1019, 664);
             panel23.TabIndex = 3;
             // 
             // panel24
@@ -871,7 +871,7 @@
             label5.AutoSize = true;
             label5.BorderStyle = BorderStyle.FixedSingle;
             label5.Font = new Font("Gill Sans Ultra Bold", 25F);
-            label5.Location = new Point(274, -29);
+            label5.Location = new Point(435, -8);
             label5.Name = "label5";
             label5.Size = new Size(501, 1);
             label5.TabIndex = 39;
@@ -881,7 +881,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1459, 740);
+            ClientSize = new Size(1902, 1033);
             Controls.Add(pnlTabPaymentBG);
             Name = "frmPayment";
             Text = "frmPayment";

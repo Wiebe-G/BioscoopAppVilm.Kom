@@ -6,12 +6,13 @@ namespace Film.Kom
 {
     public partial class frmRegister : Form
     {
+        Passwords passwords = new Passwords();
         private readonly IMongoCollection<User> _Users;
         public frmRegister()
         {
             InitializeComponent();
 
-            var client = new MongoClient("mongodb+srv://rickgeerdink2020_db_user:HWTyu7e8IBTBWhTT@cluster0.bi1idnh.mongodb.net/");
+            var client = new MongoClient(passwords.Database);
             var db = client.GetDatabase("Vilm");
             _Users = db.GetCollection<User>("Users");
         }

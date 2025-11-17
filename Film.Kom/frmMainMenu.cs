@@ -13,6 +13,7 @@ namespace Film.Kom
 {
     public partial class frmMainMenu : Form
     {
+        Passwords passwords = new Passwords();
         private User _LoggedInUser;
         public frmMainMenu()
         {
@@ -65,7 +66,7 @@ namespace Film.Kom
         private async Task SearchFunction()
         {
             string FilmName = txtSearch.Text;
-            string APIkey = "4bed3fd6";
+            string APIkey = passwords.APIKey;
             string BaseURL = "https://www.omdbapi.com";
 
             using (var client = new HttpClient())

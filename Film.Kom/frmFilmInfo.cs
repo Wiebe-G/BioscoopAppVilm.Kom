@@ -4,6 +4,7 @@ namespace Film.Kom
 {
     public partial class frmFilmInfo : Form
     {
+        Passwords passwords = new Passwords();
         private string _FilmName;
         private User _LoggedInUser;
         public frmFilmInfo(string FilmName)
@@ -43,7 +44,7 @@ namespace Film.Kom
         {
             // fetch met omdbapi info over de film
             // en display de info
-            string APIkey = "4bed3fd6";
+            string APIkey = passwords.APIKey;
             string BaseURL = "https://www.omdbapi.com";
 
             using (var client = new HttpClient())

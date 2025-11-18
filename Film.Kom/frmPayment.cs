@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -18,15 +19,20 @@ namespace Film.Kom
 {
     public partial class frmPayment : Form
     {
-        Passwords passwords = new Passwords();
+        readonly Passwords passwords = new Passwords();
         private readonly IMongoCollection<User>? _Users;
 
         private User? _LoggedInUser;
-        public frmPayment()
+        public frmPayment(User user)
         {
             InitializeComponent();
-            _LoggedInUser = new User();
-            MessageBox.Show("Test");
+            _LoggedInUser = user;
+            lblFilmInfo.Text = _LoggedInUser.Naam;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
 
         private async void frmPayment_Load(object sender, EventArgs e)
@@ -55,12 +61,7 @@ namespace Film.Kom
             return user?.Email;
         }
 
-        public frmPayment(User user)
-        {
-            InitializeComponent();
-            _LoggedInUser = user;
-            lblFilmInfo.Text = _LoggedInUser.Naam;
-        }
+
 
         private void Pic_Click(object sender, EventArgs e)
         {
@@ -118,17 +119,12 @@ namespace Film.Kom
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
 
         private void BtnIndienen_Click(object sender, EventArgs e)
         {
             string OurMailAddress = "vilmkomm@gmail.com";
 
-            // mail en naam van user pakken
+            //mail en naam van user pakken
             if (string.IsNullOrWhiteSpace(_LoggedInUser?.Naam))
             {
                 MessageBox.Show("Niet ingelogd", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -141,22 +137,16 @@ namespace Film.Kom
             }
             var qrCodeImage = MakeQRCode();
 
+            MailMessage mailMessage = CreateMailMessage(OurMailAddress, qrCodeImage);
 
-            var mailMessage = new MailMessage
-            {
-                From = new MailAddress(OurMailAddress, "Film.Kom"),
-                Subject = "Reservering voor Film.Kom (TEST MAIL)",
-                Body = $"{qrCodeImage}",
-                IsBodyHtml = true,
+            using var ms = new MemoryStream();
 
-            };
-            mailMessage.To.Add(
-                new MailAddress(
-                    _LoggedInUser.Email ?? "test@test.nl",
-                    _LoggedInUser.Naam ?? "Test"));
-            mailMessage.Attachments.Add(
-                new MailAddress(
-))
+            Bitmap qr = (Bitmap)qrCodeImage;
+            qr.Save(ms, ImageFormat.Png);
+            ms.Position = 0;
+
+            var attachment = new Attachment(ms, "qrcode.png", "image/png");
+            mailMessage.Attachments.Add(attachment);
 
             try
             {
@@ -170,14 +160,30 @@ namespace Film.Kom
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Mail kon niet worden verstuurd, want {ex.Message} \n Stacktrace: \n {ex.StackTrace}");
+                MessageBox.Show($"Mail kon niet worden verstuurd, want: \n {ex.Message} \n Stacktrace: \n {ex.StackTrace}. \n Innerexception: \n {ex.InnerException}");
             }
+        }
+
+        private MailMessage CreateMailMessage(string OurMailAddress, object qrCodeImage)
+        {
+            var mailMessage = new MailMessage
+            {
+                From = new MailAddress(OurMailAddress, "Film.Kom"),
+                Subject = "Reservering voor Film.Kom (TEST MAIL)",
+                Body = $"{qrCodeImage}",
+                IsBodyHtml = true,
+            };
+            mailMessage.To.Add(
+                new MailAddress(
+                    _LoggedInUser.Email ?? "test@test.nl",
+                    _LoggedInUser.Naam ?? "Test"));
+            return mailMessage;
         }
 
         private object MakeQRCode()
         {
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
-            QRCodeData qrCodeData = qrGenerator.CreateQrCode("", QRCodeGenerator.ECCLevel.Q);
+            QRCodeData qrCodeData = qrGenerator.CreateQrCode("Test voor bjorn", QRCodeGenerator.ECCLevel.Q);
             QRCode qrCode = new QRCode(qrCodeData);
             Bitmap qrCodeImage = qrCode.GetGraphic(20);
             return qrCodeImage;

@@ -4,9 +4,9 @@ namespace Film.Kom
 {
     public partial class frmFilmInfo : Form
     {
-        Passwords passwords = new Passwords();
+        readonly Passwords passwords = new Passwords();
         private string _FilmName;
-        private User _LoggedInUser;
+        private readonly User _LoggedInUser;
         public frmFilmInfo(string FilmName)
         {
             InitializeComponent();

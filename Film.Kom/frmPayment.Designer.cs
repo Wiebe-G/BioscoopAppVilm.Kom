@@ -61,7 +61,7 @@
             BtnIndienen = new Button();
             panel9 = new Panel();
             panel10 = new Panel();
-            button1 = new Button();
+            btnCancel = new Button();
             panel12 = new Panel();
             panel13 = new Panel();
             panel14 = new Panel();
@@ -533,7 +533,7 @@
             // 
             // panel10
             // 
-            panel10.Controls.Add(button1);
+            panel10.Controls.Add(btnCancel);
             panel10.Dock = DockStyle.Left;
             panel10.Location = new Point(0, 0);
             panel10.Margin = new Padding(3, 4, 3, 4);
@@ -541,21 +541,21 @@
             panel10.Size = new Size(230, 96);
             panel10.TabIndex = 1;
             // 
-            // button1
+            // btnCancel
             // 
-            button1.BackColor = Color.Red;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.Font = new Font("Gadugi", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(32, 13);
-            button1.Margin = new Padding(0);
-            button1.Name = "button1";
-            button1.Size = new Size(162, 64);
-            button1.TabIndex = 31;
-            button1.Text = "Cancel";
-            button1.UseMnemonic = false;
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click_1;
+            btnCancel.BackColor = Color.Red;
+            btnCancel.FlatAppearance.BorderSize = 0;
+            btnCancel.FlatStyle = FlatStyle.Popup;
+            btnCancel.Font = new Font("Gadugi", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCancel.Location = new Point(32, 13);
+            btnCancel.Margin = new Padding(0);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(162, 64);
+            btnCancel.TabIndex = 31;
+            btnCancel.Text = "Cancel";
+            btnCancel.UseMnemonic = false;
+            btnCancel.UseVisualStyleBackColor = false;
+            btnCancel.Click += btnCancel_Click;
             // 
             // panel12
             // 
@@ -960,7 +960,7 @@
         private Panel panel9;
         private Panel panel11;
         private Panel panel10;
-        private Button button1;
+        private Button btnCancel;
         private Button BtnIndienen;
         private Panel panel12;
         private Panel panel13;

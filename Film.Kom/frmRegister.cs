@@ -6,7 +6,7 @@ namespace Film.Kom
 {
     public partial class frmRegister : Form
     {
-        Passwords passwords = new Passwords();
+        readonly Passwords passwords = new Passwords();
         private readonly IMongoCollection<User> _Users;
         public frmRegister()
         {

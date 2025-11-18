@@ -61,8 +61,6 @@ namespace Film.Kom
             return user?.Email;
         }
 
-
-
         private void Pic_Click(object sender, EventArgs e)
         {
             foreach (var item in TBLpayment.Controls.OfType<PictureBox>()) item.BackColor = Color.Transparent;
@@ -118,38 +116,50 @@ namespace Film.Kom
         [System.Runtime.InteropServices.DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-
+        private bool CheckValidityOfUserCredentials()
+        {
+            if (string.IsNullOrWhiteSpace(_LoggedInUser?.Naam))
+            {
+                MessageBox.Show("Niet ingelogd", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(_LoggedInUser.Email))
+            {
+                MessageBox.Show($"Geen geldige email voor {_LoggedInUser.Naam} :(");
+                return false;
+            }
+            return true;
+        }
 
         private void BtnIndienen_Click(object sender, EventArgs e)
         {
             string OurMailAddress = "vilmkomm@gmail.com";
 
             //mail en naam van user pakken
-            if (string.IsNullOrWhiteSpace(_LoggedInUser?.Naam))
+            bool ValidCredentials = CheckValidityOfUserCredentials();
+            if (!ValidCredentials)
             {
-                MessageBox.Show("Niet ingelogd", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Informatie kon niet worden gevalideerd. Probeer opnieuw.");
                 return;
             }
-            if (string.IsNullOrWhiteSpace(_LoggedInUser.Email))
-            {
-                MessageBox.Show($"Geen geldige email voor {_LoggedInUser.Naam} :(");
-                return;
-            }
-            var qrCodeImage = MakeQRCode();
-
-            MailMessage mailMessage = CreateMailMessage(OurMailAddress, qrCodeImage);
-
-            using var ms = new MemoryStream();
-
-            Bitmap qr = (Bitmap)qrCodeImage;
-            qr.Save(ms, ImageFormat.Png);
-            ms.Position = 0;
-
-            var attachment = new Attachment(ms, "qrcode.png", "image/png");
-            mailMessage.Attachments.Add(attachment);
-
             try
             {
+                string QRCodeValue = $"Naam: {_LoggedInUser.Naam}. \n Film: {lblFilmInfo} \n Zaal: {lblRoomInfo} " +
+                    $"\n Stoelen: {lblSeatInfo} \n Prijs: {lblPriceInfo}. (prijs, bijv. stoelen*9.95)";
+                var qrCodeImage = MakeQRCode(QRCodeValue);
+
+                MailMessage mailMessage = CreateMailMessage(OurMailAddress, qrCodeImage);
+
+                using var ms = new MemoryStream();
+
+                Bitmap qr = (Bitmap)qrCodeImage;
+                qr.Save(ms, ImageFormat.Png);
+                ms.Position = 0;
+
+                var attachment = new Attachment(ms, "qrcode.png", "image/png");
+                mailMessage.Attachments.Add(attachment);
+
+
                 using (var SmtpClient = new SmtpClient("smtp.gmail.com", 587))
                 {
                     SmtpClient.Port = 587;
@@ -180,10 +190,10 @@ namespace Film.Kom
             return mailMessage;
         }
 
-        private object MakeQRCode()
+        private object MakeQRCode(string input)
         {
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
-            QRCodeData qrCodeData = qrGenerator.CreateQrCode("Test voor bjorn", QRCodeGenerator.ECCLevel.Q);
+            QRCodeData qrCodeData = qrGenerator.CreateQrCode($"{input}", QRCodeGenerator.ECCLevel.Q);
             QRCode qrCode = new QRCode(qrCodeData);
             Bitmap qrCodeImage = qrCode.GetGraphic(20);
             return qrCodeImage;

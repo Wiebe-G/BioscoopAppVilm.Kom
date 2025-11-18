@@ -38,12 +38,9 @@ namespace Film.Kom
                 return;
             }
 
-            // regex van chatgpt om te controleren of wachtwoord min. 1 hoofdletter en speciaal teken heeft, en min 8 karakters
-            bool isValid = Regex.IsMatch(PlainPassword, @"^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?"":{}|<>])(?=.*\d).{8,}$");
-
-            if (!isValid)
+            if (PlainPassword.Length < 8)
             {
-                MessageBox.Show("Wachtwoord moet speciaal teken en ten minste 1 hoofdletter bevatten, en min 8 karakters zijn.");
+                MessageBox.Show("Wachtwoord niet lang genoeg");
                 return;
             }
 

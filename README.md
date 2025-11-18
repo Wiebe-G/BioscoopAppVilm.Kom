@@ -8,7 +8,7 @@ Gebruikers moeten een stoel kunnen reserveren voor een film naar keuze.
 Meneer R. Asbreuk
 
 # Projectleden
-Wiebe Gouma,
-Rick Geerdink,
-Furkan Aydin,
-Avşar Köktaş
+[Wiebe Gouma](https://github.com/Wiebe-G),
+[Rick Geerdink](https://github.com/Rickert089),
+[Furkan Aydin](https://github.com/furkan38aydin-lab),
+[Avşar Köktaş](https://github.com/AvsarKoktas)

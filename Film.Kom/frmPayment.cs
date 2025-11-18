@@ -144,8 +144,8 @@ namespace Film.Kom
             }
             try
             {
-                string QRCodeValue = $"Naam: {_LoggedInUser.Naam}. \n Film: {lblFilmInfo} \n Zaal: {lblRoomInfo} " +
-                    $"\n Stoelen: {lblSeatInfo} \n Prijs: {lblPriceInfo}. (prijs, bijv. stoelen*9.95)";
+                string QRCodeValue = $"Naam: {_LoggedInUser.Naam}. \n Film: {lblFilmInfo.Text} \n Zaal: {lblRoomInfo.Text} " +
+                    $"\n Stoelen: {lblSeatInfo.Text} \n Prijs: {lblPriceInfo.Text}. (prijs, bijv. stoelen*9.95)";
                 var qrCodeImage = MakeQRCode(QRCodeValue);
 
                 MailMessage mailMessage = CreateMailMessage(OurMailAddress, qrCodeImage);

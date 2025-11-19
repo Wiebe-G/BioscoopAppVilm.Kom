@@ -134,8 +134,11 @@ namespace Film.Kom
         private void BtnIndienen_Click(object sender, EventArgs e)
         {
             string OurMailAddress = "vilmkomm@gmail.com";
-
-            //mail en naam van user pakken
+            string FilmName = lblFilmInfo.Text;
+            string RoomInfo = lblRoomInfo.Text;
+            string SeatInfo = lblSeatInfo.Text;
+            string PriceInfo = lblPriceInfo.Text;
+            //mail en naam van user valideren
             bool ValidCredentials = CheckValidityOfUserCredentials();
             if (!ValidCredentials)
             {
@@ -144,8 +147,8 @@ namespace Film.Kom
             }
             try
             {
-                string QRCodeValue = $"Naam: {_LoggedInUser.Naam}. \n Film: {lblFilmInfo.Text} \n Zaal: {lblRoomInfo.Text} " +
-                    $"\n Stoelen: {lblSeatInfo.Text} \n Prijs: {lblPriceInfo.Text}. (prijs, bijv. stoelen*9.95)";
+                string QRCodeValue = $"Naam: {_LoggedInUser.Naam}. \n Film: {FilmName} \n Zaal: {RoomInfo} " +
+                    $"\n Stoelen: {SeatInfo} \n Prijs: {PriceInfo}. (prijs, bijv. stoelen*9.95)";
                 var qrCodeImage = MakeQRCode(QRCodeValue);
 
                 MailMessage mailMessage = CreateMailMessage(OurMailAddress, qrCodeImage);
@@ -167,6 +170,8 @@ namespace Film.Kom
                     SmtpClient.EnableSsl = true;
                     SmtpClient.Send(mailMessage);
                 }
+                MessageBox.Show($"Mail is verstuurd naar {_LoggedInUser.Email}, " +
+                    $"reservering voor {FilmName} in zaal {RoomInfo}, met stoelen {SeatInfo}.");
             }
             catch (Exception ex)
             {

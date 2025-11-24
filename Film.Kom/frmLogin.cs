@@ -11,13 +11,10 @@ namespace Film.Kom
         public frmLogin()
         {
             InitializeComponent();
-            // client en db aanmaken. niet veilige manier maar goed
             var client = new MongoClient(passwords.Database);
             var db = client.GetDatabase("Vilm");
             _Users = db.GetCollection<User>("Users");
-
         }
-
 
         public bool Login()
         {

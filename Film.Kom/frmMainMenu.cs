@@ -100,5 +100,10 @@ namespace Film.Kom
                 };
             }
         }
+
+        private void lblFilm5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

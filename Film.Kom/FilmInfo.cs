@@ -10,5 +10,8 @@
         public string Poster { get; set; } = string.Empty;
         public string Response { get; set; } = string.Empty;
         public string Rated { get; set; } = string.Empty;
+        public string Runtime { get; set; } = string.Empty;
+        public string Speeltijd { get; set; } = string.Empty;
+        public string Zaal { get; set; } = string.Empty;
     }
 }

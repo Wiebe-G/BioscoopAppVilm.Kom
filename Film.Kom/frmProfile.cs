@@ -12,9 +12,21 @@ namespace Film.Kom
 {
     public partial class frmProfielpagina : Form
     {
+        private User? _User;
         public frmProfielpagina()
         {
             InitializeComponent();
+        }
+        public frmProfielpagina(User user)
+        {
+            InitializeComponent();
+            _User = user;
+            if (user == null)
+            {
+                MessageBox.Show("Niet ingelogd");
+                return;
+            }
+            lblNameDisplay.Text = user.Naam;
         }
     }
 }

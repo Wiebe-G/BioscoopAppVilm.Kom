@@ -12,8 +12,13 @@ namespace Film.Kom
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new frmFilmInfo("upgrade"));
+<<<<<<< HEAD
             //Application.Run(new MainContext());
             Application.Run(new frmMainMenu());
+=======
+            Application.Run(new MainContext());
+            //Application.Run(new frmProfielpagina());
+>>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             //Application.Run(new frmPayment());
         }
     }

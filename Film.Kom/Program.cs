@@ -13,7 +13,7 @@ namespace Film.Kom
             ApplicationConfiguration.Initialize();
             //Application.Run(new frmFilmInfo("upgrade"));
             //Application.Run(new MainContext());
-            Application.Run(new frmProfielpagina());
+            Application.Run(new frmMainMenu());
             //Application.Run(new frmPayment());
         }
     }

@@ -21,5 +21,10 @@ namespace Stoelen_Vilm.kom
         {
 
         }
+
+        private void btnStoel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

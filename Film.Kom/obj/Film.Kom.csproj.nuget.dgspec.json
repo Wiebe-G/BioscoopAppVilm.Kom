@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\School\\C#\\BioscoopAppVilm.Kom\\Film.Kom\\Film.Kom.csproj": {}
+    "C:\\Users\\avsar\\source\\repos\\BioscoopAppVilm.Kom\\Film.Kom\\Film.Kom.csproj": {}
   },
   "projects": {
-    "D:\\School\\C#\\BioscoopAppVilm.Kom\\Film.Kom\\Film.Kom.csproj": {
+    "C:\\Users\\avsar\\source\\repos\\BioscoopAppVilm.Kom\\Film.Kom\\Film.Kom.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\School\\C#\\BioscoopAppVilm.Kom\\Film.Kom\\Film.Kom.csproj",
+        "projectUniqueName": "C:\\Users\\avsar\\source\\repos\\BioscoopAppVilm.Kom\\Film.Kom\\Film.Kom.csproj",
         "projectName": "Film.Kom",
-        "projectPath": "D:\\School\\C#\\BioscoopAppVilm.Kom\\Film.Kom\\Film.Kom.csproj",
-        "packagesPath": "C:\\Users\\Wiebe\\.nuget\\packages\\",
-        "outputPath": "D:\\School\\C#\\BioscoopAppVilm.Kom\\Film.Kom\\obj\\",
+        "projectPath": "C:\\Users\\avsar\\source\\repos\\BioscoopAppVilm.Kom\\Film.Kom\\Film.Kom.csproj",
+        "packagesPath": "C:\\Users\\avsar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\avsar\\source\\repos\\BioscoopAppVilm.Kom\\Film.Kom\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Wiebe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\avsar\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -45,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0-windows7.0": {
@@ -83,7 +82,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

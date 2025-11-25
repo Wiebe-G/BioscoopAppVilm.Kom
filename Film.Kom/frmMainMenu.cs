@@ -33,8 +33,14 @@ namespace Film.Kom
             }
             else
             {
-                btnLogin.Text = "Uitloggen";
+                btnLogin.Text = $"{user.Naam} ";
                 lblUsername.Text = user.Naam;
+                btnLogin.Click -= btnLogin_Click;
+                btnLogin.MouseClick += (sender, e) =>
+                {
+                    frmProfielpagina ProfileForm = new frmProfielpagina(user);
+                    ProfileForm.Show();
+                };
             }
         }
 

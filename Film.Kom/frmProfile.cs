@@ -19,20 +19,14 @@ namespace Film.Kom
         }
         public frmProfielpagina(User user)
         {
-            try
+            InitializeComponent();
+            _User = user;
+            if (user == null)
             {
-                _User = user;
-                if (user == null)
-                {
-                    MessageBox.Show("Niet ingelogd");
-                    return;
-                }
-                lblNameDisplay.Text = user.Naam;
+                MessageBox.Show("Niet ingelogd");
+                return;
             }
-            catch (Exception e)
-            {
-                MessageBox.Show($"Error: \n{e.StackTrace}\n indioagnaidghd: \n {e.InnerException}");
-            }
+            lblNameDisplay.Text = user.Naam;
         }
     }
 }

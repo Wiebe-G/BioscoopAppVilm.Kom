@@ -41,7 +41,7 @@ namespace Film.Kom
                 btnLogin.Click -= btnLogin_Click;
                 btnLogin.MouseClick += (sender, e) =>
                 {
-                    frmProfielpagina ProfileForm = new();
+                    frmProfielpagina ProfileForm = new frmProfielpagina(user);
                     ProfileForm.Show();
                 };
             }
@@ -64,7 +64,7 @@ namespace Film.Kom
 
         private async void btnSearch_Click(object sender, EventArgs e)
         {
-            Searchfunction SearchForFilms = new();
+            SearchForFilmsInDB SearchForFilms = new();
             var MovieInfo = await SearchForFilms.SearchFunction(txtSearch.Text.Trim().ToLower());
             if (MovieInfo == null)
             {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Film.Kom
 {
-    internal class Searchfunction
+    internal class SearchForFilmsInDB
     {
         Passwords passwords = new Passwords();
         internal async Task<FilmInfo> SearchFunction(string input)

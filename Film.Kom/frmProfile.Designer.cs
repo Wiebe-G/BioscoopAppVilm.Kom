@@ -44,10 +44,10 @@
             pnlPasswordchangesecond = new TableLayoutPanel();
             txtPassword = new TextBox();
             btnChangepassword = new Button();
-            label5 = new Label();
-            label2 = new Label();
-            label4 = new Label();
-            label1 = new Label();
+            lblPasswordDisplay = new Label();
+            lblUsernameDisplay = new Label();
+            lblPassword = new Label();
+            lblUsername = new Label();
             pnlUsernamechangemain = new TableLayoutPanel();
             btnChangeusername = new Button();
             pnlUsernamechnagesecond = new TableLayoutPanel();
@@ -56,8 +56,8 @@
             pnlDeleteaccount = new TableLayoutPanel();
             btnDeleteaccount = new Button();
             pnlAccountdetail = new TableLayoutPanel();
-            lblAccountdatemain = new Label();
-            lblAccountdatesecond = new Label();
+            lblActiveSince = new Label();
+            lblActiveSinceDisplay = new Label();
             pnlUserinfosecond = new TableLayoutPanel();
             pnlSavesurname = new TableLayoutPanel();
             btnSavesurname = new Button();
@@ -70,13 +70,13 @@
             label8 = new Label();
             label3 = new Label();
             pnlUserinfothird = new TableLayoutPanel();
-            lblDateofbirthsecond = new Label();
-            lblDateofbirthmain = new Label();
+            lblDateOfBirthDisplay = new Label();
+            lblDateOfBirth = new Label();
             pnlEmailchangefirst = new TableLayoutPanel();
             btnChangemail = new Button();
             pnlEmailchangesecond = new TableLayoutPanel();
             txtChangemail = new TextBox();
-            lblEmailconfirm = new Label();
+            lblEmailDisplay = new Label();
             lblEmail = new Label();
             picBack = new PictureBox();
             pnlMain.SuspendLayout();
@@ -271,10 +271,10 @@
             pnlUserinfoFirst.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             pnlUserinfoFirst.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             pnlUserinfoFirst.Controls.Add(pnlPasswordchangemain, 2, 1);
-            pnlUserinfoFirst.Controls.Add(label5, 1, 1);
-            pnlUserinfoFirst.Controls.Add(label2, 1, 0);
-            pnlUserinfoFirst.Controls.Add(label4, 0, 1);
-            pnlUserinfoFirst.Controls.Add(label1, 0, 0);
+            pnlUserinfoFirst.Controls.Add(lblPasswordDisplay, 1, 1);
+            pnlUserinfoFirst.Controls.Add(lblUsernameDisplay, 1, 0);
+            pnlUserinfoFirst.Controls.Add(lblPassword, 0, 1);
+            pnlUserinfoFirst.Controls.Add(lblUsername, 0, 0);
             pnlUserinfoFirst.Controls.Add(pnlUsernamechangemain, 2, 0);
             pnlUserinfoFirst.Dock = DockStyle.Fill;
             pnlUserinfoFirst.Location = new Point(93, 85);
@@ -343,57 +343,57 @@
             btnChangepassword.Text = "Wijzig";
             btnChangepassword.UseVisualStyleBackColor = false;
             // 
-            // label5
+            // lblPasswordDisplay
             // 
-            label5.AutoSize = true;
-            label5.Dock = DockStyle.Fill;
-            label5.Font = new Font("Georgia", 15.75F);
-            label5.ForeColor = SystemColors.ButtonHighlight;
-            label5.Location = new Point(271, 162);
-            label5.Name = "label5";
-            label5.Size = new Size(262, 162);
-            label5.TabIndex = 6;
-            label5.Text = "Wachtwoord";
-            label5.TextAlign = ContentAlignment.MiddleLeft;
+            lblPasswordDisplay.AutoSize = true;
+            lblPasswordDisplay.Dock = DockStyle.Fill;
+            lblPasswordDisplay.Font = new Font("Georgia", 15.75F);
+            lblPasswordDisplay.ForeColor = SystemColors.ButtonHighlight;
+            lblPasswordDisplay.Location = new Point(271, 162);
+            lblPasswordDisplay.Name = "lblPasswordDisplay";
+            lblPasswordDisplay.Size = new Size(262, 162);
+            lblPasswordDisplay.TabIndex = 6;
+            lblPasswordDisplay.Text = "Wachtwoord";
+            lblPasswordDisplay.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label2
+            // lblUsernameDisplay
             // 
-            label2.AutoSize = true;
-            label2.Dock = DockStyle.Fill;
-            label2.Font = new Font("Georgia", 15.75F);
-            label2.ForeColor = SystemColors.ButtonHighlight;
-            label2.Location = new Point(271, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(262, 162);
-            label2.TabIndex = 4;
-            label2.Text = "Gebruikersnaam";
-            label2.TextAlign = ContentAlignment.MiddleLeft;
+            lblUsernameDisplay.AutoSize = true;
+            lblUsernameDisplay.Dock = DockStyle.Fill;
+            lblUsernameDisplay.Font = new Font("Georgia", 15.75F);
+            lblUsernameDisplay.ForeColor = SystemColors.ButtonHighlight;
+            lblUsernameDisplay.Location = new Point(271, 0);
+            lblUsernameDisplay.Name = "lblUsernameDisplay";
+            lblUsernameDisplay.Size = new Size(262, 162);
+            lblUsernameDisplay.TabIndex = 4;
+            lblUsernameDisplay.Text = "Gebruikersnaam";
+            lblUsernameDisplay.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label4
+            // lblPassword
             // 
-            label4.AutoSize = true;
-            label4.Dock = DockStyle.Fill;
-            label4.Font = new Font("Georgia", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = SystemColors.ButtonHighlight;
-            label4.Location = new Point(3, 162);
-            label4.Name = "label4";
-            label4.Size = new Size(262, 162);
-            label4.TabIndex = 3;
-            label4.Text = "Wachtwoord:";
-            label4.TextAlign = ContentAlignment.MiddleRight;
+            lblPassword.AutoSize = true;
+            lblPassword.Dock = DockStyle.Fill;
+            lblPassword.Font = new Font("Georgia", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPassword.ForeColor = SystemColors.ButtonHighlight;
+            lblPassword.Location = new Point(3, 162);
+            lblPassword.Name = "lblPassword";
+            lblPassword.Size = new Size(262, 162);
+            lblPassword.TabIndex = 3;
+            lblPassword.Text = "Wachtwoord:";
+            lblPassword.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // label1
+            // lblUsername
             // 
-            label1.AutoSize = true;
-            label1.Dock = DockStyle.Fill;
-            label1.Font = new Font("Georgia", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(3, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(262, 162);
-            label1.TabIndex = 0;
-            label1.Text = "Gebruikersnaam:";
-            label1.TextAlign = ContentAlignment.MiddleRight;
+            lblUsername.AutoSize = true;
+            lblUsername.Dock = DockStyle.Fill;
+            lblUsername.Font = new Font("Georgia", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblUsername.ForeColor = SystemColors.ButtonHighlight;
+            lblUsername.Location = new Point(3, 0);
+            lblUsername.Name = "lblUsername";
+            lblUsername.Size = new Size(262, 162);
+            lblUsername.TabIndex = 0;
+            lblUsername.Text = "Gebruikersnaam:";
+            lblUsername.TextAlign = ContentAlignment.MiddleRight;
             // 
             // pnlUsernamechangemain
             // 
@@ -506,8 +506,8 @@
             pnlAccountdetail.ColumnCount = 2;
             pnlAccountdetail.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             pnlAccountdetail.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            pnlAccountdetail.Controls.Add(lblAccountdatemain, 0, 0);
-            pnlAccountdetail.Controls.Add(lblAccountdatesecond, 1, 0);
+            pnlAccountdetail.Controls.Add(lblActiveSince, 0, 0);
+            pnlAccountdetail.Controls.Add(lblActiveSinceDisplay, 1, 0);
             pnlAccountdetail.Dock = DockStyle.Fill;
             pnlAccountdetail.Location = new Point(405, 3);
             pnlAccountdetail.Name = "pnlAccountdetail";
@@ -517,29 +517,29 @@
             pnlAccountdetail.Size = new Size(397, 156);
             pnlAccountdetail.TabIndex = 10;
             // 
-            // lblAccountdatemain
+            // lblActiveSince
             // 
-            lblAccountdatemain.AutoSize = true;
-            lblAccountdatemain.Dock = DockStyle.Fill;
-            lblAccountdatemain.Font = new Font("Georgia", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblAccountdatemain.Location = new Point(3, 0);
-            lblAccountdatemain.Name = "lblAccountdatemain";
-            lblAccountdatemain.Size = new Size(192, 156);
-            lblAccountdatemain.TabIndex = 7;
-            lblAccountdatemain.Text = "Actief sinds:";
-            lblAccountdatemain.TextAlign = ContentAlignment.MiddleRight;
+            lblActiveSince.AutoSize = true;
+            lblActiveSince.Dock = DockStyle.Fill;
+            lblActiveSince.Font = new Font("Georgia", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblActiveSince.Location = new Point(3, 0);
+            lblActiveSince.Name = "lblActiveSince";
+            lblActiveSince.Size = new Size(192, 156);
+            lblActiveSince.TabIndex = 7;
+            lblActiveSince.Text = "Actief sinds:";
+            lblActiveSince.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // lblAccountdatesecond
+            // lblActiveSinceDisplay
             // 
-            lblAccountdatesecond.AutoSize = true;
-            lblAccountdatesecond.Dock = DockStyle.Fill;
-            lblAccountdatesecond.Font = new Font("Georgia", 15.75F);
-            lblAccountdatesecond.Location = new Point(201, 0);
-            lblAccountdatesecond.Name = "lblAccountdatesecond";
-            lblAccountdatesecond.Size = new Size(193, 156);
-            lblAccountdatesecond.TabIndex = 9;
-            lblAccountdatesecond.Text = "datum";
-            lblAccountdatesecond.TextAlign = ContentAlignment.MiddleLeft;
+            lblActiveSinceDisplay.AutoSize = true;
+            lblActiveSinceDisplay.Dock = DockStyle.Fill;
+            lblActiveSinceDisplay.Font = new Font("Georgia", 15.75F);
+            lblActiveSinceDisplay.Location = new Point(201, 0);
+            lblActiveSinceDisplay.Name = "lblActiveSinceDisplay";
+            lblActiveSinceDisplay.Size = new Size(193, 156);
+            lblActiveSinceDisplay.TabIndex = 9;
+            lblActiveSinceDisplay.Text = "datum";
+            lblActiveSinceDisplay.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // pnlUserinfosecond
             // 
@@ -712,10 +712,10 @@
             pnlUserinfothird.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             pnlUserinfothird.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             pnlUserinfothird.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            pnlUserinfothird.Controls.Add(lblDateofbirthsecond, 1, 1);
-            pnlUserinfothird.Controls.Add(lblDateofbirthmain, 0, 1);
+            pnlUserinfothird.Controls.Add(lblDateOfBirthDisplay, 1, 1);
+            pnlUserinfothird.Controls.Add(lblDateOfBirth, 0, 1);
             pnlUserinfothird.Controls.Add(pnlEmailchangefirst, 2, 0);
-            pnlUserinfothird.Controls.Add(lblEmailconfirm, 1, 0);
+            pnlUserinfothird.Controls.Add(lblEmailDisplay, 1, 0);
             pnlUserinfothird.Controls.Add(lblEmail, 0, 0);
             pnlUserinfothird.Dock = DockStyle.Fill;
             pnlUserinfothird.Location = new Point(904, 85);
@@ -726,31 +726,31 @@
             pnlUserinfothird.Size = new Size(805, 324);
             pnlUserinfothird.TabIndex = 3;
             // 
-            // lblDateofbirthsecond
+            // lblDateOfBirthDisplay
             // 
-            lblDateofbirthsecond.AutoSize = true;
-            lblDateofbirthsecond.Dock = DockStyle.Fill;
-            lblDateofbirthsecond.Font = new Font("Georgia", 15.75F);
-            lblDateofbirthsecond.ForeColor = SystemColors.ButtonHighlight;
-            lblDateofbirthsecond.Location = new Point(271, 162);
-            lblDateofbirthsecond.Name = "lblDateofbirthsecond";
-            lblDateofbirthsecond.Size = new Size(262, 162);
-            lblDateofbirthsecond.TabIndex = 10;
-            lblDateofbirthsecond.Text = "Gebruikersnaam";
-            lblDateofbirthsecond.TextAlign = ContentAlignment.MiddleLeft;
+            lblDateOfBirthDisplay.AutoSize = true;
+            lblDateOfBirthDisplay.Dock = DockStyle.Fill;
+            lblDateOfBirthDisplay.Font = new Font("Georgia", 15.75F);
+            lblDateOfBirthDisplay.ForeColor = SystemColors.ButtonHighlight;
+            lblDateOfBirthDisplay.Location = new Point(271, 162);
+            lblDateOfBirthDisplay.Name = "lblDateOfBirthDisplay";
+            lblDateOfBirthDisplay.Size = new Size(262, 162);
+            lblDateOfBirthDisplay.TabIndex = 10;
+            lblDateOfBirthDisplay.Text = "Geboortedatum";
+            lblDateOfBirthDisplay.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // lblDateofbirthmain
+            // lblDateOfBirth
             // 
-            lblDateofbirthmain.AutoSize = true;
-            lblDateofbirthmain.Dock = DockStyle.Fill;
-            lblDateofbirthmain.Font = new Font("Georgia", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDateofbirthmain.ForeColor = SystemColors.ButtonHighlight;
-            lblDateofbirthmain.Location = new Point(3, 162);
-            lblDateofbirthmain.Name = "lblDateofbirthmain";
-            lblDateofbirthmain.Size = new Size(262, 162);
-            lblDateofbirthmain.TabIndex = 9;
-            lblDateofbirthmain.Text = "Geboortedatum:";
-            lblDateofbirthmain.TextAlign = ContentAlignment.MiddleRight;
+            lblDateOfBirth.AutoSize = true;
+            lblDateOfBirth.Dock = DockStyle.Fill;
+            lblDateOfBirth.Font = new Font("Georgia", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDateOfBirth.ForeColor = SystemColors.ButtonHighlight;
+            lblDateOfBirth.Location = new Point(3, 162);
+            lblDateOfBirth.Name = "lblDateOfBirth";
+            lblDateOfBirth.Size = new Size(262, 162);
+            lblDateOfBirth.TabIndex = 9;
+            lblDateOfBirth.Text = "Geboortedatum:";
+            lblDateOfBirth.TextAlign = ContentAlignment.MiddleRight;
             // 
             // pnlEmailchangefirst
             // 
@@ -809,18 +809,18 @@
             txtChangemail.Text = "...";
             txtChangemail.TextAlign = HorizontalAlignment.Center;
             // 
-            // lblEmailconfirm
+            // lblEmailDisplay
             // 
-            lblEmailconfirm.AutoSize = true;
-            lblEmailconfirm.Dock = DockStyle.Fill;
-            lblEmailconfirm.Font = new Font("Georgia", 15.75F);
-            lblEmailconfirm.ForeColor = SystemColors.ButtonHighlight;
-            lblEmailconfirm.Location = new Point(271, 0);
-            lblEmailconfirm.Name = "lblEmailconfirm";
-            lblEmailconfirm.Size = new Size(262, 162);
-            lblEmailconfirm.TabIndex = 5;
-            lblEmailconfirm.Text = "Gebruikersnaam";
-            lblEmailconfirm.TextAlign = ContentAlignment.MiddleLeft;
+            lblEmailDisplay.AutoSize = true;
+            lblEmailDisplay.Dock = DockStyle.Fill;
+            lblEmailDisplay.Font = new Font("Georgia", 15.75F);
+            lblEmailDisplay.ForeColor = SystemColors.ButtonHighlight;
+            lblEmailDisplay.Location = new Point(271, 0);
+            lblEmailDisplay.Name = "lblEmailDisplay";
+            lblEmailDisplay.Size = new Size(262, 162);
+            lblEmailDisplay.TabIndex = 5;
+            lblEmailDisplay.Text = "Gebruikersnaam";
+            lblEmailDisplay.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblEmail
             // 
@@ -906,11 +906,11 @@
         private TableLayoutPanel pnlInhoudmain;
         private TableLayoutPanel pnlInhoudSecondary;
         private TableLayoutPanel pnlUserinfoFirst;
-        private Label label4;
-        private Label label1;
-        private Label label2;
+        private Label lblPassword;
+        private Label lblUsername;
+        private Label lblUsernameDisplay;
         private TableLayoutPanel pnlPasswordchangemain;
-        private Label label5;
+        private Label lblPasswordDisplay;
         private TableLayoutPanel pnlUsernamechangemain;
         private Button btnChangepassword;
         private Button btnChangeusername;
@@ -921,9 +921,9 @@
         private TableLayoutPanel pnlButtons;
         private TableLayoutPanel pnlDeleteaccount;
         private Button btnDeleteaccount;
-        private Label lblAccountdatemain;
+        private Label lblActiveSince;
         private TableLayoutPanel pnlAccountdetail;
-        private Label lblAccountdatesecond;
+        private Label lblActiveSinceDisplay;
         private TableLayoutPanel pnlUserinfosecond;
         private TableLayoutPanel pnlSurname;
         private TextBox txtSurname;
@@ -932,13 +932,13 @@
         private Label label8;
         private Label label3;
         private TableLayoutPanel pnlUserinfothird;
-        private Label lblDateofbirthsecond;
-        private Label lblDateofbirthmain;
+        private Label lblDateOfBirthDisplay;
+        private Label lblDateOfBirth;
         private TableLayoutPanel pnlEmailchangefirst;
         private Button btnChangemail;
         private TableLayoutPanel pnlEmailchangesecond;
         private TextBox txtChangemail;
-        private Label lblEmailconfirm;
+        private Label lblEmailDisplay;
         private Label lblEmail;
         private TableLayoutPanel pnlSavesurname;
         private Button btnSavesurname;

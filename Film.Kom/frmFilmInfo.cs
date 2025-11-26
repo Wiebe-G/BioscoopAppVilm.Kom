@@ -42,7 +42,7 @@ namespace Film.Kom
 
         internal async Task GetMovieInfo(string FilmName)
         {
-            Searchfunction SearchForFilms = new();
+            SearchForFilmsInDB SearchForFilms = new();
             var MovieData = await SearchForFilms.SearchFunction(FilmName.Trim().ToLower());
             if (MovieData == null)
             {
@@ -51,24 +51,23 @@ namespace Film.Kom
             }
             if (!string.IsNullOrWhiteSpace(MovieData.Poster) && MovieData.Poster != "N/A")
             {
-                DisplayData(MovieData.Poster, MovieData.Title, MovieData.Plot, MovieData.Rated);
+                DisplayData(MovieData);
             }
-
         }
-        private void DisplayData(string ImageLocation, string Title, string Plot, string Rating)
+        private void DisplayData(FilmInfo MovieData)
         {
-            picPoster.Load(ImageLocation);
+            picPoster.Load(MovieData.Poster);
             picPoster.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            lblTitle.Text = $"Titel: {Title} ";
-            lblPlot.Text = $"Plot: {Plot}";
-            if (Rating == "R")
+            lblTitle.Text = $"Titel: {MovieData.Title} ";
+            lblPlot.Text = $"Plot: {MovieData.Plot}";
+            if (MovieData.Rated == "R")
             {
-                lblRating.Text = $"Rating: {Rating}, dus geen kinderen meenemen";
+                lblRating.Text = $"Rating: {MovieData.Rated}, dus geen kinderen meenemen";
             }
             else
             {
-                lblRating.Text = $"Rating: {Rating}, dus kinderen mogen mee";
+                lblRating.Text = $"Rating: {MovieData.Rated}, dus kinderen mogen mee";
             }
         }
 

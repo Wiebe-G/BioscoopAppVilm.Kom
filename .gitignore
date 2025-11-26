@@ -12,6 +12,9 @@ Film.Kom/Passwords.cs
 *.sln.docstates
 *.env
 
+bin/
+obj/
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 

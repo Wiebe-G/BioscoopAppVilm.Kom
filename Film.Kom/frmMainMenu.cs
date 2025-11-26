@@ -1,5 +1,8 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -38,7 +41,7 @@ namespace Film.Kom
                 btnLogin.Click -= btnLogin_Click;
                 btnLogin.MouseClick += (sender, e) =>
                 {
-                    frmProfielpagina ProfileForm = new frmProfielpagina(user);
+                    frmProfielpagina ProfileForm = new();
                     ProfileForm.Show();
                 };
             }
@@ -59,52 +62,27 @@ namespace Film.Kom
             }
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private async void btnSearch_Click(object sender, EventArgs e)
         {
-            SearchFunction();
+            Searchfunction SearchForFilms = new();
+            var MovieInfo = await SearchForFilms.SearchFunction(txtSearch.Text.Trim().ToLower());
+            if (MovieInfo == null)
+            {
+                MessageBox.Show($"Film is niet gevonden. probeer het opnieuw");
+                return;
+            }
+            MessageBox.Show($"Film {MovieInfo.Title} is gevonden. Hij draait in zaal {MovieInfo.Zaal} om {MovieInfo.Speeltijd}.");
+            picFilm1.Load(MovieInfo.Poster);
+            frmFilmInfo filmForm = new frmFilmInfo(MovieInfo.Title, _LoggedInUser);
+            picFilm1.MouseClick += (sender, e) =>
+            {
+                filmForm.Show();
+            };
         }
 
         private void txtSearch_Click(object sender, EventArgs e)
         {
             txtSearch.Text = "";
-        }
-
-        private async Task SearchFunction()
-        {
-            string FilmName = txtSearch.Text;
-            string APIkey = passwords.APIKey;
-            string BaseURL = "https://www.omdbapi.com";
-
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri(BaseURL);
-                client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-
-                var QueryString = $"t={Uri.EscapeDataString(FilmName)}&plot=full&&apikey={APIkey}";
-                HttpResponseMessage response = await client.GetAsync($"?{QueryString}");
-
-                if (!response.IsSuccessStatusCode)
-                {
-                    MessageBox.Show($"Oh oh, er ging iets niet goed. Statuscode: {response.StatusCode}. Reden: {response.ReasonPhrase}");
-                    return;
-                }
-                string JSONResponse = await response.Content.ReadAsStringAsync();
-                var MovieData = JsonSerializer.Deserialize<FilmInfo>(JSONResponse);
-                // vraagteken betekent dat de variabele null mag zijn
-                if (MovieData?.Response != "True")
-                {
-                    MessageBox.Show("Film niet gevonden");
-                    return;
-                }
-                // TODO: zorg ervoor dat de meeste recente zoekopdracht op plek 1 komt, en op 1 na laaste op 2, etc
-                MessageBox.Show($"Film {FilmName} is gevonden. {MovieData.Year}");
-                picFilm1.Load(MovieData.Poster);
-                frmFilmInfo filmForm = new frmFilmInfo(FilmName, _LoggedInUser);
-                picFilm1.MouseClick += (sender, e) =>
-                {
-                    filmForm.Show();
-                };
-            }
         }
 
         private void lblFilm5_Click(object sender, EventArgs e)

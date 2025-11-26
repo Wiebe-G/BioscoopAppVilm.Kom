@@ -1,7 +1,15 @@
-﻿namespace Film.Kom
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+
+namespace Film.Kom
 {
     internal class FilmInfo
     {
+
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string Id { get; set; } = string.Empty;
+
         public string Title { get; set; } = string.Empty;
         public string Year { get; set; } = string.Empty;
         public string Genre { get; set; } = string.Empty;

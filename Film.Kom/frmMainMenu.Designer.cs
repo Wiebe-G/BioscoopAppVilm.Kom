@@ -90,7 +90,7 @@
             tableLayoutPanel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picFilm5).BeginInit();
             tableLayoutPanel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picFilm4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picFilm4).EndInit();
             tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picFilm3).BeginInit();
             tableLayoutPanel3.SuspendLayout();
@@ -118,11 +118,7 @@
             picFilm1.Location = new Point(5, 4);
             picFilm1.Margin = new Padding(5, 4, 5, 4);
             picFilm1.Name = "picFilm1";
-<<<<<<< HEAD
-            picFilm1.Size = new Size(259, 391);
-=======
             picFilm1.Size = new Size(256, 387);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             picFilm1.SizeMode = PictureBoxSizeMode.StretchImage;
             picFilm1.TabIndex = 0;
             picFilm1.TabStop = false;
@@ -132,17 +128,10 @@
             lblFilm1.AutoSize = true;
             lblFilm1.Dock = DockStyle.Fill;
             lblFilm1.Font = new Font("Georgia", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-<<<<<<< HEAD
-            lblFilm1.Location = new Point(4, 397);
-            lblFilm1.Margin = new Padding(4, 0, 4, 0);
-            lblFilm1.Name = "lblFilm1";
-            lblFilm1.Size = new Size(259, 63);
-=======
-            lblFilm1.Location = new Point(5, 395);
+                                                                    lblFilm1.Location = new Point(5, 395);
             lblFilm1.Margin = new Padding(5, 0, 5, 0);
             lblFilm1.Name = "lblFilm1";
             lblFilm1.Size = new Size(256, 63);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             lblFilm1.TabIndex = 1;
             lblFilm1.Text = "film";
             lblFilm1.TextAlign = ContentAlignment.MiddleCenter;
@@ -167,11 +156,7 @@
             pnlTaakbalk.Name = "pnlTaakbalk";
             pnlTaakbalk.RowCount = 1;
             pnlTaakbalk.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-<<<<<<< HEAD
-            pnlTaakbalk.Size = new Size(1888, 149);
-=======
-            pnlTaakbalk.Size = new Size(1904, 149);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
+            pnlTaakbalk.Size = new Size(1924, 149);
             pnlTaakbalk.TabIndex = 1;
             // 
             // picLogo
@@ -182,11 +167,7 @@
             picLogo.Location = new Point(5, 4);
             picLogo.Margin = new Padding(5, 4, 5, 4);
             picLogo.Name = "picLogo";
-<<<<<<< HEAD
-            picLogo.Size = new Size(369, 143);
-=======
             picLogo.Size = new Size(370, 141);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             picLogo.SizeMode = PictureBoxSizeMode.StretchImage;
             picLogo.TabIndex = 2;
             picLogo.TabStop = false;
@@ -198,22 +179,13 @@
             pnlSearch.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 26F));
             pnlSearch.Controls.Add(btnSearch, 0, 1);
             pnlSearch.Dock = DockStyle.Fill;
-<<<<<<< HEAD
-            pnlSearch.Location = new Point(1512, 3);
-            pnlSearch.Margin = new Padding(4, 3, 4, 3);
-=======
             pnlSearch.Location = new Point(1526, 4);
             pnlSearch.Margin = new Padding(5, 4, 5, 4);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             pnlSearch.Name = "pnlSearch";
             pnlSearch.RowCount = 2;
             pnlSearch.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             pnlSearch.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-<<<<<<< HEAD
-            pnlSearch.Size = new Size(372, 143);
-=======
             pnlSearch.Size = new Size(373, 141);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             pnlSearch.TabIndex = 1;
             // 
             // btnSearch
@@ -221,17 +193,10 @@
             btnSearch.BackColor = Color.DarkRed;
             btnSearch.Dock = DockStyle.Fill;
             btnSearch.Font = new Font("Georgia", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-<<<<<<< HEAD
-            btnSearch.Location = new Point(4, 74);
-            btnSearch.Margin = new Padding(4, 3, 4, 3);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(364, 66);
-=======
             btnSearch.Location = new Point(5, 74);
             btnSearch.Margin = new Padding(5, 4, 5, 4);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(363, 63);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             btnSearch.TabIndex = 0;
             btnSearch.Text = "Zoeken";
             btnSearch.UseVisualStyleBackColor = false;
@@ -246,41 +211,24 @@
             pnlSearchbar.Controls.Add(txtSearch, 0, 1);
             pnlSearchbar.Controls.Add(lblSearch, 0, 0);
             pnlSearchbar.Dock = DockStyle.Fill;
-<<<<<<< HEAD
-            pnlSearchbar.Location = new Point(569, 3);
-            pnlSearchbar.Margin = new Padding(4, 3, 4, 3);
-=======
             pnlSearchbar.Location = new Point(575, 4);
             pnlSearchbar.Margin = new Padding(5, 4, 5, 4);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             pnlSearchbar.Name = "pnlSearchbar";
             pnlSearchbar.RowCount = 2;
             pnlSearchbar.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             pnlSearchbar.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-<<<<<<< HEAD
-            pnlSearchbar.Size = new Size(747, 143);
-=======
             pnlSearchbar.Size = new Size(751, 141);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             pnlSearchbar.TabIndex = 3;
             // 
             // txtSearch
             // 
             txtSearch.Dock = DockStyle.Fill;
             txtSearch.Font = new Font("Georgia", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-<<<<<<< HEAD
-            txtSearch.Location = new Point(4, 74);
-            txtSearch.Margin = new Padding(4, 3, 4, 3);
-            txtSearch.Multiline = true;
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(739, 66);
-=======
             txtSearch.Location = new Point(5, 74);
             txtSearch.Margin = new Padding(5, 4, 5, 4);
             txtSearch.Multiline = true;
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(741, 63);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             txtSearch.TabIndex = 0;
             txtSearch.Text = "Zoeken...";
             txtSearch.TextAlign = HorizontalAlignment.Center;
@@ -295,11 +243,7 @@
             lblSearch.Location = new Point(5, 0);
             lblSearch.Margin = new Padding(5, 0, 5, 0);
             lblSearch.Name = "lblSearch";
-<<<<<<< HEAD
-            lblSearch.Size = new Size(739, 71);
-=======
             lblSearch.Size = new Size(741, 70);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             lblSearch.TabIndex = 1;
             lblSearch.Text = "Zoek hier een film";
             lblSearch.TextAlign = ContentAlignment.MiddleCenter;
@@ -312,22 +256,13 @@
             pnlFilter.Controls.Add(cmbFilter, 0, 1);
             pnlFilter.Controls.Add(lblFilter, 0, 0);
             pnlFilter.Dock = DockStyle.Fill;
-<<<<<<< HEAD
-            pnlFilter.Location = new Point(381, 3);
-            pnlFilter.Margin = new Padding(4, 3, 4, 3);
-=======
             pnlFilter.Location = new Point(385, 4);
             pnlFilter.Margin = new Padding(5, 4, 5, 4);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             pnlFilter.Name = "pnlFilter";
             pnlFilter.RowCount = 2;
             pnlFilter.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             pnlFilter.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-<<<<<<< HEAD
-            pnlFilter.Size = new Size(180, 143);
-=======
             pnlFilter.Size = new Size(180, 141);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             pnlFilter.TabIndex = 4;
             // 
             // cmbFilter
@@ -337,17 +272,10 @@
             cmbFilter.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cmbFilter.FormattingEnabled = true;
             cmbFilter.Items.AddRange(new object[] { "Horror", "Comedy", "Actie", "Romantiek", "Fantasie", "Kinderfilm", "Thriller", "Drama", "Musical", "Oorlog", "Natuur", "Avontuur" });
-<<<<<<< HEAD
-            cmbFilter.Location = new Point(4, 74);
-            cmbFilter.Margin = new Padding(4, 3, 4, 3);
-            cmbFilter.Name = "cmbFilter";
-            cmbFilter.Size = new Size(172, 28);
-=======
             cmbFilter.Location = new Point(5, 74);
             cmbFilter.Margin = new Padding(5, 4, 5, 4);
             cmbFilter.Name = "cmbFilter";
             cmbFilter.Size = new Size(170, 33);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             cmbFilter.TabIndex = 6;
             // 
             // lblFilter
@@ -359,11 +287,7 @@
             lblFilter.Location = new Point(5, 0);
             lblFilter.Margin = new Padding(5, 0, 5, 0);
             lblFilter.Name = "lblFilter";
-<<<<<<< HEAD
-            lblFilter.Size = new Size(172, 71);
-=======
             lblFilter.Size = new Size(170, 70);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             lblFilter.TabIndex = 7;
             lblFilter.Text = "Filteren";
             lblFilter.TextAlign = ContentAlignment.BottomCenter;
@@ -375,22 +299,13 @@
             pnlLogin.Controls.Add(btnLogin, 0, 1);
             pnlLogin.Controls.Add(tableLayoutPanel2, 0, 0);
             pnlLogin.Dock = DockStyle.Fill;
-<<<<<<< HEAD
-            pnlLogin.Location = new Point(1324, 3);
-            pnlLogin.Margin = new Padding(4, 3, 4, 3);
-=======
             pnlLogin.Location = new Point(1336, 4);
             pnlLogin.Margin = new Padding(5, 4, 5, 4);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             pnlLogin.Name = "pnlLogin";
             pnlLogin.RowCount = 2;
             pnlLogin.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             pnlLogin.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-<<<<<<< HEAD
-            pnlLogin.Size = new Size(180, 143);
-=======
             pnlLogin.Size = new Size(180, 141);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             pnlLogin.TabIndex = 5;
             // 
             // btnLogin
@@ -398,17 +313,10 @@
             btnLogin.BackColor = Color.DarkRed;
             btnLogin.Dock = DockStyle.Fill;
             btnLogin.Font = new Font("Georgia", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-<<<<<<< HEAD
-            btnLogin.Location = new Point(4, 74);
-            btnLogin.Margin = new Padding(4, 3, 4, 3);
-            btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(172, 66);
-=======
             btnLogin.Location = new Point(5, 74);
             btnLogin.Margin = new Padding(5, 4, 5, 4);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(170, 63);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             btnLogin.TabIndex = 2;
             btnLogin.Text = "Inloggen";
             btnLogin.UseVisualStyleBackColor = false;
@@ -457,11 +365,7 @@
             pnlMovie1.RowCount = 2;
             pnlMovie1.RowStyles.Add(new RowStyle(SizeType.Percent, 86.30434F));
             pnlMovie1.RowStyles.Add(new RowStyle(SizeType.Percent, 13.69565F));
-<<<<<<< HEAD
-            pnlMovie1.Size = new Size(267, 460);
-=======
             pnlMovie1.Size = new Size(266, 458);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             pnlMovie1.TabIndex = 0;
             // 
             // timer1
@@ -476,11 +380,7 @@
             picFilm2.Location = new Point(5, 4);
             picFilm2.Margin = new Padding(5, 4, 5, 4);
             picFilm2.Name = "picFilm2";
-<<<<<<< HEAD
-            picFilm2.Size = new Size(259, 391);
-=======
             picFilm2.Size = new Size(256, 387);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             picFilm2.SizeMode = PictureBoxSizeMode.StretchImage;
             picFilm2.TabIndex = 0;
             picFilm2.TabStop = false;
@@ -499,11 +399,7 @@
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 85F));
-<<<<<<< HEAD
-            tableLayoutPanel1.Size = new Size(1896, 1035);
-=======
             tableLayoutPanel1.Size = new Size(1914, 1047);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             tableLayoutPanel1.TabIndex = 2;
             // 
             // pnlSecundary
@@ -514,21 +410,12 @@
             pnlSecundary.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             pnlSecundary.Controls.Add(pnlSlideMoviesMain, 1, 0);
             pnlSecundary.Dock = DockStyle.Fill;
-<<<<<<< HEAD
-            pnlSecundary.Location = new Point(4, 158);
-            pnlSecundary.Margin = new Padding(4, 3, 4, 3);
-            pnlSecundary.Name = "pnlSecundary";
-            pnlSecundary.RowCount = 1;
-            pnlSecundary.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            pnlSecundary.Size = new Size(1888, 874);
-=======
             pnlSecundary.Location = new Point(5, 161);
             pnlSecundary.Margin = new Padding(5, 4, 5, 4);
             pnlSecundary.Name = "pnlSecundary";
             pnlSecundary.RowCount = 1;
             pnlSecundary.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             pnlSecundary.Size = new Size(1904, 882);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             pnlSecundary.TabIndex = 0;
             // 
             // pnlSlideMoviesMain
@@ -540,22 +427,13 @@
             pnlSlideMoviesMain.Controls.Add(pnlSlideMoviesSecundary, 0, 1);
             pnlSlideMoviesMain.Dock = DockStyle.Fill;
             pnlSlideMoviesMain.ForeColor = SystemColors.ButtonHighlight;
-<<<<<<< HEAD
-            pnlSlideMoviesMain.Location = new Point(192, 3);
-            pnlSlideMoviesMain.Margin = new Padding(4, 3, 4, 3);
-=======
             pnlSlideMoviesMain.Location = new Point(195, 4);
             pnlSlideMoviesMain.Margin = new Padding(5, 4, 5, 4);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             pnlSlideMoviesMain.Name = "pnlSlideMoviesMain";
             pnlSlideMoviesMain.RowCount = 2;
             pnlSlideMoviesMain.RowStyles.Add(new RowStyle(SizeType.Percent, 3.801843F));
             pnlSlideMoviesMain.RowStyles.Add(new RowStyle(SizeType.Percent, 96.19816F));
-<<<<<<< HEAD
-            pnlSlideMoviesMain.Size = new Size(1502, 868);
-=======
             pnlSlideMoviesMain.Size = new Size(1513, 874);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             pnlSlideMoviesMain.TabIndex = 0;
             // 
             // label1
@@ -568,11 +446,7 @@
             label1.Location = new Point(5, 0);
             label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-<<<<<<< HEAD
-            label1.Size = new Size(1494, 32);
-=======
             label1.Size = new Size(1503, 33);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             label1.TabIndex = 0;
             label1.Text = "Nu in de bioscoop!";
             label1.TextAlign = ContentAlignment.MiddleLeft;
@@ -585,22 +459,13 @@
             pnlSlideMoviesSecundary.Controls.Add(picSlide, 0, 0);
             pnlSlideMoviesSecundary.Controls.Add(pnlMovies, 0, 1);
             pnlSlideMoviesSecundary.Dock = DockStyle.Fill;
-<<<<<<< HEAD
-            pnlSlideMoviesSecundary.Location = new Point(4, 35);
-            pnlSlideMoviesSecundary.Margin = new Padding(4, 3, 4, 3);
-=======
             pnlSlideMoviesSecundary.Location = new Point(5, 37);
             pnlSlideMoviesSecundary.Margin = new Padding(5, 4, 5, 4);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             pnlSlideMoviesSecundary.Name = "pnlSlideMoviesSecundary";
             pnlSlideMoviesSecundary.RowCount = 2;
             pnlSlideMoviesSecundary.RowStyles.Add(new RowStyle(SizeType.Percent, 43.18456F));
             pnlSlideMoviesSecundary.RowStyles.Add(new RowStyle(SizeType.Percent, 56.81544F));
-<<<<<<< HEAD
-            pnlSlideMoviesSecundary.Size = new Size(1494, 830);
-=======
             pnlSlideMoviesSecundary.Size = new Size(1503, 833);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             pnlSlideMoviesSecundary.TabIndex = 1;
             // 
             // picSlide
@@ -610,11 +475,7 @@
             picSlide.Location = new Point(5, 4);
             picSlide.Margin = new Padding(5, 4, 5, 4);
             picSlide.Name = "picSlide";
-<<<<<<< HEAD
-            picSlide.Size = new Size(1486, 352);
-=======
             picSlide.Size = new Size(1493, 351);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             picSlide.SizeMode = PictureBoxSizeMode.StretchImage;
             picSlide.TabIndex = 0;
             picSlide.TabStop = false;
@@ -637,15 +498,6 @@
             pnlMovies.Controls.Add(tableLayoutPanel3, 2, 0);
             pnlMovies.Controls.Add(pnlMovie1, 0, 0);
             pnlMovies.Dock = DockStyle.Fill;
-<<<<<<< HEAD
-            pnlMovies.Location = new Point(4, 361);
-            pnlMovies.Margin = new Padding(4, 3, 4, 3);
-            pnlMovies.Name = "pnlMovies";
-            pnlMovies.RowCount = 1;
-            pnlMovies.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            pnlMovies.RowStyles.Add(new RowStyle(SizeType.Absolute, 350F));
-            pnlMovies.Size = new Size(1486, 466);
-=======
             pnlMovies.Location = new Point(5, 363);
             pnlMovies.Margin = new Padding(5, 4, 5, 4);
             pnlMovies.Name = "pnlMovies";
@@ -653,7 +505,6 @@
             pnlMovies.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             pnlMovies.RowStyles.Add(new RowStyle(SizeType.Absolute, 467F));
             pnlMovies.Size = new Size(1493, 466);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             pnlMovies.TabIndex = 1;
             // 
             // tableLayoutPanel9
@@ -664,22 +515,13 @@
             tableLayoutPanel9.Controls.Add(picFilm5, 0, 0);
             tableLayoutPanel9.Controls.Add(lblFilm5, 0, 1);
             tableLayoutPanel9.Dock = DockStyle.Fill;
-<<<<<<< HEAD
-            tableLayoutPanel9.Location = new Point(1212, 3);
-            tableLayoutPanel9.Margin = new Padding(4, 3, 4, 3);
-=======
             tableLayoutPanel9.Location = new Point(1217, 4);
             tableLayoutPanel9.Margin = new Padding(5, 4, 5, 4);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             tableLayoutPanel9.Name = "tableLayoutPanel9";
             tableLayoutPanel9.RowCount = 2;
             tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 86.30434F));
             tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 13.69565F));
-<<<<<<< HEAD
-            tableLayoutPanel9.Size = new Size(270, 460);
-=======
             tableLayoutPanel9.Size = new Size(271, 458);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             tableLayoutPanel9.TabIndex = 8;
             // 
             // picFilm5
@@ -689,11 +531,7 @@
             picFilm5.Location = new Point(5, 4);
             picFilm5.Margin = new Padding(5, 4, 5, 4);
             picFilm5.Name = "picFilm5";
-<<<<<<< HEAD
-            picFilm5.Size = new Size(262, 391);
-=======
             picFilm5.Size = new Size(261, 387);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             picFilm5.SizeMode = PictureBoxSizeMode.StretchImage;
             picFilm5.TabIndex = 0;
             picFilm5.TabStop = false;
@@ -703,17 +541,10 @@
             lblFilm5.AutoSize = true;
             lblFilm5.Dock = DockStyle.Fill;
             lblFilm5.Font = new Font("Georgia", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-<<<<<<< HEAD
-            lblFilm5.Location = new Point(4, 397);
-            lblFilm5.Margin = new Padding(4, 0, 4, 0);
-            lblFilm5.Name = "lblFilm5";
-            lblFilm5.Size = new Size(262, 63);
-=======
             lblFilm5.Location = new Point(5, 395);
             lblFilm5.Margin = new Padding(5, 0, 5, 0);
             lblFilm5.Name = "lblFilm5";
             lblFilm5.Size = new Size(261, 63);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             lblFilm5.TabIndex = 1;
             lblFilm5.Text = "film";
             lblFilm5.TextAlign = ContentAlignment.MiddleCenter;
@@ -727,22 +558,13 @@
             tableLayoutPanel7.Controls.Add(picFilm4, 0, 0);
             tableLayoutPanel7.Controls.Add(lblFilm4, 0, 1);
             tableLayoutPanel7.Dock = DockStyle.Fill;
-<<<<<<< HEAD
-            tableLayoutPanel7.Location = new Point(910, 3);
-            tableLayoutPanel7.Margin = new Padding(4, 3, 4, 3);
-=======
             tableLayoutPanel7.Location = new Point(914, 4);
             tableLayoutPanel7.Margin = new Padding(5, 4, 5, 4);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             tableLayoutPanel7.Name = "tableLayoutPanel7";
             tableLayoutPanel7.RowCount = 2;
             tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 86.30434F));
             tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 13.69565F));
-<<<<<<< HEAD
-            tableLayoutPanel7.Size = new Size(267, 460);
-=======
             tableLayoutPanel7.Size = new Size(266, 458);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             tableLayoutPanel7.TabIndex = 6;
             // 
             // picFilm4
@@ -752,11 +574,7 @@
             picFilm4.Location = new Point(5, 4);
             picFilm4.Margin = new Padding(5, 4, 5, 4);
             picFilm4.Name = "picFilm4";
-<<<<<<< HEAD
-            picFilm4.Size = new Size(259, 391);
-=======
             picFilm4.Size = new Size(256, 387);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             picFilm4.SizeMode = PictureBoxSizeMode.StretchImage;
             picFilm4.TabIndex = 0;
             picFilm4.TabStop = false;
@@ -766,17 +584,10 @@
             lblFilm4.AutoSize = true;
             lblFilm4.Dock = DockStyle.Fill;
             lblFilm4.Font = new Font("Georgia", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-<<<<<<< HEAD
-            lblFilm4.Location = new Point(4, 397);
-            lblFilm4.Margin = new Padding(4, 0, 4, 0);
-            lblFilm4.Name = "lblFilm4";
-            lblFilm4.Size = new Size(259, 63);
-=======
             lblFilm4.Location = new Point(5, 395);
             lblFilm4.Margin = new Padding(5, 0, 5, 0);
             lblFilm4.Name = "lblFilm4";
             lblFilm4.Size = new Size(256, 63);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             lblFilm4.TabIndex = 1;
             lblFilm4.Text = "film";
             lblFilm4.TextAlign = ContentAlignment.MiddleCenter;
@@ -789,22 +600,13 @@
             tableLayoutPanel5.Controls.Add(picFilm3, 0, 0);
             tableLayoutPanel5.Controls.Add(lblFilm3, 0, 1);
             tableLayoutPanel5.Dock = DockStyle.Fill;
-<<<<<<< HEAD
-            tableLayoutPanel5.Location = new Point(608, 3);
-            tableLayoutPanel5.Margin = new Padding(4, 3, 4, 3);
-=======
             tableLayoutPanel5.Location = new Point(611, 4);
             tableLayoutPanel5.Margin = new Padding(5, 4, 5, 4);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 2;
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 86.30434F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 13.69565F));
-<<<<<<< HEAD
-            tableLayoutPanel5.Size = new Size(267, 460);
-=======
             tableLayoutPanel5.Size = new Size(266, 458);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             tableLayoutPanel5.TabIndex = 4;
             // 
             // picFilm3
@@ -814,11 +616,7 @@
             picFilm3.Location = new Point(5, 4);
             picFilm3.Margin = new Padding(5, 4, 5, 4);
             picFilm3.Name = "picFilm3";
-<<<<<<< HEAD
-            picFilm3.Size = new Size(259, 391);
-=======
             picFilm3.Size = new Size(256, 387);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             picFilm3.SizeMode = PictureBoxSizeMode.StretchImage;
             picFilm3.TabIndex = 0;
             picFilm3.TabStop = false;
@@ -828,17 +626,10 @@
             lblFilm3.AutoSize = true;
             lblFilm3.Dock = DockStyle.Fill;
             lblFilm3.Font = new Font("Georgia", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-<<<<<<< HEAD
-            lblFilm3.Location = new Point(4, 397);
-            lblFilm3.Margin = new Padding(4, 0, 4, 0);
-            lblFilm3.Name = "lblFilm3";
-            lblFilm3.Size = new Size(259, 63);
-=======
             lblFilm3.Location = new Point(5, 395);
             lblFilm3.Margin = new Padding(5, 0, 5, 0);
             lblFilm3.Name = "lblFilm3";
             lblFilm3.Size = new Size(256, 63);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             lblFilm3.TabIndex = 1;
             lblFilm3.Text = "film";
             lblFilm3.TextAlign = ContentAlignment.MiddleCenter;
@@ -851,22 +642,13 @@
             tableLayoutPanel3.Controls.Add(picFilm2, 0, 0);
             tableLayoutPanel3.Controls.Add(lblFilm2, 0, 1);
             tableLayoutPanel3.Dock = DockStyle.Fill;
-<<<<<<< HEAD
-            tableLayoutPanel3.Location = new Point(306, 3);
-            tableLayoutPanel3.Margin = new Padding(4, 3, 4, 3);
-=======
             tableLayoutPanel3.Location = new Point(308, 4);
             tableLayoutPanel3.Margin = new Padding(5, 4, 5, 4);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 2;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 86.30434F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 13.69565F));
-<<<<<<< HEAD
-            tableLayoutPanel3.Size = new Size(267, 460);
-=======
             tableLayoutPanel3.Size = new Size(266, 458);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             tableLayoutPanel3.TabIndex = 2;
             // 
             // lblFilm2
@@ -874,17 +656,10 @@
             lblFilm2.AutoSize = true;
             lblFilm2.Dock = DockStyle.Fill;
             lblFilm2.Font = new Font("Georgia", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-<<<<<<< HEAD
-            lblFilm2.Location = new Point(4, 397);
-            lblFilm2.Margin = new Padding(4, 0, 4, 0);
-            lblFilm2.Name = "lblFilm2";
-            lblFilm2.Size = new Size(259, 63);
-=======
             lblFilm2.Location = new Point(5, 395);
             lblFilm2.Margin = new Padding(5, 0, 5, 0);
             lblFilm2.Name = "lblFilm2";
             lblFilm2.Size = new Size(256, 63);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             lblFilm2.TabIndex = 1;
             lblFilm2.Text = "film";
             lblFilm2.TextAlign = ContentAlignment.MiddleCenter;
@@ -907,24 +682,15 @@
             pnlMain.Name = "pnlMain";
             pnlMain.RowCount = 1;
             pnlMain.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-<<<<<<< HEAD
-            pnlMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
-            pnlMain.Size = new Size(1904, 1041);
-=======
             pnlMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 31F));
             pnlMain.Size = new Size(1924, 1055);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             pnlMain.TabIndex = 5;
             // 
             // frmMainMenu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-<<<<<<< HEAD
-            ClientSize = new Size(1904, 1041);
-=======
             ClientSize = new Size(1924, 1055);
->>>>>>> 453e3a6edc54d4e5540ea94ffdd978e72796f3a9
             Controls.Add(pnlMain);
             Name = "frmMainMenu";
             Text = "frmMainMenu";

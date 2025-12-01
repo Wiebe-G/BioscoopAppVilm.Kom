@@ -28,5 +28,7 @@ namespace Film.Kom
             }
             lblNameDisplay.Text = user.Naam;
         }
+
+      
     }
 }

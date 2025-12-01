@@ -6,6 +6,7 @@
         public string Naam { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public string HashedPassword { get; set; } = string.Empty;
-        public DateTime RegisteredAt { get; set; }
+        public DateTimeOffset RegisteredAt { get; set; }
+        public DateTimeOffset Geboortedatum { get; set; }
     }
 }

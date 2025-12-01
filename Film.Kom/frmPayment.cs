@@ -21,13 +21,32 @@ namespace Film.Kom
     {
         readonly Passwords passwords = new Passwords();
         private readonly IMongoCollection<User>? _Users;
+        private readonly string _FilmName;
+        private readonly IMongoCollection<FilmInfo> _Filminfo;
+        private string _Playtime;
 
         private User? _LoggedInUser;
-        public frmPayment(User user)
+        public frmPayment(User user, string FilmName)
         {
             InitializeComponent();
             _LoggedInUser = user;
             lblFilmInfo.Text = _LoggedInUser.Naam;
+            _FilmName = FilmName;
+
+            lblFilmInfo.Text = _FilmName;
+
+            var client = new MongoClient(passwords.Database);
+            var db = client.GetDatabase("Vilm");
+            _Filminfo = db.GetCollection<FilmInfo>("Films");
+
+            var QueryResult = _Filminfo.Find(x => x.Title.ToLower() == _FilmName.ToLower()).FirstOrDefault();
+            if (QueryResult == null)
+            {
+                MessageBox.Show("Oh oh");
+                return;
+            }
+            lblRoomInfo.Text = QueryResult.Zaal;
+            _Playtime = QueryResult.Speeltijd;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -46,6 +65,7 @@ namespace Film.Kom
             {
                 _LoggedInUser.Email = await FetchUserEmail(_LoggedInUser.Naam);
             }
+
         }
 
         private async Task<string> FetchUserEmail(string Naam)
@@ -148,7 +168,7 @@ namespace Film.Kom
             try
             {
                 string QRCodeValue = $"Naam: {_LoggedInUser.Naam}. \n Film: {FilmName} \n Zaal: {RoomInfo} " +
-                    $"\n Stoelen: {SeatInfo} \n Prijs: {PriceInfo}. (prijs, bijv. stoelen*9.95)";
+                    $"\n Stoelen: {SeatInfo} \n Prijs: {PriceInfo}. (prijs, bijv. stoelen*9.95). \n Speelt af om: {_Playtime}";
                 var qrCodeImage = MakeQRCode(QRCodeValue);
 
                 MailMessage mailMessage = CreateMailMessage(OurMailAddress, qrCodeImage);
@@ -171,7 +191,7 @@ namespace Film.Kom
                     SmtpClient.Send(mailMessage);
                 }
                 MessageBox.Show($"Mail is verstuurd naar {_LoggedInUser.Email}, " +
-                    $"reservering voor {FilmName} in zaal {RoomInfo}, met stoelen {SeatInfo}.");
+                    $"reservering voor {FilmName} in zaal {RoomInfo}, met stoelen {SeatInfo}. Film speelt af om {_Playtime}");
             }
             catch (Exception ex)
             {

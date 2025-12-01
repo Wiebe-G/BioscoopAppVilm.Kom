@@ -90,7 +90,7 @@
             tableLayoutPanel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picFilm5).BeginInit();
             tableLayoutPanel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picFilm4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picFilm4).BeginInit();
             tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picFilm3).BeginInit();
             tableLayoutPanel3.SuspendLayout();
@@ -446,7 +446,7 @@
             label1.Location = new Point(5, 0);
             label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(1494, 32);
+            label1.Size = new Size(1503, 33);
             label1.TabIndex = 0;
             label1.Text = "Nu in de bioscoop!";
             label1.TextAlign = ContentAlignment.MiddleLeft;

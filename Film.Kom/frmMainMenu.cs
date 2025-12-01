@@ -18,11 +18,28 @@ namespace Film.Kom
     {
         Passwords passwords = new Passwords();
         private User _LoggedInUser;
+        private IMongoCollection<FilmInfo> _Films;
         public frmMainMenu()
         {
             InitializeComponent();
             _LoggedInUser = new User();
+
+            var client = new MongoClient(passwords.Database);
+            var db = client.GetDatabase("Vilm");
+            _Films = db.GetCollection<FilmInfo>("Films");
+
+            var result = _Films.Aggregate()
+                .Match(x => x.Poster != null)
+                .Sample(5).Project(x => new { x.Poster }).ToList();
+
+            picFilm1.Load(result[0].Poster);
+            picFilm2.Load(result[1].Poster);
+            picFilm3.Load(result[2].Poster);
+            picFilm4.Load(result[3].Poster);
+            picFilm5.Load(result[4].Poster);
         }
+
+
 
         public frmMainMenu(User user)
         {
@@ -44,6 +61,19 @@ namespace Film.Kom
                     frmProfielpagina ProfileForm = new frmProfielpagina(user);
                     ProfileForm.Show();
                 };
+            }
+
+            var client = new MongoClient(passwords.Database);
+            var db = client.GetDatabase("Vilm");
+            _Films = db.GetCollection<FilmInfo>("Films");
+
+            var result = _Films.Aggregate()
+                .Match(x => x.Poster != null)
+                .Sample(5).Project(x => new { x.Poster }).ToList();
+
+            for (int i = 0; i < result.Count; i++)
+            {
+                MessageBox.Show($"Poster {result} nummer {i}");
             }
         }
 

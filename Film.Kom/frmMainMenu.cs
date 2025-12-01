@@ -24,6 +24,13 @@ namespace Film.Kom
             InitializeComponent();
             _LoggedInUser = new User();
 
+
+
+            DisplayFiveRandomFilmsOnHomePage();
+        }
+
+        private void DisplayFiveRandomFilmsOnHomePage()
+        {
             var client = new MongoClient(passwords.Database);
             var db = client.GetDatabase("Vilm");
             _Films = db.GetCollection<FilmInfo>("Films");
@@ -70,18 +77,7 @@ namespace Film.Kom
                 };
             }
 
-            var client = new MongoClient(passwords.Database);
-            var db = client.GetDatabase("Vilm");
-            _Films = db.GetCollection<FilmInfo>("Films");
-
-            var result = _Films.Aggregate()
-                .Match(x => x.Poster != null)
-                .Sample(5).Project(x => new { x.Poster }).ToList();
-
-            for (int i = 0; i < result.Count; i++)
-            {
-                MessageBox.Show($"Poster {result} nummer {i}");
-            }
+            DisplayFiveRandomFilmsOnHomePage();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

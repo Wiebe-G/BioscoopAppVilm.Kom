@@ -16,9 +16,9 @@ namespace Film.Kom
 {
     public partial class frmProfielpagina : Form
     {
-        Passwords passwords = new Passwords();
+        readonly Passwords passwords = new Passwords();
         private readonly IMongoCollection<User> _Users;
-        private User _LoggedInUser;
+        private readonly User? _LoggedInUser;
         public frmProfielpagina()
         {
             InitializeComponent();

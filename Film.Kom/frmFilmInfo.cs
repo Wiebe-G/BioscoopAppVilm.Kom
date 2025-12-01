@@ -7,13 +7,6 @@ namespace Film.Kom
         readonly Passwords passwords = new Passwords();
         private string _FilmName;
         private readonly User _LoggedInUser;
-        public frmFilmInfo(string FilmName)
-        {
-            InitializeComponent();
-            _FilmName = FilmName;
-            _LoggedInUser = new User();
-            UpdateLoginButton();
-        }
 
         public frmFilmInfo(string FilmName, User user)
         {
@@ -80,7 +73,7 @@ namespace Film.Kom
 
         private void btnReservering_Click(object sender, EventArgs e)
         {
-            frmPayment PaymentForm = new frmPayment(_LoggedInUser);
+            frmPayment PaymentForm = new frmPayment(_LoggedInUser, _FilmName);
             PaymentForm.Show();
         }
     }

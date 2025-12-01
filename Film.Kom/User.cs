@@ -7,5 +7,6 @@
         public string Email { get; set; } = string.Empty;
         public string HashedPassword { get; set; } = string.Empty;
         public DateTimeOffset RegisteredAt { get; set; }
+        public DateTimeOffset Geboortedatum { get; set; }
     }
 }

@@ -49,6 +49,9 @@ namespace Film.Kom
             lblActiveSinceDisplay.Text = $"{DBUser.RegisteredAt}";
         }
 
-      
+        private void pnlButtons_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

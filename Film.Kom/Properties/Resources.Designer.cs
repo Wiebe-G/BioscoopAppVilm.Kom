@@ -63,9 +63,29 @@ namespace Film.Kom.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Foto_btn_stoelen {
+            get {
+                object obj = ResourceManager.GetObject("Foto btn stoelen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Logo_van_Rick_oftewel_ChatGPT {
             get {
                 object obj = ResourceManager.GetObject("Logo van Rick oftewel ChatGPT", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Pijltje_terug {
+            get {
+                object obj = ResourceManager.GetObject("Pijltje terug", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

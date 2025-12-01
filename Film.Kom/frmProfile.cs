@@ -45,13 +45,12 @@ namespace Film.Kom
             lblPasswordDisplay.Text = DBUser.HashedPassword;
             lblEmailDisplay.Text = DBUser.Email;
             // is placeholder, totdat we ook echt DOB toevoegen aan de db
-            lblDateOfBirthDisplay.Text = $"{DBUser.RegisteredAt}";
+            lblDateOfBirthDisplay.Text = $"{DBUser.Geboortedatum}";
             lblActiveSinceDisplay.Text = $"{DBUser.RegisteredAt}";
         }
 
         private void pnlButtons_Paint(object sender, PaintEventArgs e)
         {
-
         }
     }
 }

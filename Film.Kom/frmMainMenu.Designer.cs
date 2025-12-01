@@ -731,7 +731,7 @@
             ResumeLayout(false);
         }
 
-        #endregion
+        #endregion                                                                          
 
         private Label lblUsername;
         private PictureBox picFilm1;

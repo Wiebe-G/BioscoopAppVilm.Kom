@@ -140,7 +140,7 @@ namespace Film.Kom
         {
             if (string.IsNullOrWhiteSpace(_LoggedInUser?.Naam))
             {
-                MessageBox.Show("Niet ingelogd", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Niet ingelogd", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             if (string.IsNullOrWhiteSpace(_LoggedInUser.Email))

@@ -132,6 +132,7 @@
             tableLayoutPanel2 = new TableLayoutPanel();
             tblLinks = new TableLayoutPanel();
             btnTerug = new Button();
+            btnProfiel = new Button();
             pnlMain.SuspendLayout();
             pnlPosterSpecifications.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picPoster).BeginInit();
@@ -148,6 +149,7 @@
             tblRijB.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             tblRijC.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
             tblLinks.SuspendLayout();
             SuspendLayout();
             // 
@@ -1591,13 +1593,14 @@
             tableLayoutPanel2.ColumnCount = 2;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.Controls.Add(btnProfiel, 1, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(1334, 2);
             tableLayoutPanel2.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 1;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel2.RowCount = 2;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 66.6666641F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel2.Size = new Size(327, 96);
             tableLayoutPanel2.TabIndex = 3;
             // 
@@ -1626,6 +1629,18 @@
             btnTerug.Size = new Size(102, 66);
             btnTerug.TabIndex = 0;
             btnTerug.UseVisualStyleBackColor = true;
+            // 
+            // btnProfiel
+            // 
+            btnProfiel.BackgroundImageLayout = ImageLayout.Stretch;
+            btnProfiel.Dock = DockStyle.Fill;
+            btnProfiel.Font = new Font("Georgia", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnProfiel.Location = new Point(166, 3);
+            btnProfiel.Name = "btnProfiel";
+            btnProfiel.Size = new Size(158, 58);
+            btnProfiel.TabIndex = 0;
+            btnProfiel.Text = "Profiel";
+            btnProfiel.UseVisualStyleBackColor = true;
             // 
             // frmStoelen_reservation
             // 
@@ -1656,6 +1671,7 @@
             tblRijB.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);
             tblRijC.ResumeLayout(false);
+            tableLayoutPanel2.ResumeLayout(false);
             tblLinks.ResumeLayout(false);
             ResumeLayout(false);
 
@@ -1766,5 +1782,6 @@
         private Button btnStoelC13;
         private TableLayoutPanel tblLinks;
         private Button btnTerug;
+        private Button btnProfiel;
     }
 }

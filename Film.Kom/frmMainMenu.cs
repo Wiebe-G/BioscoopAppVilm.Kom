@@ -18,10 +18,41 @@ namespace Film.Kom
     {
         Passwords passwords = new Passwords();
         private User _LoggedInUser;
+        private IMongoCollection<FilmInfo> _Films;
         public frmMainMenu()
         {
             InitializeComponent();
             _LoggedInUser = new User();
+
+
+
+            DisplayFiveRandomFilmsOnHomePage();
+        }
+
+        private void DisplayFiveRandomFilmsOnHomePage()
+        {
+            var client = new MongoClient(passwords.Database);
+            var db = client.GetDatabase("Vilm");
+            _Films = db.GetCollection<FilmInfo>("Films");
+
+            var result = _Films.Aggregate()
+                .Match(x => x.Poster != null)
+                .Sample(5).Project(x => new { x.Poster, x.Title }).ToList();
+
+            picFilm1.Load(result[0].Poster);
+            lblFilm1.Text = result[0].Title;
+
+            picFilm2.Load(result[1].Poster);
+            lblFilm2.Text = result[1].Title;
+
+            picFilm3.Load(result[2].Poster);
+            lblFilm3.Text = result[2].Title;
+
+            picFilm4.Load(result[3].Poster);
+            lblFilm4.Text = result[3].Title;
+
+            picFilm5.Load(result[4].Poster);
+            lblFilm5.Text = result[4].Title;
         }
 
         public frmMainMenu(User user)
@@ -45,6 +76,8 @@ namespace Film.Kom
                     ProfileForm.Show();
                 };
             }
+
+            DisplayFiveRandomFilmsOnHomePage();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

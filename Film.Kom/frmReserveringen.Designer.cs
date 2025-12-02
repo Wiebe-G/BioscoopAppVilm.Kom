@@ -1,4 +1,4 @@
-﻿namespace Stoelen_Vilm.kom
+﻿namespace Film.Kom
 {
     partial class frmStoelen_reservation
     {

@@ -73,8 +73,8 @@ namespace Film.Kom
 
         private void btnReservering_Click(object sender, EventArgs e)
         {
-            frmPayment PaymentForm = new frmPayment(_LoggedInUser, _FilmName);
-            PaymentForm.Show();
+            frmStoelen_reservation ReserveringsForm = new frmStoelen_reservation();
+            ReserveringsForm.Show();
         }
     }
 }

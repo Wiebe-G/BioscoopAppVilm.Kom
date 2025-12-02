@@ -8,23 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Stoelen_Vilm.kom
+namespace Film.Kom
 {
     public partial class frmStoelen_reservation : Form
     {
         public frmStoelen_reservation()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnStoel_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void label5_Click(object sender, EventArgs e)

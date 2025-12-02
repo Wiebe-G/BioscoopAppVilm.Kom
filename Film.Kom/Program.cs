@@ -12,16 +12,7 @@ namespace Film.Kom
             // see https://aka.ms/applicationconfiguration.
             Application.SetHighDpiMode(HighDpiMode.PerMonitorV2);
             ApplicationConfiguration.Initialize();
-
-            //Application.Run(new frmFilmInfo("upgrade"));
-            //Application.Run(new MainContext());
-            Application.Run(new frmMainMenu());
             Application.Run(new MainContext());
-            //Application.Run(new frmProfielpagina());
-            //Application.Run(new frmPayment());
-            Application.Run(new MainContext());
-            //Application.Run(new frmProfielpagina());
-
         }
     }
 }

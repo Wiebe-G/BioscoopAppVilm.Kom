@@ -52,6 +52,11 @@ namespace Film.Kom
             {
                 posters[i].Load(result[i].Poster);
                 labels[i].Text = result[i].Title;
+                frmFilmInfo FilmForm = new frmFilmInfo(result[i].Title, _LoggedInUser);
+                posters[i].Click += (sender, e) =>
+                {
+                    FilmForm.Show();
+                };
             }
         }
 

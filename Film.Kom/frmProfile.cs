@@ -52,5 +52,10 @@ namespace Film.Kom
         private void pnlButtons_Paint(object sender, PaintEventArgs e)
         {
         }
+
+        private void picBack_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

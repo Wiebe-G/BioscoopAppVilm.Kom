@@ -59,16 +59,6 @@
             lblActiveSince = new Label();
             lblActiveSinceDisplay = new Label();
             pnlUserinfosecond = new TableLayoutPanel();
-            pnlSavesurname = new TableLayoutPanel();
-            btnSavesurname = new Button();
-            pnlSavename = new TableLayoutPanel();
-            btnSavename = new Button();
-            pnlSurname = new TableLayoutPanel();
-            txtSurname = new TextBox();
-            pnlName = new TableLayoutPanel();
-            txName = new TextBox();
-            label8 = new Label();
-            label3 = new Label();
             pnlUserinfothird = new TableLayoutPanel();
             lblDateOfBirthDisplay = new Label();
             lblDateOfBirth = new Label();
@@ -96,11 +86,6 @@
             pnlButtons.SuspendLayout();
             pnlDeleteaccount.SuspendLayout();
             pnlAccountdetail.SuspendLayout();
-            pnlUserinfosecond.SuspendLayout();
-            pnlSavesurname.SuspendLayout();
-            pnlSavename.SuspendLayout();
-            pnlSurname.SuspendLayout();
-            pnlName.SuspendLayout();
             pnlUserinfothird.SuspendLayout();
             pnlEmailchangefirst.SuspendLayout();
             pnlEmailchangesecond.SuspendLayout();
@@ -547,12 +532,6 @@
             pnlUserinfosecond.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             pnlUserinfosecond.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             pnlUserinfosecond.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            pnlUserinfosecond.Controls.Add(pnlSavesurname, 2, 1);
-            pnlUserinfosecond.Controls.Add(pnlSavename, 2, 0);
-            pnlUserinfosecond.Controls.Add(pnlSurname, 1, 1);
-            pnlUserinfosecond.Controls.Add(pnlName, 1, 0);
-            pnlUserinfosecond.Controls.Add(label8, 0, 1);
-            pnlUserinfosecond.Controls.Add(label3, 0, 0);
             pnlUserinfosecond.Dock = DockStyle.Fill;
             pnlUserinfosecond.Location = new Point(93, 415);
             pnlUserinfosecond.Name = "pnlUserinfosecond";
@@ -561,150 +540,6 @@
             pnlUserinfosecond.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             pnlUserinfosecond.Size = new Size(805, 324);
             pnlUserinfosecond.TabIndex = 2;
-            // 
-            // pnlSavesurname
-            // 
-            pnlSavesurname.ColumnCount = 3;
-            pnlSavesurname.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.9870129F));
-            pnlSavesurname.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 87.0129852F));
-            pnlSavesurname.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 30F));
-            pnlSavesurname.Controls.Add(btnSavesurname, 1, 1);
-            pnlSavesurname.Dock = DockStyle.Fill;
-            pnlSavesurname.Location = new Point(539, 165);
-            pnlSavesurname.Name = "pnlSavesurname";
-            pnlSavesurname.RowCount = 3;
-            pnlSavesurname.RowStyles.Add(new RowStyle(SizeType.Percent, 35.245903F));
-            pnlSavesurname.RowStyles.Add(new RowStyle(SizeType.Percent, 64.7541F));
-            pnlSavesurname.RowStyles.Add(new RowStyle(SizeType.Absolute, 39F));
-            pnlSavesurname.Size = new Size(263, 156);
-            pnlSavesurname.TabIndex = 9;
-            // 
-            // btnSavesurname
-            // 
-            btnSavesurname.BackColor = Color.DarkRed;
-            btnSavesurname.Dock = DockStyle.Fill;
-            btnSavesurname.Font = new Font("Georgia", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSavesurname.ForeColor = SystemColors.ButtonHighlight;
-            btnSavesurname.Location = new Point(33, 44);
-            btnSavesurname.Name = "btnSavesurname";
-            btnSavesurname.Size = new Size(196, 69);
-            btnSavesurname.TabIndex = 5;
-            btnSavesurname.Text = "Opslaan";
-            btnSavesurname.UseVisualStyleBackColor = false;
-            // 
-            // pnlSavename
-            // 
-            pnlSavename.ColumnCount = 3;
-            pnlSavename.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.9870129F));
-            pnlSavename.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 87.0129852F));
-            pnlSavename.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 30F));
-            pnlSavename.Controls.Add(btnSavename, 1, 1);
-            pnlSavename.Dock = DockStyle.Fill;
-            pnlSavename.Location = new Point(539, 3);
-            pnlSavename.Name = "pnlSavename";
-            pnlSavename.RowCount = 3;
-            pnlSavename.RowStyles.Add(new RowStyle(SizeType.Percent, 35.245903F));
-            pnlSavename.RowStyles.Add(new RowStyle(SizeType.Percent, 64.7541F));
-            pnlSavename.RowStyles.Add(new RowStyle(SizeType.Absolute, 39F));
-            pnlSavename.Size = new Size(263, 156);
-            pnlSavename.TabIndex = 8;
-            // 
-            // btnSavename
-            // 
-            btnSavename.BackColor = Color.DarkRed;
-            btnSavename.Dock = DockStyle.Fill;
-            btnSavename.Font = new Font("Georgia", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSavename.ForeColor = SystemColors.ButtonHighlight;
-            btnSavename.Location = new Point(33, 44);
-            btnSavename.Name = "btnSavename";
-            btnSavename.Size = new Size(196, 69);
-            btnSavename.TabIndex = 5;
-            btnSavename.Text = "Opslaan";
-            btnSavename.UseVisualStyleBackColor = false;
-            // 
-            // pnlSurname
-            // 
-            pnlSurname.ColumnCount = 3;
-            pnlSurname.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.9870129F));
-            pnlSurname.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 87.0129852F));
-            pnlSurname.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 30F));
-            pnlSurname.Controls.Add(txtSurname, 1, 1);
-            pnlSurname.Dock = DockStyle.Fill;
-            pnlSurname.Location = new Point(271, 165);
-            pnlSurname.Name = "pnlSurname";
-            pnlSurname.RowCount = 3;
-            pnlSurname.RowStyles.Add(new RowStyle(SizeType.Percent, 35.245903F));
-            pnlSurname.RowStyles.Add(new RowStyle(SizeType.Percent, 64.7541F));
-            pnlSurname.RowStyles.Add(new RowStyle(SizeType.Absolute, 39F));
-            pnlSurname.Size = new Size(262, 156);
-            pnlSurname.TabIndex = 7;
-            // 
-            // txtSurname
-            // 
-            txtSurname.Dock = DockStyle.Fill;
-            txtSurname.ForeColor = SystemColors.ActiveCaptionText;
-            txtSurname.Location = new Point(33, 44);
-            txtSurname.Multiline = true;
-            txtSurname.Name = "txtSurname";
-            txtSurname.Size = new Size(195, 69);
-            txtSurname.TabIndex = 9;
-            txtSurname.Text = "Onbekend";
-            txtSurname.TextAlign = HorizontalAlignment.Center;
-            // 
-            // pnlName
-            // 
-            pnlName.ColumnCount = 3;
-            pnlName.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.9870129F));
-            pnlName.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 87.0129852F));
-            pnlName.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 30F));
-            pnlName.Controls.Add(txName, 1, 1);
-            pnlName.Dock = DockStyle.Fill;
-            pnlName.Location = new Point(271, 3);
-            pnlName.Name = "pnlName";
-            pnlName.RowCount = 3;
-            pnlName.RowStyles.Add(new RowStyle(SizeType.Percent, 35.245903F));
-            pnlName.RowStyles.Add(new RowStyle(SizeType.Percent, 64.7541F));
-            pnlName.RowStyles.Add(new RowStyle(SizeType.Absolute, 39F));
-            pnlName.Size = new Size(262, 156);
-            pnlName.TabIndex = 5;
-            // 
-            // txName
-            // 
-            txName.Dock = DockStyle.Fill;
-            txName.ForeColor = SystemColors.ActiveCaptionText;
-            txName.Location = new Point(33, 44);
-            txName.Multiline = true;
-            txName.Name = "txName";
-            txName.Size = new Size(195, 69);
-            txName.TabIndex = 9;
-            txName.Text = "Onbekend";
-            txName.TextAlign = HorizontalAlignment.Center;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Dock = DockStyle.Fill;
-            label8.Font = new Font("Georgia", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.ForeColor = SystemColors.ButtonHighlight;
-            label8.Location = new Point(3, 162);
-            label8.Name = "label8";
-            label8.Size = new Size(262, 162);
-            label8.TabIndex = 4;
-            label8.Text = "(*Optioneel) Achternaam:";
-            label8.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Dock = DockStyle.Fill;
-            label3.Font = new Font("Georgia", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = SystemColors.ButtonHighlight;
-            label3.Location = new Point(3, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(262, 162);
-            label3.TabIndex = 1;
-            label3.Text = "(*Optioneel) Voornaam:";
-            label3.TextAlign = ContentAlignment.MiddleRight;
             // 
             // pnlUserinfothird
             // 
@@ -876,14 +711,6 @@
             pnlDeleteaccount.ResumeLayout(false);
             pnlAccountdetail.ResumeLayout(false);
             pnlAccountdetail.PerformLayout();
-            pnlUserinfosecond.ResumeLayout(false);
-            pnlUserinfosecond.PerformLayout();
-            pnlSavesurname.ResumeLayout(false);
-            pnlSavename.ResumeLayout(false);
-            pnlSurname.ResumeLayout(false);
-            pnlSurname.PerformLayout();
-            pnlName.ResumeLayout(false);
-            pnlName.PerformLayout();
             pnlUserinfothird.ResumeLayout(false);
             pnlUserinfothird.PerformLayout();
             pnlEmailchangefirst.ResumeLayout(false);
@@ -925,12 +752,6 @@
         private TableLayoutPanel pnlAccountdetail;
         private Label lblActiveSinceDisplay;
         private TableLayoutPanel pnlUserinfosecond;
-        private TableLayoutPanel pnlSurname;
-        private TextBox txtSurname;
-        private TableLayoutPanel pnlName;
-        private TextBox txName;
-        private Label label8;
-        private Label label3;
         private TableLayoutPanel pnlUserinfothird;
         private Label lblDateOfBirthDisplay;
         private Label lblDateOfBirth;
@@ -940,10 +761,6 @@
         private TextBox txtChangemail;
         private Label lblEmailDisplay;
         private Label lblEmail;
-        private TableLayoutPanel pnlSavesurname;
-        private Button btnSavesurname;
-        private TableLayoutPanel pnlSavename;
-        private Button btnSavename;
         private PictureBox picBack;
     }
 }

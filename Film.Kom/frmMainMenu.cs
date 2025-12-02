@@ -23,9 +23,6 @@ namespace Film.Kom
         {
             InitializeComponent();
             _LoggedInUser = new User();
-
-
-
             DisplayFiveRandomFilmsOnHomePage();
         }
 

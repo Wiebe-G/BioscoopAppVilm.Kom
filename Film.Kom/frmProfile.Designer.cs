@@ -40,9 +40,7 @@
             pnlInhoudmain = new TableLayoutPanel();
             picBack = new PictureBox();
             pnlSavesurname = new TableLayoutPanel();
-            btnSavesurname = new Button();
             pnlSavename = new TableLayoutPanel();
-            btnSavename = new Button();
             pnlSurname = new TableLayoutPanel();
             txtSurname = new TextBox();
             lblEmailDisplay = new Label();
@@ -802,53 +800,12 @@
             pnlSecundary.ResumeLayout(false);
             pnlBalkmain.ResumeLayout(false);
             pnlBalksecondary.ResumeLayout(false);
+        }
         private TableLayoutPanel pnlSavesurname;
         private TableLayoutPanel pnlSavename;
         private TableLayoutPanel pnlSurname;
         private TableLayoutPanel pnlName;
-            pnlInhoudmain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)picBack).EndInit();
-            pnlUserinfothird.ResumeLayout(false);
-            pnlUserinfothird.PerformLayout();
-            pnlEmailchangefirst.ResumeLayout(false);
-            pnlEmailchangesecond.ResumeLayout(false);
-            pnlEmailchangesecond.PerformLayout();
-            pnlUserinfosecond.ResumeLayout(false);
-            pnlButtons.ResumeLayout(false);
-            pnlAccountdetail.ResumeLayout(false);
-            pnlAccountdetail.PerformLayout();
-            pnlDeleteaccount.ResumeLayout(false);
-            pnlUserinfoFirst.ResumeLayout(false);
-            pnlUserinfoFirst.PerformLayout();
-            pnlUsernamechangemain.ResumeLayout(false);
-            pnlUsernamechnagesecond.ResumeLayout(false);
-            pnlUsernamechnagesecond.PerformLayout();
-            pnlPasswordchangemain.ResumeLayout(false);
-            pnlPasswordchangesecond.ResumeLayout(false);
-            pnlPasswordchangesecond.PerformLayout();
-            pnlUsernamechangemain.ResumeLayout(false);
-            pnlUsernamechnagesecond.ResumeLayout(false);
-            pnlUsernamechnagesecond.PerformLayout();
-            pnlButtons.ResumeLayout(false);
-            pnlDeleteaccount.ResumeLayout(false);
-            pnlAccountdetail.ResumeLayout(false);
-            pnlAccountdetail.PerformLayout();
-            pnlUserinfosecond.ResumeLayout(false);
-            pnlUserinfosecond.PerformLayout();
-            pnlSavesurname.ResumeLayout(false);
-            pnlSavename.ResumeLayout(false);
-            pnlSurname.ResumeLayout(false);
-            pnlSurname.PerformLayout();
-            pnlName.ResumeLayout(false);
-            pnlName.PerformLayout();
-            pnlUserinfothird.ResumeLayout(false);
-            pnlUserinfothird.PerformLayout();
-            pnlEmailchangefirst.ResumeLayout(false);
-            pnlEmailchangesecond.ResumeLayout(false);
-            pnlEmailchangesecond.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picBack).EndInit();
-            ResumeLayout(false);
-        }
+
 
         #endregion
 

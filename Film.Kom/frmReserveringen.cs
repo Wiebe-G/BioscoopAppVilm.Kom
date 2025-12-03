@@ -41,5 +41,11 @@ namespace Film.Kom
             lblEindtijd.Text = MovieData.Speeltijd + MovieData.Runtime;
             picPoster.Load(MovieData.Poster);
         }
+
+        private void btnPayment_Click(object sender, EventArgs e)
+        {
+            frmPayment paymentForm = new frmPayment(_User, _Filmname);
+            paymentForm.Show();
+        }
     }
 }

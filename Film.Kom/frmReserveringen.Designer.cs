@@ -1811,6 +1811,7 @@
             Name = "frmStoelen_reservation";
             Text = "Reserveren";
             Load += frmStoelen_reservation_Load;
+            Shown += frmStoelen_reservation_Shown;
             pnlMain.ResumeLayout(false);
             pnlPosterSpecifications.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)picPoster).EndInit();

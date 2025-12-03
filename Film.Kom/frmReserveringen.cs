@@ -38,8 +38,43 @@ namespace Film.Kom
             lblSpeelduur.Text = MovieData.Runtime;
             lblBegintijd.Text = MovieData.Speeltijd;
             // zorg ervoor dat dit het ook echt berekent en niet gewoon de string er neer zet 
-            lblEindtijd.Text = MovieData.Speeltijd + MovieData.Runtime;
+            lblEindtijd.Text = "Reken het zelf maar uit";
             picPoster.Load(MovieData.Poster);
+
+        }
+        private void frmStoelen_reservation_Shown(object sender, EventArgs e)
+        {
+            var Stoelenlijst = GetAllButtons(this).OfType<Button>().ToList();
+            if (Stoelenlijst.Any())
+            {
+                for (int i = 0; i < Stoelenlijst.Count; i++)
+                {
+                    if (!Stoelenlijst[i].Name.Contains("btnStoel"))
+                    {
+                        // button die niet stoel is
+                        MessageBox.Show($"Oh oh, {Stoelenlijst[i].Name} is niet een stoel");
+                        continue;
+                    }
+                    MessageBox.Show($"Button naam: {Stoelenlijst[i].Name}");
+                }
+            }
+            else
+            {
+                MessageBox.Show("uh uh");
+            }
+        }
+
+        private IEnumerable<Control> GetAllButtons(Control parent)
+        {
+            foreach (Control c in parent.Controls)
+            {
+                yield return c;
+
+                foreach (Control child in GetAllButtons(c))
+                {
+                    yield return child;
+                }
+            }
         }
 
         private void btnPayment_Click(object sender, EventArgs e)

@@ -76,5 +76,11 @@ namespace Film.Kom
                 }
             }
         }
+
+        private void btnPayment_Click(object sender, EventArgs e)
+        {
+            frmPayment paymentForm = new frmPayment(_User, _Filmname);
+            paymentForm.Show();
+        }
     }
 }

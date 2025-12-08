@@ -118,13 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Logo van Rick oftewel ChatGPT" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logo van Rick oftewel ChatGPT.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Pijltje terug" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pijltje terug.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Foto btn stoelen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Foto btn stoelen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Pijltje terug" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Pijltje terug.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Logo van Rick oftewel ChatGPT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logo van Rick oftewel ChatGPT.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="stoel foto PNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\stoel foto PNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

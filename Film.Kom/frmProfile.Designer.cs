@@ -68,9 +68,10 @@
             txtChangemail = new TextBox();
             lblEmailDisplay = new Label();
             lblEmail = new Label();
+            btnTerug = new Button();
             label3 = new Label();
             label8 = new Label();
-            btnTerug = new Button();
+            btnAdmin = new Button();
             pnlMain.SuspendLayout();
             pnlSecundary.SuspendLayout();
             pnlBalkmain.SuspendLayout();
@@ -142,6 +143,7 @@
             pnlBalksecondary.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             pnlBalksecondary.Controls.Add(pnlBalkthird, 1, 0);
             pnlBalksecondary.Controls.Add(pnlLogo, 0, 0);
+            pnlBalksecondary.Controls.Add(btnAdmin, 2, 0);
             pnlBalksecondary.Dock = DockStyle.Fill;
             pnlBalksecondary.Location = new Point(3, 3);
             pnlBalksecondary.Name = "pnlBalksecondary";
@@ -659,6 +661,17 @@
             lblEmail.Text = "E-mail:";
             lblEmail.TextAlign = ContentAlignment.MiddleRight;
             // 
+            // btnTerug
+            // 
+            btnTerug.BackgroundImage = Properties.Resources.Pijltje_terug;
+            btnTerug.BackgroundImageLayout = ImageLayout.Stretch;
+            btnTerug.Dock = DockStyle.Fill;
+            btnTerug.Location = new Point(3, 745);
+            btnTerug.Name = "btnTerug";
+            btnTerug.Size = new Size(84, 79);
+            btnTerug.TabIndex = 4;
+            btnTerug.UseVisualStyleBackColor = true;
+            // 
             // label3
             // 
             label3.Location = new Point(0, 0);
@@ -673,16 +686,17 @@
             label8.Size = new Size(100, 23);
             label8.TabIndex = 0;
             // 
-            // btnTerug
+            // btnAdmin
             // 
-            btnTerug.BackgroundImage = Properties.Resources.Pijltje_terug;
-            btnTerug.BackgroundImageLayout = ImageLayout.Stretch;
-            btnTerug.Dock = DockStyle.Fill;
-            btnTerug.Location = new Point(3, 745);
-            btnTerug.Name = "btnTerug";
-            btnTerug.Size = new Size(84, 79);
-            btnTerug.TabIndex = 4;
-            btnTerug.UseVisualStyleBackColor = true;
+            btnAdmin.Dock = DockStyle.Fill;
+            btnAdmin.Location = new Point(1439, 25);
+            btnAdmin.Margin = new Padding(25);
+            btnAdmin.Name = "btnAdmin";
+            btnAdmin.Size = new Size(422, 66);
+            btnAdmin.TabIndex = 2;
+            btnAdmin.Text = "Admin (alleen als je admin bent)";
+            btnAdmin.UseVisualStyleBackColor = true;
+            btnAdmin.Click += btnAdmin_Click;
             // 
             // frmProfielpagina
             // 
@@ -767,5 +781,6 @@
         private Label lblEmailDisplay;
         private Label lblEmail;
         private Button btnTerug;
+        private Button btnAdmin;
     }
 }

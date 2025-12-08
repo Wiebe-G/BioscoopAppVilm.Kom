@@ -171,7 +171,7 @@ namespace Film.Kom
                     $"\n Stoelen: {SeatInfo} \n Prijs: {PriceInfo}. (prijs, bijv. stoelen*9.95). \n Speelt af om: {_Playtime}";
                 var qrCodeImage = MakeQRCode(QRCodeValue);
 
-                MailMessage mailMessage = CreateMailMessage(OurMailAddress, qrCodeImage);
+                MailMessage mailMessage = CreateMailMessage(OurMailAddress, qrCodeImage, FilmName);
 
                 using var ms = new MemoryStream();
 
@@ -199,12 +199,12 @@ namespace Film.Kom
             }
         }
 
-        private MailMessage CreateMailMessage(string OurMailAddress, object qrCodeImage)
+        private MailMessage CreateMailMessage(string OurMailAddress, object qrCodeImage, string FilmName)
         {
             var mailMessage = new MailMessage
             {
                 From = new MailAddress(OurMailAddress, "Film.Kom"),
-                Subject = "Reservering voor Film.Kom (TEST MAIL)",
+                Subject = $"Reservering voor {FilmName} via Film.Kom (TEST MAIL)",
                 Body = $"{qrCodeImage}",
                 IsBodyHtml = true,
             };

@@ -19,11 +19,7 @@ namespace Film.Kom
         readonly Passwords passwords = new Passwords();
         private readonly IMongoCollection<User> _Users;
         private readonly User? _LoggedInUser;
-        public frmProfielpagina()
-        {
-            InitializeComponent();
-            this.AutoScaleMode = AutoScaleMode.Dpi;
-        }
+
         internal frmProfielpagina(User user)
         {
             InitializeComponent();
@@ -39,6 +35,11 @@ namespace Film.Kom
             _Users = db.GetCollection<User>("Users");
 
             var DBUser = _Users.Find(g => g.Naam == user.Naam).FirstOrDefault();
+            if (DBUser.Rol == 0)
+            {
+                btnAdmin.Enabled = false;
+                btnAdmin.Visible = false;
+            }
 
             lblUsernameDisplay.Text = user.Naam;
             // waarom ook display voor wachtwoord?
@@ -49,13 +50,10 @@ namespace Film.Kom
             lblActiveSinceDisplay.Text = $"{DBUser.RegisteredAt}";
         }
 
-        private void pnlButtons_Paint(object sender, PaintEventArgs e)
+        private void btnAdmin_Click(object sender, EventArgs e)
         {
-        }
-
-        private void picBack_Click(object sender, EventArgs e)
-        {
-
+            frmAdmin AdminPanel = new();
+            AdminPanel.Show();
         }
     }
 }

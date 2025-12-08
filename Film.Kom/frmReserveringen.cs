@@ -13,6 +13,17 @@ namespace Film.Kom
 {
     public partial class frmStoelen_reservation : Form
     {
+        private List<Seat> _allSeats = new();
+        private List<string> _selectedSeats = new();
+        private bool _seatsInitialized = false;
+
+        public class Seat
+        {
+            public string Id { get; set; }
+            public bool IsReserved { get; set; }
+            public bool IsSelected { get; set; }
+        }
+
         private User _User;
         private readonly string _Filmname;
         private readonly IMongoCollection<FilmInfo> _Films;
@@ -37,30 +48,16 @@ namespace Film.Kom
             lblZaal.Text = MovieData.Zaal;
             lblSpeelduur.Text = MovieData.Runtime;
             lblBegintijd.Text = MovieData.Speeltijd;
-            // zorg ervoor dat dit het ook echt berekent en niet gewoon de string er neer zet 
             lblEindtijd.Text = "Reken het zelf maar uit";
             picPoster.Load(MovieData.Poster);
-
         }
+
         private void frmStoelen_reservation_Shown(object sender, EventArgs e)
         {
-            var Stoelenlijst = GetAllButtons(this).OfType<Button>().ToList();
-            if (Stoelenlijst.Any())
+            if (!_seatsInitialized)
             {
-                for (int i = 0; i < Stoelenlijst.Count; i++)
-                {
-                    if (!Stoelenlijst[i].Name.Contains("btnStoel"))
-                    {
-                        // button die niet stoel is
-                        MessageBox.Show($"Oh oh, {Stoelenlijst[i].Name} is niet een stoel");
-                        continue;
-                    }
-                    MessageBox.Show($"Button naam: {Stoelenlijst[i].Name}");
-                }
-            }
-            else
-            {
-                MessageBox.Show("uh uh");
+                InitializeSeats();
+                _seatsInitialized = true;
             }
         }
 
@@ -77,10 +74,105 @@ namespace Film.Kom
             }
         }
 
+        private void InitializeSeats()
+        {
+            _allSeats.Clear();
+            _selectedSeats.Clear();
+
+            var buttons = GetAllButtons(this)
+                .OfType<Button>()
+                .Where(b => b.Name.StartsWith("btnStoel", StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
+            foreach (var btn in buttons)
+            {
+                var id = btn.Name.Replace("btnStoel", "", StringComparison.OrdinalIgnoreCase);
+
+                var seat = new Seat
+                {
+                    Id = id,
+                    IsReserved = (id.Equals("A3", StringComparison.OrdinalIgnoreCase) || id.Equals("B5", StringComparison.OrdinalIgnoreCase)),
+                    IsSelected = false
+                };
+
+                _allSeats.Add(seat);
+                btn.Tag = seat;
+                btn.Click -= Seat_Click;
+                btn.Click += Seat_Click;
+            }
+
+            UpdateSeatColors();
+        }
+
+        private void UpdateSeatColors()
+        {
+            var buttons = GetAllButtons(this)
+                .OfType<Button>()
+                .Where(b => b.Name.StartsWith("btnStoel", StringComparison.OrdinalIgnoreCase));
+
+            foreach (var btn in buttons)
+            {
+                var seat = btn.Tag as Seat;
+                if (seat == null) continue;
+
+                if (seat.IsReserved)
+                {
+                    btn.BackColor = Color.Black;
+                    btn.Enabled = false;
+                }
+                else if (seat.IsSelected)
+                {
+                    btn.BackColor = Color.Green;
+                    btn.Enabled = true;
+                }
+                else
+                {
+                    btn.BackColor = Color.LightGray;
+                    btn.Enabled = true;
+                }
+            }
+        }
+
+        private void Seat_Click(object sender, EventArgs e)
+        {
+            var btn = (Button)sender;
+            var seat = btn.Tag as Seat;
+            if (seat == null) return;
+
+            if (seat.IsReserved)
+            {
+                MessageBox.Show($"Stoel {seat.Id} is al gereserveerd.");
+                return;
+            }
+
+            seat.IsSelected = !seat.IsSelected;
+
+            if (seat.IsSelected)
+            {
+                if (!_selectedSeats.Contains(seat.Id))
+                    _selectedSeats.Add(seat.Id);
+            }
+            else
+            {
+                if (_selectedSeats.Contains(seat.Id))
+                    _selectedSeats.Remove(seat.Id);
+            }
+
+            UpdateSeatColors();
+        }
+
+        public string[] GetSelectedSeatsArray()
+        {
+            return _selectedSeats.ToArray();
+        }
+
         private void btnPayment_Click(object sender, EventArgs e)
         {
-            frmPayment paymentForm = new frmPayment(_User, _Filmname);
+            // Get selected seats and pass them to the payment form via the new constructor
+            var selectedSeats = GetSelectedSeatsArray();
+            frmPayment paymentForm = new frmPayment(_User, _Filmname, selectedSeats);
             paymentForm.Show();
         }
+
     }
 }

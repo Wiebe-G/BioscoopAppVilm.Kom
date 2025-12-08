@@ -52,7 +52,7 @@ namespace Film.Kom
 
         private void btnAdmin_Click(object sender, EventArgs e)
         {
-            frmAdmin AdminPanel = new();
+            frmAdmin AdminPanel = new(_LoggedInUser);
             AdminPanel.Show();
         }
     }

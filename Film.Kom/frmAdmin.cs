@@ -54,9 +54,8 @@ namespace Film.Kom
             if (e.KeyCode == Keys.Enter)
             {
                 var MovieData = await FetchFilmInfo();
-                if (MovieData.Response != "True")
+                if (MovieData == null)
                 {
-                    MessageBox.Show("Film niet gevonden");
                     return;
                 }
                 MessageBox.Show($"Film {MovieData.Title} is gevonden.");
@@ -69,7 +68,7 @@ namespace Film.Kom
             }
             else
             {
-                // niks doen, net zoals furkan
+                // niks doen
             }
         }
 
@@ -108,6 +107,10 @@ namespace Film.Kom
         private async void btnAddFilmToDatabase_Click(object sender, EventArgs e)
         {
             var MovieData = await FetchFilmInfo();
+            if (MovieData == null)
+            {
+                MessageBox.Show("Ohoh");
+            }
             if (string.IsNullOrWhiteSpace(txtFilmPlaytime.Text.Trim()) || string.IsNullOrWhiteSpace(txtFilmRoom.Text.Trim()))
             {
                 MessageBox.Show("Alles invullen he");

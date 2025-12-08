@@ -69,6 +69,7 @@ namespace Film.Kom
                 Email = Mail,
                 HashedPassword = hash,
                 RegisteredAt = DateTime.Now,
+                Rol = 0
             };
             // data in de db
             _Users.InsertOne(NewUser);

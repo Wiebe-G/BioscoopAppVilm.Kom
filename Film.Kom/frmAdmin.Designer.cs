@@ -51,7 +51,9 @@
             lblFilmTitle = new Label();
             txtFilmPlaytime = new TextBox();
             txtFilmRoom = new TextBox();
-            tabPage2 = new TabPage();
+            tabEditFilms = new TabPage();
+            tabEditUsers = new TabPage();
+            pnlTabUsers = new TableLayoutPanel();
             pnlTabAdmin.SuspendLayout();
             pnlTabTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
@@ -63,6 +65,7 @@
             pnlTabInfoForAddingMovie.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picFilmPoster).BeginInit();
             pnlTabAllFilmInfo.SuspendLayout();
+            tabEditUsers.SuspendLayout();
             SuspendLayout();
             // 
             // pnlTabAdmin
@@ -140,7 +143,8 @@
             // tabForAdminPanel
             // 
             tabForAdminPanel.Controls.Add(tabAddingFilms);
-            tabForAdminPanel.Controls.Add(tabPage2);
+            tabForAdminPanel.Controls.Add(tabEditFilms);
+            tabForAdminPanel.Controls.Add(tabEditUsers);
             tabForAdminPanel.Dock = DockStyle.Fill;
             tabForAdminPanel.Location = new Point(3, 178);
             tabForAdminPanel.Name = "tabForAdminPanel";
@@ -373,15 +377,42 @@
             txtFilmRoom.TabIndex = 6;
             txtFilmRoom.TextAlign = HorizontalAlignment.Center;
             // 
-            // tabPage2
+            // tabEditFilms
             // 
-            tabPage2.Location = new Point(4, 29);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1171, 406);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
+            tabEditFilms.BackColor = Color.DarkRed;
+            tabEditFilms.Location = new Point(4, 29);
+            tabEditFilms.Name = "tabEditFilms";
+            tabEditFilms.Padding = new Padding(3);
+            tabEditFilms.Size = new Size(1888, 819);
+            tabEditFilms.TabIndex = 1;
+            tabEditFilms.Text = "Films bewerken";
+            // 
+            // tabEditUsers
+            // 
+            tabEditUsers.BackColor = Color.Maroon;
+            tabEditUsers.Controls.Add(pnlTabUsers);
+            tabEditUsers.Location = new Point(4, 29);
+            tabEditUsers.Name = "tabEditUsers";
+            tabEditUsers.Padding = new Padding(3);
+            tabEditUsers.Size = new Size(1888, 819);
+            tabEditUsers.TabIndex = 2;
+            tabEditUsers.Text = "Gebruikers bewerken";
+            // 
+            // pnlTabUsers
+            // 
+            pnlTabUsers.AutoSize = true;
+            pnlTabUsers.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            pnlTabUsers.ColumnCount = 2;
+            pnlTabUsers.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80F));
+            pnlTabUsers.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            pnlTabUsers.Dock = DockStyle.Fill;
+            pnlTabUsers.Location = new Point(3, 3);
+            pnlTabUsers.Name = "pnlTabUsers";
+            pnlTabUsers.RowCount = 2;
+            pnlTabUsers.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            pnlTabUsers.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
+            pnlTabUsers.Size = new Size(1882, 813);
+            pnlTabUsers.TabIndex = 0;
             // 
             // frmAdmin
             // 
@@ -406,6 +437,8 @@
             ((System.ComponentModel.ISupportInitialize)picFilmPoster).EndInit();
             pnlTabAllFilmInfo.ResumeLayout(false);
             pnlTabAllFilmInfo.PerformLayout();
+            tabEditUsers.ResumeLayout(false);
+            tabEditUsers.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -418,7 +451,7 @@
         private Button btnBackToProfile;
         private TabControl tabForAdminPanel;
         private TabPage tabAddingFilms;
-        private TabPage tabPage2;
+        private TabPage tabEditFilms;
         private TableLayoutPanel pnlTabForAddingFilms;
         private TableLayoutPanel pnlTabForCenteringInputForAddingFilms;
         private TextBox txtInputForAddingFilms;
@@ -434,5 +467,7 @@
         private Label lblFilmTitle;
         private TextBox txtFilmPlaytime;
         private TextBox txtFilmRoom;
+        private TabPage tabEditUsers;
+        private TableLayoutPanel pnlTabUsers;
     }
 }

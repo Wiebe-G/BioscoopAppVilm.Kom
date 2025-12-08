@@ -47,6 +47,49 @@ namespace Film.Kom
                 MessageBox.Show("Wat? Hoe ben jij hier gekomen?");
                 return;
             }
+
+            int MaxRows = 5;
+            int MaxCols = 2;
+            pnlTabUsers.RowStyles.Clear();
+
+            // hoogte aanpassen
+            for (int r = 0; r < MaxRows; r++)
+            {
+                pnlTabUsers.RowStyles.Add(
+                    new RowStyle(SizeType.Percent, 100f / MaxRows)
+                );
+            }
+
+            // TODO: zorg ervoor dat links een tablelayoutpanel met 4 labels voor Naam, Email, RegisteredAt en geboortedatum links komen
+            // en rechts een knop om die gebruiker te verwijderen
+            for (int row = 0; row < MaxRows; row++)
+            {
+                for (int col = 0; col < MaxCols; col++)
+                {
+                    TextBox Test = new TextBox();
+                    Test.Text = row.ToString();
+                    Test.Dock = DockStyle.Fill;
+                    Test.AutoSize = true;
+
+                    // deze werkt nog niet echt :(
+                    //TableLayoutPanel Panel = new TableLayoutPanel();
+                    //Panel.Dock = DockStyle.Fill;
+                    //Panel.AutoSize = true;
+                    //Panel.RowCount = 2;
+                    //Panel.ColumnCount = 2;
+
+                    //Panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70f));
+                    //Panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
+
+                    //Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 60f));
+                    //Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 40f));
+
+                    //Panel.Controls.Add(new Label { Text = row.ToString() }, 1, 0);
+                    //Panel.RowCount++;
+
+                    pnlTabUsers.Controls.Add(Test, col, row);
+                }
+            }
         }
 
         private async void BtnSearch_Keydown(object sender, KeyEventArgs e)

@@ -30,6 +30,7 @@ namespace Film.Kom
 
             _Users = db.GetCollection<User>("Users");
             _Films = db.GetCollection<FilmInfo>("Films");
+
         }
 
         private void btnBackToProfile_Click(object sender, EventArgs e)
@@ -52,7 +53,7 @@ namespace Film.Kom
                 }
                 FetchAllUsers();
 
-                LoadFilmsIntoTable();
+                //LoadFilmsIntoTable();
 
             }
             catch (Exception ex)
@@ -77,12 +78,8 @@ namespace Film.Kom
 
         private void LoadUsersIntoTable(List<User> AllUsers)
         {
-            for (int i = 0; i < AllUsers.Count; i++)
-            {
-                MessageBox.Show($"Gebruiker {i + 1} heet {AllUsers[i].Naam}");
-            }
+            int MaxRows = AllUsers.Count;
 
-            int MaxRows = 5;
             int MaxCols = 2;
             pnlTabUsers.RowStyles.Clear();
 
@@ -94,24 +91,41 @@ namespace Film.Kom
                 );
             }
 
-            // TODO: zorg ervoor dat links een tablelayoutpanel met 4 labels voor Naam, Email, RegisteredAt en geboortedatum links komen
-            // en rechts een knop om die gebruiker te verwijderen
+            // TODO: zorg ervoor dat de tekst links ook echt in het midden van hun hoekje komt, en dat ze allemaal hun eigen deel krijgen
+            // en dat er een minimumhoogte komt voor de elementen, en dat er dan scrollen komt voor als er veel gebruikers zijn
+
+
+            //VertigoScrollForUsers.Scroll += (sender, e) =>
+            //{
+            //    int NewValue = e.NewValue;
+            //    MessageBox.Show($"{NewValue}");
+            //};
+
+            pnlTabUsers.SuspendLayout();
+            int i = 0;
+
             for (int row = 0; row < MaxRows; row++)
             {
-                for (int col = 0; col < MaxCols; col++)
+                CreateTablesForUserDisplay(out TableLayoutPanel Panel);
+
+                Button DeleteUserButton = new()
                 {
-                    SuspendLayout();
-                    CreateElementsForUserTable(out TableLayoutPanel Panel, out Button ButtonForDeleting);
+                    Text = $"Verwijder gebruiker {AllUsers[i].Naam}",
+                    Dock = DockStyle.Fill,
+                    AutoSize = true,
+                    TextAlign = ContentAlignment.MiddleCenter,
+                };
 
-                    pnlTabUsers.Controls.Add(ButtonForDeleting, col, row);
-                    pnlTabUsers.Controls.Add(Panel, col, row);
 
-                    ResumeLayout();
-                }
+                pnlTabUsers.Controls.Add(DeleteUserButton, 1, row);
+                pnlTabUsers.Controls.Add(Panel, 0, row);
+
+                i++;
             }
+            pnlTabUsers.ResumeLayout();
         }
 
-        private static void CreateElementsForUserTable(out TableLayoutPanel Panel, out Button ButtonForDeleting)
+        private void CreateTablesForUserDisplay(out TableLayoutPanel Panel)
         {
             Panel = new()
             {
@@ -120,15 +134,44 @@ namespace Film.Kom
                 Dock = DockStyle.Fill,
                 BackColor = Color.White,
                 AutoSize = true,
-                Width = 100
+                Width = 100,
+                AutoScroll = false
             };
-            Label UserName = new() { Text = "Naam", TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.Fill, AutoSize = false };
 
-            Label Email = new() { Text = "Email", TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.Fill, AutoSize = false };
+            pnlTabUsers.VerticalScroll.Value = 1;
 
-            Label RegisterdAt = new() { Text = "Registratiedatum", TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.Fill, AutoSize = false };
 
-            Label DateOfBirth = new() { Text = "Geboortedatum", TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.Fill, AutoSize = false };
+            Label UserName = new()
+            {
+                Text = "Naam",
+                TextAlign = ContentAlignment.MiddleCenter,
+                Dock = DockStyle.Fill,
+                AutoSize = false,
+            };
+
+            Label Email = new()
+            {
+                Text = "Email",
+                TextAlign = ContentAlignment.MiddleCenter,
+                Dock = DockStyle.Fill,
+                AutoSize = false,
+            };
+
+            Label RegisterdAt = new()
+            {
+                Text = "Registratiedatum",
+                TextAlign = ContentAlignment.MiddleCenter,
+                Dock = DockStyle.Fill,
+                AutoSize = false,
+            };
+
+            Label DateOfBirth = new()
+            {
+                Text = "Geboortedatum",
+                TextAlign = ContentAlignment.MiddleCenter,
+                Dock = DockStyle.Fill,
+                AutoSize = false,
+            };
 
             Panel.Controls.Add(UserName, 0, 0);
             Panel.Controls.Add(Email, 0, 1);
@@ -142,18 +185,6 @@ namespace Film.Kom
             Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 40f));
 
             Panel.RowCount++;
-
-            ButtonForDeleting = new()
-            {
-                Text = "Mooie knop",
-                Dock = DockStyle.Fill,
-                AutoSize = true,
-
-            };
-            ButtonForDeleting.Click += (s, ev) =>
-            {
-                MessageBox.Show("Gebruiker links fetchen");
-            };
         }
 
         private async void BtnSearch_Keydown(object sender, KeyEventArgs e)

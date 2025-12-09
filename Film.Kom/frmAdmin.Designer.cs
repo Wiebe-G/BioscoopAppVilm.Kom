@@ -54,6 +54,7 @@
             tabEditFilms = new TabPage();
             tabEditUsers = new TabPage();
             pnlTabUsers = new TableLayoutPanel();
+            VertigoScrollForUsers = new VScrollBar();
             pnlTabAdmin.SuspendLayout();
             pnlTabTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
@@ -182,6 +183,7 @@
             // 
             // pnlTabForCenteringInputForAddingFilms
             // 
+            pnlTabForCenteringInputForAddingFilms.AutoScroll = true;
             pnlTabForCenteringInputForAddingFilms.ColumnCount = 3;
             pnlTabForCenteringInputForAddingFilms.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
             pnlTabForCenteringInputForAddingFilms.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
@@ -400,8 +402,10 @@
             // 
             // pnlTabUsers
             // 
+            pnlTabUsers.AutoScroll = true;
             pnlTabUsers.AutoSize = true;
             pnlTabUsers.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            pnlTabUsers.BackColor = Color.DarkRed;
             pnlTabUsers.ColumnCount = 2;
             pnlTabUsers.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80F));
             pnlTabUsers.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
@@ -414,11 +418,20 @@
             pnlTabUsers.Size = new Size(1882, 813);
             pnlTabUsers.TabIndex = 0;
             // 
+            // VertigoScrollForUsers
+            // 
+            VertigoScrollForUsers.Dock = DockStyle.Right;
+            VertigoScrollForUsers.Location = new Point(1875, 0);
+            VertigoScrollForUsers.Name = "VertigoScrollForUsers";
+            VertigoScrollForUsers.Size = new Size(27, 1033);
+            VertigoScrollForUsers.TabIndex = 1;
+            // 
             // frmAdmin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1902, 1033);
+            Controls.Add(VertigoScrollForUsers);
             Controls.Add(pnlTabAdmin);
             Name = "frmAdmin";
             Text = "frmAdmin";
@@ -469,5 +482,6 @@
         private TextBox txtFilmRoom;
         private TabPage tabEditUsers;
         private TableLayoutPanel pnlTabUsers;
+        private VScrollBar VertigoScrollForUsers;
     }
 }

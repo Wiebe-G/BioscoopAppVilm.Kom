@@ -6,7 +6,7 @@ namespace Film.Kom
 
     public partial class frmLogin : Form
     {
-        Passwords passwords = new Passwords();
+        readonly Passwords passwords = new();
         private readonly IMongoCollection<User> _Users;
         public frmLogin()
         {
@@ -31,12 +31,12 @@ namespace Film.Kom
             bool isLoginSucces = Login();
             if (isLoginSucces)
             {
-                User user = new User();
+                User user = new();
                 user.Naam = txtUsername.Text.Trim();
                 // ingelogd YIPPE
                 MessageBox.Show($"Welkom, {txtUsername.Text}");
                 this.Hide();
-                frmMainMenu MainForm = new frmMainMenu(user);
+                frmMainMenu MainForm = new(user);
                 MainForm.Show();
             }
             else
@@ -56,7 +56,7 @@ namespace Film.Kom
 
         private void btnMakeAccount_Click(object sender, EventArgs e)
         {
-            frmRegister RegisterForm = new frmRegister();
+            frmRegister RegisterForm = new();
             RegisterForm.Show();
             this.Hide();
         }

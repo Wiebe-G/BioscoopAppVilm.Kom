@@ -1,6 +1,9 @@
-﻿namespace Film.Kom
+﻿using MongoDB.Bson.Serialization.Attributes;
+
+namespace Film.Kom
 {
-    public class User
+    [BsonIgnoreExtraElements]
+    internal class User
     {
         public MongoDB.Bson.ObjectId Id { get; set; }
         public string Naam { get; set; } = string.Empty;

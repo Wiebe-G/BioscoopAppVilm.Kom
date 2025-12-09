@@ -2,7 +2,7 @@
 
 namespace Film.Kom
 {
-    public partial class frmFilmInfo : Form
+    internal partial class frmFilmInfo : Form
     {
         readonly Passwords passwords = new Passwords();
         private string _FilmName;

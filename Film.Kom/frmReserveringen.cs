@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Film.Kom
 {
-    public partial class frmStoelen_reservation : Form
+    internal partial class frmStoelen_reservation : Form
     {
         private List<Seat> _allSeats = new();
         private List<string> _selectedSeats = new();

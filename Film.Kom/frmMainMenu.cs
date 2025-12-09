@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace Film.Kom
 {
-    public partial class frmMainMenu : Form
+    internal partial class frmMainMenu : Form
     {
         Passwords passwords = new Passwords();
         private User _LoggedInUser;
@@ -61,7 +61,6 @@ namespace Film.Kom
         {
             InitializeComponent();
             _LoggedInUser = user;
-            //User user = new User();
             if (string.IsNullOrWhiteSpace(user.Naam))
             {
                 btnLogin.Text = "Inloggen";
@@ -74,7 +73,7 @@ namespace Film.Kom
                 btnLogin.Click -= btnLogin_Click;
                 btnLogin.MouseClick += (sender, e) =>
                 {
-                    frmProfielpagina ProfileForm = new frmProfielpagina(user);
+                    frmProfielpagina ProfileForm = new(user);
                     ProfileForm.Show();
                 };
             }

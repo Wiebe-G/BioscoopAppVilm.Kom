@@ -1,4 +1,5 @@
-﻿using MongoDB.Driver;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,10 +14,10 @@ using System.Windows.Forms;
 
 namespace Film.Kom
 {
-    public partial class frmAdmin : Form
+    internal partial class frmAdmin : Form
     {
-        private User _LoggedInUser;
-        private readonly Passwords passwords = new Passwords();
+        private readonly User _LoggedInUser;
+        private readonly Passwords passwords = new();
         private readonly IMongoCollection<User> _Users;
         private readonly IMongoCollection<FilmInfo> _Films;
 
@@ -33,19 +34,52 @@ namespace Film.Kom
 
         private void btnBackToProfile_Click(object sender, EventArgs e)
         {
-            frmProfielpagina ProfileForm = new frmProfielpagina(_LoggedInUser);
+            frmProfielpagina ProfileForm = new(_LoggedInUser);
             ProfileForm.Show();
             this.Hide();
         }
 
         private void frmAdmin_Load(object sender, EventArgs e)
         {
-            var DBUser = _Users.Find(g => g.Naam == _LoggedInUser.Naam).FirstOrDefault();
-
-            if (DBUser.Rol == 0)
+            try
             {
-                MessageBox.Show("Wat? Hoe ben jij hier gekomen?");
-                return;
+                var DBUser = _Users.Find(g => g.Naam == _LoggedInUser.Naam).FirstOrDefault();
+
+                if (DBUser.Rol == 0)
+                {
+                    MessageBox.Show("Wat? Hoe ben jij hier gekomen?");
+                    return;
+                }
+                FetchAllUsers();
+
+                LoadFilmsIntoTable();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Fout: {ex.Message} \n Stacktrace: {ex.StackTrace} \n Innerexception: {ex.InnerException}");
+            }
+        }
+
+        private void LoadFilmsIntoTable()
+        {
+            MessageBox.Show("Deze method is om alle films in de 2e tab te laten zien zodat je ze kunt aanpassen. " +
+                "Dit komt nog wel");
+        }
+
+        private void FetchAllUsers()
+        {
+            var EmptyFilter = Builders<User>.Filter.Empty;
+            var AllUsers = _Users.Find(EmptyFilter).ToList();
+
+            LoadUsersIntoTable(AllUsers);
+        }
+
+        private void LoadUsersIntoTable(List<User> AllUsers)
+        {
+            for (int i = 0; i < AllUsers.Count; i++)
+            {
+                MessageBox.Show($"Gebruiker {i + 1} heet {AllUsers[i].Naam}");
             }
 
             int MaxRows = 5;
@@ -67,49 +101,7 @@ namespace Film.Kom
                 for (int col = 0; col < MaxCols; col++)
                 {
                     SuspendLayout();
-                    TableLayoutPanel Panel = new()
-                    {
-                        RowCount = 2,
-                        ColumnCount = 2,
-                        Dock = DockStyle.Fill,
-                        BackColor = Color.White,
-                        AutoSize = true,
-                        Width = 100
-                    };
-
-                    Label UserName = new Label { Text = "Naam", TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.Fill, AutoSize = false };
-
-                    Label Email = new() { Text = "Email", TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.Fill, AutoSize = false };
-
-                    Label RegisterdAt = new() { Text = "Registratiedatum", TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.Fill, AutoSize = false };
-
-                    Label DateOfBirth = new() { Text = "Geboortedatum", TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.Fill, AutoSize = false };
-
-                    Panel.Controls.Add(UserName, 0, 0);
-                    Panel.Controls.Add(Email, 0, 1);
-                    Panel.Controls.Add(RegisterdAt, 1, 0);
-                    Panel.Controls.Add(DateOfBirth, 1, 1);
-
-                    Panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70f));
-                    Panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
-
-                    Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 60f));
-                    Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 40f));
-
-                    Panel.RowCount++;
-
-                    Button ButtonForDeleting = new()
-                    {
-                        Text = "Mooie knop",
-                        Dock = DockStyle.Fill,
-                        AutoSize = true,
-
-                    };
-
-                    ButtonForDeleting.Click += (s, ev) =>
-                    {
-                        MessageBox.Show("Gebruiker links fetchen");
-                    };
+                    CreateElementsForUserTable(out TableLayoutPanel Panel, out Button ButtonForDeleting);
 
                     pnlTabUsers.Controls.Add(ButtonForDeleting, col, row);
                     pnlTabUsers.Controls.Add(Panel, col, row);
@@ -119,9 +111,49 @@ namespace Film.Kom
             }
         }
 
-        private void Test_Click(object sender, EventArgs e)
+        private static void CreateElementsForUserTable(out TableLayoutPanel Panel, out Button ButtonForDeleting)
         {
+            Panel = new()
+            {
+                RowCount = 2,
+                ColumnCount = 2,
+                Dock = DockStyle.Fill,
+                BackColor = Color.White,
+                AutoSize = true,
+                Width = 100
+            };
+            Label UserName = new() { Text = "Naam", TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.Fill, AutoSize = false };
 
+            Label Email = new() { Text = "Email", TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.Fill, AutoSize = false };
+
+            Label RegisterdAt = new() { Text = "Registratiedatum", TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.Fill, AutoSize = false };
+
+            Label DateOfBirth = new() { Text = "Geboortedatum", TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.Fill, AutoSize = false };
+
+            Panel.Controls.Add(UserName, 0, 0);
+            Panel.Controls.Add(Email, 0, 1);
+            Panel.Controls.Add(RegisterdAt, 1, 0);
+            Panel.Controls.Add(DateOfBirth, 1, 1);
+
+            Panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70f));
+            Panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
+
+            Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 60f));
+            Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 40f));
+
+            Panel.RowCount++;
+
+            ButtonForDeleting = new()
+            {
+                Text = "Mooie knop",
+                Dock = DockStyle.Fill,
+                AutoSize = true,
+
+            };
+            ButtonForDeleting.Click += (s, ev) =>
+            {
+                MessageBox.Show("Gebruiker links fetchen");
+            };
         }
 
         private async void BtnSearch_Keydown(object sender, KeyEventArgs e)
@@ -139,15 +171,11 @@ namespace Film.Kom
                 lblFilmGenre.Text = MovieData?.Genre;
                 lblFilmPlot.Text = MovieData?.Plot;
                 lblFilmRated.Text = MovieData?.Rated;
-                picFilmPoster.Load(MovieData.Poster);
-            }
-            else
-            {
-                // niks doen
+                picFilmPoster.Load(MovieData?.Poster);
             }
         }
 
-        private async Task<FilmInfo> FetchFilmInfo()
+        private async Task<FilmInfo?> FetchFilmInfo()
         {
             string FilmName = txtInputForAddingFilms.Text.Trim();
             string APIKey = passwords.APIKey;
@@ -170,7 +198,7 @@ namespace Film.Kom
                 string JSONResponse = await response.Content.ReadAsStringAsync();
                 var MovieData = JsonSerializer.Deserialize<FilmInfo>(JSONResponse);
                 // vraagteken betekent dat de variabele null mag zijn
-                if (MovieData.Response != "True")
+                if (MovieData?.Response != "True")
                 {
                     MessageBox.Show("Film niet gevonden");
                     return null;

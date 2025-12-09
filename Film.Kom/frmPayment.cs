@@ -19,7 +19,7 @@ using System.Windows.Forms;
 
 namespace Film.Kom
 {
-    public partial class frmPayment : Form
+    internal partial class frmPayment : Form
     {
         readonly Passwords passwords = new Passwords();
         private IMongoCollection<User>? _Users;

@@ -18,8 +18,8 @@ namespace Film.Kom
 
         public bool Login()
         {
-            string username = txtUsername.Text;
-            string PlainPassword = txtPassword.Text;
+            string username = txtUsername.Text.Trim();
+            string PlainPassword = txtPassword.Text.Trim();
 
             var user = _Users.Find(g => g.Naam == username).FirstOrDefault();
             if (user == null) { return false; }

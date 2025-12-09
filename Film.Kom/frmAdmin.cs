@@ -66,30 +66,62 @@ namespace Film.Kom
             {
                 for (int col = 0; col < MaxCols; col++)
                 {
-                    TextBox Test = new TextBox();
-                    Test.Text = row.ToString();
-                    Test.Dock = DockStyle.Fill;
-                    Test.AutoSize = true;
+                    SuspendLayout();
+                    TableLayoutPanel Panel = new()
+                    {
+                        RowCount = 2,
+                        ColumnCount = 2,
+                        Dock = DockStyle.Fill,
+                        BackColor = Color.White,
+                        AutoSize = true,
+                        Width = 100
+                    };
 
-                    // deze werkt nog niet echt :(
-                    //TableLayoutPanel Panel = new TableLayoutPanel();
-                    //Panel.Dock = DockStyle.Fill;
-                    //Panel.AutoSize = true;
-                    //Panel.RowCount = 2;
-                    //Panel.ColumnCount = 2;
+                    Label UserName = new Label { Text = "Naam", TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.Fill, AutoSize = false };
 
-                    //Panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70f));
-                    //Panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
+                    Label Email = new() { Text = "Email", TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.Fill, AutoSize = false };
 
-                    //Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 60f));
-                    //Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 40f));
+                    Label RegisterdAt = new() { Text = "Registratiedatum", TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.Fill, AutoSize = false };
 
-                    //Panel.Controls.Add(new Label { Text = row.ToString() }, 1, 0);
-                    //Panel.RowCount++;
+                    Label DateOfBirth = new() { Text = "Geboortedatum", TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.Fill, AutoSize = false };
 
-                    pnlTabUsers.Controls.Add(Test, col, row);
+                    Panel.Controls.Add(UserName, 0, 0);
+                    Panel.Controls.Add(Email, 0, 1);
+                    Panel.Controls.Add(RegisterdAt, 1, 0);
+                    Panel.Controls.Add(DateOfBirth, 1, 1);
+
+                    Panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70f));
+                    Panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
+
+                    Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 60f));
+                    Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 40f));
+
+                    Panel.RowCount++;
+
+                    Button ButtonForDeleting = new()
+                    {
+                        Text = "Mooie knop",
+                        Dock = DockStyle.Fill,
+                        AutoSize = true,
+
+                    };
+
+                    ButtonForDeleting.Click += (s, ev) =>
+                    {
+                        MessageBox.Show("Gebruiker links fetchen");
+                    };
+
+                    pnlTabUsers.Controls.Add(ButtonForDeleting, col, row);
+                    pnlTabUsers.Controls.Add(Panel, col, row);
+
+                    ResumeLayout();
                 }
             }
+        }
+
+        private void Test_Click(object sender, EventArgs e)
+        {
+
         }
 
         private async void BtnSearch_Keydown(object sender, KeyEventArgs e)
@@ -181,6 +213,7 @@ namespace Film.Kom
                 Zaal = txtFilmRoom.Text.Trim()
             };
             _Films.InsertOne(NewFilm);
+            MessageBox.Show($"Film {MovieData.Title} is succesvol toegevoegd aan de database.");
         }
     }
 }

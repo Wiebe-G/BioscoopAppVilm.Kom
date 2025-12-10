@@ -88,7 +88,6 @@ namespace Film.Kom
                 return;
             }
 
-            //int MaxCols = 2;
             pnlTabUsers.SuspendLayout();
             pnlTabUsers.Controls.Clear();
             pnlTabUsers.RowStyles.Clear();
@@ -120,7 +119,7 @@ namespace Film.Kom
 
             for (int row = 0; row < MaxRows; row++)
             {
-                CreateTablesForUserDisplay(out TableLayoutPanel Panel, MinRowHeight);
+                CreateTablesForUserDisplay(out TableLayoutPanel Panel, MinRowHeight, AllUsers, i);
 
                 Button DeleteUserButton = new()
                 {
@@ -139,7 +138,7 @@ namespace Film.Kom
             pnlTabUsers.ResumeLayout();
         }
 
-        private void CreateTablesForUserDisplay(out TableLayoutPanel Panel, int MinRowHeight)
+        private void CreateTablesForUserDisplay(out TableLayoutPanel Panel, int MinRowHeight, List<User> AllUsers, int Iterator)
         {
             Panel = new()
             {
@@ -151,15 +150,19 @@ namespace Film.Kom
                 Width = 100,
                 AutoScroll = false,
                 MinimumSize = new Size(0, MinRowHeight),
-                Height = MinRowHeight
+                Height = MinRowHeight,
+                CellBorderStyle = TableLayoutPanelCellBorderStyle.Outset,
             };
 
+            for (int i = 0; i < Panel.ColumnCount; i++)
+            {
+                Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 100f / Panel.ColumnCount));
+            }
+
             pnlTabUsers.VerticalScroll.Value = 1;
-
-
             Label UserName = new()
             {
-                Text = "Naam",
+                Text = $"Naam: {AllUsers[Iterator].Naam}",
                 TextAlign = ContentAlignment.MiddleCenter,
                 Dock = DockStyle.Fill,
                 AutoSize = false,
@@ -168,7 +171,7 @@ namespace Film.Kom
 
             Label Email = new()
             {
-                Text = "Email",
+                Text = $"Email: {AllUsers[Iterator].Email}",
                 TextAlign = ContentAlignment.MiddleCenter,
                 Dock = DockStyle.Fill,
                 AutoSize = false,
@@ -177,7 +180,7 @@ namespace Film.Kom
 
             Label RegisterdAt = new()
             {
-                Text = "Registratiedatum",
+                Text = $"Lid sinds: {AllUsers[Iterator].RegisteredAt}",
                 TextAlign = ContentAlignment.MiddleCenter,
                 Dock = DockStyle.Fill,
                 AutoSize = false,
@@ -186,12 +189,18 @@ namespace Film.Kom
 
             Label DateOfBirth = new()
             {
-                Text = "Geboortedatum",
+                Text = $"Geboren op: {AllUsers[Iterator].Geboortedatum}",
                 TextAlign = ContentAlignment.MiddleCenter,
                 Dock = DockStyle.Fill,
                 AutoSize = false,
                 MinimumSize = new Size(0, 1)
             };
+
+            // Wou dit met een loop doen maar winforms dacht daar anders over :(
+            UserName.Font = new Font(UserName.Font, FontStyle.Bold);
+            Email.Font = new Font(Email.Font, FontStyle.Bold);
+            RegisterdAt.Font = new Font(RegisterdAt.Font, FontStyle.Bold);
+            DateOfBirth.Font = new Font(DateOfBirth.Font, FontStyle.Bold);
 
             Panel.Controls.Add(UserName, 0, 0);
             Panel.Controls.Add(Email, 0, 1);
@@ -207,7 +216,6 @@ namespace Film.Kom
             Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 60f));
             Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 40f));
 
-            //Panel.RowCount++;
         }
 
         private async void BtnSearch_Keydown(object sender, KeyEventArgs e)

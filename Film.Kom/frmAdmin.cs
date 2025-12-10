@@ -88,6 +88,61 @@ namespace Film.Kom
                 return;
             }
 
+            int MinRowHeight = LayoutForUserPanel(MaxRows);
+
+            int i = 0;
+
+            for (int row = 0; row < MaxRows; row++)
+            {
+                string Username = AllUsers[i].Naam;
+                CreateTablesForUserDisplay(out TableLayoutPanel Panel, MinRowHeight, AllUsers, i);
+                Button DeleteUserButton = new()
+                {
+                    Text = $"Verwijder gebruiker {AllUsers[i].Naam}",
+                    Dock = DockStyle.Fill,
+                    AutoSize = true,
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    Font = new Font("Georgia", 24, FontStyle.Bold),
+                };
+
+                DeleteUserButton.Click += (s, ev) =>
+                {
+                    var Filter = Builders<User>.Filter.Eq(r => r.Naam, Username);
+                    var DeleteOrNo = MessageBox.Show($"Wilt u {Username} echt verwijderen?", "Waarschuwing", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                    switch (DeleteOrNo)
+                    {
+                        case DialogResult.Yes:
+                            MessageBox.Show($"Verwijder gebruiker {Username}");
+                            var Result = _Users.DeleteOne(Filter);
+                            break;
+                        case DialogResult.No:
+                            MessageBox.Show($"Ok, {Username} zal niet worden verwijderd");
+                            break;
+                        case DialogResult.Cancel:
+                            MessageBox.Show($"Ok, {Username} zal niet worden verwijderd");
+                            break;
+                    }
+                    /* 
+                     * het doel van deze onderstaande regel was om de ui te refreshen wanneer iemand een gebruiker verwijderd
+                     * dat werkt niet zoals verwacht
+                     * :(
+                     * de verwijderde gebruiker staat er nog steeds, maar de namen op bijna elke andere knop is wel weg
+                    */
+                    //LoadUsersIntoTable(AllUsers);
+                    // Deze werkt wel bijna goed, alleen is die knop dan wat te groot
+                    FetchAllUsers();
+                };
+
+                pnlTabUsers.Controls.Add(DeleteUserButton, 1, row);
+                pnlTabUsers.Controls.Add(Panel, 0, row);
+
+                i++;
+            }
+            pnlTabUsers.ResumeLayout();
+        }
+
+        private int LayoutForUserPanel(int MaxRows)
+        {
             pnlTabUsers.SuspendLayout();
             pnlTabUsers.Controls.Clear();
             pnlTabUsers.RowStyles.Clear();
@@ -115,27 +170,7 @@ namespace Film.Kom
                 }
             }
 
-            int i = 0;
-
-            for (int row = 0; row < MaxRows; row++)
-            {
-                CreateTablesForUserDisplay(out TableLayoutPanel Panel, MinRowHeight, AllUsers, i);
-
-                Button DeleteUserButton = new()
-                {
-                    Text = $"Verwijder gebruiker {AllUsers[i].Naam}",
-                    Dock = DockStyle.Fill,
-                    AutoSize = true,
-                    TextAlign = ContentAlignment.MiddleCenter,
-                };
-
-
-                pnlTabUsers.Controls.Add(DeleteUserButton, 1, row);
-                pnlTabUsers.Controls.Add(Panel, 0, row);
-
-                i++;
-            }
-            pnlTabUsers.ResumeLayout();
+            return MinRowHeight;
         }
 
         private void CreateTablesForUserDisplay(out TableLayoutPanel Panel, int MinRowHeight, List<User> AllUsers, int Iterator)
@@ -145,13 +180,13 @@ namespace Film.Kom
                 RowCount = 2,
                 ColumnCount = 2,
                 Dock = DockStyle.Fill,
-                BackColor = Color.White,
                 AutoSize = false,
                 Width = 100,
                 AutoScroll = false,
                 MinimumSize = new Size(0, MinRowHeight),
                 Height = MinRowHeight,
                 CellBorderStyle = TableLayoutPanelCellBorderStyle.Outset,
+                Margin = new Padding(0, 0, 0, 100)
             };
 
             for (int i = 0; i < Panel.ColumnCount; i++)
@@ -197,10 +232,10 @@ namespace Film.Kom
             };
 
             // Wou dit met een loop doen maar winforms dacht daar anders over :(
-            UserName.Font = new Font(UserName.Font, FontStyle.Bold);
-            Email.Font = new Font(Email.Font, FontStyle.Bold);
-            RegisterdAt.Font = new Font(RegisterdAt.Font, FontStyle.Bold);
-            DateOfBirth.Font = new Font(DateOfBirth.Font, FontStyle.Bold);
+            UserName.Font = new Font("Georgia", 18, FontStyle.Bold);
+            Email.Font = new Font("Georgia", 18, FontStyle.Bold);
+            RegisterdAt.Font = new Font("Georgia", 18, FontStyle.Bold);
+            DateOfBirth.Font = new Font("Georgia", 18, FontStyle.Bold);
 
             Panel.Controls.Add(UserName, 0, 0);
             Panel.Controls.Add(Email, 0, 1);
@@ -210,8 +245,8 @@ namespace Film.Kom
             Panel.ColumnStyles.Clear();
             Panel.RowStyles.Clear();
 
-            Panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70f));
-            Panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
+            Panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50f));
+            Panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
 
             Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 60f));
             Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 40f));

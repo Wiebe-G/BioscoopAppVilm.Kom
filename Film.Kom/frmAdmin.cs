@@ -79,34 +79,48 @@ namespace Film.Kom
         private void LoadUsersIntoTable(List<User> AllUsers)
         {
             int MaxRows = AllUsers.Count;
+            if (MaxRows == 0)
+            {
+                MessageBox.Show("Geen gebruikers gevonden");
+                pnlTabUsers.Controls.Clear();
+                pnlTabUsers.RowStyles.Clear();
+                pnlTabUsers.RowCount = 0;
+                return;
+            }
 
-            int MaxCols = 2;
+            //int MaxCols = 2;
+            pnlTabUsers.SuspendLayout();
+            pnlTabUsers.Controls.Clear();
             pnlTabUsers.RowStyles.Clear();
+            pnlTabUsers.RowCount = MaxRows;
+            pnlTabUsers.AutoScroll = true;
+
+            // Hier wel wat hulp gehad van gpt, maar goed 
+            int ContainerHeight = Math.Max(1, pnlTabUsers.ClientSize.Height);
+            int MinRowHeight = Math.Max(100, (int)(ContainerHeight * 0.2f));
+
+            long TotalMinHeight = (long)MinRowHeight * MaxRows;
+            bool UsePercent = TotalMinHeight <= ContainerHeight;
 
             // hoogte aanpassen
             for (int r = 0; r < MaxRows; r++)
             {
-                pnlTabUsers.RowStyles.Add(
-                    new RowStyle(SizeType.Percent, 100f / MaxRows)
+                if (UsePercent)
+                {
+                    pnlTabUsers.RowStyles.Add(new RowStyle(SizeType.Percent, 100f / MaxRows)
                 );
+                }
+                else
+                {
+                    pnlTabUsers.RowStyles.Add(new RowStyle(SizeType.Absolute, MinRowHeight));
+                }
             }
 
-            // TODO: zorg ervoor dat de tekst links ook echt in het midden van hun hoekje komt, en dat ze allemaal hun eigen deel krijgen
-            // en dat er een minimumhoogte komt voor de elementen, en dat er dan scrollen komt voor als er veel gebruikers zijn
-
-
-            //VertigoScrollForUsers.Scroll += (sender, e) =>
-            //{
-            //    int NewValue = e.NewValue;
-            //    MessageBox.Show($"{NewValue}");
-            //};
-
-            pnlTabUsers.SuspendLayout();
             int i = 0;
 
             for (int row = 0; row < MaxRows; row++)
             {
-                CreateTablesForUserDisplay(out TableLayoutPanel Panel);
+                CreateTablesForUserDisplay(out TableLayoutPanel Panel, MinRowHeight);
 
                 Button DeleteUserButton = new()
                 {
@@ -125,7 +139,7 @@ namespace Film.Kom
             pnlTabUsers.ResumeLayout();
         }
 
-        private void CreateTablesForUserDisplay(out TableLayoutPanel Panel)
+        private void CreateTablesForUserDisplay(out TableLayoutPanel Panel, int MinRowHeight)
         {
             Panel = new()
             {
@@ -133,9 +147,11 @@ namespace Film.Kom
                 ColumnCount = 2,
                 Dock = DockStyle.Fill,
                 BackColor = Color.White,
-                AutoSize = true,
+                AutoSize = false,
                 Width = 100,
-                AutoScroll = false
+                AutoScroll = false,
+                MinimumSize = new Size(0, MinRowHeight),
+                Height = MinRowHeight
             };
 
             pnlTabUsers.VerticalScroll.Value = 1;
@@ -147,6 +163,7 @@ namespace Film.Kom
                 TextAlign = ContentAlignment.MiddleCenter,
                 Dock = DockStyle.Fill,
                 AutoSize = false,
+                MinimumSize = new Size(0, 1)
             };
 
             Label Email = new()
@@ -155,6 +172,7 @@ namespace Film.Kom
                 TextAlign = ContentAlignment.MiddleCenter,
                 Dock = DockStyle.Fill,
                 AutoSize = false,
+                MinimumSize = new Size(0, 1)
             };
 
             Label RegisterdAt = new()
@@ -163,6 +181,7 @@ namespace Film.Kom
                 TextAlign = ContentAlignment.MiddleCenter,
                 Dock = DockStyle.Fill,
                 AutoSize = false,
+                MinimumSize = new Size(0, 1)
             };
 
             Label DateOfBirth = new()
@@ -171,6 +190,7 @@ namespace Film.Kom
                 TextAlign = ContentAlignment.MiddleCenter,
                 Dock = DockStyle.Fill,
                 AutoSize = false,
+                MinimumSize = new Size(0, 1)
             };
 
             Panel.Controls.Add(UserName, 0, 0);
@@ -178,31 +198,41 @@ namespace Film.Kom
             Panel.Controls.Add(RegisterdAt, 1, 0);
             Panel.Controls.Add(DateOfBirth, 1, 1);
 
+            Panel.ColumnStyles.Clear();
+            Panel.RowStyles.Clear();
+
             Panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70f));
             Panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
 
             Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 60f));
             Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 40f));
 
-            Panel.RowCount++;
+            //Panel.RowCount++;
         }
 
         private async void BtnSearch_Keydown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                var MovieData = await FetchFilmInfo();
-                if (MovieData == null)
+                try
                 {
-                    return;
+                    var MovieData = await FetchFilmInfo();
+                    if (MovieData == null)
+                    {
+                        return;
+                    }
+                    MessageBox.Show($"Film {MovieData.Title} is gevonden.");
+                    lblFilmTitle.Text = MovieData?.Title;
+                    lblFilmRuntime.Text = MovieData?.Runtime;
+                    lblFilmGenre.Text = MovieData?.Genre;
+                    lblFilmPlot.Text = MovieData?.Plot;
+                    lblFilmRated.Text = MovieData?.Rated;
+                    picFilmPoster.Load(MovieData?.Poster);
                 }
-                MessageBox.Show($"Film {MovieData.Title} is gevonden.");
-                lblFilmTitle.Text = MovieData?.Title;
-                lblFilmRuntime.Text = MovieData?.Runtime;
-                lblFilmGenre.Text = MovieData?.Genre;
-                lblFilmPlot.Text = MovieData?.Plot;
-                lblFilmRated.Text = MovieData?.Rated;
-                picFilmPoster.Load(MovieData?.Poster);
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Fout opgetreden: {ex.Message}.\nStacktrace: {ex.StackTrace}");
+                }
             }
         }
 

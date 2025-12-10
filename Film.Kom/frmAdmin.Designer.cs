@@ -54,7 +54,6 @@
             tabEditFilms = new TabPage();
             tabEditUsers = new TabPage();
             pnlTabUsers = new TableLayoutPanel();
-            VertigoScrollForUsers = new VScrollBar();
             pnlTabAdmin.SuspendLayout();
             pnlTabTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
@@ -418,20 +417,11 @@
             pnlTabUsers.Size = new Size(1882, 813);
             pnlTabUsers.TabIndex = 0;
             // 
-            // VertigoScrollForUsers
-            // 
-            VertigoScrollForUsers.Dock = DockStyle.Right;
-            VertigoScrollForUsers.Location = new Point(1875, 0);
-            VertigoScrollForUsers.Name = "VertigoScrollForUsers";
-            VertigoScrollForUsers.Size = new Size(27, 1033);
-            VertigoScrollForUsers.TabIndex = 1;
-            // 
             // frmAdmin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1902, 1033);
-            Controls.Add(VertigoScrollForUsers);
             Controls.Add(pnlTabAdmin);
             Name = "frmAdmin";
             Text = "frmAdmin";
@@ -482,6 +472,5 @@
         private TextBox txtFilmRoom;
         private TabPage tabEditUsers;
         private TableLayoutPanel pnlTabUsers;
-        private VScrollBar VertigoScrollForUsers;
     }
 }

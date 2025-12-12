@@ -30,7 +30,6 @@ namespace Film.Kom
 
             _Users = db.GetCollection<User>("Users");
             _Films = db.GetCollection<FilmInfo>("Films");
-
         }
 
         private void btnBackToProfile_Click(object sender, EventArgs e)
@@ -53,7 +52,7 @@ namespace Film.Kom
                 }
                 FetchAllUsers();
 
-                //LoadFilmsIntoTable();
+                LoadFilmsIntoTable();
 
             }
             catch (Exception ex)
@@ -64,8 +63,49 @@ namespace Film.Kom
 
         private void LoadFilmsIntoTable()
         {
-            MessageBox.Show("Deze method is om alle films in de 2e tab te laten zien zodat je ze kunt aanpassen. " +
-                "Dit komt nog wel");
+            var EmptyFilterForMovies = Builders<FilmInfo>.Filter.Empty;
+            var AllTheFilms = _Films.Find(EmptyFilterForMovies).ToList();
+
+            for (int i = 0; i < AllTheFilms.Count; i++)
+            {
+                //MessageBox.Show($"Film {AllTheFilms[i].Id} heet {AllTheFilms[i].Title}");
+            }
+            LoadFilmsIntoTable(AllTheFilms);
+        }
+
+        private void LoadFilmsIntoTable(List<FilmInfo> AllTheFilms)
+        {
+            int MaxRows = AllTheFilms.Count;
+            if (MaxRows == 0)
+            {
+                pnlTabUsers.Controls.Clear();
+                pnlTabUsers.RowStyles.Clear();
+                pnlTabUsers.RowCount = 0;
+                return;
+            }
+
+            int MinRowHeight = LayoutForAdminPanel(MaxRows, pnlTabFilms);
+
+            int i = 0;
+
+            for (int row = 0; row < MaxRows; row++)
+            {
+                CreateTablesForFilmsDisplay(out TableLayoutPanel Panel, MinRowHeight, AllTheFilms, i);
+                Button TestButton = new()
+                {
+                    Text = $"Film heet {AllTheFilms[i].Title}",
+                    Dock = DockStyle.Fill,
+                    AutoSize = true,
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    Font = new Font("Georgia", 24, FontStyle.Bold)
+                };
+                TestButton.Click += (s, ev) =>
+                {
+                    MessageBox.Show("Knop");
+                };
+                pnlTabFilms.Controls.Add(Panel, 0, row);
+                pnlTabFilms.Controls.Add(TestButton, 1, row);
+            }
         }
 
         private void FetchAllUsers()
@@ -88,7 +128,7 @@ namespace Film.Kom
                 return;
             }
 
-            int MinRowHeight = LayoutForUserPanel(MaxRows);
+            int MinRowHeight = LayoutForAdminPanel(MaxRows, pnlTabUsers);
 
             int i = 0;
 
@@ -112,8 +152,18 @@ namespace Film.Kom
                     switch (DeleteOrNo)
                     {
                         case DialogResult.Yes:
-                            MessageBox.Show($"Verwijder gebruiker {Username}");
+                            MessageBox.Show($"Verwijder gebruiker {Username}?");
                             var Result = _Users.DeleteOne(Filter);
+                            if (Result.IsAcknowledged)
+                            {
+                                MessageBox.Show($"Gebruiker {Username} is succesvol verwijderd!");
+                            }
+                            else
+                            {
+                                MessageBox.Show($"Er is iets misgegaan met het verwijderen van {Username}. Probeer het opnieuw.");
+                            }
+                            // UI refreshen als er een gebruiker is verwijderd. onderste knop wordt wat te groot maar goed wie boeit
+                            FetchAllUsers();
                             break;
                         case DialogResult.No:
                             MessageBox.Show($"Ok, {Username} zal niet worden verwijderd");
@@ -122,15 +172,6 @@ namespace Film.Kom
                             MessageBox.Show($"Ok, {Username} zal niet worden verwijderd");
                             break;
                     }
-                    /* 
-                     * het doel van deze onderstaande regel was om de ui te refreshen wanneer iemand een gebruiker verwijderd
-                     * dat werkt niet zoals verwacht
-                     * :(
-                     * de verwijderde gebruiker staat er nog steeds, maar de namen op bijna elke andere knop is wel weg
-                    */
-                    //LoadUsersIntoTable(AllUsers);
-                    // Deze werkt wel bijna goed, alleen is die knop dan wat te groot
-                    FetchAllUsers();
                 };
 
                 pnlTabUsers.Controls.Add(DeleteUserButton, 1, row);
@@ -141,16 +182,16 @@ namespace Film.Kom
             pnlTabUsers.ResumeLayout();
         }
 
-        private int LayoutForUserPanel(int MaxRows)
+        private int LayoutForAdminPanel(int MaxRows, TableLayoutPanel InputPanel)
         {
-            pnlTabUsers.SuspendLayout();
-            pnlTabUsers.Controls.Clear();
-            pnlTabUsers.RowStyles.Clear();
-            pnlTabUsers.RowCount = MaxRows;
-            pnlTabUsers.AutoScroll = true;
+            InputPanel.SuspendLayout();
+            InputPanel.Controls.Clear();
+            InputPanel.RowStyles.Clear();
+            InputPanel.RowCount = MaxRows;
+            InputPanel.AutoScroll = true;
 
             // Hier wel wat hulp gehad van gpt, maar goed 
-            int ContainerHeight = Math.Max(1, pnlTabUsers.ClientSize.Height);
+            int ContainerHeight = Math.Max(1, InputPanel.ClientSize.Height);
             int MinRowHeight = Math.Max(100, (int)(ContainerHeight * 0.2f));
 
             long TotalMinHeight = (long)MinRowHeight * MaxRows;
@@ -161,12 +202,12 @@ namespace Film.Kom
             {
                 if (UsePercent)
                 {
-                    pnlTabUsers.RowStyles.Add(new RowStyle(SizeType.Percent, 100f / MaxRows)
+                    InputPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100f / MaxRows)
                 );
                 }
                 else
                 {
-                    pnlTabUsers.RowStyles.Add(new RowStyle(SizeType.Absolute, MinRowHeight));
+                    InputPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, MinRowHeight));
                 }
             }
 
@@ -201,7 +242,8 @@ namespace Film.Kom
                 TextAlign = ContentAlignment.MiddleCenter,
                 Dock = DockStyle.Fill,
                 AutoSize = false,
-                MinimumSize = new Size(0, 1)
+                MinimumSize = new Size(0, 1),
+                Font = new Font("Georgia", 18, FontStyle.Bold)
             };
 
             Label Email = new()
@@ -210,7 +252,8 @@ namespace Film.Kom
                 TextAlign = ContentAlignment.MiddleCenter,
                 Dock = DockStyle.Fill,
                 AutoSize = false,
-                MinimumSize = new Size(0, 1)
+                MinimumSize = new Size(0, 1),
+                Font = new Font("Georgia", 18, FontStyle.Bold)
             };
 
             Label RegisterdAt = new()
@@ -219,7 +262,8 @@ namespace Film.Kom
                 TextAlign = ContentAlignment.MiddleCenter,
                 Dock = DockStyle.Fill,
                 AutoSize = false,
-                MinimumSize = new Size(0, 1)
+                MinimumSize = new Size(0, 1),
+                Font = new Font("Georgia", 18, FontStyle.Bold)
             };
 
             Label DateOfBirth = new()
@@ -228,14 +272,9 @@ namespace Film.Kom
                 TextAlign = ContentAlignment.MiddleCenter,
                 Dock = DockStyle.Fill,
                 AutoSize = false,
-                MinimumSize = new Size(0, 1)
+                MinimumSize = new Size(0, 1),
+                Font = new Font("Georgia", 18, FontStyle.Bold)
             };
-
-            // Wou dit met een loop doen maar winforms dacht daar anders over :(
-            UserName.Font = new Font("Georgia", 18, FontStyle.Bold);
-            Email.Font = new Font("Georgia", 18, FontStyle.Bold);
-            RegisterdAt.Font = new Font("Georgia", 18, FontStyle.Bold);
-            DateOfBirth.Font = new Font("Georgia", 18, FontStyle.Bold);
 
             Panel.Controls.Add(UserName, 0, 0);
             Panel.Controls.Add(Email, 0, 1);
@@ -250,7 +289,51 @@ namespace Film.Kom
 
             Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 60f));
             Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 40f));
+        }
 
+        private void CreateTablesForFilmsDisplay(out TableLayoutPanel Panel, int MinRowHeight, List<FilmInfo> AllTheFilms, int Iterator)
+        {
+            Panel = new()
+            {
+                RowCount = 2,
+                ColumnCount = 2,
+                Dock = DockStyle.Fill,
+                AutoSize = false,
+                Width = 100,
+                AutoScroll = false,
+                MinimumSize = new Size(0, MinRowHeight),
+                Height = MinRowHeight,
+                CellBorderStyle = TableLayoutPanelCellBorderStyle.Outset,
+                Margin = new Padding(0, 0, 0, 100)
+            };
+
+            for (int i = 0; i < Panel.ColumnCount; i++)
+            {
+                Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 100f / Panel.ColumnCount));
+            }
+
+            pnlTabFilms.VerticalScroll.Value = 1;
+            // Labels maken, en die op Georgia, font size 18px, en bold
+            Label Title = new()
+            {
+                Text = $"{AllTheFilms[Iterator].Title}",
+                TextAlign = ContentAlignment.MiddleCenter,
+                Dock = DockStyle.Fill,
+                AutoSize = false,
+                MinimumSize = new Size(0, 1),
+                Font = new Font("Georgia", 18, FontStyle.Bold)
+            };
+
+            Panel.Controls.Add(Title, 0, 0);
+
+            Panel.ColumnStyles.Clear();
+            Panel.RowStyles.Clear();
+
+            Panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50f));
+            Panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+
+            Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 60f));
+            Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 40f));
         }
 
         private async void BtnSearch_Keydown(object sender, KeyEventArgs e)

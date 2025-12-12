@@ -54,6 +54,7 @@
             tabEditFilms = new TabPage();
             tabEditUsers = new TabPage();
             pnlTabUsers = new TableLayoutPanel();
+            pnlTabFilms = new TableLayoutPanel();
             pnlTabAdmin.SuspendLayout();
             pnlTabTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
@@ -65,6 +66,7 @@
             pnlTabInfoForAddingMovie.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picFilmPoster).BeginInit();
             pnlTabAllFilmInfo.SuspendLayout();
+            tabEditFilms.SuspendLayout();
             tabEditUsers.SuspendLayout();
             SuspendLayout();
             // 
@@ -381,6 +383,7 @@
             // tabEditFilms
             // 
             tabEditFilms.BackColor = Color.DarkRed;
+            tabEditFilms.Controls.Add(pnlTabFilms);
             tabEditFilms.Location = new Point(4, 29);
             tabEditFilms.Name = "tabEditFilms";
             tabEditFilms.Padding = new Padding(3);
@@ -417,6 +420,20 @@
             pnlTabUsers.Size = new Size(1882, 813);
             pnlTabUsers.TabIndex = 0;
             // 
+            // pnlTabFilms
+            // 
+            pnlTabFilms.ColumnCount = 2;
+            pnlTabFilms.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80F));
+            pnlTabFilms.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            pnlTabFilms.Dock = DockStyle.Fill;
+            pnlTabFilms.Location = new Point(3, 3);
+            pnlTabFilms.Name = "pnlTabFilms";
+            pnlTabFilms.RowCount = 1;
+            pnlTabFilms.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            pnlTabFilms.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            pnlTabFilms.Size = new Size(1882, 813);
+            pnlTabFilms.TabIndex = 0;
+            // 
             // frmAdmin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -440,6 +457,7 @@
             ((System.ComponentModel.ISupportInitialize)picFilmPoster).EndInit();
             pnlTabAllFilmInfo.ResumeLayout(false);
             pnlTabAllFilmInfo.PerformLayout();
+            tabEditFilms.ResumeLayout(false);
             tabEditUsers.ResumeLayout(false);
             tabEditUsers.PerformLayout();
             ResumeLayout(false);
@@ -472,5 +490,6 @@
         private TextBox txtFilmRoom;
         private TabPage tabEditUsers;
         private TableLayoutPanel pnlTabUsers;
+        private TableLayoutPanel pnlTabFilms;
     }
 }

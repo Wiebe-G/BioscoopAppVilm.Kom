@@ -50,10 +50,13 @@ namespace Film.Kom
                     MessageBox.Show("Wat? Hoe ben jij hier gekomen?");
                     return;
                 }
+                FetchFilmsFromDatabase();
+
                 FetchAllUsers();
 
-                LoadFilmsIntoTable();
-
+                // Ook alle bestellingen laten zien
+                // misschien handig dat dan ipv een aparte method voor elk onderdeel, alles in 1 method en dan met een switch case 
+                // dus dat niet alles in 1 panel wordt gezet
             }
             catch (Exception ex)
             {
@@ -61,15 +64,11 @@ namespace Film.Kom
             }
         }
 
-        private void LoadFilmsIntoTable()
+        private void FetchFilmsFromDatabase()
         {
             var EmptyFilterForMovies = Builders<FilmInfo>.Filter.Empty;
             var AllTheFilms = _Films.Find(EmptyFilterForMovies).ToList();
 
-            for (int i = 0; i < AllTheFilms.Count; i++)
-            {
-                //MessageBox.Show($"Film {AllTheFilms[i].Id} heet {AllTheFilms[i].Title}");
-            }
             LoadFilmsIntoTable(AllTheFilms);
         }
 
@@ -90,6 +89,7 @@ namespace Film.Kom
 
             for (int row = 0; row < MaxRows; row++)
             {
+                string FilmName = AllTheFilms[i].Title;
                 CreateTablesForFilmsDisplay(out TableLayoutPanel Panel, MinRowHeight, AllTheFilms, i);
                 Button TestButton = new()
                 {
@@ -101,11 +101,134 @@ namespace Film.Kom
                 };
                 TestButton.Click += (s, ev) =>
                 {
-                    MessageBox.Show("Knop");
+                    // Dit geeft een indexoutofrange :(
+                    //MessageBox.Show($"Knop die als het goed is {AllTheFilms[i].Title} laat zien zonder indexoutofrange");
+                    // Dit geeft geen indexoutofrange want string wordt niet aangepast, maar I wordt wel aangepast
+                    MessageBox.Show($"Knop die rechts van {FilmName} staat.");
                 };
                 pnlTabFilms.Controls.Add(Panel, 0, row);
                 pnlTabFilms.Controls.Add(TestButton, 1, row);
+
+                i++;
             }
+            pnlTabFilms.ResumeLayout();
+        }
+
+        private void CreateTablesForFilmsDisplay(out TableLayoutPanel Panel, int MinRowHeight, List<FilmInfo> AllTheFilms, int Iterator)
+        {
+            Panel = new()
+            {
+                RowCount = 2,
+                ColumnCount = 4,
+                Dock = DockStyle.Fill,
+                AutoSize = false,
+                Width = 100,
+                AutoScroll = false,
+                MinimumSize = new Size(0, MinRowHeight),
+                Height = MinRowHeight,
+                CellBorderStyle = TableLayoutPanelCellBorderStyle.Outset,
+                Margin = new Padding(0, 0, 0, 100)
+            };
+
+            for (int i = 0; i < Panel.ColumnCount; i++)
+            {
+                Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 100f / Panel.ColumnCount));
+            }
+
+            pnlTabFilms.VerticalScroll.Value = 1;
+
+            Label Title = new()
+            {
+                Text = $"{AllTheFilms[Iterator].Title}",
+                TextAlign = ContentAlignment.MiddleCenter,
+                Dock = DockStyle.Fill,
+                AutoSize = false,
+                MinimumSize = new Size(0, 1),
+                Font = new Font("Georgia", 18, FontStyle.Bold)
+            };
+
+            Label Runtime = new()
+            {
+                Text = $"{AllTheFilms[Iterator].Runtime}",
+                TextAlign = ContentAlignment.MiddleCenter,
+                Dock = DockStyle.Fill,
+                AutoSize = false,
+                MinimumSize = new Size(0, 1),
+                Font = new Font("Georgia", 18, FontStyle.Bold)
+            };
+
+            Label Genre = new()
+            {
+                Text = $"{AllTheFilms[Iterator].Genre}",
+                TextAlign = ContentAlignment.MiddleCenter,
+                Dock = DockStyle.Fill,
+                AutoSize = false,
+                MinimumSize = new Size(0, 1),
+                Font = new Font("Georgia", 18, FontStyle.Bold)
+            };
+
+            Label Plot = new()
+            {
+                Text = $"{AllTheFilms[Iterator].Plot}",
+                TextAlign = ContentAlignment.MiddleCenter,
+                Dock = DockStyle.Fill,
+                AutoSize = false,
+                MinimumSize = new Size(0, 1),
+                Font = new Font("Georgia", 18, FontStyle.Bold)
+            };
+
+            Label Rated = new()
+            {
+                Text = $"{AllTheFilms[Iterator].Rated}",
+                TextAlign = ContentAlignment.MiddleCenter,
+                Dock = DockStyle.Fill,
+                AutoSize = false,
+                MinimumSize = new Size(0, 1),
+                Font = new Font("Georgia", 18, FontStyle.Bold)
+            };
+
+            Label Speeltijd = new()
+            {
+                Text = $"{AllTheFilms[Iterator].Speeltijd}",
+                TextAlign = ContentAlignment.MiddleCenter,
+                Dock = DockStyle.Fill,
+                AutoSize = false,
+                MinimumSize = new Size(0, 1),
+                Font = new Font("Georgia", 18, FontStyle.Bold)
+            };
+
+            Label Zaal = new()
+            {
+                Text = $"{AllTheFilms[Iterator].Zaal}",
+                TextAlign = ContentAlignment.MiddleCenter,
+                Dock = DockStyle.Fill,
+                AutoSize = false,
+                MinimumSize = new Size(0, 1),
+                Font = new Font("Georgia", 18, FontStyle.Bold)
+            };
+
+            Panel.ColumnStyles.Clear();
+            Panel.RowStyles.Clear();
+
+            Panel.Controls.Add(Title, 0, 0);
+            Panel.Controls.Add(Runtime, 0, 1);
+            Panel.Controls.Add(Genre, 1, 0);
+            Plot.Click += (s, ev) =>
+            {
+                MessageBox.Show($"{AllTheFilms[Iterator].Plot}");
+            };
+            Panel.Controls.Add(Plot, 1, 1);
+            Panel.Controls.Add(Rated, 2, 0);
+            Panel.Controls.Add(Speeltijd, 2, 1);
+            Panel.Controls.Add(Zaal, 3, 0);
+
+            Panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25f));
+            Panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            Panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25f));
+            Panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+
+            Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 60f));
+            Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 40f));
         }
 
         private void FetchAllUsers()
@@ -291,51 +414,6 @@ namespace Film.Kom
             Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 40f));
         }
 
-        private void CreateTablesForFilmsDisplay(out TableLayoutPanel Panel, int MinRowHeight, List<FilmInfo> AllTheFilms, int Iterator)
-        {
-            Panel = new()
-            {
-                RowCount = 2,
-                ColumnCount = 2,
-                Dock = DockStyle.Fill,
-                AutoSize = false,
-                Width = 100,
-                AutoScroll = false,
-                MinimumSize = new Size(0, MinRowHeight),
-                Height = MinRowHeight,
-                CellBorderStyle = TableLayoutPanelCellBorderStyle.Outset,
-                Margin = new Padding(0, 0, 0, 100)
-            };
-
-            for (int i = 0; i < Panel.ColumnCount; i++)
-            {
-                Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 100f / Panel.ColumnCount));
-            }
-
-            pnlTabFilms.VerticalScroll.Value = 1;
-            // Labels maken, en die op Georgia, font size 18px, en bold
-            Label Title = new()
-            {
-                Text = $"{AllTheFilms[Iterator].Title}",
-                TextAlign = ContentAlignment.MiddleCenter,
-                Dock = DockStyle.Fill,
-                AutoSize = false,
-                MinimumSize = new Size(0, 1),
-                Font = new Font("Georgia", 18, FontStyle.Bold)
-            };
-
-            Panel.Controls.Add(Title, 0, 0);
-
-            Panel.ColumnStyles.Clear();
-            Panel.RowStyles.Clear();
-
-            Panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50f));
-            Panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-
-            Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 60f));
-            Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 40f));
-        }
-
         private async void BtnSearch_Keydown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -368,30 +446,28 @@ namespace Film.Kom
             string APIKey = passwords.APIKey;
             string BaseURL = "https://omdbapi.com";
 
-            using (var client = new HttpClient())
+            using var client = new HttpClient();
+            client.BaseAddress = new Uri(BaseURL);
+            client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+            var QueryString = $"t={Uri.EscapeDataString(FilmName)}&plot=full&&apikey={APIKey}";
+            HttpResponseMessage response = await client.GetAsync($"?{QueryString}");
+
+            if (!response.IsSuccessStatusCode)
             {
-                client.BaseAddress = new Uri(BaseURL);
-                client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-
-                var QueryString = $"t={Uri.EscapeDataString(FilmName)}&plot=full&&apikey={APIKey}";
-                HttpResponseMessage response = await client.GetAsync($"?{QueryString}");
-
-                if (!response.IsSuccessStatusCode)
-                {
-                    MessageBox.Show($"Oh oh, er ging iets niet goed. Statuscode: {response.StatusCode}. Reden: {response.ReasonPhrase}");
-                    return null;
-                }
-
-                string JSONResponse = await response.Content.ReadAsStringAsync();
-                var MovieData = JsonSerializer.Deserialize<FilmInfo>(JSONResponse);
-                // vraagteken betekent dat de variabele null mag zijn
-                if (MovieData?.Response != "True")
-                {
-                    MessageBox.Show("Film niet gevonden");
-                    return null;
-                }
-                return MovieData;
+                MessageBox.Show($"Oh oh, er ging iets niet goed. Statuscode: {response.StatusCode}. Reden: {response.ReasonPhrase}");
+                return null;
             }
+
+            string JSONResponse = await response.Content.ReadAsStringAsync();
+            var MovieData = JsonSerializer.Deserialize<FilmInfo>(JSONResponse);
+            // vraagteken betekent dat de variabele null mag zijn
+            if (MovieData?.Response != "True")
+            {
+                MessageBox.Show("Film niet gevonden");
+                return null;
+            }
+            return MovieData;
         }
 
         private async void btnAddFilmToDatabase_Click(object sender, EventArgs e)

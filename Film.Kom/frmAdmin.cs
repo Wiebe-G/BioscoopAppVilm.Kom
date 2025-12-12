@@ -139,7 +139,7 @@ namespace Film.Kom
 
             Label Title = new()
             {
-                Text = $"{AllTheFilms[Iterator].Title}",
+                Text = $"Titel: {AllTheFilms[Iterator].Title}",
                 TextAlign = ContentAlignment.MiddleCenter,
                 Dock = DockStyle.Fill,
                 AutoSize = false,
@@ -149,7 +149,7 @@ namespace Film.Kom
 
             Label Runtime = new()
             {
-                Text = $"{AllTheFilms[Iterator].Runtime}",
+                Text = $"Runtime: {AllTheFilms[Iterator].Runtime}",
                 TextAlign = ContentAlignment.MiddleCenter,
                 Dock = DockStyle.Fill,
                 AutoSize = false,
@@ -159,7 +159,7 @@ namespace Film.Kom
 
             Label Genre = new()
             {
-                Text = $"{AllTheFilms[Iterator].Genre}",
+                Text = $"Genre: {AllTheFilms[Iterator].Genre}",
                 TextAlign = ContentAlignment.MiddleCenter,
                 Dock = DockStyle.Fill,
                 AutoSize = false,
@@ -169,7 +169,7 @@ namespace Film.Kom
 
             Label Plot = new()
             {
-                Text = $"{AllTheFilms[Iterator].Plot}",
+                Text = $"Plot: {AllTheFilms[Iterator].Plot}",
                 TextAlign = ContentAlignment.MiddleCenter,
                 Dock = DockStyle.Fill,
                 AutoSize = false,
@@ -179,7 +179,7 @@ namespace Film.Kom
 
             Label Rated = new()
             {
-                Text = $"{AllTheFilms[Iterator].Rated}",
+                Text = $"Rated: {AllTheFilms[Iterator].Rated}",
                 TextAlign = ContentAlignment.MiddleCenter,
                 Dock = DockStyle.Fill,
                 AutoSize = false,
@@ -189,7 +189,7 @@ namespace Film.Kom
 
             Label Speeltijd = new()
             {
-                Text = $"{AllTheFilms[Iterator].Speeltijd}",
+                Text = $"Speeltijd: {AllTheFilms[Iterator].Speeltijd}",
                 TextAlign = ContentAlignment.MiddleCenter,
                 Dock = DockStyle.Fill,
                 AutoSize = false,
@@ -199,7 +199,7 @@ namespace Film.Kom
 
             Label Zaal = new()
             {
-                Text = $"{AllTheFilms[Iterator].Zaal}",
+                Text = $"Zaal: {AllTheFilms[Iterator].Zaal}",
                 TextAlign = ContentAlignment.MiddleCenter,
                 Dock = DockStyle.Fill,
                 AutoSize = false,
@@ -215,20 +215,22 @@ namespace Film.Kom
             Panel.Controls.Add(Genre, 1, 0);
             Plot.Click += (s, ev) =>
             {
-                MessageBox.Show($"{AllTheFilms[Iterator].Plot}");
+                MessageBox.Show($"Plot van {AllTheFilms[Iterator].Title} gaat als volgt: {AllTheFilms[Iterator].Plot}");
             };
             Panel.Controls.Add(Plot, 1, 1);
             Panel.Controls.Add(Rated, 2, 0);
             Panel.Controls.Add(Speeltijd, 2, 1);
             Panel.Controls.Add(Zaal, 3, 0);
 
+            // Breedte
             Panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25f));
             Panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             Panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25f));
             Panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
 
-            Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 60f));
-            Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 40f));
+            // Hoogte
+            Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 50f));
+            Panel.RowStyles.Add(new RowStyle(SizeType.Percent, 50f));
         }
 
         private void FetchAllUsers()

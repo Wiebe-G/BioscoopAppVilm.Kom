@@ -180,14 +180,8 @@ namespace Film.Kom
 
         private void btnPayment_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             var selectedSeats = GetSelectedSeatsArray();
             frmPayment paymentForm = new frmPayment(_User, _Filmname, selectedSeats);
-=======
-            // Get selected seats and pass them to the payment form via the new constructor
-            var SelectedSeats = GetSelectedSeatsArray();
-            frmPayment paymentForm = new frmPayment(_User, _Filmname, SelectedSeats);
->>>>>>> 548f39b254c9f73adb974b2be5e7e06e55bef97c
             paymentForm.Show();
         }
     }

@@ -2,6 +2,7 @@
 using Microsoft.VisualBasic.ApplicationServices;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using MongoDB.Driver.Core;
 using QRCoder;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,6 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MongoDB.Driver.Core;
 
 namespace Film.Kom
 {
@@ -29,12 +29,7 @@ namespace Film.Kom
         private IMongoCollection<FilmInfo>? _Filminfo;
         private string _Playtime = string.Empty;
         private string[] _SelectedSeats = Array.Empty<string>();
-<<<<<<< HEAD
-=======
         private readonly IMongoCollection<ReserveringenInfo> _Reserveringen;
-
-        // Price per seat (adjust if you want another price)
->>>>>>> 548f39b254c9f73adb974b2be5e7e06e55bef97c
         private const decimal SeatPrice = 9.95m;
         private User? _LoggedInUser;
         private bool _suppressTextChanged = false;
@@ -412,32 +407,24 @@ namespace Film.Kom
 
                 MessageBox.Show($"Mail is verstuurd naar {_LoggedInUser?.Email}, reservering voor {FilmName} in zaal {RoomInfo}, stoelen: {SeatInfo}. Betaald: {PriceInfo}");
 
-                var MovieData = await new SearchForFilmsInDB().SearchFunction(FilmName);
-                double Price = _SelectedSeats.Length * 9.95;
                 var ReserveringInfo = new ReserveringenInfo
                 {
                     ReserveringTitle = _FilmName,
                     Stoelen = _SelectedSeats,
-                    Zaal = MovieData.Zaal,
+                    Zaal = RoomInfo,
                     Datum = "Morgen",
                     CustomerName = _User.Naam,
-                    Price = Price,
+                    Price = PriceInfo,
                     OrderedAt = DateTimeOffset.Now
                 };
-
                 _Reserveringen.InsertOne(ReserveringInfo);
-
             }
             catch (Exception ex)
             {
-<<<<<<< HEAD
-                MessageBox.Show($"Mail kon niet worden verstuurd, want: \n {ex.Message}");
-=======
                 MessageBox.Show($"Fout opgetreden. Bericht: \n {ex.Message} \n Stacktrace: \n {ex.StackTrace}. \n Innerexception: \n {ex.InnerException}");
->>>>>>> 548f39b254c9f73adb974b2be5e7e06e55bef97c
             }
         }
-        
+
         private MailMessage CreateMailMessage(string OurMailAddress, object qrCodeImage, string FilmName, string RoomInfo, string SeatInfo, string PriceInfo)
         {
             var body = new StringBuilder();

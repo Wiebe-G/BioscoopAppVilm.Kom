@@ -51,12 +51,11 @@ namespace Film.Kom
             lblEindtijd.Text = "Reken het zelf maar uit";
             picPoster.Load(MovieData.Poster);
         }
-
-        private void frmStoelen_reservation_Shown(object sender, EventArgs e)
+        private async void frmStoelen_reservation_Shown(object sender, EventArgs e)
         {
             if (!_seatsInitialized)
             {
-                InitializeSeats();
+                await InitializeSeatsAsync();
                 _seatsInitialized = true;
             }
         }
@@ -74,10 +73,22 @@ namespace Film.Kom
             }
         }
 
-        private void InitializeSeats()
+        private async Task InitializeSeatsAsync()
         {
             _allSeats.Clear();
             _selectedSeats.Clear();
+
+            List<string> reservedFromDb = new List<string>();
+            try
+            {
+                var filmDoc = await _Films.Find(f => f.Title.ToLower() == _Filmname.ToLower()).FirstOrDefaultAsync();
+                if (filmDoc != null && filmDoc.ReservedSeats != null)
+                    reservedFromDb = filmDoc.ReservedSeats;
+            }
+            catch
+            {
+                MessageBox.Show("Fout bij het ophalen van gereserveerde stoelen uit de database.");
+            }
 
             var buttons = GetAllButtons(this)
                 .OfType<Button>()
@@ -91,7 +102,7 @@ namespace Film.Kom
                 var seat = new Seat
                 {
                     Id = id,
-                    IsReserved = (id.Equals("A3", StringComparison.OrdinalIgnoreCase) || id.Equals("B5", StringComparison.OrdinalIgnoreCase)),
+                    IsReserved = reservedFromDb.Any(s => string.Equals(s, id, StringComparison.OrdinalIgnoreCase)),
                     IsSelected = false
                 };
 
@@ -168,7 +179,6 @@ namespace Film.Kom
 
         private void btnPayment_Click(object sender, EventArgs e)
         {
-            // Get selected seats and pass them to the payment form via the new constructor
             var selectedSeats = GetSelectedSeatsArray();
             frmPayment paymentForm = new frmPayment(_User, _Filmname, selectedSeats);
             paymentForm.Show();

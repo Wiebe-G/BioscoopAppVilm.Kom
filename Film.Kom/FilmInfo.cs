@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using System.Collections.Generic;
 
 namespace Film.Kom
 {
@@ -21,5 +22,6 @@ namespace Film.Kom
         public string Runtime { get; set; } = string.Empty;
         public string Speeltijd { get; set; } = string.Empty;
         public string Zaal { get; set; } = string.Empty;
+        public List<string> ReservedSeats { get; set; } = new List<string>();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Film.Kom;
+using Microsoft.VisualBasic.ApplicationServices;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using QRCoder;
@@ -21,12 +22,13 @@ namespace Film.Kom
 {
     internal partial class frmPayment : Form
     {
-        readonly Passwords passwords = new Passwords();
-        private IMongoCollection<User>? _Users;
+        readonly Passwords passwords = new();
+        private readonly User _User;
         private readonly string _FilmName;
         private IMongoCollection<FilmInfo>? _Filminfo;
         private string _Playtime = string.Empty;
         private string[] _SelectedSeats = Array.Empty<string>();
+        private readonly IMongoCollection<ReserveringenInfo> _Reserveringen;
 
         // Price per seat (adjust if you want another price)
         private const decimal SeatPrice = 9.95m;
@@ -69,6 +71,12 @@ namespace Film.Kom
         public frmPayment(User user, string FilmName, IEnumerable<string> selectedSeats)
             : this(user, FilmName)
         {
+            var client = new MongoClient(passwords.Database);
+            var db = client.GetDatabase("Vilm");
+            _Reserveringen = db.GetCollection<ReserveringenInfo>("Reserveringen");
+            _User = user;
+
+
             if (selectedSeats != null)
             {
                 _SelectedSeats = selectedSeats.ToArray();
@@ -360,7 +368,7 @@ namespace Film.Kom
             return true;
         }
 
-        private void BtnIndienen_Click(object sender, EventArgs e)
+        private async void BtnIndienen_Click(object sender, EventArgs e)
         {
             // Ensure seats selected
             var seats = _SelectedSeats ?? Array.Empty<string>();
@@ -426,10 +434,26 @@ namespace Film.Kom
                 }
 
                 MessageBox.Show($"Mail is verstuurd naar {_LoggedInUser?.Email}, reservering voor {FilmName} in zaal {RoomInfo}, stoelen: {SeatInfo}. Betaald: {PriceInfo}");
+
+                var MovieData = await new SearchForFilmsInDB().SearchFunction(FilmName);
+                double Price = _SelectedSeats.Length * 9.95;
+                var ReserveringInfo = new ReserveringenInfo
+                {
+                    ReserveringTitle = _FilmName,
+                    Stoelen = _SelectedSeats,
+                    Zaal = MovieData.Zaal,
+                    Datum = "Morgen",
+                    CustomerName = _User.Naam,
+                    Price = Price,
+                    OrderedAt = DateTimeOffset.Now
+                };
+
+                _Reserveringen.InsertOne(ReserveringInfo);
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Mail kon niet worden verstuurd, want: \n {ex.Message} \n Stacktrace: \n {ex.StackTrace}. \n Innerexception: \n {ex.InnerException}");
+                MessageBox.Show($"Fout opgetreden. Bericht: \n {ex.Message} \n Stacktrace: \n {ex.StackTrace}. \n Innerexception: \n {ex.InnerException}");
             }
         }
 

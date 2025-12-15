@@ -13,8 +13,13 @@ namespace Film.Kom
 {
     internal partial class frmStoelen_reservation : Form
     {
-        private List<Seat> _allSeats = new();
-        private List<string> _selectedSeats = new();
+        private User _User;
+        private readonly string _Filmname;
+        private readonly IMongoCollection<FilmInfo> _Films;
+        private readonly IMongoCollection<ReserveringenInfo> _Reserveringen;
+        Passwords passwords = new();
+        private readonly List<Seat> _allSeats = new();
+        private readonly List<string> _selectedSeats = new();
         private bool _seatsInitialized = false;
 
         public class Seat
@@ -23,11 +28,6 @@ namespace Film.Kom
             public bool IsReserved { get; set; }
             public bool IsSelected { get; set; }
         }
-
-        private User _User;
-        private readonly string _Filmname;
-        private readonly IMongoCollection<FilmInfo> _Films;
-        Passwords passwords = new Passwords();
         public frmStoelen_reservation(User user, string FilmName)
         {
             InitializeComponent();
@@ -37,6 +37,7 @@ namespace Film.Kom
             var client = new MongoClient(passwords.Database);
             var db = client.GetDatabase("Vilm");
             _Films = db.GetCollection<FilmInfo>("Films");
+            _Reserveringen = db.GetCollection<ReserveringenInfo>("Reserveringen");
         }
 
         private async void frmStoelen_reservation_Load(object sender, EventArgs e)
@@ -169,10 +170,9 @@ namespace Film.Kom
         private void btnPayment_Click(object sender, EventArgs e)
         {
             // Get selected seats and pass them to the payment form via the new constructor
-            var selectedSeats = GetSelectedSeatsArray();
-            frmPayment paymentForm = new frmPayment(_User, _Filmname, selectedSeats);
+            var SelectedSeats = GetSelectedSeatsArray();
+            frmPayment paymentForm = new frmPayment(_User, _Filmname, SelectedSeats);
             paymentForm.Show();
         }
-
     }
 }

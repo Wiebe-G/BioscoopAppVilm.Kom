@@ -22,7 +22,7 @@ namespace Film.Kom
             string PlainPassword = txtPassword.Text.Trim();
 
             var user = _Users.Find(g => g.Naam == username).FirstOrDefault();
-            if (user == null) { return false; }
+            if (user == null) return false;
             return BC.Verify(PlainPassword, user.HashedPassword);
         }
 
@@ -42,6 +42,8 @@ namespace Film.Kom
             else
             {
                 MessageBox.Show("Oh oh, iets niet goed gegaan met inloggen");
+                txtUsername.Clear();
+                txtPassword.Clear();
             }
         }
 

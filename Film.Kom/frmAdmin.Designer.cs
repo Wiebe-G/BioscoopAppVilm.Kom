@@ -52,8 +52,11 @@
             txtFilmPlaytime = new TextBox();
             txtFilmRoom = new TextBox();
             tabEditFilms = new TabPage();
+            pnlTabFilms = new TableLayoutPanel();
             tabEditUsers = new TabPage();
             pnlTabUsers = new TableLayoutPanel();
+            tabShowOrders = new TabPage();
+            pnlTabOrders = new TableLayoutPanel();
             pnlTabAdmin.SuspendLayout();
             pnlTabTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
@@ -65,7 +68,9 @@
             pnlTabInfoForAddingMovie.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picFilmPoster).BeginInit();
             pnlTabAllFilmInfo.SuspendLayout();
+            tabEditFilms.SuspendLayout();
             tabEditUsers.SuspendLayout();
+            tabShowOrders.SuspendLayout();
             SuspendLayout();
             // 
             // pnlTabAdmin
@@ -145,6 +150,7 @@
             tabForAdminPanel.Controls.Add(tabAddingFilms);
             tabForAdminPanel.Controls.Add(tabEditFilms);
             tabForAdminPanel.Controls.Add(tabEditUsers);
+            tabForAdminPanel.Controls.Add(tabShowOrders);
             tabForAdminPanel.Dock = DockStyle.Fill;
             tabForAdminPanel.Location = new Point(3, 178);
             tabForAdminPanel.Name = "tabForAdminPanel";
@@ -182,6 +188,7 @@
             // 
             // pnlTabForCenteringInputForAddingFilms
             // 
+            pnlTabForCenteringInputForAddingFilms.AutoScroll = true;
             pnlTabForCenteringInputForAddingFilms.ColumnCount = 3;
             pnlTabForCenteringInputForAddingFilms.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
             pnlTabForCenteringInputForAddingFilms.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
@@ -380,12 +387,27 @@
             // tabEditFilms
             // 
             tabEditFilms.BackColor = Color.DarkRed;
+            tabEditFilms.Controls.Add(pnlTabFilms);
             tabEditFilms.Location = new Point(4, 29);
             tabEditFilms.Name = "tabEditFilms";
             tabEditFilms.Padding = new Padding(3);
             tabEditFilms.Size = new Size(1888, 819);
             tabEditFilms.TabIndex = 1;
             tabEditFilms.Text = "Films bewerken";
+            // 
+            // pnlTabFilms
+            // 
+            pnlTabFilms.ColumnCount = 2;
+            pnlTabFilms.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80F));
+            pnlTabFilms.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            pnlTabFilms.Dock = DockStyle.Fill;
+            pnlTabFilms.Location = new Point(3, 3);
+            pnlTabFilms.Name = "pnlTabFilms";
+            pnlTabFilms.RowCount = 1;
+            pnlTabFilms.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            pnlTabFilms.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            pnlTabFilms.Size = new Size(1882, 813);
+            pnlTabFilms.TabIndex = 0;
             // 
             // tabEditUsers
             // 
@@ -400,8 +422,10 @@
             // 
             // pnlTabUsers
             // 
+            pnlTabUsers.AutoScroll = true;
             pnlTabUsers.AutoSize = true;
             pnlTabUsers.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            pnlTabUsers.BackColor = Color.DarkRed;
             pnlTabUsers.ColumnCount = 2;
             pnlTabUsers.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80F));
             pnlTabUsers.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
@@ -413,6 +437,30 @@
             pnlTabUsers.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
             pnlTabUsers.Size = new Size(1882, 813);
             pnlTabUsers.TabIndex = 0;
+            // 
+            // tabShowOrders
+            // 
+            tabShowOrders.BackColor = Color.DarkRed;
+            tabShowOrders.Controls.Add(pnlTabOrders);
+            tabShowOrders.Location = new Point(4, 29);
+            tabShowOrders.Name = "tabShowOrders";
+            tabShowOrders.Padding = new Padding(3);
+            tabShowOrders.Size = new Size(1888, 819);
+            tabShowOrders.TabIndex = 3;
+            tabShowOrders.Text = "Reserveringen zien";
+            // 
+            // pnlTabOrders
+            // 
+            pnlTabOrders.ColumnCount = 1;
+            pnlTabOrders.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            pnlTabOrders.Dock = DockStyle.Fill;
+            pnlTabOrders.Location = new Point(3, 3);
+            pnlTabOrders.Name = "pnlTabOrders";
+            pnlTabOrders.RowCount = 2;
+            pnlTabOrders.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            pnlTabOrders.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
+            pnlTabOrders.Size = new Size(1882, 813);
+            pnlTabOrders.TabIndex = 0;
             // 
             // frmAdmin
             // 
@@ -437,8 +485,10 @@
             ((System.ComponentModel.ISupportInitialize)picFilmPoster).EndInit();
             pnlTabAllFilmInfo.ResumeLayout(false);
             pnlTabAllFilmInfo.PerformLayout();
+            tabEditFilms.ResumeLayout(false);
             tabEditUsers.ResumeLayout(false);
             tabEditUsers.PerformLayout();
+            tabShowOrders.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -469,5 +519,8 @@
         private TextBox txtFilmRoom;
         private TabPage tabEditUsers;
         private TableLayoutPanel pnlTabUsers;
+        private TableLayoutPanel pnlTabFilms;
+        private TabPage tabShowOrders;
+        private TableLayoutPanel pnlTabOrders;
     }
 }

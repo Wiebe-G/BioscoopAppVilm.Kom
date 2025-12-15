@@ -73,17 +73,18 @@
             pnlButton.ColumnCount = 2;
             pnlButton.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             pnlButton.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            pnlButton.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            pnlButton.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 18F));
             pnlButton.Controls.Add(btnRegister, 0, 1);
             pnlButton.Controls.Add(btnBackToLogin, 1, 1);
             pnlButton.Dock = DockStyle.Fill;
-            pnlButton.Location = new Point(3, 478);
+            pnlButton.Location = new Point(3, 362);
+            pnlButton.Margin = new Padding(3, 2, 3, 2);
             pnlButton.Name = "pnlButton";
             pnlButton.RowCount = 3;
             pnlButton.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
             pnlButton.RowStyles.Add(new RowStyle(SizeType.Percent, 70F));
             pnlButton.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
-            pnlButton.Size = new Size(613, 89);
+            pnlButton.Size = new Size(534, 68);
             pnlButton.TabIndex = 5;
             // 
             // btnRegister
@@ -92,9 +93,10 @@
             btnRegister.Dock = DockStyle.Fill;
             btnRegister.Font = new Font("Rockwell", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRegister.ForeColor = SystemColors.ButtonFace;
-            btnRegister.Location = new Point(3, 16);
+            btnRegister.Location = new Point(3, 12);
+            btnRegister.Margin = new Padding(3, 2, 3, 2);
             btnRegister.Name = "btnRegister";
-            btnRegister.Size = new Size(300, 56);
+            btnRegister.Size = new Size(261, 43);
             btnRegister.TabIndex = 5;
             btnRegister.Text = "Registreer \r\n    \r\n";
             btnRegister.UseVisualStyleBackColor = false;
@@ -107,9 +109,10 @@
             btnBackToLogin.Dock = DockStyle.Fill;
             btnBackToLogin.Font = new Font("Rockwell", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBackToLogin.ForeColor = SystemColors.ButtonFace;
-            btnBackToLogin.Location = new Point(309, 16);
+            btnBackToLogin.Location = new Point(270, 12);
+            btnBackToLogin.Margin = new Padding(3, 2, 3, 2);
             btnBackToLogin.Name = "btnBackToLogin";
-            btnBackToLogin.Size = new Size(301, 56);
+            btnBackToLogin.Size = new Size(261, 43);
             btnBackToLogin.TabIndex = 6;
             btnBackToLogin.Text = "Terug naar login\r\n";
             btnBackToLogin.UseVisualStyleBackColor = false;
@@ -120,11 +123,12 @@
             txtPassword.BorderStyle = BorderStyle.FixedSingle;
             txtPassword.Dock = DockStyle.Fill;
             txtPassword.Font = new Font("Rockwell", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtPassword.Location = new Point(64, 29);
+            txtPassword.Location = new Point(56, 22);
+            txtPassword.Margin = new Padding(3, 2, 3, 2);
             txtPassword.Multiline = true;
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
-            txtPassword.Size = new Size(484, 57);
+            txtPassword.Size = new Size(421, 44);
             txtPassword.TabIndex = 3;
             txtPassword.TextAlign = HorizontalAlignment.Center;
             txtPassword.KeyDown += LoginEnter_KeyDown;
@@ -139,12 +143,13 @@
             pnlWachtwoord.Controls.Add(txtPassword, 1, 1);
             pnlWachtwoord.Controls.Add(lblPassword, 1, 0);
             pnlWachtwoord.Dock = DockStyle.Fill;
-            pnlWachtwoord.Location = new Point(3, 288);
+            pnlWachtwoord.Location = new Point(3, 218);
+            pnlWachtwoord.Margin = new Padding(3, 2, 3, 2);
             pnlWachtwoord.Name = "pnlWachtwoord";
             pnlWachtwoord.RowCount = 2;
             pnlWachtwoord.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
             pnlWachtwoord.RowStyles.Add(new RowStyle(SizeType.Percent, 70F));
-            pnlWachtwoord.Size = new Size(613, 89);
+            pnlWachtwoord.Size = new Size(534, 68);
             pnlWachtwoord.TabIndex = 3;
             // 
             // lblPassword
@@ -153,10 +158,10 @@
             lblPassword.Dock = DockStyle.Fill;
             lblPassword.Font = new Font("Rockwell", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblPassword.ForeColor = SystemColors.ButtonFace;
-            lblPassword.Location = new Point(65, 0);
+            lblPassword.Location = new Point(57, 0);
             lblPassword.Margin = new Padding(4, 0, 4, 0);
             lblPassword.Name = "lblPassword";
-            lblPassword.Size = new Size(482, 26);
+            lblPassword.Size = new Size(419, 20);
             lblPassword.TabIndex = 3;
             lblPassword.Text = "Wachtwoord:";
             lblPassword.TextAlign = ContentAlignment.MiddleCenter;
@@ -167,10 +172,10 @@
             lblErrorMessage.Dock = DockStyle.Fill;
             lblErrorMessage.Font = new Font("Rockwell", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblErrorMessage.ForeColor = Color.Red;
-            lblErrorMessage.Location = new Point(4, 570);
+            lblErrorMessage.Location = new Point(4, 432);
             lblErrorMessage.Margin = new Padding(4, 0, 4, 0);
             lblErrorMessage.Name = "lblErrorMessage";
-            lblErrorMessage.Size = new Size(611, 101);
+            lblErrorMessage.Size = new Size(532, 72);
             lblErrorMessage.TabIndex = 8;
             lblErrorMessage.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -179,10 +184,11 @@
             txtUsername.BorderStyle = BorderStyle.FixedSingle;
             txtUsername.Dock = DockStyle.Fill;
             txtUsername.Font = new Font("Rockwell", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtUsername.Location = new Point(64, 29);
+            txtUsername.Location = new Point(56, 22);
+            txtUsername.Margin = new Padding(3, 2, 3, 2);
             txtUsername.Multiline = true;
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(484, 57);
+            txtUsername.Size = new Size(421, 44);
             txtUsername.TabIndex = 1;
             txtUsername.TextAlign = HorizontalAlignment.Center;
             txtUsername.KeyDown += LoginEnter_KeyDown;
@@ -199,7 +205,8 @@
             pnlLoginInfo.Controls.Add(lblErrorMessage, 0, 6);
             pnlLoginInfo.Controls.Add(pnlTabRepeatpass, 0, 4);
             pnlLoginInfo.Dock = DockStyle.Fill;
-            pnlLoginInfo.Location = new Point(4, 152);
+            pnlLoginInfo.Location = new Point(4, 114);
+            pnlLoginInfo.Margin = new Padding(3, 2, 3, 2);
             pnlLoginInfo.Name = "pnlLoginInfo";
             pnlLoginInfo.RowCount = 7;
             pnlLoginInfo.RowStyles.Add(new RowStyle(SizeType.Percent, 14.28571F));
@@ -209,8 +216,8 @@
             pnlLoginInfo.RowStyles.Add(new RowStyle(SizeType.Percent, 14.28571F));
             pnlLoginInfo.RowStyles.Add(new RowStyle(SizeType.Percent, 14.28571F));
             pnlLoginInfo.RowStyles.Add(new RowStyle(SizeType.Percent, 14.28571F));
-            pnlLoginInfo.RowStyles.Add(new RowStyle(SizeType.Absolute, 25F));
-            pnlLoginInfo.Size = new Size(619, 671);
+            pnlLoginInfo.RowStyles.Add(new RowStyle(SizeType.Absolute, 19F));
+            pnlLoginInfo.Size = new Size(540, 504);
             pnlLoginInfo.TabIndex = 1;
             // 
             // pnlTabusername
@@ -224,12 +231,13 @@
             pnlTabusername.Controls.Add(lblUsername, 1, 0);
             pnlTabusername.Dock = DockStyle.Fill;
             pnlTabusername.ForeColor = SystemColors.ButtonFace;
-            pnlTabusername.Location = new Point(3, 98);
+            pnlTabusername.Location = new Point(3, 74);
+            pnlTabusername.Margin = new Padding(3, 2, 3, 2);
             pnlTabusername.Name = "pnlTabusername";
             pnlTabusername.RowCount = 2;
             pnlTabusername.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
             pnlTabusername.RowStyles.Add(new RowStyle(SizeType.Percent, 70F));
-            pnlTabusername.Size = new Size(613, 89);
+            pnlTabusername.Size = new Size(534, 68);
             pnlTabusername.TabIndex = 1;
             // 
             // lblUsername
@@ -237,10 +245,10 @@
             lblUsername.AutoSize = true;
             lblUsername.Dock = DockStyle.Fill;
             lblUsername.Font = new Font("Rockwell", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblUsername.Location = new Point(65, 0);
+            lblUsername.Location = new Point(57, 0);
             lblUsername.Margin = new Padding(4, 0, 4, 0);
             lblUsername.Name = "lblUsername";
-            lblUsername.Size = new Size(482, 26);
+            lblUsername.Size = new Size(419, 20);
             lblUsername.TabIndex = 1;
             lblUsername.Text = "Gebruikersnaam:";
             lblUsername.TextAlign = ContentAlignment.MiddleCenter;
@@ -253,21 +261,23 @@
             pnlTabLogo.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             pnlTabLogo.Controls.Add(pictLogo, 1, 0);
             pnlTabLogo.Dock = DockStyle.Fill;
-            pnlTabLogo.Location = new Point(3, 3);
+            pnlTabLogo.Location = new Point(3, 2);
+            pnlTabLogo.Margin = new Padding(3, 2, 3, 2);
             pnlTabLogo.Name = "pnlTabLogo";
             pnlTabLogo.RowCount = 1;
             pnlTabLogo.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            pnlTabLogo.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            pnlTabLogo.Size = new Size(613, 89);
+            pnlTabLogo.RowStyles.Add(new RowStyle(SizeType.Absolute, 67F));
+            pnlTabLogo.Size = new Size(534, 68);
             pnlTabLogo.TabIndex = 9;
             // 
             // pictLogo
             // 
             pictLogo.Dock = DockStyle.Fill;
             pictLogo.Image = (Image)resources.GetObject("pictLogo.Image");
-            pictLogo.Location = new Point(207, 3);
+            pictLogo.Location = new Point(181, 2);
+            pictLogo.Margin = new Padding(3, 2, 3, 2);
             pictLogo.Name = "pictLogo";
-            pictLogo.Size = new Size(198, 83);
+            pictLogo.Size = new Size(172, 64);
             pictLogo.SizeMode = PictureBoxSizeMode.StretchImage;
             pictLogo.TabIndex = 0;
             pictLogo.TabStop = false;
@@ -283,12 +293,13 @@
             pnlTabMail.Controls.Add(lblMail, 1, 0);
             pnlTabMail.Dock = DockStyle.Fill;
             pnlTabMail.ForeColor = SystemColors.ButtonFace;
-            pnlTabMail.Location = new Point(3, 193);
+            pnlTabMail.Location = new Point(3, 146);
+            pnlTabMail.Margin = new Padding(3, 2, 3, 2);
             pnlTabMail.Name = "pnlTabMail";
             pnlTabMail.RowCount = 2;
             pnlTabMail.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
             pnlTabMail.RowStyles.Add(new RowStyle(SizeType.Percent, 70F));
-            pnlTabMail.Size = new Size(613, 89);
+            pnlTabMail.Size = new Size(534, 68);
             pnlTabMail.TabIndex = 2;
             // 
             // txtMail
@@ -296,11 +307,13 @@
             txtMail.BorderStyle = BorderStyle.FixedSingle;
             txtMail.Dock = DockStyle.Fill;
             txtMail.Font = new Font("Rockwell", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtMail.Location = new Point(64, 29);
+            txtMail.Location = new Point(56, 22);
+            txtMail.Margin = new Padding(3, 2, 3, 2);
             txtMail.Multiline = true;
             txtMail.Name = "txtMail";
-            txtMail.Size = new Size(484, 57);
+            txtMail.Size = new Size(421, 44);
             txtMail.TabIndex = 2;
+            txtMail.Text = "\\";
             txtMail.TextAlign = HorizontalAlignment.Center;
             txtMail.KeyDown += LoginEnter_KeyDown;
             // 
@@ -309,10 +322,10 @@
             lblMail.AutoSize = true;
             lblMail.Dock = DockStyle.Fill;
             lblMail.Font = new Font("Rockwell", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblMail.Location = new Point(65, 0);
+            lblMail.Location = new Point(57, 0);
             lblMail.Margin = new Padding(4, 0, 4, 0);
             lblMail.Name = "lblMail";
-            lblMail.Size = new Size(482, 26);
+            lblMail.Size = new Size(419, 20);
             lblMail.TabIndex = 1;
             lblMail.Text = "Mailadres:";
             lblMail.TextAlign = ContentAlignment.MiddleCenter;
@@ -327,12 +340,13 @@
             pnlTabRepeatpass.Controls.Add(txtPasswordRepeat, 1, 1);
             pnlTabRepeatpass.Controls.Add(lblPasswordRepeat, 1, 0);
             pnlTabRepeatpass.Dock = DockStyle.Fill;
-            pnlTabRepeatpass.Location = new Point(3, 383);
+            pnlTabRepeatpass.Location = new Point(3, 290);
+            pnlTabRepeatpass.Margin = new Padding(3, 2, 3, 2);
             pnlTabRepeatpass.Name = "pnlTabRepeatpass";
             pnlTabRepeatpass.RowCount = 2;
             pnlTabRepeatpass.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
             pnlTabRepeatpass.RowStyles.Add(new RowStyle(SizeType.Percent, 70F));
-            pnlTabRepeatpass.Size = new Size(613, 89);
+            pnlTabRepeatpass.Size = new Size(534, 68);
             pnlTabRepeatpass.TabIndex = 4;
             // 
             // txtPasswordRepeat
@@ -340,11 +354,12 @@
             txtPasswordRepeat.BorderStyle = BorderStyle.FixedSingle;
             txtPasswordRepeat.Dock = DockStyle.Fill;
             txtPasswordRepeat.Font = new Font("Rockwell", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtPasswordRepeat.Location = new Point(64, 29);
+            txtPasswordRepeat.Location = new Point(56, 22);
+            txtPasswordRepeat.Margin = new Padding(3, 2, 3, 2);
             txtPasswordRepeat.Multiline = true;
             txtPasswordRepeat.Name = "txtPasswordRepeat";
             txtPasswordRepeat.PasswordChar = '*';
-            txtPasswordRepeat.Size = new Size(484, 57);
+            txtPasswordRepeat.Size = new Size(421, 44);
             txtPasswordRepeat.TabIndex = 4;
             txtPasswordRepeat.TextAlign = HorizontalAlignment.Center;
             txtPasswordRepeat.KeyDown += LoginEnter_KeyDown;
@@ -355,10 +370,10 @@
             lblPasswordRepeat.Dock = DockStyle.Fill;
             lblPasswordRepeat.Font = new Font("Rockwell", 14.25F);
             lblPasswordRepeat.ForeColor = SystemColors.ButtonFace;
-            lblPasswordRepeat.Location = new Point(65, 0);
+            lblPasswordRepeat.Location = new Point(57, 0);
             lblPasswordRepeat.Margin = new Padding(4, 0, 4, 0);
             lblPasswordRepeat.Name = "lblPasswordRepeat";
-            lblPasswordRepeat.Size = new Size(482, 26);
+            lblPasswordRepeat.Size = new Size(419, 20);
             lblPasswordRepeat.TabIndex = 3;
             lblPasswordRepeat.Text = "Wachtwoord herhalen:";
             lblPasswordRepeat.TextAlign = ContentAlignment.MiddleCenter;
@@ -371,7 +386,7 @@
             lblName.ForeColor = SystemColors.ButtonHighlight;
             lblName.Location = new Point(3, 0);
             lblName.Name = "lblName";
-            lblName.Size = new Size(607, 67);
+            lblName.Size = new Size(528, 51);
             lblName.TabIndex = 2;
             lblName.Text = "Vilm.kom";
             lblName.TextAlign = ContentAlignment.MiddleCenter;
@@ -382,9 +397,9 @@
             lblRegisterTitle.Dock = DockStyle.Fill;
             lblRegisterTitle.Font = new Font("Rockwell", 22.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblRegisterTitle.ForeColor = SystemColors.ButtonHighlight;
-            lblRegisterTitle.Location = new Point(3, 67);
+            lblRegisterTitle.Location = new Point(3, 51);
             lblRegisterTitle.Name = "lblRegisterTitle";
-            lblRegisterTitle.Size = new Size(607, 68);
+            lblRegisterTitle.Size = new Size(528, 51);
             lblRegisterTitle.TabIndex = 1;
             lblRegisterTitle.Text = "Account aanmaken";
             lblRegisterTitle.TextAlign = ContentAlignment.MiddleCenter;
@@ -393,17 +408,18 @@
             // 
             pnlLoginTitel2.ColumnCount = 1;
             pnlLoginTitel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            pnlLoginTitel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            pnlLoginTitel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 18F));
             pnlLoginTitel2.Controls.Add(lblName, 0, 0);
             pnlLoginTitel2.Controls.Add(lblRegisterTitle, 0, 1);
             pnlLoginTitel2.Dock = DockStyle.Fill;
-            pnlLoginTitel2.Location = new Point(3, 3);
+            pnlLoginTitel2.Location = new Point(3, 2);
+            pnlLoginTitel2.Margin = new Padding(3, 2, 3, 2);
             pnlLoginTitel2.Name = "pnlLoginTitel2";
             pnlLoginTitel2.RowCount = 2;
             pnlLoginTitel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             pnlLoginTitel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            pnlLoginTitel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 25F));
-            pnlLoginTitel2.Size = new Size(613, 135);
+            pnlLoginTitel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 19F));
+            pnlLoginTitel2.Size = new Size(534, 102);
             pnlLoginTitel2.TabIndex = 0;
             // 
             // pnlLoginTitel1
@@ -411,15 +427,16 @@
             pnlLoginTitel1.BackColor = Color.FromArgb(113, 0, 1);
             pnlLoginTitel1.ColumnCount = 1;
             pnlLoginTitel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            pnlLoginTitel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            pnlLoginTitel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 18F));
             pnlLoginTitel1.Controls.Add(pnlLoginTitel2, 0, 0);
             pnlLoginTitel1.Dock = DockStyle.Fill;
-            pnlLoginTitel1.Location = new Point(4, 4);
+            pnlLoginTitel1.Location = new Point(4, 3);
+            pnlLoginTitel1.Margin = new Padding(3, 2, 3, 2);
             pnlLoginTitel1.Name = "pnlLoginTitel1";
             pnlLoginTitel1.RowCount = 1;
             pnlLoginTitel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            pnlLoginTitel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 174F));
-            pnlLoginTitel1.Size = new Size(619, 141);
+            pnlLoginTitel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 106F));
+            pnlLoginTitel1.Size = new Size(540, 106);
             pnlLoginTitel1.TabIndex = 0;
             // 
             // pnlLoginSecundary
@@ -428,16 +445,17 @@
             pnlLoginSecundary.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             pnlLoginSecundary.ColumnCount = 1;
             pnlLoginSecundary.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            pnlLoginSecundary.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            pnlLoginSecundary.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 18F));
             pnlLoginSecundary.Controls.Add(pnlLoginTitel1, 0, 0);
             pnlLoginSecundary.Controls.Add(pnlLoginInfo, 0, 1);
             pnlLoginSecundary.Dock = DockStyle.Fill;
-            pnlLoginSecundary.Location = new Point(636, 118);
+            pnlLoginSecundary.Location = new Point(557, 88);
+            pnlLoginSecundary.Margin = new Padding(3, 2, 3, 2);
             pnlLoginSecundary.Name = "pnlLoginSecundary";
             pnlLoginSecundary.RowCount = 2;
             pnlLoginSecundary.RowStyles.Add(new RowStyle(SizeType.Percent, 17.86834F));
             pnlLoginSecundary.RowStyles.Add(new RowStyle(SizeType.Percent, 82.13166F));
-            pnlLoginSecundary.Size = new Size(627, 827);
+            pnlLoginSecundary.Size = new Size(548, 621);
             pnlLoginSecundary.TabIndex = 0;
             // 
             // pnlLoginMain
@@ -450,20 +468,22 @@
             pnlLoginMain.Controls.Add(pnlLoginSecundary, 1, 1);
             pnlLoginMain.Dock = DockStyle.Fill;
             pnlLoginMain.Location = new Point(0, 0);
+            pnlLoginMain.Margin = new Padding(3, 2, 3, 2);
             pnlLoginMain.Name = "pnlLoginMain";
             pnlLoginMain.RowCount = 3;
             pnlLoginMain.RowStyles.Add(new RowStyle(SizeType.Percent, 10.93901F));
             pnlLoginMain.RowStyles.Add(new RowStyle(SizeType.Percent, 78.99323F));
             pnlLoginMain.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            pnlLoginMain.Size = new Size(1901, 1055);
+            pnlLoginMain.Size = new Size(1663, 791);
             pnlLoginMain.TabIndex = 4;
             // 
             // frmRegister
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1901, 1055);
+            ClientSize = new Size(1663, 791);
             Controls.Add(pnlLoginMain);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "frmRegister";
             Text = "frmRegister";
             pnlButton.ResumeLayout(false);

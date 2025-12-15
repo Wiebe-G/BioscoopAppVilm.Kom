@@ -16,8 +16,8 @@ namespace Film.Kom
 {
     internal partial class frmMainMenu : Form
     {
-        Passwords passwords = new Passwords();
-        private User _LoggedInUser;
+        private readonly Passwords passwords = new();
+        private readonly User _LoggedInUser;
         private IMongoCollection<FilmInfo> _Films;
         public frmMainMenu()
         {
@@ -28,14 +28,14 @@ namespace Film.Kom
 
         private void DisplayFiveRandomFilmsOnHomePage()
         {
-            List<PictureBox> posters = new List<PictureBox>()
-            {
+            List<PictureBox> posters =
+            [
                 picFilm1, picFilm2, picFilm3, picFilm4, picFilm5
-            };
-            List<Label> labels = new List<Label>()
-            {
+            ];
+            List<Label> labels =
+            [
                 lblFilm1, lblFilm2, lblFilm3, lblFilm4, lblFilm5
-            };
+            ];
 
             var client = new MongoClient(passwords.Database);
             var db = client.GetDatabase("Vilm");
@@ -49,7 +49,7 @@ namespace Film.Kom
             {
                 posters[i].Load(result[i].Poster);
                 labels[i].Text = result[i].Title;
-                frmFilmInfo FilmForm = new frmFilmInfo(result[i].Title, _LoggedInUser);
+                frmFilmInfo FilmForm = new(result[i].Title, _LoggedInUser);
                 posters[i].Click += (sender, e) =>
                 {
                     FilmForm.Show();
@@ -83,7 +83,7 @@ namespace Film.Kom
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            frmLogin loginForm = new frmLogin();
+            frmLogin loginForm = new();
             loginForm.Show();
             this.Hide();
         }
@@ -107,7 +107,7 @@ namespace Film.Kom
             }
             MessageBox.Show($"Film {MovieInfo.Title} is gevonden. Hij draait in zaal {MovieInfo.Zaal} om {MovieInfo.Speeltijd}.");
             picFilm1.Load(MovieInfo.Poster);
-            frmFilmInfo filmForm = new frmFilmInfo(MovieInfo.Title, _LoggedInUser);
+            frmFilmInfo filmForm = new(MovieInfo.Title, _LoggedInUser);
             picFilm1.MouseClick += (sender, e) =>
             {
                 filmForm.Show();

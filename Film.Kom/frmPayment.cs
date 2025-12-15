@@ -17,6 +17,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MongoDB.Driver.Core;
 
 namespace Film.Kom
 {
@@ -28,46 +29,38 @@ namespace Film.Kom
         private IMongoCollection<FilmInfo>? _Filminfo;
         private string _Playtime = string.Empty;
         private string[] _SelectedSeats = Array.Empty<string>();
+<<<<<<< HEAD
+=======
         private readonly IMongoCollection<ReserveringenInfo> _Reserveringen;
 
         // Price per seat (adjust if you want another price)
+>>>>>>> 548f39b254c9f73adb974b2be5e7e06e55bef97c
         private const decimal SeatPrice = 9.95m;
-
         private User? _LoggedInUser;
-
-        // guard to avoid recursive TextChanged handling when we update Text programmatically
         private bool _suppressTextChanged = false;
-
-        // Existing constructor kept for compatibility
         public frmPayment(User user, string FilmName)
         {
             InitializeComponent();
             _LoggedInUser = user;
             _FilmName = FilmName;
             InitializeFilmInfo();
-
-            // Ensure payment button starts disabled until validation passes
             SetPaymentButtonState(false);
 
-            // Subscribe to relevant input changes so we can validate in realtime
             TxtCreditcard.TextChanged += TxtCreditcard_TextChanged;
             TxtVervaldatumMM.TextChanged += TxtVervaldatumMM_TextChanged_1;
             TxtVervaldatumYY.TextChanged += TxtVervaldatumYY_TextChanged_1;
             TxtPas.TextChanged += TxtPas_TextChanged;
             Txtkaarthouder.TextChanged += Txtkaarthouder_TextChanged_1;
 
-            // KeyPress handlers to restrict typing (digits only + max length)
             TxtCreditcard.KeyPress += TxtCreditcard_KeyPress;
             TxtVervaldatumMM.KeyPress += (s, e) => NumericMaxKeyPress(s, e, 2);
             TxtVervaldatumYY.KeyPress += (s, e) => NumericMaxKeyPress(s, e, 2);
             TxtPas.KeyPress += (s, e) => NumericMaxKeyPress(s, e, 4);
 
-            // initial validation in case constructor caller provided seats via overload afterwards
             UpdatePriceDisplay();
             PaymentField_TextChanged(this, EventArgs.Empty);
         }
 
-        // New overload: receive selected seats from reservation form
         public frmPayment(User user, string FilmName, IEnumerable<string> selectedSeats)
             : this(user, FilmName)
         {
@@ -82,7 +75,6 @@ namespace Film.Kom
                 _SelectedSeats = selectedSeats.ToArray();
             }
 
-            // update UI immediately if controls are already created
             if (lblSeatInfo != null)
             {
                 lblSeatInfo.Text = _SelectedSeats.Length > 0
@@ -96,7 +88,6 @@ namespace Film.Kom
 
         private void InitializeFilmInfo()
         {
-            // keep previous UI assignments, moved out of ctor to be reusable
             lblFilmInfo.Text = _FilmName ?? string.Empty;
 
             var client = new MongoClient(passwords.Database);
@@ -123,53 +114,43 @@ namespace Film.Kom
             var total = SeatPrice * count;
             var euroCulture = new CultureInfo("nl-NL");
 
-            // show a small receipt-like text in the placeholder price label (use euro formatting)
             lblPriceInfo.Text = count > 0
                 ? $"{count} × {SeatPrice.ToString("C", euroCulture)} = {total.ToString("C", euroCulture)}"
                 : $"{SeatPrice.ToString("C", euroCulture)} per stoel";
         }
 
-        // Central handler called when payment fields change
         private void PaymentField_TextChanged(object? sender, EventArgs e)
         {
             bool valid = ArePaymentFieldsValid();
             SetPaymentButtonState(valid);
         }
 
-        // Enable/disable visual state for the payment button
         private void SetPaymentButtonState(bool enabled)
         {
             if (BtnIndienen == null) return;
 
             BtnIndienen.Enabled = enabled;
             BtnIndienen.BackColor = enabled ? Color.DodgerBlue : Color.Gray;
-            // Optionally change cursor
             BtnIndienen.Cursor = enabled ? Cursors.Hand : Cursors.Default;
         }
 
-        // Validate all required payment fields (basic, client-side only)
         private bool ArePaymentFieldsValid()
         {
-            // Cardholder name
             var holder = Txtkaarthouder?.Text?.Trim() ?? string.Empty;
             if (string.IsNullOrWhiteSpace(holder) || holder.Equals("KAARTHOUDER", StringComparison.OrdinalIgnoreCase))
                 return false;
 
-            // Card number: digits only, 16 digits
             var cardDigits = new string((TxtCreditcard?.Text ?? string.Empty).Where(char.IsDigit).ToArray());
             if (cardDigits.Length != 16) return false;
 
-            // Expiration month/year: MM and YY expected
             var mmText = (TxtVervaldatumMM?.Text ?? string.Empty).Trim();
             var yyText = (TxtVervaldatumYY?.Text ?? string.Empty).Trim();
 
             if (!int.TryParse(mmText, out int mm) || mm < 1 || mm > 12) return false;
             if (!int.TryParse(yyText, out int yy) || yyText.Length < 2) return false;
 
-            // Convert two-digit year to full year (assume 2000+)
             int fullYear = 2000 + (yy % 100);
 
-            // Card is valid if the expiration date is end of month >= today
             try
             {
                 var lastDayOfMonth = DateTime.DaysInMonth(fullYear, mm);
@@ -181,30 +162,23 @@ namespace Film.Kom
                 return false;
             }
 
-            // CVV / Pas nr: digits only 3 or 4
             var cvvDigits = new string((TxtPas?.Text ?? string.Empty).Where(char.IsDigit).ToArray());
             if (!(cvvDigits.Length == 3 || cvvDigits.Length == 4)) return false;
 
-            // All checks passed
             return true;
         }
 
-        // --- Input sanitization / formatting helpers ---
-
-        // Sanitize digits, limit length and optionally format as creditcard groups (4-4-4-4)
         private void SanitizeDigits(TextBox tb, int maxDigits, bool formatCard = false)
         {
             if (_suppressTextChanged) return;
             _suppressTextChanged = true;
 
             string original = tb.Text;
-            // keep only digits
             string digits = new string(original.Where(char.IsDigit).ToArray());
             if (digits.Length > maxDigits) digits = digits.Substring(0, maxDigits);
 
             if (formatCard)
             {
-                // format into groups of 4
                 var parts = Enumerable.Range(0, (digits.Length + 3) / 4)
                     .Select(i => digits.Substring(i * 4, Math.Min(4, digits.Length - i * 4)));
                 string formatted = string.Join(" ", parts);
@@ -220,12 +194,10 @@ namespace Film.Kom
             _suppressTextChanged = false;
         }
 
-        // Generic KeyPress handler that restricts to digits/backspace and max digits
         private void NumericMaxKeyPress(object? sender, KeyPressEventArgs e, int maxDigits)
         {
             if (!(sender is TextBox tb)) return;
 
-            // allow control keys (backspace, etc.)
             if (char.IsControl(e.KeyChar))
                 return;
 
@@ -235,7 +207,6 @@ namespace Film.Kom
                 return;
             }
 
-            // count existing digits
             var digits = new string(tb.Text.Where(char.IsDigit).ToArray());
             if (digits.Length >= maxDigits)
             {
@@ -245,7 +216,6 @@ namespace Film.Kom
 
         private void TxtCreditcard_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // special handler for creditcard (max 16 digits)
             NumericMaxKeyPress(sender, e, 16);
         }
 
@@ -253,10 +223,8 @@ namespace Film.Kom
         {
             if (_suppressTextChanged) return;
 
-            // sanitize and format to groups of 4, max 16 digits
             SanitizeDigits(TxtCreditcard, 16, formatCard: true);
 
-            // Derive labels for the display (pad with zeros as before)
             string digits = new string((TxtCreditcard?.Text ?? string.Empty).Where(char.IsDigit).ToArray());
             string padded = digits.PadRight(16, '0');
             LblNum1.Text = padded.Substring(0, 4);
@@ -264,7 +232,6 @@ namespace Film.Kom
             LblNum3.Text = padded.Substring(8, 4);
             LblNum4.Text = padded.Substring(12, 4);
 
-            // run validation after the credit card textbox update
             PaymentField_TextChanged(sender, e);
         }
 
@@ -293,7 +260,6 @@ namespace Film.Kom
             if (_suppressTextChanged) return;
 
             SanitizeDigits(TxtPas, 4);
-            // keep centered text as before
             PaymentField_TextChanged(sender, e);
         }
 
@@ -353,24 +319,40 @@ namespace Film.Kom
         [System.Runtime.InteropServices.DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        private bool CheckValidityOfUserCredentials()
+        private async Task<bool> TryReserveSeatsAsync(string filmTitle, string[] seats)
         {
-            if (string.IsNullOrWhiteSpace(_LoggedInUser?.Naam))
+            if (seats == null || seats.Length == 0) return true;
+
+            var client = new MongoClient(passwords.Database);
+            var db = client.GetDatabase("Vilm");
+            var col = db.GetCollection<FilmInfo>("Films");
+
+            var titleFilter = Builders<FilmInfo>.Filter.Eq(f => f.Title, filmTitle);
+
+            var anyInReserved = Builders<FilmInfo>.Filter.AnyIn(f => f.ReservedSeats, seats);
+            var notInReserved = Builders<FilmInfo>.Filter.Not(anyInReserved);
+
+            var filter = Builders<FilmInfo>.Filter.And(titleFilter, notInReserved);
+
+            var update = Builders<FilmInfo>.Update.PushEach(f => f.ReservedSeats, seats);
+
+            try
             {
-                MessageBox.Show("Niet ingelogd", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                var result = await col.FindOneAndUpdateAsync(filter, update, new FindOneAndUpdateOptions<FilmInfo>
+                {
+                    ReturnDocument = ReturnDocument.After
+                });
+
+                return result != null;
+            }
+            catch (MongoCommandException)
+            {
                 return false;
             }
-            if (string.IsNullOrWhiteSpace(_LoggedInUser.Email))
-            {
-                MessageBox.Show($"Geen geldige email voor {_LoggedInUser.Naam} :(");
-                return false;
-            }
-            return true;
         }
 
         private async void BtnIndienen_Click(object sender, EventArgs e)
         {
-            // Ensure seats selected
             var seats = _SelectedSeats ?? Array.Empty<string>();
             if (seats.Length == 0)
             {
@@ -378,39 +360,36 @@ namespace Film.Kom
                 if (confirm == DialogResult.No) return;
             }
 
-            // Double-check validation before proceeding
             if (!ArePaymentFieldsValid())
             {
                 MessageBox.Show("Vul alle creditcardgegevens correct in voordat je betaalt.", "Onvolledige gegevens", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Sender email set to Wiebe
-            string OurMailAddress = "Vilmkomm@gmail.com";
-            string FilmName = lblFilmInfo.Text;
-            string RoomInfo = lblRoomInfo.Text;
-            string SeatInfo = seats.Length > 0 ? string.Join(", ", seats) : "Geen stoelen geselecteerd";
-            decimal totalAmount = SeatPrice * seats.Length;
-            var euroCulture = new CultureInfo("nl-NL");
-            string PriceInfo = totalAmount.ToString("C", euroCulture);
-
-            // mail en naam van user valideren
-            bool ValidCredentials = CheckValidityOfUserCredentials();
-            if (!ValidCredentials)
+            var seatsToReserve = seats.ToArray();
+            bool reserved = await TryReserveSeatsAsync(_FilmName, seatsToReserve);
+            if (!reserved)
             {
-                MessageBox.Show("Informatie kon niet worden gevalideerd. Probeer opnieuw.");
+                MessageBox.Show("Sommige van de geselecteerde stoelen zijn inmiddels door iemand anders gereserveerd. Vernieuw de stoelpagina en probeer opnieuw.", "Stoelen niet beschikbaar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             try
             {
+                string OurMailAddress = "vilmkomm@gmail.com";
+                string FilmName = lblFilmInfo.Text;
+                string RoomInfo = lblRoomInfo.Text;
+                string SeatInfo = seatsToReserve.Length > 0 ? string.Join(", ", seatsToReserve) : "Geen stoelen geselecteerd";
+                decimal totalAmount = SeatPrice * seatsToReserve.Length;
+                var euroCulture = new CultureInfo("nl-NL");
+                string PriceInfo = totalAmount.ToString("C", euroCulture);
+
                 string QRCodeValue = $"Naam: {_LoggedInUser?.Naam}. \nFilm: {FilmName}\nZaal: {RoomInfo}\nStoelen: {SeatInfo}\nTotaal betaald: {PriceInfo}\nSpeelt af om: {_Playtime}";
                 var qrCodeImage = MakeQRCode(QRCodeValue);
 
                 MailMessage mailMessage = CreateMailMessage(OurMailAddress, qrCodeImage, FilmName, RoomInfo, SeatInfo, PriceInfo);
 
                 using var ms = new MemoryStream();
-
                 Bitmap qr = (Bitmap)qrCodeImage;
                 qr.Save(ms, ImageFormat.Png);
                 ms.Position = 0;
@@ -421,13 +400,11 @@ namespace Film.Kom
                 using (var SmtpClient = new SmtpClient("smtp.gmail.com", 587))
                 {
                     SmtpClient.Port = 587;
-                    // use the wiebe sender address for SMTP credentials if appropriate
                     SmtpClient.Credentials = new NetworkCredential(OurMailAddress, passwords.GoogleAppPassword);
                     SmtpClient.EnableSsl = true;
                     SmtpClient.Send(mailMessage);
                 }
 
-                // Update UI placeholder to show receipt summary
                 if (lblPriceInfo != null)
                 {
                     lblPriceInfo.Text = $"Bon:\nFilm: {FilmName}\nZaal: {RoomInfo}\nStoelen: {SeatInfo}\nTotaal: {PriceInfo}";
@@ -453,10 +430,14 @@ namespace Film.Kom
             }
             catch (Exception ex)
             {
+<<<<<<< HEAD
+                MessageBox.Show($"Mail kon niet worden verstuurd, want: \n {ex.Message}");
+=======
                 MessageBox.Show($"Fout opgetreden. Bericht: \n {ex.Message} \n Stacktrace: \n {ex.StackTrace}. \n Innerexception: \n {ex.InnerException}");
+>>>>>>> 548f39b254c9f73adb974b2be5e7e06e55bef97c
             }
         }
-
+        
         private MailMessage CreateMailMessage(string OurMailAddress, object qrCodeImage, string FilmName, string RoomInfo, string SeatInfo, string PriceInfo)
         {
             var body = new StringBuilder();

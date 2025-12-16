@@ -49,7 +49,7 @@ namespace Film.Kom
             {
                 posters[i].Load(result[i].Poster);
                 labels[i].Text = result[i].Title;
-                frmFilmInfo FilmForm = new(result[i].Title, _LoggedInUser);
+                frmFilmInfoUpdated FilmForm = new(result[i].Title, _LoggedInUser);
                 posters[i].Click += (sender, e) =>
                 {
                     FilmForm.Show();
@@ -107,7 +107,7 @@ namespace Film.Kom
             }
             MessageBox.Show($"Film {MovieInfo.Title} is gevonden. Hij draait in zaal {MovieInfo.Zaal} om {MovieInfo.Speeltijd}.");
             picFilm1.Load(MovieInfo.Poster);
-            frmFilmInfo filmForm = new(MovieInfo.Title, _LoggedInUser);
+            frmFilmInfoUpdated filmForm = new(MovieInfo.Title, _LoggedInUser);
             picFilm1.MouseClick += (sender, e) =>
             {
                 filmForm.Show();

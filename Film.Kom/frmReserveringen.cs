@@ -13,6 +13,7 @@ namespace Film.Kom
 {
     internal partial class frmStoelen_reservation : Form
     {
+        // Design door Avsar en Rick, functionaliteit door Furkan en Wiebe
         private User _User;
         private readonly string _Filmname;
         private readonly IMongoCollection<FilmInfo> _Films;
@@ -51,7 +52,39 @@ namespace Film.Kom
             lblBegintijd.Text = MovieData.Speeltijd;
             lblEindtijd.Text = "Reken het zelf maar uit";
             picPoster.Load(MovieData.Poster);
+
+            await FetchReserveringenFromDatabase(_Filmname);
         }
+
+        private async Task FetchReserveringenFromDatabase(string FilmNameInLowercase)
+        {
+            var FilterForReserveringen = Builders<ReserveringenInfo>.Filter.Eq(r => r.ReserveringTitle, FilmNameInLowercase);
+            var AllFilmsWithReservedSeats = _Reserveringen.Find(FilterForReserveringen).ToList();
+
+            LoadReseveringen(AllFilmsWithReservedSeats);
+        }
+
+        private void LoadReseveringen(List<ReserveringenInfo> AllReserveringenForThisMovie)
+        {
+            // TODO:
+            // Fix deze onzin die niet werkt
+            var AllSeats = GetAllButtons(pnlScreenChairs).ToList();
+            foreach (var Reservering in AllReserveringenForThisMovie)
+            {
+                foreach (var Stoel in Reservering.Stoelen)
+                {
+                    var SeatName = $"btnStoel{Stoel}";
+
+                    var Seat = AllSeats.FirstOrDefault(s => s.Name == SeatName);
+
+                    if (Seat != null)
+                    {
+                        Seat.BackColor = Color.Red;
+                    }
+                }
+            }
+        }
+
         private async void frmStoelen_reservation_Shown(object sender, EventArgs e)
         {
             if (!_seatsInitialized)
@@ -65,6 +98,10 @@ namespace Film.Kom
         {
             foreach (Control c in parent.Controls)
             {
+                if (c.GetType() != typeof(Button))
+                {
+                    continue;
+                }
                 yield return c;
 
                 foreach (Control child in GetAllButtons(c))

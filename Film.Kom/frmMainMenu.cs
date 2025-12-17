@@ -12,6 +12,7 @@ namespace Film.Kom
 {
     internal partial class frmMainMenu : Form
     {
+        // Design door Avsar, functionaliteit door Wiebe
         private readonly Passwords passwords = new();
         private readonly User _LoggedInUser;
         private IMongoCollection<FilmInfo> _Films;

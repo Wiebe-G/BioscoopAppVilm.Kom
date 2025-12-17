@@ -13,7 +13,7 @@ namespace Film.Kom
 {
     internal partial class frmFilmInfoUpdated : Form
     {
-        //readonly Passwords passwords = new();
+        // Design door avsar gedaan, functionaliteit door Wiebe, zelfde als op frmFilmInfo
         private string _FilmName;
         private readonly User _LoggedInUser;
 

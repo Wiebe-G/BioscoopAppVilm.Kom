@@ -16,7 +16,8 @@ namespace Film.Kom
 {
     public partial class frmProfielpagina : Form
     {
-        readonly Passwords passwords = new Passwords();
+        // Design door Avsar, functionaliteit door Wiebe en Furkan
+        readonly Passwords passwords = new();
         private readonly IMongoCollection<User> _Users;
         private readonly User? _LoggedInUser;
 
@@ -52,6 +53,11 @@ namespace Film.Kom
 
         private void btnAdmin_Click(object sender, EventArgs e)
         {
+            if (_LoggedInUser == null)
+            {
+                MessageBox.Show("Geen gebruiker gevonden");
+                return;
+            }
             frmAdmin AdminPanel = new(_LoggedInUser);
             AdminPanel.Show();
         }

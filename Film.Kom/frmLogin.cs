@@ -3,9 +3,9 @@ using BC = BCrypt.Net.BCrypt;
 
 namespace Film.Kom
 {
-
     public partial class frmLogin : Form
     {
+        // Design door Avsar, functionaliteit door Wiebe
         readonly Passwords passwords = new();
         private readonly IMongoCollection<User> _Users;
         public frmLogin()

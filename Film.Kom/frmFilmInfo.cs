@@ -4,6 +4,7 @@ namespace Film.Kom
 {
     internal partial class frmFilmInfo : Form
     {
+        // Oude form, design en functionaliteit gedaan door Wiebe. Nieuwe form heeft zelfde functionaliteit, maar design door avsar
         readonly Passwords passwords = new Passwords();
         private string _FilmName;
         private readonly User _LoggedInUser;

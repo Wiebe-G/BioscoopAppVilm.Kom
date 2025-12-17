@@ -23,6 +23,7 @@ namespace Film.Kom
 {
     internal partial class frmPayment : Form
     {
+        // Design en functionaliteit door Furkan
         readonly Passwords passwords = new();
         private readonly User _User;
         private readonly string _FilmName;

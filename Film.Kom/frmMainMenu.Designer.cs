@@ -456,11 +456,7 @@
             pnlSlideMoviesSecundary.ColumnCount = 1;
             pnlSlideMoviesSecundary.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             pnlSlideMoviesSecundary.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 23F));
-<<<<<<< HEAD
-            pnlSlideMoviesSecundary.Controls.Add(picSlide, 0, 0);
-=======
             pnlSlideMoviesSecundary.Controls.Add(picSlideshow, 0, 0);
->>>>>>> 22064bbec9b3914448b370916074fbf40634cef8
             pnlSlideMoviesSecundary.Controls.Add(pnlMovies, 0, 1);
             pnlSlideMoviesSecundary.Dock = DockStyle.Fill;
             pnlSlideMoviesSecundary.Location = new Point(4, 27);
@@ -474,17 +470,15 @@
             // 
             // picSlideshow
             // 
-<<<<<<< HEAD
-            picSlide.Dock = DockStyle.Fill;
-            picSlide.Image = (Image)resources.GetObject("picSlide.Image");
-            picSlide.Location = new Point(4, 3);
-            picSlide.Margin = new Padding(4, 3, 4, 3);
-            picSlide.Name = "picSlide";
-            picSlide.Size = new Size(1310, 264);
-            picSlide.SizeMode = PictureBoxSizeMode.StretchImage;
-            picSlide.TabIndex = 0;
-            picSlide.TabStop = false;
-=======
+            picSlideshow.Dock = DockStyle.Fill;
+            picSlideshow.Image = (Image)resources.GetObject("picSlide.Image");
+            picSlideshow.Location = new Point(4, 3);
+            picSlideshow.Margin = new Padding(4, 3, 4, 3);
+            picSlideshow.Name = "picSlide";
+            picSlideshow.Size = new Size(1310, 264);
+            picSlideshow.SizeMode = PictureBoxSizeMode.StretchImage;
+            picSlideshow.TabIndex = 0;
+            picSlideshow.TabStop = false;
             picSlideshow.Dock = DockStyle.Fill;
             picSlideshow.Image = (Image)resources.GetObject("picSlideshow.Image");
             picSlideshow.Location = new Point(4, 3);
@@ -494,7 +488,6 @@
             picSlideshow.SizeMode = PictureBoxSizeMode.StretchImage;
             picSlideshow.TabIndex = 0;
             picSlideshow.TabStop = false;
->>>>>>> 22064bbec9b3914448b370916074fbf40634cef8
             // 
             // pnlMovies
             // 

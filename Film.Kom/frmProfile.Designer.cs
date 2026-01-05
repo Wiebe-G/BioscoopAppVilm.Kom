@@ -322,6 +322,7 @@
             txtPassword.Size = new Size(218, 44);
             txtPassword.TabIndex = 9;
             txtPassword.TextAlign = HorizontalAlignment.Center;
+            txtPassword.KeyDown += BtnPassword_KeyDown;
             // 
             // btnChangepassword
             // 
@@ -418,6 +419,7 @@
             txtUsername.Size = new Size(218, 40);
             txtUsername.TabIndex = 9;
             txtUsername.TextAlign = HorizontalAlignment.Center;
+            txtUsername.KeyDown += BtnUsername_KeyDown;
             // 
             // btnChangeusername
             // 
@@ -648,6 +650,7 @@
             txtChangemail.Size = new Size(325, 44);
             txtChangemail.TabIndex = 9;
             txtChangemail.TextAlign = HorizontalAlignment.Center;
+            txtChangemail.KeyDown += BtnEmail_KeyDown;
             // 
             // lblEmailDisplay
             // 

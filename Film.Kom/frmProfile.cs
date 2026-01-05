@@ -16,13 +16,8 @@ namespace Film.Kom
 {
     public partial class frmProfielpagina : Form
     {
-<<<<<<< HEAD
-        // MongoDB connectie en gebruiker die is ingelogd
-        readonly Passwords passwords = new Passwords();
-=======
         // Design door Avsar, functionaliteit door Wiebe en Furkan
         readonly Passwords passwords = new();
->>>>>>> 22064bbec9b3914448b370916074fbf40634cef8
         private readonly IMongoCollection<User> _Users;
         private readonly User? _LoggedInUser;
 
@@ -72,15 +67,11 @@ namespace Film.Kom
 
         private void btnAdmin_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            // Open het admin panel
-=======
             if (_LoggedInUser == null)
             {
                 MessageBox.Show("Geen gebruiker gevonden");
                 return;
             }
->>>>>>> 22064bbec9b3914448b370916074fbf40634cef8
             frmAdmin AdminPanel = new(_LoggedInUser);
             AdminPanel.Show();
         }
@@ -272,6 +263,31 @@ namespace Film.Kom
                 if (found != null) return found;
             }
             return null;
+        }
+
+        private void BtnUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtUsername.Text)) return;
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnChangeusername.PerformClick();
+            }
+        }
+        private void BtnPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtPassword.Text)) return;
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnChangepassword.PerformClick();
+            }
+        }
+        private void BtnEmail_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtChangemail.Text)) return;
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnChangemail.PerformClick();
+            }
         }
     }
 }

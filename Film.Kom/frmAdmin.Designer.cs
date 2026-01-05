@@ -82,11 +82,12 @@
             pnlTabAdmin.Controls.Add(tabForAdminPanel, 0, 1);
             pnlTabAdmin.Dock = DockStyle.Fill;
             pnlTabAdmin.Location = new Point(0, 0);
+            pnlTabAdmin.Margin = new Padding(3, 2, 3, 2);
             pnlTabAdmin.Name = "pnlTabAdmin";
             pnlTabAdmin.RowCount = 2;
             pnlTabAdmin.RowStyles.Add(new RowStyle(SizeType.Percent, 17F));
             pnlTabAdmin.RowStyles.Add(new RowStyle(SizeType.Percent, 83F));
-            pnlTabAdmin.Size = new Size(1902, 1033);
+            pnlTabAdmin.Size = new Size(1664, 775);
             pnlTabAdmin.TabIndex = 0;
             // 
             // pnlTabTop
@@ -100,20 +101,22 @@
             pnlTabTop.Controls.Add(lblPanelTitleDisplay, 1, 0);
             pnlTabTop.Controls.Add(btnBackToProfile, 2, 0);
             pnlTabTop.Dock = DockStyle.Fill;
-            pnlTabTop.Location = new Point(3, 3);
+            pnlTabTop.Location = new Point(3, 2);
+            pnlTabTop.Margin = new Padding(3, 2, 3, 2);
             pnlTabTop.Name = "pnlTabTop";
             pnlTabTop.RowCount = 1;
             pnlTabTop.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            pnlTabTop.Size = new Size(1896, 169);
+            pnlTabTop.Size = new Size(1658, 127);
             pnlTabTop.TabIndex = 0;
             // 
             // picLogo
             // 
             picLogo.Dock = DockStyle.Fill;
             picLogo.Image = Properties.Resources.Logo_van_Rick_oftewel_ChatGPT;
-            picLogo.Location = new Point(3, 3);
+            picLogo.Location = new Point(3, 2);
+            picLogo.Margin = new Padding(3, 2, 3, 2);
             picLogo.Name = "picLogo";
-            picLogo.Size = new Size(562, 163);
+            picLogo.Size = new Size(491, 123);
             picLogo.SizeMode = PictureBoxSizeMode.Zoom;
             picLogo.TabIndex = 0;
             picLogo.TabStop = false;
@@ -124,10 +127,10 @@
             lblPanelTitleDisplay.BackColor = Color.Gainsboro;
             lblPanelTitleDisplay.Dock = DockStyle.Fill;
             lblPanelTitleDisplay.Font = new Font("Georgia", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblPanelTitleDisplay.Location = new Point(588, 20);
-            lblPanelTitleDisplay.Margin = new Padding(20);
+            lblPanelTitleDisplay.Location = new Point(515, 15);
+            lblPanelTitleDisplay.Margin = new Padding(18, 15, 18, 15);
             lblPanelTitleDisplay.Name = "lblPanelTitleDisplay";
-            lblPanelTitleDisplay.Size = new Size(718, 129);
+            lblPanelTitleDisplay.Size = new Size(627, 97);
             lblPanelTitleDisplay.TabIndex = 1;
             lblPanelTitleDisplay.Text = "Admin";
             lblPanelTitleDisplay.TextAlign = ContentAlignment.MiddleCenter;
@@ -136,10 +139,10 @@
             // 
             btnBackToProfile.BackColor = Color.Gainsboro;
             btnBackToProfile.Dock = DockStyle.Fill;
-            btnBackToProfile.Location = new Point(1346, 20);
-            btnBackToProfile.Margin = new Padding(20);
+            btnBackToProfile.Location = new Point(1178, 15);
+            btnBackToProfile.Margin = new Padding(18, 15, 18, 15);
             btnBackToProfile.Name = "btnBackToProfile";
-            btnBackToProfile.Size = new Size(530, 129);
+            btnBackToProfile.Size = new Size(462, 97);
             btnBackToProfile.TabIndex = 2;
             btnBackToProfile.Text = "Terug naar profiel";
             btnBackToProfile.UseVisualStyleBackColor = false;
@@ -152,20 +155,22 @@
             tabForAdminPanel.Controls.Add(tabEditUsers);
             tabForAdminPanel.Controls.Add(tabShowOrders);
             tabForAdminPanel.Dock = DockStyle.Fill;
-            tabForAdminPanel.Location = new Point(3, 178);
+            tabForAdminPanel.Location = new Point(3, 133);
+            tabForAdminPanel.Margin = new Padding(3, 2, 3, 2);
             tabForAdminPanel.Name = "tabForAdminPanel";
             tabForAdminPanel.SelectedIndex = 0;
-            tabForAdminPanel.Size = new Size(1896, 852);
+            tabForAdminPanel.Size = new Size(1658, 640);
             tabForAdminPanel.TabIndex = 1;
             // 
             // tabAddingFilms
             // 
             tabAddingFilms.BackColor = Color.DarkRed;
             tabAddingFilms.Controls.Add(pnlTabForAddingFilms);
-            tabAddingFilms.Location = new Point(4, 29);
+            tabAddingFilms.Location = new Point(4, 24);
+            tabAddingFilms.Margin = new Padding(3, 2, 3, 2);
             tabAddingFilms.Name = "tabAddingFilms";
-            tabAddingFilms.Padding = new Padding(3);
-            tabAddingFilms.Size = new Size(1888, 819);
+            tabAddingFilms.Padding = new Padding(3, 2, 3, 2);
+            tabAddingFilms.Size = new Size(1650, 612);
             tabAddingFilms.TabIndex = 0;
             tabAddingFilms.Text = "Films toevoegen";
             // 
@@ -177,13 +182,14 @@
             pnlTabForAddingFilms.Controls.Add(pnlTabForCenteringButtonForAddingFilm, 0, 2);
             pnlTabForAddingFilms.Controls.Add(pnlTabInfoForAddingMovie, 0, 1);
             pnlTabForAddingFilms.Dock = DockStyle.Fill;
-            pnlTabForAddingFilms.Location = new Point(3, 3);
+            pnlTabForAddingFilms.Location = new Point(3, 2);
+            pnlTabForAddingFilms.Margin = new Padding(3, 2, 3, 2);
             pnlTabForAddingFilms.Name = "pnlTabForAddingFilms";
             pnlTabForAddingFilms.RowCount = 3;
             pnlTabForAddingFilms.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
             pnlTabForAddingFilms.RowStyles.Add(new RowStyle(SizeType.Percent, 70F));
             pnlTabForAddingFilms.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
-            pnlTabForAddingFilms.Size = new Size(1882, 813);
+            pnlTabForAddingFilms.Size = new Size(1644, 608);
             pnlTabForAddingFilms.TabIndex = 0;
             // 
             // pnlTabForCenteringInputForAddingFilms
@@ -195,21 +201,23 @@
             pnlTabForCenteringInputForAddingFilms.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
             pnlTabForCenteringInputForAddingFilms.Controls.Add(txtInputForAddingFilms, 1, 0);
             pnlTabForCenteringInputForAddingFilms.Dock = DockStyle.Fill;
-            pnlTabForCenteringInputForAddingFilms.Location = new Point(3, 3);
+            pnlTabForCenteringInputForAddingFilms.Location = new Point(3, 2);
+            pnlTabForCenteringInputForAddingFilms.Margin = new Padding(3, 2, 3, 2);
             pnlTabForCenteringInputForAddingFilms.Name = "pnlTabForCenteringInputForAddingFilms";
             pnlTabForCenteringInputForAddingFilms.RowCount = 1;
             pnlTabForCenteringInputForAddingFilms.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            pnlTabForCenteringInputForAddingFilms.Size = new Size(1876, 115);
+            pnlTabForCenteringInputForAddingFilms.Size = new Size(1638, 87);
             pnlTabForCenteringInputForAddingFilms.TabIndex = 0;
             // 
             // txtInputForAddingFilms
             // 
             txtInputForAddingFilms.Dock = DockStyle.Fill;
-            txtInputForAddingFilms.Location = new Point(565, 3);
+            txtInputForAddingFilms.Location = new Point(494, 2);
+            txtInputForAddingFilms.Margin = new Padding(3, 2, 3, 2);
             txtInputForAddingFilms.Multiline = true;
             txtInputForAddingFilms.Name = "txtInputForAddingFilms";
             txtInputForAddingFilms.PlaceholderText = "Zoek naar een film";
-            txtInputForAddingFilms.Size = new Size(744, 109);
+            txtInputForAddingFilms.Size = new Size(649, 83);
             txtInputForAddingFilms.TabIndex = 0;
             txtInputForAddingFilms.TextAlign = HorizontalAlignment.Center;
             txtInputForAddingFilms.KeyDown += BtnSearch_Keydown;
@@ -222,19 +230,21 @@
             pnlTabForCenteringButtonForAddingFilm.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
             pnlTabForCenteringButtonForAddingFilm.Controls.Add(btnAddFilmToDatabase, 1, 0);
             pnlTabForCenteringButtonForAddingFilm.Dock = DockStyle.Fill;
-            pnlTabForCenteringButtonForAddingFilm.Location = new Point(3, 693);
+            pnlTabForCenteringButtonForAddingFilm.Location = new Point(3, 518);
+            pnlTabForCenteringButtonForAddingFilm.Margin = new Padding(3, 2, 3, 2);
             pnlTabForCenteringButtonForAddingFilm.Name = "pnlTabForCenteringButtonForAddingFilm";
             pnlTabForCenteringButtonForAddingFilm.RowCount = 1;
             pnlTabForCenteringButtonForAddingFilm.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            pnlTabForCenteringButtonForAddingFilm.Size = new Size(1876, 117);
+            pnlTabForCenteringButtonForAddingFilm.Size = new Size(1638, 88);
             pnlTabForCenteringButtonForAddingFilm.TabIndex = 1;
             // 
             // btnAddFilmToDatabase
             // 
             btnAddFilmToDatabase.Dock = DockStyle.Fill;
-            btnAddFilmToDatabase.Location = new Point(565, 3);
+            btnAddFilmToDatabase.Location = new Point(494, 2);
+            btnAddFilmToDatabase.Margin = new Padding(3, 2, 3, 2);
             btnAddFilmToDatabase.Name = "btnAddFilmToDatabase";
-            btnAddFilmToDatabase.Size = new Size(744, 111);
+            btnAddFilmToDatabase.Size = new Size(649, 84);
             btnAddFilmToDatabase.TabIndex = 0;
             btnAddFilmToDatabase.Text = "Bevestig en voeg toe aan database";
             btnAddFilmToDatabase.UseVisualStyleBackColor = true;
@@ -250,20 +260,22 @@
             pnlTabInfoForAddingMovie.Controls.Add(picFilmPoster, 1, 0);
             pnlTabInfoForAddingMovie.Controls.Add(pnlTabAllFilmInfo, 2, 0);
             pnlTabInfoForAddingMovie.Dock = DockStyle.Fill;
-            pnlTabInfoForAddingMovie.Location = new Point(3, 124);
+            pnlTabInfoForAddingMovie.Location = new Point(3, 93);
+            pnlTabInfoForAddingMovie.Margin = new Padding(3, 2, 3, 2);
             pnlTabInfoForAddingMovie.Name = "pnlTabInfoForAddingMovie";
             pnlTabInfoForAddingMovie.RowCount = 1;
             pnlTabInfoForAddingMovie.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            pnlTabInfoForAddingMovie.Size = new Size(1876, 563);
+            pnlTabInfoForAddingMovie.Size = new Size(1638, 421);
             pnlTabInfoForAddingMovie.TabIndex = 2;
             // 
             // picFilmPoster
             // 
             picFilmPoster.Dock = DockStyle.Fill;
             picFilmPoster.Image = (Image)resources.GetObject("picFilmPoster.Image");
-            picFilmPoster.Location = new Point(96, 3);
+            picFilmPoster.Location = new Point(84, 2);
+            picFilmPoster.Margin = new Padding(3, 2, 3, 2);
             picFilmPoster.Name = "picFilmPoster";
-            picFilmPoster.Size = new Size(556, 557);
+            picFilmPoster.Size = new Size(485, 417);
             picFilmPoster.SizeMode = PictureBoxSizeMode.Zoom;
             picFilmPoster.TabIndex = 0;
             picFilmPoster.TabStop = false;
@@ -281,14 +293,15 @@
             pnlTabAllFilmInfo.Controls.Add(txtFilmPlaytime, 1, 1);
             pnlTabAllFilmInfo.Controls.Add(txtFilmRoom, 1, 2);
             pnlTabAllFilmInfo.Dock = DockStyle.Fill;
-            pnlTabAllFilmInfo.Location = new Point(658, 3);
+            pnlTabAllFilmInfo.Location = new Point(575, 2);
+            pnlTabAllFilmInfo.Margin = new Padding(3, 2, 3, 2);
             pnlTabAllFilmInfo.Name = "pnlTabAllFilmInfo";
             pnlTabAllFilmInfo.RowCount = 4;
             pnlTabAllFilmInfo.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             pnlTabAllFilmInfo.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             pnlTabAllFilmInfo.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             pnlTabAllFilmInfo.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            pnlTabAllFilmInfo.Size = new Size(1119, 557);
+            pnlTabAllFilmInfo.Size = new Size(976, 417);
             pnlTabAllFilmInfo.TabIndex = 1;
             // 
             // lblFilmRuntime
@@ -297,10 +310,10 @@
             lblFilmRuntime.BackColor = Color.Gainsboro;
             lblFilmRuntime.Dock = DockStyle.Fill;
             lblFilmRuntime.ForeColor = SystemColors.ControlText;
-            lblFilmRuntime.Location = new Point(10, 149);
-            lblFilmRuntime.Margin = new Padding(10);
+            lblFilmRuntime.Location = new Point(9, 112);
+            lblFilmRuntime.Margin = new Padding(9, 8, 9, 8);
             lblFilmRuntime.Name = "lblFilmRuntime";
-            lblFilmRuntime.Size = new Size(539, 119);
+            lblFilmRuntime.Size = new Size(470, 88);
             lblFilmRuntime.TabIndex = 1;
             lblFilmRuntime.Text = "Runtime";
             lblFilmRuntime.TextAlign = ContentAlignment.MiddleCenter;
@@ -310,10 +323,10 @@
             lblFilmGenre.AutoSize = true;
             lblFilmGenre.BackColor = Color.Gainsboro;
             lblFilmGenre.Dock = DockStyle.Fill;
-            lblFilmGenre.Location = new Point(10, 288);
-            lblFilmGenre.Margin = new Padding(10);
+            lblFilmGenre.Location = new Point(9, 216);
+            lblFilmGenre.Margin = new Padding(9, 8, 9, 8);
             lblFilmGenre.Name = "lblFilmGenre";
-            lblFilmGenre.Size = new Size(539, 119);
+            lblFilmGenre.Size = new Size(470, 88);
             lblFilmGenre.TabIndex = 2;
             lblFilmGenre.Text = "Genre";
             lblFilmGenre.TextAlign = ContentAlignment.MiddleCenter;
@@ -323,10 +336,10 @@
             lblFilmPlot.AutoSize = true;
             lblFilmPlot.BackColor = Color.Gainsboro;
             lblFilmPlot.Dock = DockStyle.Fill;
-            lblFilmPlot.Location = new Point(10, 427);
-            lblFilmPlot.Margin = new Padding(10);
+            lblFilmPlot.Location = new Point(9, 320);
+            lblFilmPlot.Margin = new Padding(9, 8, 9, 8);
             lblFilmPlot.Name = "lblFilmPlot";
-            lblFilmPlot.Size = new Size(539, 120);
+            lblFilmPlot.Size = new Size(470, 89);
             lblFilmPlot.TabIndex = 3;
             lblFilmPlot.Text = "Plot";
             lblFilmPlot.TextAlign = ContentAlignment.MiddleCenter;
@@ -336,10 +349,10 @@
             lblFilmRated.AutoSize = true;
             lblFilmRated.BackColor = Color.Gainsboro;
             lblFilmRated.Dock = DockStyle.Fill;
-            lblFilmRated.Location = new Point(569, 10);
-            lblFilmRated.Margin = new Padding(10);
+            lblFilmRated.Location = new Point(497, 8);
+            lblFilmRated.Margin = new Padding(9, 8, 9, 8);
             lblFilmRated.Name = "lblFilmRated";
-            lblFilmRated.Size = new Size(540, 119);
+            lblFilmRated.Size = new Size(470, 88);
             lblFilmRated.TabIndex = 4;
             lblFilmRated.Text = "Rated";
             lblFilmRated.TextAlign = ContentAlignment.MiddleCenter;
@@ -349,11 +362,11 @@
             lblFilmTitle.AutoSize = true;
             lblFilmTitle.BackColor = Color.Gainsboro;
             lblFilmTitle.Dock = DockStyle.Fill;
-            lblFilmTitle.Location = new Point(10, 10);
-            lblFilmTitle.Margin = new Padding(10);
+            lblFilmTitle.Location = new Point(9, 8);
+            lblFilmTitle.Margin = new Padding(9, 8, 9, 8);
             lblFilmTitle.Name = "lblFilmTitle";
-            lblFilmTitle.Padding = new Padding(10);
-            lblFilmTitle.Size = new Size(539, 119);
+            lblFilmTitle.Padding = new Padding(9, 8, 9, 8);
+            lblFilmTitle.Size = new Size(470, 88);
             lblFilmTitle.TabIndex = 0;
             lblFilmTitle.Text = "Film Titel";
             lblFilmTitle.TextAlign = ContentAlignment.MiddleCenter;
@@ -362,12 +375,12 @@
             // 
             txtFilmPlaytime.BackColor = Color.Gainsboro;
             txtFilmPlaytime.Dock = DockStyle.Fill;
-            txtFilmPlaytime.Location = new Point(569, 149);
-            txtFilmPlaytime.Margin = new Padding(10);
+            txtFilmPlaytime.Location = new Point(497, 112);
+            txtFilmPlaytime.Margin = new Padding(9, 8, 9, 8);
             txtFilmPlaytime.Multiline = true;
             txtFilmPlaytime.Name = "txtFilmPlaytime";
             txtFilmPlaytime.PlaceholderText = "Speeltijd";
-            txtFilmPlaytime.Size = new Size(540, 119);
+            txtFilmPlaytime.Size = new Size(470, 88);
             txtFilmPlaytime.TabIndex = 5;
             txtFilmPlaytime.TextAlign = HorizontalAlignment.Center;
             // 
@@ -375,12 +388,12 @@
             // 
             txtFilmRoom.BackColor = Color.Gainsboro;
             txtFilmRoom.Dock = DockStyle.Fill;
-            txtFilmRoom.Location = new Point(569, 288);
-            txtFilmRoom.Margin = new Padding(10);
+            txtFilmRoom.Location = new Point(497, 216);
+            txtFilmRoom.Margin = new Padding(9, 8, 9, 8);
             txtFilmRoom.Multiline = true;
             txtFilmRoom.Name = "txtFilmRoom";
             txtFilmRoom.PlaceholderText = "Zaal";
-            txtFilmRoom.Size = new Size(540, 119);
+            txtFilmRoom.Size = new Size(470, 88);
             txtFilmRoom.TabIndex = 6;
             txtFilmRoom.TextAlign = HorizontalAlignment.Center;
             // 
@@ -388,10 +401,11 @@
             // 
             tabEditFilms.BackColor = Color.DarkRed;
             tabEditFilms.Controls.Add(pnlTabFilms);
-            tabEditFilms.Location = new Point(4, 29);
+            tabEditFilms.Location = new Point(4, 24);
+            tabEditFilms.Margin = new Padding(3, 2, 3, 2);
             tabEditFilms.Name = "tabEditFilms";
-            tabEditFilms.Padding = new Padding(3);
-            tabEditFilms.Size = new Size(1888, 819);
+            tabEditFilms.Padding = new Padding(3, 2, 3, 2);
+            tabEditFilms.Size = new Size(1650, 612);
             tabEditFilms.TabIndex = 1;
             tabEditFilms.Text = "Films bewerken";
             // 
@@ -401,22 +415,24 @@
             pnlTabFilms.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80F));
             pnlTabFilms.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             pnlTabFilms.Dock = DockStyle.Fill;
-            pnlTabFilms.Location = new Point(3, 3);
+            pnlTabFilms.Location = new Point(3, 2);
+            pnlTabFilms.Margin = new Padding(3, 2, 3, 2);
             pnlTabFilms.Name = "pnlTabFilms";
             pnlTabFilms.RowCount = 1;
             pnlTabFilms.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            pnlTabFilms.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            pnlTabFilms.Size = new Size(1882, 813);
+            pnlTabFilms.RowStyles.Add(new RowStyle(SizeType.Absolute, 610F));
+            pnlTabFilms.Size = new Size(1644, 608);
             pnlTabFilms.TabIndex = 0;
             // 
             // tabEditUsers
             // 
             tabEditUsers.BackColor = Color.Maroon;
             tabEditUsers.Controls.Add(pnlTabUsers);
-            tabEditUsers.Location = new Point(4, 29);
+            tabEditUsers.Location = new Point(4, 24);
+            tabEditUsers.Margin = new Padding(3, 2, 3, 2);
             tabEditUsers.Name = "tabEditUsers";
-            tabEditUsers.Padding = new Padding(3);
-            tabEditUsers.Size = new Size(1888, 819);
+            tabEditUsers.Padding = new Padding(3, 2, 3, 2);
+            tabEditUsers.Size = new Size(1650, 612);
             tabEditUsers.TabIndex = 2;
             tabEditUsers.Text = "Gebruikers bewerken";
             // 
@@ -430,22 +446,24 @@
             pnlTabUsers.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80F));
             pnlTabUsers.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             pnlTabUsers.Dock = DockStyle.Fill;
-            pnlTabUsers.Location = new Point(3, 3);
+            pnlTabUsers.Location = new Point(3, 2);
+            pnlTabUsers.Margin = new Padding(3, 2, 3, 2);
             pnlTabUsers.Name = "pnlTabUsers";
             pnlTabUsers.RowCount = 2;
             pnlTabUsers.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             pnlTabUsers.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
-            pnlTabUsers.Size = new Size(1882, 813);
+            pnlTabUsers.Size = new Size(1644, 608);
             pnlTabUsers.TabIndex = 0;
             // 
             // tabShowOrders
             // 
             tabShowOrders.BackColor = Color.DarkRed;
             tabShowOrders.Controls.Add(pnlTabOrders);
-            tabShowOrders.Location = new Point(4, 29);
+            tabShowOrders.Location = new Point(4, 24);
+            tabShowOrders.Margin = new Padding(3, 2, 3, 2);
             tabShowOrders.Name = "tabShowOrders";
-            tabShowOrders.Padding = new Padding(3);
-            tabShowOrders.Size = new Size(1888, 819);
+            tabShowOrders.Padding = new Padding(3, 2, 3, 2);
+            tabShowOrders.Size = new Size(1650, 612);
             tabShowOrders.TabIndex = 3;
             tabShowOrders.Text = "Reserveringen zien";
             // 
@@ -454,20 +472,22 @@
             pnlTabOrders.ColumnCount = 1;
             pnlTabOrders.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             pnlTabOrders.Dock = DockStyle.Fill;
-            pnlTabOrders.Location = new Point(3, 3);
+            pnlTabOrders.Location = new Point(3, 2);
+            pnlTabOrders.Margin = new Padding(3, 2, 3, 2);
             pnlTabOrders.Name = "pnlTabOrders";
             pnlTabOrders.RowCount = 2;
             pnlTabOrders.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             pnlTabOrders.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
-            pnlTabOrders.Size = new Size(1882, 813);
+            pnlTabOrders.Size = new Size(1644, 608);
             pnlTabOrders.TabIndex = 0;
             // 
             // frmAdmin
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1902, 1033);
+            ClientSize = new Size(1664, 775);
             Controls.Add(pnlTabAdmin);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "frmAdmin";
             Text = "frmAdmin";
             Load += frmAdmin_Load;

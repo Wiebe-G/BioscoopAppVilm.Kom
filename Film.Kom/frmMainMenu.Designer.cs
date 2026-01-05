@@ -55,7 +55,7 @@
             pnlSlideMoviesMain = new TableLayoutPanel();
             label1 = new Label();
             pnlSlideMoviesSecundary = new TableLayoutPanel();
-            picSlide = new PictureBox();
+            picSlideshow = new PictureBox();
             pnlMovies = new TableLayoutPanel();
             tableLayoutPanel9 = new TableLayoutPanel();
             picFilm5 = new PictureBox();
@@ -85,7 +85,7 @@
             pnlSecundary.SuspendLayout();
             pnlSlideMoviesMain.SuspendLayout();
             pnlSlideMoviesSecundary.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picSlide).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picSlideshow).BeginInit();
             pnlMovies.SuspendLayout();
             tableLayoutPanel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picFilm5).BeginInit();
@@ -456,7 +456,11 @@
             pnlSlideMoviesSecundary.ColumnCount = 1;
             pnlSlideMoviesSecundary.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             pnlSlideMoviesSecundary.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 23F));
+<<<<<<< HEAD
             pnlSlideMoviesSecundary.Controls.Add(picSlide, 0, 0);
+=======
+            pnlSlideMoviesSecundary.Controls.Add(picSlideshow, 0, 0);
+>>>>>>> 22064bbec9b3914448b370916074fbf40634cef8
             pnlSlideMoviesSecundary.Controls.Add(pnlMovies, 0, 1);
             pnlSlideMoviesSecundary.Dock = DockStyle.Fill;
             pnlSlideMoviesSecundary.Location = new Point(4, 27);
@@ -468,8 +472,9 @@
             pnlSlideMoviesSecundary.Size = new Size(1318, 626);
             pnlSlideMoviesSecundary.TabIndex = 1;
             // 
-            // picSlide
+            // picSlideshow
             // 
+<<<<<<< HEAD
             picSlide.Dock = DockStyle.Fill;
             picSlide.Image = (Image)resources.GetObject("picSlide.Image");
             picSlide.Location = new Point(4, 3);
@@ -479,6 +484,17 @@
             picSlide.SizeMode = PictureBoxSizeMode.StretchImage;
             picSlide.TabIndex = 0;
             picSlide.TabStop = false;
+=======
+            picSlideshow.Dock = DockStyle.Fill;
+            picSlideshow.Image = (Image)resources.GetObject("picSlideshow.Image");
+            picSlideshow.Location = new Point(4, 3);
+            picSlideshow.Margin = new Padding(4, 3, 4, 3);
+            picSlideshow.Name = "picSlideshow";
+            picSlideshow.Size = new Size(1310, 264);
+            picSlideshow.SizeMode = PictureBoxSizeMode.StretchImage;
+            picSlideshow.TabIndex = 0;
+            picSlideshow.TabStop = false;
+>>>>>>> 22064bbec9b3914448b370916074fbf40634cef8
             // 
             // pnlMovies
             // 
@@ -715,7 +731,7 @@
             pnlSlideMoviesMain.ResumeLayout(false);
             pnlSlideMoviesMain.PerformLayout();
             pnlSlideMoviesSecundary.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)picSlide).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picSlideshow).EndInit();
             pnlMovies.ResumeLayout(false);
             tableLayoutPanel9.ResumeLayout(false);
             tableLayoutPanel9.PerformLayout();
@@ -759,7 +775,7 @@
         private TableLayoutPanel pnlSlideMoviesMain;
         private Label label1;
         private TableLayoutPanel pnlSlideMoviesSecundary;
-        private PictureBox picSlide;
+        private PictureBox picSlideshow;
         private TableLayoutPanel pnlMovies;
         private TableLayoutPanel tableLayoutPanel9;
         private PictureBox picFilm5;

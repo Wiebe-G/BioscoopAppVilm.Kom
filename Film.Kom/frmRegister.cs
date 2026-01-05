@@ -6,6 +6,7 @@ namespace Film.Kom
 {
     public partial class frmRegister : Form
     {
+        // Design door Avsar (zelfde als login), functionaliteit door Wiebe
         readonly Passwords passwords = new Passwords();
         private readonly IMongoCollection<User> _Users;
         public frmRegister()

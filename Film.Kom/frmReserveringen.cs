@@ -13,6 +13,7 @@ namespace Film.Kom
 {
     internal partial class frmStoelen_reservation : Form
     {
+        // Design door Avsar en Rick, functionaliteit door Furkan en Wiebe
         private User _User;
         private readonly string _Filmname;
         private readonly IMongoCollection<FilmInfo> _Films;
@@ -42,8 +43,7 @@ namespace Film.Kom
 
         private async void frmStoelen_reservation_Load(object sender, EventArgs e)
         {
-            SearchForFilmsInDB SearchForFilm = new();
-            var MovieData = await SearchForFilm.SearchFunction(_Filmname);
+            var MovieData = await new SearchForFilmsInDB().SearchFunction(_Filmname);
             lblTopTitle.Text = MovieData.Title;
             lblTitel.Text = MovieData.Title;
             lblZaal.Text = MovieData.Zaal;
@@ -51,7 +51,45 @@ namespace Film.Kom
             lblBegintijd.Text = MovieData.Speeltijd;
             lblEindtijd.Text = "Reken het zelf maar uit";
             picPoster.Load(MovieData.Poster);
+
+            await FetchReserveringenFromDatabase(MovieData.Title.ToLower());
         }
+
+        private async Task FetchReserveringenFromDatabase(string FilmNameInLowercase)
+        {
+            var FilterForReserveringen = Builders<ReserveringenInfo>.Filter.Eq(r => r.ReserveringTitle, FilmNameInLowercase);
+            var AllFilmsWithReservedSeats = _Reserveringen.Find(FilterForReserveringen).ToList();
+
+            LoadReseveringen(AllFilmsWithReservedSeats);
+        }
+
+        private void LoadReseveringen(List<ReserveringenInfo> AllReserveringenForThisMovie)
+        {
+            // TODO:
+            // Fix deze onzin die niet werkt
+            // Update 05/01/2026: Het werkt nu half. Bedankt furkanGPT5 voor het maken van de rest van deze pagina
+            var AllSeats = GetAllButtons(tblStoelen).ToList();
+            foreach (var Reservering in AllReserveringenForThisMovie)
+            {
+                foreach (var Stoel in Reservering.Stoelen)
+                {
+                    var SeatName = $"btnStoel{Stoel}";
+
+                    var Seat = AllSeats.FirstOrDefault(s => s.Name == SeatName);
+
+                    if (Seat != null)
+                    {
+                        Seat.BackColor = Color.Red;
+                        Seat.Click += (sender, e) =>
+                        {
+                            MessageBox.Show($"Stoel {Seat.Name} is al gereserveerd.");
+                            return;
+                        };
+                    }
+                }
+            }
+        }
+
         private async void frmStoelen_reservation_Shown(object sender, EventArgs e)
         {
             if (!_seatsInitialized)
@@ -122,27 +160,6 @@ namespace Film.Kom
                 .OfType<Button>()
                 .Where(b => b.Name.StartsWith("btnStoel", StringComparison.OrdinalIgnoreCase));
 
-            foreach (var btn in buttons)
-            {
-                var seat = btn.Tag as Seat;
-                if (seat == null) continue;
-
-                if (seat.IsReserved)
-                {
-                    btn.BackColor = Color.Black;
-                    btn.Enabled = false;
-                }
-                else if (seat.IsSelected)
-                {
-                    btn.BackColor = Color.Green;
-                    btn.Enabled = true;
-                }
-                else
-                {
-                    btn.BackColor = Color.LightGray;
-                    btn.Enabled = true;
-                }
-            }
         }
 
         private void Seat_Click(object sender, EventArgs e)

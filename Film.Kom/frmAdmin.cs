@@ -16,6 +16,7 @@ namespace Film.Kom
 {
     internal partial class frmAdmin : Form
     {
+        // Design en functionaliteit gedaan door Wiebe
         private readonly User _LoggedInUser;
         private readonly Passwords passwords = new();
         private readonly IMongoCollection<User> _Users;

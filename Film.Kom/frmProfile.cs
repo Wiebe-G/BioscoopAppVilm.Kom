@@ -16,8 +16,13 @@ namespace Film.Kom
 {
     public partial class frmProfielpagina : Form
     {
+<<<<<<< HEAD
         // MongoDB connectie en gebruiker die is ingelogd
         readonly Passwords passwords = new Passwords();
+=======
+        // Design door Avsar, functionaliteit door Wiebe en Furkan
+        readonly Passwords passwords = new();
+>>>>>>> 22064bbec9b3914448b370916074fbf40634cef8
         private readonly IMongoCollection<User> _Users;
         private readonly User? _LoggedInUser;
 
@@ -67,7 +72,15 @@ namespace Film.Kom
 
         private void btnAdmin_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             // Open het admin panel
+=======
+            if (_LoggedInUser == null)
+            {
+                MessageBox.Show("Geen gebruiker gevonden");
+                return;
+            }
+>>>>>>> 22064bbec9b3914448b370916074fbf40634cef8
             frmAdmin AdminPanel = new(_LoggedInUser);
             AdminPanel.Show();
         }

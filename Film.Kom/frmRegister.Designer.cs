@@ -313,7 +313,6 @@
             txtMail.Name = "txtMail";
             txtMail.Size = new Size(421, 44);
             txtMail.TabIndex = 2;
-            txtMail.Text = "\\";
             txtMail.TextAlign = HorizontalAlignment.Center;
             txtMail.KeyDown += LoginEnter_KeyDown;
             // 

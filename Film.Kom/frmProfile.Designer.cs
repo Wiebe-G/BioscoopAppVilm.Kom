@@ -37,6 +37,7 @@
             lblTitel = new Label();
             pnlLogo = new TableLayoutPanel();
             picLogo = new PictureBox();
+            btnAdmin = new Button();
             pnlInhoudmain = new TableLayoutPanel();
             pnlInhoudSecondary = new TableLayoutPanel();
             pnlUserinfoFirst = new TableLayoutPanel();
@@ -45,13 +46,13 @@
             txtPassword = new TextBox();
             btnChangepassword = new Button();
             lblPasswordDisplay = new Label();
-            lblUsernameDisplay = new Label();
             lblPassword = new Label();
             lblUsername = new Label();
             pnlUsernamechangemain = new TableLayoutPanel();
             pnlUsernamechnagesecond = new TableLayoutPanel();
             txtUsername = new TextBox();
             btnChangeusername = new Button();
+            lblUsernameDisplay = new Label();
             pnlButtons = new TableLayoutPanel();
             pnlDeleteaccount = new TableLayoutPanel();
             btnDeleteaccount = new Button();
@@ -71,7 +72,6 @@
             btnTerug = new Button();
             label3 = new Label();
             label8 = new Label();
-            btnAdmin = new Button();
             pnlMain.SuspendLayout();
             pnlSecundary.SuspendLayout();
             pnlBalkmain.SuspendLayout();
@@ -203,6 +203,18 @@
             picLogo.TabIndex = 0;
             picLogo.TabStop = false;
             // 
+            // btnAdmin
+            // 
+            btnAdmin.Dock = DockStyle.Fill;
+            btnAdmin.Location = new Point(1439, 25);
+            btnAdmin.Margin = new Padding(25);
+            btnAdmin.Name = "btnAdmin";
+            btnAdmin.Size = new Size(422, 66);
+            btnAdmin.TabIndex = 2;
+            btnAdmin.Text = "Admin (alleen als je admin bent)";
+            btnAdmin.UseVisualStyleBackColor = true;
+            btnAdmin.Click += btnAdmin_Click;
+            // 
             // pnlInhoudmain
             // 
             pnlInhoudmain.BackColor = SystemColors.ButtonHighlight;
@@ -239,8 +251,8 @@
             pnlInhoudSecondary.Name = "pnlInhoudSecondary";
             pnlInhoudSecondary.RowCount = 4;
             pnlInhoudSecondary.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            pnlInhoudSecondary.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
-            pnlInhoudSecondary.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
+            pnlInhoudSecondary.RowStyles.Add(new RowStyle(SizeType.Percent, 40.50786F));
+            pnlInhoudSecondary.RowStyles.Add(new RowStyle(SizeType.Percent, 39.29867F));
             pnlInhoudSecondary.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
             pnlInhoudSecondary.Size = new Size(1804, 827);
             pnlInhoudSecondary.TabIndex = 0;
@@ -253,17 +265,17 @@
             pnlUserinfoFirst.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             pnlUserinfoFirst.Controls.Add(pnlPasswordchangemain, 2, 1);
             pnlUserinfoFirst.Controls.Add(lblPasswordDisplay, 1, 1);
-            pnlUserinfoFirst.Controls.Add(lblUsernameDisplay, 1, 0);
             pnlUserinfoFirst.Controls.Add(lblPassword, 0, 1);
             pnlUserinfoFirst.Controls.Add(lblUsername, 0, 0);
             pnlUserinfoFirst.Controls.Add(pnlUsernamechangemain, 2, 0);
+            pnlUserinfoFirst.Controls.Add(lblUsernameDisplay, 1, 0);
             pnlUserinfoFirst.Dock = DockStyle.Fill;
             pnlUserinfoFirst.Location = new Point(93, 85);
             pnlUserinfoFirst.Name = "pnlUserinfoFirst";
             pnlUserinfoFirst.RowCount = 2;
             pnlUserinfoFirst.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             pnlUserinfoFirst.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            pnlUserinfoFirst.Size = new Size(805, 324);
+            pnlUserinfoFirst.Size = new Size(805, 329);
             pnlUserinfoFirst.TabIndex = 0;
             // 
             // pnlPasswordchangemain
@@ -273,12 +285,12 @@
             pnlPasswordchangemain.Controls.Add(pnlPasswordchangesecond, 0, 0);
             pnlPasswordchangemain.Controls.Add(btnChangepassword, 0, 1);
             pnlPasswordchangemain.Dock = DockStyle.Fill;
-            pnlPasswordchangemain.Location = new Point(539, 165);
+            pnlPasswordchangemain.Location = new Point(539, 167);
             pnlPasswordchangemain.Name = "pnlPasswordchangemain";
             pnlPasswordchangemain.RowCount = 2;
             pnlPasswordchangemain.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             pnlPasswordchangemain.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            pnlPasswordchangemain.Size = new Size(263, 156);
+            pnlPasswordchangemain.Size = new Size(263, 159);
             pnlPasswordchangemain.TabIndex = 8;
             // 
             // pnlPasswordchangesecond
@@ -295,19 +307,20 @@
             pnlPasswordchangesecond.RowStyles.Add(new RowStyle(SizeType.Percent, 21.5686283F));
             pnlPasswordchangesecond.RowStyles.Add(new RowStyle(SizeType.Percent, 78.43137F));
             pnlPasswordchangesecond.RowStyles.Add(new RowStyle(SizeType.Absolute, 9F));
-            pnlPasswordchangesecond.Size = new Size(257, 72);
+            pnlPasswordchangesecond.Size = new Size(257, 73);
             pnlPasswordchangesecond.TabIndex = 4;
             // 
             // txtPassword
             // 
             txtPassword.Dock = DockStyle.Fill;
+            txtPassword.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
             txtPassword.ForeColor = SystemColors.ActiveCaptionText;
             txtPassword.Location = new Point(21, 16);
             txtPassword.Multiline = true;
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(218, 43);
+            txtPassword.PasswordChar = '*';
+            txtPassword.Size = new Size(218, 44);
             txtPassword.TabIndex = 9;
-            txtPassword.Text = "...";
             txtPassword.TextAlign = HorizontalAlignment.Center;
             // 
             // btnChangepassword
@@ -316,9 +329,9 @@
             btnChangepassword.Dock = DockStyle.Fill;
             btnChangepassword.Font = new Font("Georgia", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnChangepassword.ForeColor = SystemColors.ButtonHighlight;
-            btnChangepassword.Location = new Point(3, 81);
+            btnChangepassword.Location = new Point(3, 82);
             btnChangepassword.Name = "btnChangepassword";
-            btnChangepassword.Size = new Size(257, 72);
+            btnChangepassword.Size = new Size(257, 74);
             btnChangepassword.TabIndex = 0;
             btnChangepassword.Text = "Wijzig";
             btnChangepassword.UseVisualStyleBackColor = false;
@@ -329,25 +342,12 @@
             lblPasswordDisplay.Dock = DockStyle.Fill;
             lblPasswordDisplay.Font = new Font("Georgia", 15.75F);
             lblPasswordDisplay.ForeColor = SystemColors.ButtonHighlight;
-            lblPasswordDisplay.Location = new Point(271, 162);
+            lblPasswordDisplay.Location = new Point(271, 164);
             lblPasswordDisplay.Name = "lblPasswordDisplay";
-            lblPasswordDisplay.Size = new Size(262, 162);
+            lblPasswordDisplay.Size = new Size(262, 165);
             lblPasswordDisplay.TabIndex = 6;
             lblPasswordDisplay.Text = "Wachtwoord";
             lblPasswordDisplay.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // lblUsernameDisplay
-            // 
-            lblUsernameDisplay.AutoSize = true;
-            lblUsernameDisplay.Dock = DockStyle.Fill;
-            lblUsernameDisplay.Font = new Font("Georgia", 15.75F);
-            lblUsernameDisplay.ForeColor = SystemColors.ButtonHighlight;
-            lblUsernameDisplay.Location = new Point(271, 0);
-            lblUsernameDisplay.Name = "lblUsernameDisplay";
-            lblUsernameDisplay.Size = new Size(262, 162);
-            lblUsernameDisplay.TabIndex = 4;
-            lblUsernameDisplay.Text = "Gebruikersnaam";
-            lblUsernameDisplay.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblPassword
             // 
@@ -355,9 +355,9 @@
             lblPassword.Dock = DockStyle.Fill;
             lblPassword.Font = new Font("Georgia", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblPassword.ForeColor = SystemColors.ButtonHighlight;
-            lblPassword.Location = new Point(3, 162);
+            lblPassword.Location = new Point(3, 164);
             lblPassword.Name = "lblPassword";
-            lblPassword.Size = new Size(262, 162);
+            lblPassword.Size = new Size(262, 165);
             lblPassword.TabIndex = 3;
             lblPassword.Text = "Wachtwoord:";
             lblPassword.TextAlign = ContentAlignment.MiddleRight;
@@ -370,7 +370,7 @@
             lblUsername.ForeColor = SystemColors.ButtonHighlight;
             lblUsername.Location = new Point(3, 0);
             lblUsername.Name = "lblUsername";
-            lblUsername.Size = new Size(262, 162);
+            lblUsername.Size = new Size(262, 164);
             lblUsername.TabIndex = 0;
             lblUsername.Text = "Gebruikersnaam:";
             lblUsername.TextAlign = ContentAlignment.MiddleRight;
@@ -387,7 +387,7 @@
             pnlUsernamechangemain.RowCount = 2;
             pnlUsernamechangemain.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             pnlUsernamechangemain.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            pnlUsernamechangemain.Size = new Size(263, 156);
+            pnlUsernamechangemain.Size = new Size(263, 158);
             pnlUsernamechangemain.TabIndex = 7;
             // 
             // pnlUsernamechnagesecond
@@ -401,22 +401,22 @@
             pnlUsernamechnagesecond.Location = new Point(3, 3);
             pnlUsernamechnagesecond.Name = "pnlUsernamechnagesecond";
             pnlUsernamechnagesecond.RowCount = 3;
-            pnlUsernamechnagesecond.RowStyles.Add(new RowStyle(SizeType.Percent, 21.5686283F));
-            pnlUsernamechnagesecond.RowStyles.Add(new RowStyle(SizeType.Percent, 78.43137F));
+            pnlUsernamechnagesecond.RowStyles.Add(new RowStyle(SizeType.Percent, 27.4193554F));
+            pnlUsernamechnagesecond.RowStyles.Add(new RowStyle(SizeType.Percent, 72.58064F));
             pnlUsernamechnagesecond.RowStyles.Add(new RowStyle(SizeType.Absolute, 9F));
-            pnlUsernamechnagesecond.Size = new Size(257, 72);
+            pnlUsernamechnagesecond.Size = new Size(257, 73);
             pnlUsernamechnagesecond.TabIndex = 3;
             // 
             // txtUsername
             // 
             txtUsername.Dock = DockStyle.Fill;
+            txtUsername.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
             txtUsername.ForeColor = SystemColors.ActiveCaptionText;
-            txtUsername.Location = new Point(21, 16);
+            txtUsername.Location = new Point(21, 20);
             txtUsername.Multiline = true;
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(218, 43);
+            txtUsername.Size = new Size(218, 40);
             txtUsername.TabIndex = 9;
-            txtUsername.Text = "...";
             txtUsername.TextAlign = HorizontalAlignment.Center;
             // 
             // btnChangeusername
@@ -425,12 +425,26 @@
             btnChangeusername.Dock = DockStyle.Fill;
             btnChangeusername.Font = new Font("Georgia", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnChangeusername.ForeColor = SystemColors.ButtonHighlight;
-            btnChangeusername.Location = new Point(3, 81);
+            btnChangeusername.Location = new Point(3, 82);
             btnChangeusername.Name = "btnChangeusername";
-            btnChangeusername.Size = new Size(257, 72);
+            btnChangeusername.Size = new Size(257, 73);
             btnChangeusername.TabIndex = 2;
             btnChangeusername.Text = "Wijzig";
             btnChangeusername.UseVisualStyleBackColor = false;
+            // 
+            // lblUsernameDisplay
+            // 
+            lblUsernameDisplay.AutoSize = true;
+            lblUsernameDisplay.Dock = DockStyle.Fill;
+            lblUsernameDisplay.Font = new Font("Georgia", 15.75F);
+            lblUsernameDisplay.ForeColor = SystemColors.ButtonHighlight;
+            lblUsernameDisplay.Location = new Point(271, 0);
+            lblUsernameDisplay.Name = "lblUsernameDisplay";
+            lblUsernameDisplay.Size = new Size(262, 164);
+            lblUsernameDisplay.TabIndex = 4;
+            lblUsernameDisplay.Text = "Gebruikersnaam";
+            lblUsernameDisplay.TextAlign = ContentAlignment.MiddleLeft;
+            lblUsernameDisplay.Click += lblUsernameDisplay_Click;
             // 
             // pnlButtons
             // 
@@ -441,12 +455,12 @@
             pnlButtons.Controls.Add(pnlAccountdetail, 1, 0);
             pnlButtons.Dock = DockStyle.Fill;
             pnlButtons.ForeColor = SystemColors.ButtonHighlight;
-            pnlButtons.Location = new Point(904, 415);
+            pnlButtons.Location = new Point(904, 420);
             pnlButtons.Name = "pnlButtons";
             pnlButtons.RowCount = 2;
             pnlButtons.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             pnlButtons.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            pnlButtons.Size = new Size(805, 324);
+            pnlButtons.Size = new Size(805, 319);
             pnlButtons.TabIndex = 1;
             // 
             // pnlDeleteaccount
@@ -458,13 +472,13 @@
             pnlDeleteaccount.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
             pnlDeleteaccount.Controls.Add(btnDeleteaccount, 1, 1);
             pnlDeleteaccount.Dock = DockStyle.Fill;
-            pnlDeleteaccount.Location = new Point(405, 165);
+            pnlDeleteaccount.Location = new Point(405, 162);
             pnlDeleteaccount.Name = "pnlDeleteaccount";
             pnlDeleteaccount.RowCount = 3;
             pnlDeleteaccount.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             pnlDeleteaccount.RowStyles.Add(new RowStyle(SizeType.Percent, 60F));
             pnlDeleteaccount.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            pnlDeleteaccount.Size = new Size(397, 156);
+            pnlDeleteaccount.Size = new Size(397, 154);
             pnlDeleteaccount.TabIndex = 4;
             // 
             // btnDeleteaccount
@@ -472,9 +486,9 @@
             btnDeleteaccount.Dock = DockStyle.Fill;
             btnDeleteaccount.Font = new Font("Georgia", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDeleteaccount.ForeColor = Color.Red;
-            btnDeleteaccount.Location = new Point(62, 34);
+            btnDeleteaccount.Location = new Point(62, 33);
             btnDeleteaccount.Name = "btnDeleteaccount";
-            btnDeleteaccount.Size = new Size(271, 87);
+            btnDeleteaccount.Size = new Size(271, 86);
             btnDeleteaccount.TabIndex = 0;
             btnDeleteaccount.Text = "Verwijder account";
             btnDeleteaccount.UseVisualStyleBackColor = true;
@@ -491,7 +505,7 @@
             pnlAccountdetail.Name = "pnlAccountdetail";
             pnlAccountdetail.RowCount = 1;
             pnlAccountdetail.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            pnlAccountdetail.Size = new Size(397, 156);
+            pnlAccountdetail.Size = new Size(397, 153);
             pnlAccountdetail.TabIndex = 10;
             // 
             // lblActiveSince
@@ -501,7 +515,7 @@
             lblActiveSince.Font = new Font("Georgia", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblActiveSince.Location = new Point(3, 0);
             lblActiveSince.Name = "lblActiveSince";
-            lblActiveSince.Size = new Size(192, 156);
+            lblActiveSince.Size = new Size(192, 153);
             lblActiveSince.TabIndex = 7;
             lblActiveSince.Text = "Actief sinds:";
             lblActiveSince.TextAlign = ContentAlignment.MiddleRight;
@@ -513,7 +527,7 @@
             lblActiveSinceDisplay.Font = new Font("Georgia", 15.75F);
             lblActiveSinceDisplay.Location = new Point(201, 0);
             lblActiveSinceDisplay.Name = "lblActiveSinceDisplay";
-            lblActiveSinceDisplay.Size = new Size(193, 156);
+            lblActiveSinceDisplay.Size = new Size(193, 153);
             lblActiveSinceDisplay.TabIndex = 8;
             lblActiveSinceDisplay.Text = "(datum)";
             lblActiveSinceDisplay.TextAlign = ContentAlignment.MiddleLeft;
@@ -525,20 +539,20 @@
             pnlUserinfosecond.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             pnlUserinfosecond.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             pnlUserinfosecond.Dock = DockStyle.Fill;
-            pnlUserinfosecond.Location = new Point(93, 415);
+            pnlUserinfosecond.Location = new Point(93, 420);
             pnlUserinfosecond.Name = "pnlUserinfosecond";
             pnlUserinfosecond.RowCount = 2;
             pnlUserinfosecond.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             pnlUserinfosecond.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            pnlUserinfosecond.Size = new Size(805, 324);
+            pnlUserinfosecond.Size = new Size(805, 319);
             pnlUserinfosecond.TabIndex = 2;
             // 
             // pnlUserinfothird
             // 
             pnlUserinfothird.ColumnCount = 3;
-            pnlUserinfothird.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            pnlUserinfothird.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            pnlUserinfothird.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            pnlUserinfothird.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 24.47205F));
+            pnlUserinfothird.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 27.826086F));
+            pnlUserinfothird.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 47.57764F));
             pnlUserinfothird.Controls.Add(lblDateOfBirthDisplay, 1, 1);
             pnlUserinfothird.Controls.Add(lblDateOfBirth, 0, 1);
             pnlUserinfothird.Controls.Add(pnlEmailchangefirst, 2, 0);
@@ -550,7 +564,7 @@
             pnlUserinfothird.RowCount = 2;
             pnlUserinfothird.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             pnlUserinfothird.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            pnlUserinfothird.Size = new Size(805, 324);
+            pnlUserinfothird.Size = new Size(805, 329);
             pnlUserinfothird.TabIndex = 3;
             // 
             // lblDateOfBirthDisplay
@@ -559,9 +573,9 @@
             lblDateOfBirthDisplay.Dock = DockStyle.Fill;
             lblDateOfBirthDisplay.Font = new Font("Georgia", 15.75F);
             lblDateOfBirthDisplay.ForeColor = SystemColors.ButtonHighlight;
-            lblDateOfBirthDisplay.Location = new Point(271, 162);
+            lblDateOfBirthDisplay.Location = new Point(200, 164);
             lblDateOfBirthDisplay.Name = "lblDateOfBirthDisplay";
-            lblDateOfBirthDisplay.Size = new Size(262, 162);
+            lblDateOfBirthDisplay.Size = new Size(218, 165);
             lblDateOfBirthDisplay.TabIndex = 10;
             lblDateOfBirthDisplay.Text = "Geboortedatum";
             lblDateOfBirthDisplay.TextAlign = ContentAlignment.MiddleLeft;
@@ -572,9 +586,9 @@
             lblDateOfBirth.Dock = DockStyle.Fill;
             lblDateOfBirth.Font = new Font("Georgia", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDateOfBirth.ForeColor = SystemColors.ButtonHighlight;
-            lblDateOfBirth.Location = new Point(3, 162);
+            lblDateOfBirth.Location = new Point(3, 164);
             lblDateOfBirth.Name = "lblDateOfBirth";
-            lblDateOfBirth.Size = new Size(262, 162);
+            lblDateOfBirth.Size = new Size(191, 165);
             lblDateOfBirth.TabIndex = 9;
             lblDateOfBirth.Text = "Geboortedatum:";
             lblDateOfBirth.TextAlign = ContentAlignment.MiddleRight;
@@ -586,12 +600,12 @@
             pnlEmailchangefirst.Controls.Add(btnChangemail, 0, 1);
             pnlEmailchangefirst.Controls.Add(pnlEmailchangesecond, 0, 0);
             pnlEmailchangefirst.Dock = DockStyle.Fill;
-            pnlEmailchangefirst.Location = new Point(539, 3);
+            pnlEmailchangefirst.Location = new Point(424, 3);
             pnlEmailchangefirst.Name = "pnlEmailchangefirst";
             pnlEmailchangefirst.RowCount = 2;
             pnlEmailchangefirst.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             pnlEmailchangefirst.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            pnlEmailchangefirst.Size = new Size(263, 156);
+            pnlEmailchangefirst.Size = new Size(378, 158);
             pnlEmailchangefirst.TabIndex = 8;
             // 
             // btnChangemail
@@ -600,9 +614,9 @@
             btnChangemail.Dock = DockStyle.Fill;
             btnChangemail.Font = new Font("Georgia", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnChangemail.ForeColor = SystemColors.ButtonHighlight;
-            btnChangemail.Location = new Point(3, 81);
+            btnChangemail.Location = new Point(3, 82);
             btnChangemail.Name = "btnChangemail";
-            btnChangemail.Size = new Size(257, 72);
+            btnChangemail.Size = new Size(372, 73);
             btnChangemail.TabIndex = 2;
             btnChangemail.Text = "Wijzig";
             btnChangemail.UseVisualStyleBackColor = false;
@@ -621,18 +635,18 @@
             pnlEmailchangesecond.RowStyles.Add(new RowStyle(SizeType.Percent, 21.5686283F));
             pnlEmailchangesecond.RowStyles.Add(new RowStyle(SizeType.Percent, 78.43137F));
             pnlEmailchangesecond.RowStyles.Add(new RowStyle(SizeType.Absolute, 9F));
-            pnlEmailchangesecond.Size = new Size(257, 72);
+            pnlEmailchangesecond.Size = new Size(372, 73);
             pnlEmailchangesecond.TabIndex = 3;
             // 
             // txtChangemail
             // 
             txtChangemail.Dock = DockStyle.Fill;
-            txtChangemail.Location = new Point(21, 16);
+            txtChangemail.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            txtChangemail.Location = new Point(29, 16);
             txtChangemail.Multiline = true;
             txtChangemail.Name = "txtChangemail";
-            txtChangemail.Size = new Size(218, 43);
+            txtChangemail.Size = new Size(325, 44);
             txtChangemail.TabIndex = 9;
-            txtChangemail.Text = "...";
             txtChangemail.TextAlign = HorizontalAlignment.Center;
             // 
             // lblEmailDisplay
@@ -641,9 +655,9 @@
             lblEmailDisplay.Dock = DockStyle.Fill;
             lblEmailDisplay.Font = new Font("Georgia", 15.75F);
             lblEmailDisplay.ForeColor = SystemColors.ButtonHighlight;
-            lblEmailDisplay.Location = new Point(271, 0);
+            lblEmailDisplay.Location = new Point(200, 0);
             lblEmailDisplay.Name = "lblEmailDisplay";
-            lblEmailDisplay.Size = new Size(262, 162);
+            lblEmailDisplay.Size = new Size(218, 164);
             lblEmailDisplay.TabIndex = 5;
             lblEmailDisplay.Text = "Gebruikersnaam";
             lblEmailDisplay.TextAlign = ContentAlignment.MiddleLeft;
@@ -656,7 +670,7 @@
             lblEmail.ForeColor = SystemColors.ButtonHighlight;
             lblEmail.Location = new Point(3, 0);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(262, 162);
+            lblEmail.Size = new Size(191, 164);
             lblEmail.TabIndex = 1;
             lblEmail.Text = "E-mail:";
             lblEmail.TextAlign = ContentAlignment.MiddleRight;
@@ -685,18 +699,6 @@
             label8.Name = "label8";
             label8.Size = new Size(100, 23);
             label8.TabIndex = 0;
-            // 
-            // btnAdmin
-            // 
-            btnAdmin.Dock = DockStyle.Fill;
-            btnAdmin.Location = new Point(1439, 25);
-            btnAdmin.Margin = new Padding(25);
-            btnAdmin.Name = "btnAdmin";
-            btnAdmin.Size = new Size(422, 66);
-            btnAdmin.TabIndex = 2;
-            btnAdmin.Text = "Admin (alleen als je admin bent)";
-            btnAdmin.UseVisualStyleBackColor = true;
-            btnAdmin.Click += btnAdmin_Click;
             // 
             // frmProfielpagina
             // 

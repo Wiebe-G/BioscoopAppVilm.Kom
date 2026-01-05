@@ -109,8 +109,8 @@ namespace Film.Kom
 
                 _allSeats.Add(seat);
                 btn.Tag = seat;
-                btn.Click -= Seat_Click;
                 btn.Click += Seat_Click;
+                btn.Click -= Seat_Click;
             }
 
             UpdateSeatColors();

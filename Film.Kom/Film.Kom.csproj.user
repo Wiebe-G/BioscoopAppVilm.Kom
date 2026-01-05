@@ -10,9 +10,6 @@
     <Compile Update="frmPayment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="frmProfile.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="frmFilmInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -20,6 +17,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="frmMainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmProfile.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="frmRegister.cs">

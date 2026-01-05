@@ -31,10 +31,12 @@ namespace Film.Kom
             bool isLoginSucces = Login();
             if (isLoginSucces)
             {
-                User user = new();
-                user.Naam = txtUsername.Text.Trim();
+                User user = new()
+                {
+                    Naam = txtUsername.Text.Trim()
+                };
                 // ingelogd YIPPE
-                MessageBox.Show($"Welkom, {txtUsername.Text}");
+                MessageBox.Show($"Welkom, {user.Naam}");
                 this.Hide();
                 frmMainMenu MainForm = new(user);
                 MainForm.Show();

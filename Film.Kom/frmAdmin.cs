@@ -102,9 +102,6 @@ namespace Film.Kom
                 };
                 TestButton.Click += (s, ev) =>
                 {
-                    // Dit geeft een indexoutofrange :(
-                    //MessageBox.Show($"Knop die als het goed is {AllTheFilms[i].Title} laat zien zonder indexoutofrange");
-                    // Dit geeft geen indexoutofrange want string wordt niet aangepast, maar I wordt wel aangepast
                     MessageBox.Show($"Knop die rechts van {FilmName} staat.");
                 };
                 pnlTabFilms.Controls.Add(Panel, 0, row);
@@ -423,7 +420,7 @@ namespace Film.Kom
             {
                 try
                 {
-                    var MovieData = await FetchFilmInfo();
+                    var MovieData = await new SearchForFilmsInApi().FetchFilmInfo(txtInputForAddingFilms.Text.Trim());
                     if (MovieData == null)
                     {
                         return;
@@ -443,39 +440,9 @@ namespace Film.Kom
             }
         }
 
-        private async Task<FilmInfo?> FetchFilmInfo()
-        {
-            string FilmName = txtInputForAddingFilms.Text.Trim();
-            string APIKey = passwords.APIKey;
-            string BaseURL = "https://omdbapi.com";
-
-            using var client = new HttpClient();
-            client.BaseAddress = new Uri(BaseURL);
-            client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-
-            var QueryString = $"t={Uri.EscapeDataString(FilmName)}&plot=full&&apikey={APIKey}";
-            HttpResponseMessage response = await client.GetAsync($"?{QueryString}");
-
-            if (!response.IsSuccessStatusCode)
-            {
-                MessageBox.Show($"Oh oh, er ging iets niet goed. Statuscode: {response.StatusCode}. Reden: {response.ReasonPhrase}");
-                return null;
-            }
-
-            string JSONResponse = await response.Content.ReadAsStringAsync();
-            var MovieData = JsonSerializer.Deserialize<FilmInfo>(JSONResponse);
-            // vraagteken betekent dat de variabele null mag zijn
-            if (MovieData?.Response != "True")
-            {
-                MessageBox.Show("Film niet gevonden");
-                return null;
-            }
-            return MovieData;
-        }
-
         private async void btnAddFilmToDatabase_Click(object sender, EventArgs e)
         {
-            var MovieData = await FetchFilmInfo();
+            var MovieData = await new SearchForFilmsInApi().FetchFilmInfo(txtInputForAddingFilms.Text.Trim());
             if (MovieData == null)
             {
                 MessageBox.Show("Ohoh");

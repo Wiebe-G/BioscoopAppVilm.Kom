@@ -102,12 +102,27 @@ namespace Film.Kom
 
         private async void btnSearch_Click(object sender, EventArgs e)
         {
-            SearchForFilmsInDB SearchForFilms = new();
-            var MovieInfo = await SearchForFilms.SearchFunction(txtSearch.Text.Trim().ToLower());
+            string FilmSearchInput = txtSearch.Text.ToLower().Trim();
+
+            if (string.IsNullOrWhiteSpace(FilmSearchInput))
+            {
+                MessageBox.Show("Geen zoekopdracht ingevuld.");
+                return;
+            }
+            // film opzoeken in de api
+            var MovieDataFromApiResult = await new SearchForFilmsInApi().FetchFilmInfo(FilmSearchInput);
+
+            if (MovieDataFromApiResult == null)
+            {
+                MessageBox.Show("Film is niet goed opgehaald. Probeer het opnieuw.");
+                return;
+            }
+            // de titel die uit de api is gehaald gebruiken als query in de database
+            var MovieInfo = await new SearchForFilmsInDB().SearchFunction(MovieDataFromApiResult.Title);
 
             if (MovieInfo == null)
             {
-                MessageBox.Show($"Film is niet gevonden. Probeer het opnieuw.");
+                MessageBox.Show($"Film {MovieDataFromApiResult.Title} is niet gevonden. Probeer het opnieuw.");
                 return;
             }
 
@@ -125,8 +140,6 @@ namespace Film.Kom
         {
             txtSearch.Text = "";
         }
-
-        private void lblFilm5_Click(object sender, EventArgs e) { }
 
         // --- Slideshow timer tick ---
         private void timer1_Tick(object sender, EventArgs e)

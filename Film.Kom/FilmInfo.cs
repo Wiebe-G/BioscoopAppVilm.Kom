@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 namespace Film.Kom
 {
+    [BsonIgnoreExtraElements] // 👈 DIT IS DE FIX
     internal class FilmInfo
     {
-
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; } = string.Empty;
@@ -22,6 +22,6 @@ namespace Film.Kom
         public string Runtime { get; set; } = string.Empty;
         public string Speeltijd { get; set; } = string.Empty;
         public string Zaal { get; set; } = string.Empty;
-        public List<string> ReservedSeats { get; set; } = new List<string>();
+        public List<string> ReservedSeats { get; set; } = new();
     }
 }

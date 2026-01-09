@@ -53,6 +53,28 @@
             txtFilmRoom = new TextBox();
             tabEditFilms = new TabPage();
             pnlTabFilms = new TableLayoutPanel();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            picPoster = new PictureBox();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            txtZoek = new TextBox();
+            btnZoek = new Button();
+            pnlFilmInfo = new TableLayoutPanel();
+            tableLayoutPanel3 = new TableLayoutPanel();
+            txtNieuweTitel = new RichTextBox();
+            txtNieuweZaal = new RichTextBox();
+            lblHuidigeZaal = new Label();
+            txtNieuweSpeeltijd = new RichTextBox();
+            lblHuidigeSpeeltijd = new Label();
+            txtNieuwePlot = new RichTextBox();
+            lblHuidigePlot = new Label();
+            txtNieuweGenre = new RichTextBox();
+            lblHuidigeGenre = new Label();
+            txtNieuweRuntime = new RichTextBox();
+            lblHuidigeRuntime = new Label();
+            lblHuidigeTitel = new Label();
+            tableLayoutPanel4 = new TableLayoutPanel();
+            btnGereed = new Button();
+            richTextBox1 = new RichTextBox();
             tabEditUsers = new TabPage();
             pnlTabUsers = new TableLayoutPanel();
             tabShowOrders = new TabPage();
@@ -69,6 +91,13 @@
             ((System.ComponentModel.ISupportInitialize)picFilmPoster).BeginInit();
             pnlTabAllFilmInfo.SuspendLayout();
             tabEditFilms.SuspendLayout();
+            pnlTabFilms.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picPoster).BeginInit();
+            tableLayoutPanel2.SuspendLayout();
+            pnlFilmInfo.SuspendLayout();
+            tableLayoutPanel3.SuspendLayout();
+            tableLayoutPanel4.SuspendLayout();
             tabEditUsers.SuspendLayout();
             tabShowOrders.SuspendLayout();
             SuspendLayout();
@@ -412,17 +441,314 @@
             // pnlTabFilms
             // 
             pnlTabFilms.ColumnCount = 2;
-            pnlTabFilms.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80F));
-            pnlTabFilms.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            pnlTabFilms.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 21.5328465F));
+            pnlTabFilms.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 78.4671555F));
+            pnlTabFilms.Controls.Add(tableLayoutPanel1, 0, 0);
+            pnlTabFilms.Controls.Add(pnlFilmInfo, 1, 0);
             pnlTabFilms.Dock = DockStyle.Fill;
             pnlTabFilms.Location = new Point(3, 2);
             pnlTabFilms.Margin = new Padding(3, 2, 3, 2);
             pnlTabFilms.Name = "pnlTabFilms";
             pnlTabFilms.RowCount = 1;
             pnlTabFilms.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            pnlTabFilms.RowStyles.Add(new RowStyle(SizeType.Absolute, 610F));
+            pnlTabFilms.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             pnlTabFilms.Size = new Size(1644, 608);
             pnlTabFilms.TabIndex = 0;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.Controls.Add(picPoster, 0, 1);
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 0);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(3, 3);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 16.112957F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 83.88705F));
+            tableLayoutPanel1.Size = new Size(348, 602);
+            tableLayoutPanel1.TabIndex = 0;
+            // 
+            // picPoster
+            // 
+            picPoster.Dock = DockStyle.Fill;
+            picPoster.Location = new Point(3, 100);
+            picPoster.Name = "picPoster";
+            picPoster.Size = new Size(342, 499);
+            picPoster.SizeMode = PictureBoxSizeMode.CenterImage;
+            picPoster.TabIndex = 0;
+            picPoster.TabStop = false;
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 2;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 77.77778F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 22.2222214F));
+            tableLayoutPanel2.Controls.Add(txtZoek, 0, 0);
+            tableLayoutPanel2.Controls.Add(btnZoek, 1, 0);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(3, 3);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel2.Size = new Size(342, 91);
+            tableLayoutPanel2.TabIndex = 1;
+            // 
+            // txtZoek
+            // 
+            txtZoek.Dock = DockStyle.Fill;
+            txtZoek.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtZoek.Location = new Point(3, 3);
+            txtZoek.Multiline = true;
+            txtZoek.Name = "txtZoek";
+            txtZoek.Size = new Size(260, 85);
+            txtZoek.TabIndex = 0;
+            txtZoek.Text = "Welke film wil je bewerken?";
+            // 
+            // btnZoek
+            // 
+            btnZoek.Dock = DockStyle.Fill;
+            btnZoek.Location = new Point(269, 3);
+            btnZoek.Name = "btnZoek";
+            btnZoek.Size = new Size(70, 85);
+            btnZoek.TabIndex = 1;
+            btnZoek.Text = "Zoek";
+            btnZoek.UseVisualStyleBackColor = true;
+            btnZoek.Click += btnZoek_Click;
+            // 
+            // pnlFilmInfo
+            // 
+            pnlFilmInfo.ColumnCount = 2;
+            pnlFilmInfo.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 82.6324F));
+            pnlFilmInfo.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 17.3676014F));
+            pnlFilmInfo.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            pnlFilmInfo.Controls.Add(tableLayoutPanel3, 0, 0);
+            pnlFilmInfo.Controls.Add(tableLayoutPanel4, 1, 0);
+            pnlFilmInfo.Dock = DockStyle.Fill;
+            pnlFilmInfo.Location = new Point(357, 3);
+            pnlFilmInfo.Name = "pnlFilmInfo";
+            pnlFilmInfo.RowCount = 1;
+            pnlFilmInfo.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            pnlFilmInfo.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            pnlFilmInfo.Size = new Size(1284, 602);
+            pnlFilmInfo.TabIndex = 1;
+            // 
+            // tableLayoutPanel3
+            // 
+            tableLayoutPanel3.ColumnCount = 2;
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel3.Controls.Add(txtNieuweTitel, 1, 0);
+            tableLayoutPanel3.Controls.Add(txtNieuweZaal, 1, 5);
+            tableLayoutPanel3.Controls.Add(lblHuidigeZaal, 0, 5);
+            tableLayoutPanel3.Controls.Add(txtNieuweSpeeltijd, 1, 4);
+            tableLayoutPanel3.Controls.Add(lblHuidigeSpeeltijd, 0, 4);
+            tableLayoutPanel3.Controls.Add(txtNieuwePlot, 1, 3);
+            tableLayoutPanel3.Controls.Add(lblHuidigePlot, 0, 3);
+            tableLayoutPanel3.Controls.Add(txtNieuweGenre, 1, 2);
+            tableLayoutPanel3.Controls.Add(lblHuidigeGenre, 0, 2);
+            tableLayoutPanel3.Controls.Add(txtNieuweRuntime, 1, 1);
+            tableLayoutPanel3.Controls.Add(lblHuidigeRuntime, 0, 1);
+            tableLayoutPanel3.Controls.Add(lblHuidigeTitel, 0, 0);
+            tableLayoutPanel3.Dock = DockStyle.Fill;
+            tableLayoutPanel3.Location = new Point(3, 3);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            tableLayoutPanel3.RowCount = 6;
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 16.6666622F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 16.6666679F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 16.6666679F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 16.6666679F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 16.6666737F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 16.6666679F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel3.Size = new Size(1055, 596);
+            tableLayoutPanel3.TabIndex = 0;
+            // 
+            // txtNieuweTitel
+            // 
+            txtNieuweTitel.Dock = DockStyle.Fill;
+            txtNieuweTitel.Font = new Font("Georgia", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtNieuweTitel.Location = new Point(530, 3);
+            txtNieuweTitel.Name = "txtNieuweTitel";
+            txtNieuweTitel.Size = new Size(522, 93);
+            txtNieuweTitel.TabIndex = 14;
+            txtNieuweTitel.Text = "";
+            // 
+            // txtNieuweZaal
+            // 
+            txtNieuweZaal.Dock = DockStyle.Fill;
+            txtNieuweZaal.Font = new Font("Georgia", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtNieuweZaal.Location = new Point(530, 498);
+            txtNieuweZaal.Name = "txtNieuweZaal";
+            txtNieuweZaal.Size = new Size(522, 95);
+            txtNieuweZaal.TabIndex = 13;
+            txtNieuweZaal.Text = "";
+            // 
+            // lblHuidigeZaal
+            // 
+            lblHuidigeZaal.AutoSize = true;
+            lblHuidigeZaal.BackColor = Color.White;
+            lblHuidigeZaal.Dock = DockStyle.Fill;
+            lblHuidigeZaal.Font = new Font("Georgia", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblHuidigeZaal.Location = new Point(3, 495);
+            lblHuidigeZaal.Name = "lblHuidigeZaal";
+            lblHuidigeZaal.Size = new Size(521, 101);
+            lblHuidigeZaal.TabIndex = 12;
+            lblHuidigeZaal.Text = "Huidige Zaal";
+            lblHuidigeZaal.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // txtNieuweSpeeltijd
+            // 
+            txtNieuweSpeeltijd.Dock = DockStyle.Fill;
+            txtNieuweSpeeltijd.Font = new Font("Georgia", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtNieuweSpeeltijd.Location = new Point(530, 399);
+            txtNieuweSpeeltijd.Name = "txtNieuweSpeeltijd";
+            txtNieuweSpeeltijd.Size = new Size(522, 93);
+            txtNieuweSpeeltijd.TabIndex = 11;
+            txtNieuweSpeeltijd.Text = "";
+            // 
+            // lblHuidigeSpeeltijd
+            // 
+            lblHuidigeSpeeltijd.AutoSize = true;
+            lblHuidigeSpeeltijd.BackColor = Color.White;
+            lblHuidigeSpeeltijd.Dock = DockStyle.Fill;
+            lblHuidigeSpeeltijd.Font = new Font("Georgia", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblHuidigeSpeeltijd.Location = new Point(3, 396);
+            lblHuidigeSpeeltijd.Name = "lblHuidigeSpeeltijd";
+            lblHuidigeSpeeltijd.Size = new Size(521, 99);
+            lblHuidigeSpeeltijd.TabIndex = 10;
+            lblHuidigeSpeeltijd.Text = "Huidige Speeltijd";
+            lblHuidigeSpeeltijd.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // txtNieuwePlot
+            // 
+            txtNieuwePlot.Dock = DockStyle.Fill;
+            txtNieuwePlot.Font = new Font("Georgia", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtNieuwePlot.Location = new Point(530, 300);
+            txtNieuwePlot.Name = "txtNieuwePlot";
+            txtNieuwePlot.Size = new Size(522, 93);
+            txtNieuwePlot.TabIndex = 7;
+            txtNieuwePlot.Text = "";
+            // 
+            // lblHuidigePlot
+            // 
+            lblHuidigePlot.AutoSize = true;
+            lblHuidigePlot.BackColor = Color.White;
+            lblHuidigePlot.Dock = DockStyle.Fill;
+            lblHuidigePlot.Font = new Font("Georgia", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblHuidigePlot.Location = new Point(3, 297);
+            lblHuidigePlot.Name = "lblHuidigePlot";
+            lblHuidigePlot.Size = new Size(521, 99);
+            lblHuidigePlot.TabIndex = 6;
+            lblHuidigePlot.Text = "Huidige Plot";
+            lblHuidigePlot.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // txtNieuweGenre
+            // 
+            txtNieuweGenre.Dock = DockStyle.Fill;
+            txtNieuweGenre.Font = new Font("Georgia", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtNieuweGenre.Location = new Point(530, 201);
+            txtNieuweGenre.Name = "txtNieuweGenre";
+            txtNieuweGenre.Size = new Size(522, 93);
+            txtNieuweGenre.TabIndex = 5;
+            txtNieuweGenre.Text = "";
+            // 
+            // lblHuidigeGenre
+            // 
+            lblHuidigeGenre.AutoSize = true;
+            lblHuidigeGenre.BackColor = Color.White;
+            lblHuidigeGenre.Dock = DockStyle.Fill;
+            lblHuidigeGenre.Font = new Font("Georgia", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblHuidigeGenre.Location = new Point(3, 198);
+            lblHuidigeGenre.Name = "lblHuidigeGenre";
+            lblHuidigeGenre.Size = new Size(521, 99);
+            lblHuidigeGenre.TabIndex = 4;
+            lblHuidigeGenre.Text = "Huidige Genre";
+            lblHuidigeGenre.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // txtNieuweRuntime
+            // 
+            txtNieuweRuntime.Dock = DockStyle.Fill;
+            txtNieuweRuntime.Font = new Font("Georgia", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtNieuweRuntime.Location = new Point(530, 102);
+            txtNieuweRuntime.Name = "txtNieuweRuntime";
+            txtNieuweRuntime.Size = new Size(522, 93);
+            txtNieuweRuntime.TabIndex = 3;
+            txtNieuweRuntime.Text = "";
+            // 
+            // lblHuidigeRuntime
+            // 
+            lblHuidigeRuntime.AutoSize = true;
+            lblHuidigeRuntime.BackColor = Color.White;
+            lblHuidigeRuntime.Dock = DockStyle.Fill;
+            lblHuidigeRuntime.Font = new Font("Georgia", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblHuidigeRuntime.Location = new Point(3, 99);
+            lblHuidigeRuntime.Name = "lblHuidigeRuntime";
+            lblHuidigeRuntime.Size = new Size(521, 99);
+            lblHuidigeRuntime.TabIndex = 2;
+            lblHuidigeRuntime.Text = "Huidige Runtime";
+            lblHuidigeRuntime.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblHuidigeTitel
+            // 
+            lblHuidigeTitel.AutoSize = true;
+            lblHuidigeTitel.BackColor = Color.White;
+            lblHuidigeTitel.Dock = DockStyle.Fill;
+            lblHuidigeTitel.Font = new Font("Georgia", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblHuidigeTitel.Location = new Point(3, 0);
+            lblHuidigeTitel.Name = "lblHuidigeTitel";
+            lblHuidigeTitel.Size = new Size(521, 99);
+            lblHuidigeTitel.TabIndex = 0;
+            lblHuidigeTitel.Text = "Huidige Titel";
+            lblHuidigeTitel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel4
+            // 
+            tableLayoutPanel4.ColumnCount = 3;
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14.6067419F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 74.9063644F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10.8614235F));
+            tableLayoutPanel4.Controls.Add(btnGereed, 1, 3);
+            tableLayoutPanel4.Controls.Add(richTextBox1, 1, 1);
+            tableLayoutPanel4.Dock = DockStyle.Fill;
+            tableLayoutPanel4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tableLayoutPanel4.Location = new Point(1064, 3);
+            tableLayoutPanel4.Name = "tableLayoutPanel4";
+            tableLayoutPanel4.RowCount = 5;
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 15.9395971F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 24.1610737F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 10.90604F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 27.5167789F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 21.3087254F));
+            tableLayoutPanel4.Size = new Size(217, 596);
+            tableLayoutPanel4.TabIndex = 1;
+            // 
+            // btnGereed
+            // 
+            btnGereed.BackColor = Color.LightGray;
+            btnGereed.Dock = DockStyle.Fill;
+            btnGereed.Font = new Font("Georgia", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnGereed.Location = new Point(34, 307);
+            btnGereed.Name = "btnGereed";
+            btnGereed.Size = new Size(155, 158);
+            btnGereed.TabIndex = 0;
+            btnGereed.Text = "Gereed";
+            btnGereed.UseVisualStyleBackColor = false;
+            btnGereed.Click += btnGereed_Click;
+            // 
+            // richTextBox1
+            // 
+            richTextBox1.BackColor = Color.LightGray;
+            richTextBox1.Dock = DockStyle.Fill;
+            richTextBox1.Font = new Font("Georgia", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            richTextBox1.Location = new Point(34, 98);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(155, 138);
+            richTextBox1.TabIndex = 1;
+            richTextBox1.Text = "Door op \"Gereed\" te klikken word in 1 keer alles bijgewerkt in de database. Ook de lege velden, dus vul altijd wat in. ";
             // 
             // tabEditUsers
             // 
@@ -506,6 +832,15 @@
             pnlTabAllFilmInfo.ResumeLayout(false);
             pnlTabAllFilmInfo.PerformLayout();
             tabEditFilms.ResumeLayout(false);
+            pnlTabFilms.ResumeLayout(false);
+            tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)picPoster).EndInit();
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
+            pnlFilmInfo.ResumeLayout(false);
+            tableLayoutPanel3.ResumeLayout(false);
+            tableLayoutPanel3.PerformLayout();
+            tableLayoutPanel4.ResumeLayout(false);
             tabEditUsers.ResumeLayout(false);
             tabEditUsers.PerformLayout();
             tabShowOrders.ResumeLayout(false);
@@ -542,5 +877,27 @@
         private TableLayoutPanel pnlTabFilms;
         private TabPage tabShowOrders;
         private TableLayoutPanel pnlTabOrders;
+        private TableLayoutPanel tableLayoutPanel1;
+        private PictureBox picPoster;
+        private TableLayoutPanel tableLayoutPanel2;
+        private TextBox txtZoek;
+        private Button btnZoek;
+        private TableLayoutPanel pnlFilmInfo;
+        private TableLayoutPanel tableLayoutPanel3;
+        private TableLayoutPanel tableLayoutPanel4;
+        private Button btnGereed;
+        private Label lblHuidigeTitel;
+        private RichTextBox richTextBox1;
+        private RichTextBox txtNieuwePlot;
+        private Label lblHuidigePlot;
+        private RichTextBox txtNieuweGenre;
+        private Label lblHuidigeGenre;
+        private RichTextBox txtNieuweRuntime;
+        private Label lblHuidigeRuntime;
+        private RichTextBox txtNieuweZaal;
+        private Label lblHuidigeZaal;
+        private RichTextBox txtNieuweSpeeltijd;
+        private Label lblHuidigeSpeeltijd;
+        private RichTextBox txtNieuweTitel;
     }
 }

@@ -180,5 +180,12 @@ namespace Film.Kom
                 timer1.Start();
             }
         }
+
+        private void btnBibliotheek_Click(object sender, EventArgs e)
+        {
+           frmBibliotheek bibliotheek = new();
+            bibliotheek.Show();
+            this.Hide();
+        }
     }
 }

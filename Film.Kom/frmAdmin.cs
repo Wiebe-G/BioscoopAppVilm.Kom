@@ -22,6 +22,9 @@ namespace Film.Kom
         private readonly IMongoCollection<User> _Users;
         private readonly IMongoCollection<FilmInfo> _Films;
 
+        private FilmInfo _geselecteerdeFilm;
+
+
         public frmAdmin(User user)
         {
             InitializeComponent();
@@ -51,13 +54,6 @@ namespace Film.Kom
                     MessageBox.Show("Wat? Hoe ben jij hier gekomen?");
                     return;
                 }
-                FetchFilmsFromDatabase();
-
-                FetchAllUsers();
-
-                // Ook alle bestellingen laten zien
-                // misschien handig dat dan ipv een aparte method voor elk onderdeel, alles in 1 method en dan met een switch case 
-                // dus dat niet alles in 1 panel wordt gezet
             }
             catch (Exception ex)
             {
@@ -65,13 +61,7 @@ namespace Film.Kom
             }
         }
 
-        private void FetchFilmsFromDatabase()
-        {
-            var EmptyFilterForMovies = Builders<FilmInfo>.Filter.Empty;
-            var AllTheFilms = _Films.Find(EmptyFilterForMovies).ToList();
 
-            LoadFilmsIntoTable(AllTheFilms);
-        }
 
         private void LoadFilmsIntoTable(List<FilmInfo> AllTheFilms)
         {
@@ -476,5 +466,126 @@ namespace Film.Kom
             _Films.InsertOne(NewFilm);
             MessageBox.Show($"Film {MovieData.Title} is succesvol toegevoegd aan de database.");
         }
+
+        //Rick===========================================================================================================================================================
+
+        private void btnZoek_Click(object sender, EventArgs e)
+        {
+            string titel = txtZoek.Text.Trim();
+
+            if (string.IsNullOrEmpty(titel))
+            {
+                MessageBox.Show("Vul een filmtitel in");
+                return;
+            }
+
+            //juiste collectie + juiste property
+            var film = _Films.Find(f => f.Title == titel).FirstOrDefault();
+
+            if (film == null)
+            {
+                MessageBox.Show("Film niet gevonden");
+                LabelsLeegmaken();
+                return;
+            }
+
+            _geselecteerdeFilm = film;
+
+            //FilmInfo properties
+            lblHuidigeTitel.Text = film.Title;
+            lblHuidigeRuntime.Text = film.Runtime;
+            lblHuidigeGenre.Text = film.Genre;
+            lblHuidigePlot.Text = film.Plot;
+            lblHuidigeSpeeltijd.Text = film.Speeltijd;
+            lblHuidigeZaal.Text = film.Zaal;
+            picPoster.Load(film.Poster);
+        }
+
+
+        private void LabelsLeegmaken()
+        {
+            lblHuidigeTitel.Text = "-";
+            lblHuidigeRuntime.Text = "-";
+            lblHuidigeGenre.Text = "-";
+            lblHuidigePlot.Text = "-";
+            lblHuidigeSpeeltijd.Text = "-";
+            lblHuidigeZaal.Text = "-";
+        }
+
+        private void tabForAdminPanel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabForAdminPanel.SelectedTab == tabEditFilms)
+            {
+                LabelsLeegmaken();
+            }
+        }
+
+        private void btnGereed_Click(object sender, EventArgs e)
+        {
+            if (_geselecteerdeFilm == null)
+            {
+                MessageBox.Show("Zoek eerst een film");
+                return;
+            }
+
+            var filter = Builders<FilmInfo>.Filter.Eq(f => f.Id, _geselecteerdeFilm.Id);
+
+            var update = Builders<FilmInfo>.Update
+                .Set(f => f.Title, txtNieuweTitel.Text.Trim())
+                .Set(f => f.Runtime, txtNieuweRuntime.Text.Trim())
+                .Set(f => f.Genre, txtNieuweGenre.Text.Trim())
+                .Set(f => f.Plot, txtNieuwePlot.Text.Trim())
+                .Set(f => f.Speeltijd, txtNieuweSpeeltijd.Text.Trim())
+                .Set(f => f.Zaal, txtNieuweZaal.Text.Trim());
+
+            var result = _Films.UpdateOne(filter, update);
+
+            if (result.ModifiedCount == 1)
+            {
+                MessageBox.Show("Film succesvol aangepast");
+
+                // labels opnieuw tonen
+                lblHuidigeTitel.Text = txtNieuweTitel.Text;
+                lblHuidigeRuntime.Text = txtNieuweRuntime.Text;
+                lblHuidigeGenre.Text = txtNieuweGenre.Text;
+                lblHuidigePlot.Text = txtNieuwePlot.Text;
+                lblHuidigeSpeeltijd.Text = txtNieuweSpeeltijd.Text;
+                lblHuidigeZaal.Text = txtNieuweZaal.Text;
+            }
+            else
+            {
+                MessageBox.Show("Er is niets aangepast");
+            }
+        }
+
+        private void TextBoxPlaceholder_Enter(object sender, EventArgs e)
+        {
+            var tb = sender as TextBox;
+            if (tb.ForeColor == Color.Gray)
+            {
+                tb.Text = "";
+                tb.ForeColor = Color.Black;
+            }
+        }
+
+        private void TextBoxPlaceholder_Leave(object sender, EventArgs e)
+        {
+            var tb = sender as TextBox;
+            if (string.IsNullOrWhiteSpace(tb.Text))
+            {
+                tb.Text = "Nieuwe Titel";
+                tb.ForeColor = Color.Gray;
+            }
+        }
+
+
     }
 }
+    
+
+
+
+
+
+
+

@@ -17,7 +17,7 @@ namespace Film.Kom
         private readonly User _LoggedInUser;
         private IMongoCollection<FilmInfo> _Films;
 
-        // Slideshow
+        // Slideshow door Avsar
         private List<string> _slideshowPosters = new();
         private int _slideshowIndex = 0;
         private Random _random = new Random();
@@ -77,7 +77,7 @@ namespace Film.Kom
                 posters[i].Load(result[i].Poster);
                 labels[i].Text = result[i].Title;
 
-                frmFilmInfo FilmForm = new(result[i].Title, _LoggedInUser);
+                frmFilmInfoUpdated FilmForm = new(result[i].Title, _LoggedInUser);
                 posters[i].Click += (sender, e) =>
                 {
                     FilmForm.Show();
@@ -157,7 +157,7 @@ namespace Film.Kom
             _lastPoster = nextPoster;
         }
 
-        // --- Load posters for slideshow ---
+        // --- Load posters for slideshow door avsar ---
         private void LoadSlideshowPosters()
         {
             var client = new MongoClient(passwords.Database);
@@ -165,8 +165,8 @@ namespace Film.Kom
             var films = db.GetCollection<FilmInfo>("Films");
 
             _slideshowPosters = films
-                .Find(f => f.Poster != null)
-                .Project(f => f.Poster)
+               .Find(f => f.Slideshow != null && f.Slideshow != "")
+.Project(f => f.Slideshow!)
                 .ToList();
 
             if (_slideshowPosters.Count > 0)

@@ -23,5 +23,6 @@ namespace Film.Kom
         public string Speeltijd { get; set; } = string.Empty;
         public string Zaal { get; set; } = string.Empty;
         public List<string> ReservedSeats { get; set; } = new();
+        public string Slideshow { get; set; } = string.Empty; //avsar
     }
 }

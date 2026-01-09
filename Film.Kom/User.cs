@@ -3,7 +3,8 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace Film.Kom
 {
-     [BsonIgnoreExtraElements]
+    // Wiebe en Rick
+    [BsonIgnoreExtraElements]
     public class User
 
     {

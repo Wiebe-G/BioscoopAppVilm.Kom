@@ -7,7 +7,7 @@ namespace Film.Kom
     public partial class frmRegister : Form
     {
         // Design door Avsar (zelfde als login), functionaliteit door Wiebe
-        readonly Passwords passwords = new Passwords();
+        readonly Passwords passwords = new();
         private readonly IMongoCollection<User> _Users;
         public frmRegister()
         {
@@ -44,7 +44,6 @@ namespace Film.Kom
                 MessageBox.Show("Wachtwoord niet lang genoeg");
                 return;
             }
-
 
             // emal klopt niet
             if (!Mail.Contains("@"))

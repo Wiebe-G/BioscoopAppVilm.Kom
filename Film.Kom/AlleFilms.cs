@@ -7,6 +7,7 @@ namespace Film.Kom
 {
     public partial class frmAlleFilms : Form
     {
+        // Rick
         private readonly IMongoCollection<FilmInfo> _Films;
 
         public frmAlleFilms()

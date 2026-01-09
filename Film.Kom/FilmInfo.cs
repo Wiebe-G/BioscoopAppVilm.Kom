@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 namespace Film.Kom
 {
-    [BsonIgnoreExtraElements] // 👈 DIT IS DE FIX
+    // Wiebe
+    [BsonIgnoreExtraElements]
     internal class FilmInfo
     {
         [BsonId]

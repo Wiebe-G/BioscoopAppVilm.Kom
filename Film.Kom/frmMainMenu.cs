@@ -129,7 +129,7 @@ namespace Film.Kom
             MessageBox.Show($"Film {MovieInfo.Title} is gevonden. Hij draait in zaal {MovieInfo.Zaal} om {MovieInfo.Speeltijd}.");
             picFilm1.Load(MovieInfo.Poster);
 
-            frmFilmInfo filmForm = new(MovieInfo.Title, _LoggedInUser);
+            frmFilmInfoUpdated filmForm = new(MovieInfo.Title, _LoggedInUser);
             picFilm1.MouseClick += (sender, e) =>
             {
                 filmForm.Show();
@@ -183,7 +183,7 @@ namespace Film.Kom
 
         private void btnBibliotheek_Click(object sender, EventArgs e)
         {
-           frmBibliotheek bibliotheek = new();
+            frmBibliotheek bibliotheek = new();
             bibliotheek.Show();
             this.Hide();
         }

@@ -8,7 +8,7 @@ namespace Film.Kom
 {
     public partial class frmBibliotheek : Form
     {
-
+        // Design en functionaliteit door Rick
         private readonly Passwords passwords = new();
         private readonly User _LoggedInUser;
         private IMongoCollection<FilmInfo> _Films;
@@ -40,7 +40,7 @@ namespace Film.Kom
             pnlFilms.HorizontalScroll.Visible = false;
 
             ConnectToDatabase();
-            LoadFilms();        
+            LoadFilms();
         }
 
 
@@ -97,7 +97,7 @@ namespace Film.Kom
 
                     pb.Click += (s, e) => // Open film info
                     {
-                        frmFilmInfo filmForm = new(film.Title, _LoggedInUser);
+                        frmFilmInfoUpdated filmForm = new(film.Title, _LoggedInUser);
                         filmForm.Show();
                     };
 
